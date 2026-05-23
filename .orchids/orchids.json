@@ -1,0 +1,7 @@
+{
+  "projectId": "db0049f7-25d6-474d-a462-8b3feecd08a1",
+  "createdAt": 1772167342597,
+  "version": "1.0",
+  "startupCommands": ["bun install; bun run dev"],
+  "templateId": "react-vite-ts"
+}
