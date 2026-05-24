@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type RefObject } from 'react';
 
 /**
  * Adds 'played' class to the element when it enters the viewport.
@@ -41,7 +41,7 @@ export function useInView(threshold = 0.07) {
  * Observes multiple child elements by data-anim attribute.
  * Call once on a container; children with class 'slimedo-anim' are observed individually.
  */
-export function useChildInView(containerRef: React.RefObject<HTMLElement | null>) {
+export function useChildInView(containerRef: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
