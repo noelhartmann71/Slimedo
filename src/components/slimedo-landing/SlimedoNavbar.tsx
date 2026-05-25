@@ -25,7 +25,6 @@ export default function SlimedoNavbar() {
         style={{
           maxWidth: 1160,
           margin: '0 auto',
-          padding: '0 32px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -42,24 +41,11 @@ export default function SlimedoNavbar() {
             textDecoration: 'none',
           }}
         >
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{ flexShrink: 0 }}>
-            <circle cx="9" cy="7.5" r="3.8" fill="#1E3A2E" />
-            <path
-              d="M2 22C2 22 2 16.5 9 16.5C16 16.5 16 22 16 22"
-              stroke="#1E3A2E"
-              strokeWidth="2"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <circle cx="20" cy="6" r="4.5" fill="#3D5C4A" />
-            <path
-              d="M13 22C13 22 13 15.5 20 15.5C27 15.5 27 22 27 22"
-              stroke="#3D5C4A"
-              strokeWidth="2"
-              strokeLinecap="round"
-              fill="none"
-            />
-          </svg>
+          <img
+            src="/images/logo/cta-banner.png"
+            alt=""
+            style={{ width: 40, height: 40, objectFit: 'contain', flexShrink: 0 }}
+          />
           <span
             style={{
               fontFamily: '"Manrope", sans-serif',
@@ -77,7 +63,7 @@ export default function SlimedoNavbar() {
         {/* Desktop links */}
         <ul
           className="hidden md:flex"
-          style={{ alignItems: 'center', gap: 24, listStyle: 'none', margin: 0, padding: 0 }}
+          style={{ alignItems: 'center', gap: 40, listStyle: 'none', margin: 0, padding: 0 }}
         >
           {links.map((l) => (
             <li key={l.href}>

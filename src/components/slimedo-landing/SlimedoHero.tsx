@@ -323,7 +323,7 @@ export default function SlimedoHero() {
             inset: 0,
             zIndex: 1,
             background:
-              'linear-gradient(to right,#F5EEDB 0%,rgba(245,238,219,.5) 15%,transparent 40%)',
+              'linear-gradient(to right,#F5EEDB 0%,rgba(245,238,219,.92) 12%,rgba(245,238,219,.6) 28%,rgba(245,238,219,.2) 52%,transparent 72%)',
           }}
         />
         {/* Hero image */}
