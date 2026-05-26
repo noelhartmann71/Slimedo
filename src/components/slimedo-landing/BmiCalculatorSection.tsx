@@ -201,11 +201,9 @@ export default function BmiCalculatorSection() {
             style={{
               background: '#FFFDF7',
               borderRadius: 28,
-              padding: '40px 36px 40px 230px',
+              padding: '40px 36px',
               boxShadow:
                 '0 1px 2px rgba(15,31,26,0.03),0 8px 24px rgba(15,31,26,0.06),0 24px 48px rgba(15,31,26,0.04)',
-              position: 'relative',
-              overflow: 'hidden',
             }}
           >
             <p
@@ -233,24 +231,6 @@ export default function BmiCalculatorSection() {
             >
               Wie viel könntest du abnehmen?
             </h3>
-
-            <img
-              className="bmi-slider-image-resp"
-              src="/images/home/women-bmi.png"
-              alt=""
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                left: 18,
-                bottom: 18,
-                width: 190,
-                maxWidth: '30%',
-                height: 'auto',
-                pointerEvents: 'none',
-                userSelect: 'none',
-              }}
-            />
-
 
             {/* Weight display */}
             <div
@@ -374,6 +354,39 @@ export default function BmiCalculatorSection() {
               }}
             />
 
+            <div
+              className="bmi-result-layout-resp"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '170px minmax(0, 1fr)',
+                gap: 22,
+                alignItems: 'end',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  alignSelf: 'stretch',
+                }}
+              >
+                <img
+                  className="bmi-slider-image-resp"
+                  src="/images/home/women-bmi.png"
+                  alt=""
+                  aria-hidden="true"
+                  style={{
+                    width: 155,
+                    maxWidth: '100%',
+                    height: 'auto',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                  }}
+                />
+              </div>
+
+              <div>
             {/* Result */}
             <span
               style={{
@@ -472,6 +485,8 @@ export default function BmiCalculatorSection() {
             >
               Behandlung starten <span style={{ fontSize: 16 }}>→</span>
             </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -491,8 +506,8 @@ export default function BmiCalculatorSection() {
         >
           <sup style={{ color: '#B0832B', fontWeight: 600 }}>*</sup>
           Berechnungen basieren auf den Ergebnissen klinischer Studien (STEP- und
-          SURMOUNT-Programme). Individuelle Ergebnisse können abweichen. Eine medikamentÃ¶se
-          Therapie ersetzt keine ärztliche Beratung.
+          SURMOUNT-Programme). Individuelle Ergebnisse können abweichen. Eine medikamentöse
+            Therapie ersetzt keine ärztliche Beratung.
         </p>
       </div>
       <style>{`
@@ -500,15 +515,17 @@ export default function BmiCalculatorSection() {
           .bmi-grid-resp { grid-template-columns: 1fr !important; }
           .bmi-hl-resp { font-size: 48px !important; }
           .bmi-stat-num-resp { font-size: 96px !important; }
-          .bmi-slider-card-resp { padding: 40px 36px !important; }
-          .bmi-slider-image-resp { display: none !important; }
         }
         @media (max-width: 640px) {
           .bmi-hl-resp { font-size: 28px !important; }
           .bmi-stat-num-resp { font-size: 44px !important; }
+          .bmi-result-layout-resp { grid-template-columns: 1fr !important; gap: 16px !important; }
+          .bmi-slider-image-resp { width: 150px !important; }
         }
       `}</style>
     </section>
   );
 }
+
+
 
