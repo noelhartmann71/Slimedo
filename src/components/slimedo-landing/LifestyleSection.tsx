@@ -3,17 +3,14 @@ import { useRef, useEffect } from 'react';
 const collageItems = [
   {
     img: '/images/slimedo/slimedo-img.png',
-    label: 'Slimedo Box',
     gradient: 'linear-gradient(160deg,#E8E0CE,#D5C9AF)',
   },
   {
     img: '/images/slimedo/slimedo-img-two.png',
-    label: 'Lifestyle',
     gradient: 'linear-gradient(160deg,#C5D5C0,#A8BFA0)',
   },
   {
     img: '/images/slimedo/slimedo-img-three.png',
-    label: 'App −12,4 kg*',
     gradient: 'linear-gradient(160deg,#DDD6C6,#C8BFA8)',
   },
 ];
@@ -105,7 +102,6 @@ export default function LifestyleSection() {
             >
               <img
                 src={item.img}
-                alt={item.label}
                 style={{
                   position: 'absolute',
                   inset: 0,
@@ -129,7 +125,6 @@ export default function LifestyleSection() {
                   zIndex: 1,
                 }}
               >
-                {item.label}
               </span>
             </div>
           ))}
