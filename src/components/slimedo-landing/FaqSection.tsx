@@ -1,40 +1,67 @@
-import { useState, useRef, useEffect } from 'react';
+﻿import { useState, useRef, useEffect, useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { axiosPublic } from '@/hooks/useAxiosPublic';
 
-const categories = ['Alle', 'Ablauf & Behandlung', 'Kosten & Zahlung', 'Versand', 'Medikamente', 'Nebenwirkungen', 'Datenschutz'];
+type ApiFaqItem = {
+  id?: number | string;
+  question?: string;
+  answer?: string;
+  category?: string;
+};
 
-const faqs = [
-  {
-    q: 'Was ist Slimedo und wie funktioniert der Service?',
-    a: 'Slimedo ist eine Telemedizin-Plattform für ärztlich begleitete Gewichtsreduktion mittels GLP-1-Therapie. Du füllst einen medizinischen Fragebogen aus, ein approbierter Arzt mit Praxissitz in Deutschland prüft deine Angaben und stellt bei Eignung ein Rezept aus. Das Medikament wird diskret zu dir nach Hause geliefert.',
-    cat: 'Ablauf & Behandlung',
-  },
-  {
-    q: 'Was ist die GLP-1-Therapie — und ist das die „Abnehmspritze"?',
-    a: 'GLP-1 ist ein natürliches Hormon im Körper, das nach dem Essen Hunger reduziert und den Blutzucker reguliert. Die Therapie setzt Wirkstoffe ein, die dieses Hormon nachahmen — bekannt als „Abnehmspritze". Die Injektion erfolgt einmal wöchentlich und ist nur nach ärztlicher Prüfung verschreibbar.',
-    cat: 'Medikamente',
-  },
-  {
-    q: 'Für wen ist die Therapie geeignet?',
-    a: 'Die Therapie richtet sich an Erwachsene ab 18 Jahren mit einem BMI ≥ 30 oder einem BMI ≥ 27 mit gewichtsbedingten Begleiterkrankungen. Die endgültige Eignung wird durch den Arzt geprüft.',
-    cat: 'Ablauf & Behandlung',
-  },
-  {
-    q: 'Wie viel kostet die Behandlung?',
-    a: 'Kein Abo, keine versteckten Gebühren. Du zahlst nur das Medikament zum Apothekenpreis. Die Lieferung ist kostenlos.',
-    cat: 'Kosten & Zahlung',
-  },
-  {
-    q: 'Sind meine Daten sicher?',
-    a: 'Alle Daten werden DSGVO-konform verarbeitet und niemals an Dritte weitergegeben. Zahlungen laufen über Stripe (PCI DSS Level 1).',
-    cat: 'Datenschutz',
-  },
-];
+type FaqItem = {
+  id: string;
+  q: string;
+  a: string;
+  cat: string;
+};
+
+const INITIAL_VISIBLE = 5;
+const CATEGORY_ORDER = [
+  'Ablauf & Behandlung',
+  'Kosten & Zahlung',
+  'Versand',
+  'Medikamente',
+  'Nebenwirkungen',
+  'Datenschutz',
+] as const;
+
+const CATEGORY_MAP: Record<string, string> = {
+  ablauf: 'Ablauf & Behandlung',
+  'ablauf & behandlung': 'Ablauf & Behandlung',
+  kosten: 'Kosten & Zahlung',
+  'kosten & zahlung': 'Kosten & Zahlung',
+  versand: 'Versand',
+  'versand & apotheke': 'Versand',
+  medikamente: 'Medikamente',
+  nebenwirkungen: 'Nebenwirkungen',
+  datenschutz: 'Datenschutz',
+  sicherheit: 'Datenschutz',
+  'sicherheit & datenschutz': 'Datenschutz',
+};
+
+function normalizeCategory(value?: string): string {
+  if (!value) return 'Allgemein';
+  const trimmed = value.trim();
+  const mapped = CATEGORY_MAP[trimmed.toLowerCase()];
+  return mapped ?? trimmed;
+}
 
 export default function FaqSection() {
   const [activeCategory, setActiveCategory] = useState('Alle');
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openId, setOpenId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showAll, setShowAll] = useState(false);
   const ref = useRef<HTMLElement | null>(null);
+
+  const { data: faqData = [], isLoading } = useQuery<ApiFaqItem[]>({
+    queryKey: ['faq'],
+    queryFn: async () => {
+      const response = await axiosPublic.get('/faq');
+      const apiData = response?.data?.data;
+      return Array.isArray(apiData) ? apiData : [];
+    },
+  });
 
   useEffect(() => {
     const section = ref.current;
@@ -49,20 +76,59 @@ export default function FaqSection() {
           }
         });
       },
-      { threshold: 0.07, rootMargin: '0px 0px -20px 0px' }
+      { threshold: 0.07, rootMargin: '0px 0px -20px 0px' },
     );
     anims.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  const filtered = faqs.filter((faq) => {
-    const matchesCat = activeCategory === 'Alle' || faq.cat === activeCategory;
-    const matchesSearch =
-      !searchQuery ||
-      faq.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      faq.a.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCat && matchesSearch;
-  });
+  const faqs = useMemo<FaqItem[]>(
+    () =>
+      faqData
+        .map((faq, index) => ({
+          id: String(faq.id ?? `faq-${index}`),
+          q: String(faq.question ?? '').trim(),
+          a: String(faq.answer ?? '').trim(),
+          cat: normalizeCategory(typeof faq.category === 'string' ? faq.category : ''),
+        }))
+        .filter((faq) => faq.q.length > 0 && faq.a.length > 0),
+    [faqData],
+  );
+
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(
+      new Set(faqs.map((faq) => faq.cat).filter(Boolean)),
+    );
+    const ordered = CATEGORY_ORDER.filter((category) =>
+      uniqueCategories.includes(category),
+    );
+    const extra = uniqueCategories.filter(
+      (category) => !CATEGORY_ORDER.includes(category as (typeof CATEGORY_ORDER)[number]),
+    );
+    return ['Alle', ...ordered, ...extra];
+  }, [faqs]);
+
+  const effectiveCategory = categories.includes(activeCategory)
+    ? activeCategory
+    : 'Alle';
+
+  const filtered = useMemo(
+    () =>
+      faqs.filter((faq) => {
+        const matchesCat =
+          effectiveCategory === 'Alle' || faq.cat === effectiveCategory;
+        const search = searchQuery.toLowerCase().trim();
+        const matchesSearch =
+          !search ||
+          faq.q.toLowerCase().includes(search) ||
+          faq.a.toLowerCase().includes(search);
+        return matchesCat && matchesSearch;
+      }),
+    [faqs, effectiveCategory, searchQuery],
+  );
+
+  const visibleFaqs = showAll ? filtered : filtered.slice(0, INITIAL_VISIBLE);
+  const hasMore = filtered.length > INITIAL_VISIBLE && !showAll;
 
   return (
     <section
@@ -148,7 +214,11 @@ export default function FaqSection() {
             type="text"
             placeholder="Frage suchen..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setShowAll(false);
+              setOpenId(null);
+            }}
             style={{
               width: '100%',
               padding: '15px 18px 15px 48px',
@@ -179,16 +249,20 @@ export default function FaqSection() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => {
+                setActiveCategory(cat);
+                setShowAll(false);
+                setOpenId(null);
+              }}
               style={{
                 padding: '8px 16px',
                 borderRadius: 999,
                 fontSize: 13,
                 fontWeight: 500,
                 cursor: 'pointer',
-                border: activeCategory === cat ? 'none' : '1px solid #E5D9BD',
-                background: activeCategory === cat ? '#3D5C4A' : '#F5EEDB',
-                color: activeCategory === cat ? '#FAF5EA' : '#1A1A1A',
+                border: effectiveCategory === cat ? 'none' : '1px solid #E5D9BD',
+                background: effectiveCategory === cat ? '#3D5C4A' : '#F5EEDB',
+                color: effectiveCategory === cat ? '#FAF5EA' : '#1A1A1A',
                 transition: 'background .2s,color .2s',
                 fontFamily: '"Inter", sans-serif',
               }}
@@ -200,93 +274,123 @@ export default function FaqSection() {
 
         {/* FAQ list */}
         <div className="slimedo-anim" style={{ marginBottom: 40 }}>
-          {filtered.map((faq, i) => {
-            const isOpen = openIndex === i;
-            return (
+          {isLoading &&
+            Array.from({ length: INITIAL_VISIBLE }).map((_, i) => (
               <div
-                key={i}
+                key={`faq-loading-${i}`}
                 style={{
                   borderBottom: '1px solid #E5D9BD',
                   borderTop: i === 0 ? '1px solid #E5D9BD' : 'none',
+                  padding: '22px 0',
                 }}
               >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                <div
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '22px 0',
-                    cursor: 'pointer',
-                    gap: 24,
-                    width: '100%',
-                    background: 'none',
-                    border: 'none',
-                    textAlign: 'left',
+                    height: 22,
+                    width: '78%',
+                    borderRadius: 8,
+                    background: '#EDE6D4',
+                    marginBottom: 14,
+                  }}
+                />
+                <div
+                  style={{
+                    height: 14,
+                    width: '92%',
+                    borderRadius: 8,
+                    background: '#F4EEDD',
+                  }}
+                />
+              </div>
+            ))}
+          {!isLoading &&
+            visibleFaqs.map((faq, i) => {
+              const isOpen = openId === faq.id;
+              return (
+                <div
+                  key={faq.id}
+                  style={{
+                    borderBottom: '1px solid #E5D9BD',
+                    borderTop: i === 0 ? '1px solid #E5D9BD' : 'none',
                   }}
                 >
-                  <span
+                  <button
+                    onClick={() => setOpenId(isOpen ? null : faq.id)}
                     style={{
-                      fontFamily: '"Instrument Serif", Georgia, serif',
-                      fontSize: 19,
-                      fontWeight: 400,
-                      color: '#1A1A1A',
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {faq.q}
-                  </span>
-                  <span
-                    style={{
-                      width: 32,
-                      height: 32,
-                      flexShrink: 0,
-                      borderRadius: '50%',
-                      border: `1.5px solid ${isOpen ? '#3D5C4A' : '#E5D9BD'}`,
-                      background: isOpen ? '#3D5C4A' : 'transparent',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center',
-                      transition: 'background .2s,border-color .2s',
+                      justifyContent: 'space-between',
+                      padding: '22px 0',
+                      cursor: 'pointer',
+                      gap: 24,
+                      width: '100%',
+                      background: 'none',
+                      border: 'none',
+                      textAlign: 'left',
                     }}
                   >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      stroke={isOpen ? '#FAF5EA' : '#1A1A1A'}
-                      strokeWidth="2"
-                      strokeLinecap="round"
+                    <span
+                      style={{
+                        fontFamily: '"Instrument Serif", Georgia, serif',
+                        fontSize: 19,
+                        fontWeight: 400,
+                        color: '#1A1A1A',
+                        lineHeight: 1.3,
+                      }}
                     >
-                      {isOpen ? (
-                        <line x1="2" y1="7" x2="12" y2="7" />
-                      ) : (
-                        <>
-                          <line x1="7" y1="2" x2="7" y2="12" />
+                      {faq.q}
+                    </span>
+                    <span
+                      style={{
+                        width: 32,
+                        height: 32,
+                        flexShrink: 0,
+                        borderRadius: '50%',
+                        border: `1.5px solid ${isOpen ? '#3D5C4A' : '#E5D9BD'}`,
+                        background: isOpen ? '#3D5C4A' : 'transparent',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transition: 'background .2s,border-color .2s',
+                      }}
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        stroke={isOpen ? '#FAF5EA' : '#1A1A1A'}
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      >
+                        {isOpen ? (
                           <line x1="2" y1="7" x2="12" y2="7" />
-                        </>
-                      )}
-                    </svg>
-                  </span>
-                </button>
-                {isOpen && (
-                  <p
-                    style={{
-                      fontSize: 15,
-                      color: '#768064',
-                      lineHeight: 1.65,
-                      padding: '0 40px 22px 0',
-                      fontFamily: '"Inter", sans-serif',
-                    }}
-                  >
-                    {faq.a}
-                  </p>
-                )}
-              </div>
-            );
-          })}
-          {filtered.length === 0 && (
+                        ) : (
+                          <>
+                            <line x1="7" y1="2" x2="7" y2="12" />
+                            <line x1="2" y1="7" x2="12" y2="7" />
+                          </>
+                        )}
+                      </svg>
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <p
+                      style={{
+                        fontSize: 15,
+                        color: '#768064',
+                        lineHeight: 1.65,
+                        padding: '0 40px 22px 0',
+                        fontFamily: '"Inter", sans-serif',
+                      }}
+                    >
+                      {faq.a}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          {!isLoading && filtered.length === 0 && (
             <p
               style={{
                 fontSize: 15,
@@ -302,42 +406,45 @@ export default function FaqSection() {
         </div>
 
         {/* Show more */}
-        <div style={{ textAlign: 'center' }}>
-          <button
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              background: '#1E3A2E',
-              color: '#FAF5EA',
-              fontSize: 15,
-              fontWeight: 500,
-              padding: '16px 36px',
-              borderRadius: 999,
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'background .2s',
-              fontFamily: '"Inter", sans-serif',
-            }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
-            }
-          >
-            Mehr anzeigen{' '}
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M8 3v10M4 9l4 4 4-4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
+        {hasMore && (
+          <div style={{ textAlign: 'center' }}>
+            <button
+              onClick={() => setShowAll(true)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                background: '#1E3A2E',
+                color: '#FAF5EA',
+                fontSize: 15,
+                fontWeight: 500,
+                padding: '16px 36px',
+                borderRadius: 999,
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background .2s',
+                fontFamily: '"Inter", sans-serif',
+              }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
+              }
+            >
+              Mehr anzeigen{' '}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M8 3v10M4 9l4 4 4-4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
       <style>{`
         @media (max-width: 640px) {
