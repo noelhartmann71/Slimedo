@@ -260,40 +260,34 @@ export default function WarumWirSection() {
                   flexShrink: 0,
                 }}
               >
-                <svg viewBox="0 0 20 20" fill="none" style={{ width: 20, height: 20 }}>
-                  <path
-                    d="M10 2C8.5 2 7.5 3 7.5 4.5C7.5 6 8.5 7 10 7C11.5 7 12.5 6 12.5 4.5C12.5 3 11.5 2 10 2Z"
-                    fill="#1E3A2E"
+                  <img
+                      src="/images/logo/cta-banner.png"
+                      alt=""
+                      style={{ width: 40, height: 40, objectFit: 'contain', flexShrink: 0 }}
                   />
-                  <path
-                    d="M6 9C5 9 4 10 4 11.5V17H7V13H8V17H12V13H13V17H16V11.5C16 10 15 9 14 9H6Z"
-                    fill="#1E3A2E"
-                  />
-                </svg>
               </div>
               <span
                 style={{
-                  fontFamily: '"Manrope", sans-serif',
-                  fontSize: 17,
-                  fontWeight: 600,
-                  letterSpacing: '0.1em',
-                  color: '#1E3A2E',
-                  textTransform: 'uppercase',
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: 17,
+                    fontWeight: 600,
+                    letterSpacing: '0.01em',
+                    color: '#1E3A2E',
                 }}
               >
-                Slimedo
+                  Slimedo
               </span>
             </div>
 
-            {/* List */}
-            <ul
-              style={{
-                listStyle: 'none',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 13,
-                position: 'relative',
-                zIndex: 1,
+              {/* List */}
+              <ul
+                  style={{
+                      listStyle: 'none',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 13,
+                      position: 'relative',
+                      zIndex: 1,
               }}
             >
               {slimedoItems.map((item, i) => (
