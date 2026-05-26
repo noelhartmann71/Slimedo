@@ -62,34 +62,21 @@ export default function BlogSection() {
   const ref = useRef<HTMLElement | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    const section = ref.current;
-    if (!section) return;
-
-    const anims = section.querySelectorAll<HTMLElement>('.slimedo-anim');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).classList.add('played');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.07, rootMargin: '0px 0px -20px 0px' },
-    );
-
-    anims.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  const { data: blogData = [], isLoading } = useQuery<BlogPost[]>({
-    queryKey: ['blog'],
+  const {
+    data: blogData = [],
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery<BlogPost[]>({
+    // Keep a dedicated key for the landing preview to avoid cross-page cache state issues.
+    queryKey: ['blog', 'landing-preview'],
     queryFn: async () => {
       const response = await axiosPublic.get('/blog');
       const apiData = response?.data?.data;
       return Array.isArray(apiData) ? apiData : [];
     },
+    refetchOnMount: 'always',
+    retry: 2,
   });
 
   const totalPages = Math.max(1, Math.ceil(blogData.length / POSTS_PER_PAGE));
@@ -105,6 +92,29 @@ export default function BlogSection() {
   );
 
   const pages = getPaginationPages(effectiveCurrentPage, totalPages);
+
+  useEffect(() => {
+    const section = ref.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add('played');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.07, rootMargin: '0px 0px -20px 0px' },
+    );
+
+    // Re-observe newly rendered nodes (e.g. cards after API load or page switch).
+    const anims = section.querySelectorAll<HTMLElement>('.slimedo-anim:not(.played)');
+    anims.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [isLoading, effectiveCurrentPage, paginatedPosts.length]);
 
   return (
     <section ref={ref} id="blog" style={{ background: '#FAF5EA', padding: '80px 0' }}>
@@ -275,6 +285,42 @@ export default function BlogSection() {
                 </div>
               </article>
             ))
+          ) : isError ? (
+            <div
+              style={{
+                gridColumn: '1 / -1',
+                border: '1px solid #E5D9BD',
+                borderRadius: 18,
+                padding: '24px 28px',
+                background: '#FFFDF7',
+                color: '#768064',
+                fontFamily: '"Inter", sans-serif',
+                fontSize: 14,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 12,
+              }}
+            >
+              <span>Artikel konnten nicht geladen werden.</span>
+              <button
+                type="button"
+                onClick={() => refetch()}
+                style={{
+                  border: '1px solid #E5D9BD',
+                  background: '#F5EEDB',
+                  color: '#1A1A1A',
+                  borderRadius: 999,
+                  padding: '8px 16px',
+                  cursor: 'pointer',
+                  fontFamily: '"Inter", sans-serif',
+                  fontSize: 13,
+                  fontWeight: 500,
+                }}
+              >
+                Erneut versuchen
+              </button>
+            </div>
           ) : paginatedPosts.length > 0 ? (
             paginatedPosts.map((post, idx) => {
               const badges = normalizeLabels(post.category).length
