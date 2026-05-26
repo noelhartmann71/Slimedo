@@ -1,4 +1,4 @@
-import { useRef, useEffect, type ReactNode } from 'react';
+﻿import { useRef, useEffect, type ReactNode } from 'react';
 
 interface ShieldItemProps {
   title: string;
@@ -278,9 +278,24 @@ export default function PrivacySection() {
               alignItems: 'center',
               justifyContent: 'center',
               animation: 'slimedo-shield-glow 3s ease-in-out infinite alternate',
+              opacity: 1,
             }}
           >
-            <svg viewBox="0 0 200 200" fill="none" style={{ width: '100%', maxWidth: 200 }}>
+            <div
+              style={{
+                position: 'relative',
+                width: 200,
+                height: 200,
+                flexShrink: 0,
+              }}
+            >
+            <svg
+              viewBox="0 0 200 200"
+              fill="none"
+              width="200"
+              height="200"
+              style={{ width: '100%', height: '100%', display: 'block' }}
+            >
               <path
                 d="M100 12L30 38V88C30 132 58 164 100 178C142 164 170 132 170 88V38L100 12Z"
                 fill="#FAF5EA"
@@ -298,36 +313,24 @@ export default function PrivacySection() {
                 opacity="0.5"
                 style={{ animation: 'slimedo-shield-shimmer 4s ease-in-out 0.5s infinite' }}
               />
-              <g opacity="0.55">
-                <circle cx="87" cy="78" r="7" stroke="#1E3A2E" strokeWidth="2" />
-                <path
-                  d="M74 112C74 112 74 98 87 98C100 98 100 112 100 112"
-                  stroke="#1E3A2E"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <circle cx="113" cy="74" r="9" stroke="#1E3A2E" strokeWidth="2" />
-                <path
-                  d="M98 112C98 112 98 95 113 95C128 95 128 112 128 112"
-                  stroke="#1E3A2E"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </g>
-              <text
-                x="100"
-                y="148"
-                textAnchor="middle"
-                fontFamily="Manrope"
-                fontSize="9"
-                fontWeight="600"
-                fill="#1E3A2E"
-                opacity="0.25"
-                letterSpacing="2"
-              >
-                SLIMEDO
-              </text>
             </svg>
+            <img
+              src="/images/logo/cta-banner.png"
+              alt=""
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -52%)',
+                width: 96,
+                height: 96,
+                objectFit: 'contain',
+                opacity: 0.85,
+                pointerEvents: 'none',
+              }}
+            />
+            </div>
           </div>
 
           {/* Right shield items */}
@@ -353,3 +356,4 @@ export default function PrivacySection() {
     </section>
   );
 }
+
