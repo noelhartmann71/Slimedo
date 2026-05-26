@@ -119,7 +119,7 @@ export default function SlimedoNavbar() {
                 ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
               }
             >
-              Fragebogen starten â†’
+              Fragebogen starten →
             </a>
           </li>
         </ul>
