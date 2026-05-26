@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 
 const links = [
   { label: "So funktioniert's", href: '#schritte' },
@@ -48,15 +48,14 @@ export default function SlimedoNavbar() {
           />
           <span
             style={{
-              fontFamily: '"Manrope", sans-serif',
-              fontSize: 18,
-              fontWeight: 700,
+              fontFamily: 'var(--font-serif)',
+              fontSize: 26,
+              fontWeight: 600,
               color: '#1E3A2E',
-              letterSpacing: '.12em',
-              textTransform: 'uppercase',
+              letterSpacing: '-0.01em',
             }}
           >
-            SLIMEDO
+            Slimedo
           </span>
         </a>
 
@@ -120,7 +119,7 @@ export default function SlimedoNavbar() {
                 ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
               }
             >
-              Fragebogen starten →
+              Fragebogen starten â†’
             </a>
           </li>
         </ul>
@@ -212,3 +211,4 @@ export default function SlimedoNavbar() {
     </nav>
   );
 }
+
