@@ -326,68 +326,23 @@ export default function SlimedoHero() {
               'linear-gradient(to right,#F5EEDB 0%,rgba(245,238,219,.92) 12%,rgba(245,238,219,.6) 28%,rgba(245,238,219,.2) 52%,transparent 72%)',
           }}
         />
-        {/* Hero image */}
-        <img
-          src="/images/slimedo/hero-design.png"
-          alt="Slimedo – ärztliche GLP-1 Therapie"
+        {/* Hero video */}
+        <video
+          src="/images/slimedo/slimedohero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
           style={{
             position: 'absolute',
             inset: 0,
-            width: '100%',
+            width: '110%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: 'center top',
-          }}
-          onError={(e) => {
-            // Fallback placeholder if image not found
-            const parent = (e.target as HTMLImageElement).parentElement!;
-            (e.target as HTMLImageElement).style.display = 'none';
-            parent.style.background = 'linear-gradient(150deg,#C5D5C0,#98B895)';
+            objectPosition: '60% top',
+            zIndex: 0,
           }}
         />
-        {/* Fallback video placeholder */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 14,
-            zIndex: 0,
-            background: 'linear-gradient(150deg,#C5D5C0,#98B895)',
-          }}
-        >
-          <div
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: '50%',
-              background: 'rgba(255,255,255,.2)',
-              border: '1.5px solid rgba(255,255,255,.35)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path d="M8 6l10 5-10 5V6Z" fill="white" opacity="0.8" />
-            </svg>
-          </div>
-          <span
-            style={{
-              fontFamily: '"Manrope", sans-serif',
-              fontSize: 12,
-              fontWeight: 600,
-              color: 'rgba(30,58,46,.4)',
-              textTransform: 'uppercase',
-              letterSpacing: '.12em',
-            }}
-          >
-            Video · Slimedo
-          </span>
-        </div>
       </div>
 
       {/* Responsive overrides via style tag */}
