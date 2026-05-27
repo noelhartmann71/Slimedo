@@ -2,39 +2,26 @@ import { useRef, useEffect } from 'react';
 
 const imageCards = [
   {
-    img: '/images/how-it-work/badge6.1.PNG',
+    img: '/images/how-it-work/badge6.1-t.png',
     title: 'Vorbereitung',
     subtitle: 'Dosis einstellen',
     gradient: 'linear-gradient(180deg, #F5EEDB 0%, #E5D9BD 100%)',
+    backgroundSize: 'cover, cover',
   },
-    {img: '/images/how-it-work/badge6.2.PNG',
+    {img: '/images/how-it-work/badge6.2-t.png',
         title: 'Injektion',
         subtitle: 'In das Bauchfett',
         gradient: 'linear-gradient(180deg, #E8E0CE 0%, #D5C9AF 100%)',
+        backgroundSize: 'cover, cover',
     },
     {
-        img: '/images/how-it-work/badge 6.3.PNG',
+        img: '/images/how-it-work/badge_6.3-t.png',
         title: 'Intervall',
         subtitle: 'Ein Mal die Woche',
         gradient: 'linear-gradient(180deg, #DDD6C6 0%, #C8BFA8 100%)',
+        backgroundSize: 'cover, contain',
     },
 ];
-
-const PlaceholderIcon = () => (
-    <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        style={{ width: 64, height: 64 }}
-    >
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <circle cx="9" cy="9" r="2" />
-        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-    </svg>
-);
 
 export default function AnwendungSection() {
     const ref = useRef<HTMLElement | null>(null);
@@ -166,37 +153,33 @@ export default function AnwendungSection() {
                                     '0 1px 2px rgba(15,31,26,0.04),0 8px 24px rgba(15,31,26,0.06)',
                             }}
                         >
-                            {/* Actual image */}
-                            <img
-                                src={card.img}
-                                alt={card.title}
+                            {/* Tinted image layer: keeps checkerboard-like backgrounds from standing out */}
+                            <div
+                                aria-hidden
                                 style={{
                                     position: 'absolute',
                                     inset: 0,
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                }}
-                                onError={(e) => {
-                                    (e.target as HTMLImageElement).style.display = 'none';
+                                    backgroundImage: `linear-gradient(165deg, rgba(246,239,222,0.84) 0%, rgba(212,221,204,0.62) 100%), url(${card.img})`,
+                                    backgroundBlendMode: 'multiply',
+                                    backgroundPosition: 'center',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: card.backgroundSize,
+                                    filter: 'saturate(0.95) contrast(0.96)',
+                                    zIndex: 1,
                                 }}
                             />
-                            {/* Placeholder fallback */}
-                            <PlaceholderIcon />
-                            <span
+                            {/* Soft section-tint to align image area with palette */}
+                            <div
+                                aria-hidden
                                 style={{
-                                    fontFamily: '"Inter", sans-serif',
-                                    fontSize: 12,
-                                    color: '#3D5C4A',
-                                    opacity: 0.6,
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.14em',
-                                    fontWeight: 500,
-                                    marginTop: 8,
+                                    position: 'absolute',
+                                    inset: 0,
+                                    background:
+                                        'linear-gradient(175deg, rgba(255,253,247,0.18) 0%, rgba(61,92,74,0.16) 100%)',
+                                    zIndex: 2,
+                                    pointerEvents: 'none',
                                 }}
-                            >
-                                Bild folgt
-                            </span>
+                            />
 
                             {/* Label overlay */}
                             <div
@@ -209,6 +192,7 @@ export default function AnwendungSection() {
                                     background:
                                         'linear-gradient(180deg, rgba(30,58,46,0) 0%, rgba(30,58,46,0.85) 100%)',
                                     textAlign: 'center',
+                                    zIndex: 3,
                                 }}
                             >
                                 <h3
