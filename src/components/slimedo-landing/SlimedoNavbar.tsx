@@ -14,7 +14,7 @@ export default function SlimedoNavbar() {
     <nav
       style={{
         position: 'sticky',
-        top: 0,
+        top: 36,
         zIndex: 200,
         background: 'rgba(250,245,234,.92)',
         backdropFilter: 'blur(12px)',
