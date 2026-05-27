@@ -86,48 +86,65 @@ export default function SlimedoNavbar() {
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href="#"
-                style={{
-                  fontSize: 13,
-                  fontWeight: 500,
-                  color: '#6E6A60',
-                  textDecoration: 'none',
-                  fontFamily: '"Inter", sans-serif',
-                }}
-              >
-                Login
-              </a>
-            </li>
           </ul>
         </div>
 
-        {/* Desktop CTA right */}
-        <a
-          className="hidden md:inline-block"
-          href="#"
-          style={{
-            background: '#3D5C4A',
-            color: '#FAF5EA',
-            padding: '9px 20px',
-            borderRadius: 999,
-            fontSize: 13,
-            fontWeight: 500,
-            textDecoration: 'none',
-            fontFamily: '"Inter", sans-serif',
-            transition: 'background .2s',
-            display: 'inline-block',
-          }}
-          onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
-          }
-          onMouseLeave={(e) =>
-            ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
-          }
-        >
-          Fragebogen starten →
-        </a>
+        {/* Desktop right actions */}
+        <div className="hidden md:flex" style={{ alignItems: 'center', gap: 10 }}>
+          <a
+            href="#"
+            style={{
+              background: 'transparent',
+              color: '#3D5C4A',
+              padding: '9px 20px',
+              borderRadius: 999,
+              fontSize: 13,
+              fontWeight: 500,
+              textDecoration: 'none',
+              fontFamily: '"Inter", sans-serif',
+              border: '1px solid rgba(61,92,74,.65)',
+              transition: 'background .2s,color .2s,border-color .2s',
+              display: 'inline-block',
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = 'rgba(61,92,74,.08)';
+              el.style.borderColor = '#3D5C4A';
+              el.style.color = '#1E3A2E';
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = 'transparent';
+              el.style.borderColor = 'rgba(61,92,74,.65)';
+              el.style.color = '#3D5C4A';
+            }}
+          >
+            Login
+          </a>
+          <a
+            href="#"
+            style={{
+              background: '#3D5C4A',
+              color: '#FAF5EA',
+              padding: '9px 20px',
+              borderRadius: 999,
+              fontSize: 13,
+              fontWeight: 500,
+              textDecoration: 'none',
+              fontFamily: '"Inter", sans-serif',
+              transition: 'background .2s',
+              display: 'inline-block',
+            }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
+            }
+          >
+            Fragebogen starten →
+          </a>
+        </div>
 
         {/* Mobile hamburger */}
         <button
