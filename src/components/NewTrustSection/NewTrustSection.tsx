@@ -183,7 +183,7 @@ const NewTrustSection = () => {
               <div
                 id="how-it-works-step"
                 data-step="0"
-                className="lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] bg-white max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 relative rounded-3xl shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] max-[640px]:shadow-[0px_2.649px_11.19px_0px_rgba(0,0,0,0.25)] px-7.5 w-119.5 max-[640px]:w-full"
+                className="lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] bg-white max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 relative rounded-3xl shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] max-[640px]:shadow-[0px_2.649px_11.19px_0px_rgba(0,0,0,0.25)] px-7.5 w-90 max-[640px]:w-full"
               >
                 <div
                   className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#3D5C4A] font-bold h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100"
@@ -237,7 +237,7 @@ const NewTrustSection = () => {
               <div
                 id="how-it-works-step"
                 data-step="1"
-                className="flex flex-col relative rounded-3xl bg-white lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] px-6.25 w-100 max-[640px]:w-full"
+                className="flex flex-col relative rounded-3xl bg-white lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] px-6.25 w-90 max-[640px]:w-full"
               >
                 <div
                   className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#3D5C4A] font-bold h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100"
@@ -245,7 +245,7 @@ const NewTrustSection = () => {
                 >
                   2
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:h-80 max-[640px]:justify-between">
+                <div className="flex flex-col overflow-hidden max-[640px]:h-80 max-[640px]:justify-between h-105">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2"
@@ -263,7 +263,7 @@ const NewTrustSection = () => {
                       Approbierte Ärzte prüfen deine Angaben und stellen bei Bedarf ein Rezept aus.
                     </p>
                   </div>
-                  <div className="flex justify-center pt-3 items-end">
+                  <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
                     <div className="h-full w-full flex justify-center">
                       <img
                         alt=""
@@ -291,7 +291,7 @@ const NewTrustSection = () => {
               <div
                 id="how-it-works-step"
                 data-step="2"
-                className="flex flex-col relative rounded-3xl bg-white lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] max-[640px]:shrink-0 max-[640px]:shadow-[0px_2.649px_11.19px_0px_rgba(0,0,0,0.25)] px-7.5 w-119.5 max-[640px]:w-full"
+                className="flex flex-col relative rounded-3xl bg-white lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] max-[640px]:shrink-0 max-[640px]:shadow-[0px_2.649px_11.19px_0px_rgba(0,0,0,0.25)] px-7.5 w-90 max-[640px]:w-full"
               >
                 <div
                   className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#3D5C4A] font-bold h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100"
@@ -468,4 +468,3 @@ const NewTrustSection = () => {
 };
 
 export default NewTrustSection;
-
