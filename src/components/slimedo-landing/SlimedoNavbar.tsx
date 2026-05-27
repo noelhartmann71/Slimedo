@@ -23,8 +23,8 @@ export default function SlimedoNavbar() {
     >
       <div
         style={{
-          maxWidth: 1160,
-          margin: '0 auto',
+          width: '100%',
+          padding: '0 18px 0 14px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -59,70 +59,75 @@ export default function SlimedoNavbar() {
           </span>
         </a>
 
-        {/* Desktop links */}
-        <ul
+        {/* Desktop center links */}
+        <div
           className="hidden md:flex"
-          style={{ alignItems: 'center', gap: 40, listStyle: 'none', margin: 0, padding: 0 }}
+          style={{ flex: 1, alignItems: 'center', justifyContent: 'center', minWidth: 0 }}
         >
-          {links.map((l) => (
-            <li key={l.href}>
+          <ul
+            style={{ alignItems: 'center', gap: 40, listStyle: 'none', margin: 0, padding: 0, display: 'flex' }}
+          >
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                    color: '#3D5C4A',
+                    textDecoration: 'none',
+                    transition: 'color .2s',
+                    fontFamily: '"Inter", sans-serif',
+                  }}
+                  onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#1E3A2E')}
+                  onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = '#3D5C4A')}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+            <li>
               <a
-                href={l.href}
+                href="#"
                 style={{
-                  fontSize: 14,
+                  fontSize: 13,
                   fontWeight: 500,
-                  color: '#3D5C4A',
+                  color: '#6E6A60',
                   textDecoration: 'none',
-                  transition: 'color .2s',
                   fontFamily: '"Inter", sans-serif',
                 }}
-                onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#1E3A2E')}
-                onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = '#3D5C4A')}
               >
-                {l.label}
+                Login
               </a>
             </li>
-          ))}
-          <li>
-            <a
-              href="#"
-              style={{
-                fontSize: 13,
-                fontWeight: 500,
-                color: '#6E6A60',
-                textDecoration: 'none',
-                fontFamily: '"Inter", sans-serif',
-              }}
-            >
-              Login
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              style={{
-                background: '#3D5C4A',
-                color: '#FAF5EA',
-                padding: '9px 20px',
-                borderRadius: 999,
-                fontSize: 13,
-                fontWeight: 500,
-                textDecoration: 'none',
-                fontFamily: '"Inter", sans-serif',
-                transition: 'background .2s',
-                display: 'inline-block',
-              }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
-              }
-            >
-              Fragebogen starten →
-            </a>
-          </li>
-        </ul>
+          </ul>
+        </div>
+
+        {/* Desktop CTA right */}
+        <a
+          className="hidden md:inline-block"
+          href="#"
+          style={{
+            background: '#3D5C4A',
+            color: '#FAF5EA',
+            padding: '9px 20px',
+            borderRadius: 999,
+            fontSize: 13,
+            fontWeight: 500,
+            textDecoration: 'none',
+            fontFamily: '"Inter", sans-serif',
+            transition: 'background .2s',
+            display: 'inline-block',
+          }}
+          onMouseEnter={(e) =>
+            ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
+          }
+          onMouseLeave={(e) =>
+            ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
+          }
+        >
+          Fragebogen starten →
+        </a>
 
         {/* Mobile hamburger */}
         <button
@@ -211,4 +216,3 @@ export default function SlimedoNavbar() {
     </nav>
   );
 }
-
