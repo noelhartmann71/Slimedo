@@ -167,22 +167,11 @@ export default function CtaSection() {
                         boxShadow: '0 4px 24px rgba(0,0,0,.15)',
                     }}
                 >
-                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-                        <circle cx="17" cy="12" r="5" stroke="#1E3A2E" strokeWidth="2"/>
-                        <path
-                            d="M7 34C7 34 7 24 17 24C27 24 27 34 27 34"
-                            stroke="#1E3A2E"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                        />
-                        <circle cx="29" cy="10" r="6" stroke="#1E3A2E" strokeWidth="2"/>
-                        <path
-                            d="M20 34C20 34 20 22 29 22C38 22 38 34 38 34"
-                            stroke="#1E3A2E"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                        />
-                    </svg>
+                    <img
+                        src="/images/logo/cta-banner.png"
+                        alt="Slimedo Logo"
+                        style={{ objectFit: 'contain', flexShrink: 0 }}
+                    />
                 </div>
 
                 <h2
