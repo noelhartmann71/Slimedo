@@ -1,8 +1,8 @@
 ﻿import { useCallback, useEffect, useRef, useState } from "react";
 
-import StepOneImg from "../../../public/images/how-it-work/step-1-de.png";
-import StepTwoImg from "../../../public/images/how-it-work/step-2.png";
-import StepThreeImg from "../../../public/images/how-it-work/step-3.png";
+import StepOneImg from "../../../public/images/how-it-work/badge5.2.png";
+import StepTwoImg from "../../../public/images/how-it-work/badge5.png";
+import StepThreeImg from "../../../public/images/how-it-work/badge5.1.png";
 import { useQuery } from "@tanstack/react-query";
 import { axiosPublic } from "@/hooks/useAxiosPublic";
 import { Check, Copy } from "lucide-react";
