@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import {useEffect, useRef} from 'react';
 
 export default function CtaSection() {
     const ref = useRef<HTMLElement | null>(null);
@@ -16,7 +16,7 @@ export default function CtaSection() {
                     }
                 });
             },
-            { threshold: 0.07, rootMargin: '0px 0px -20px 0px' }
+            {threshold: 0.07, rootMargin: '0px 0px -20px 0px'}
         );
         anims.forEach((el) => observer.observe(el));
         return () => observer.disconnect();
@@ -54,11 +54,6 @@ export default function CtaSection() {
                                 <stop offset="56%" stopColor="#082723" stopOpacity="0.22"/>
                                 <stop offset="80%" stopColor="#082723" stopOpacity="0.12"/>
                                 <stop offset="100%" stopColor="#082723" stopOpacity="0"/>
-                            </linearGradient>
-
-                            <linearGradient id="textGradient" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor="#bcc8c3"/>
-                                <stop offset="100%" stopColor="#8f9d98"/>
                             </linearGradient>
 
                             <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="0">
@@ -118,16 +113,8 @@ export default function CtaSection() {
                             ))}
                         </g>
 
-                        <text
-                            className="brandText"
-                            x="50%"
-                            y="712"
-                            fontSize="330"
-                            textAnchor="middle"
-                        >
-                            Slimedo
-                        </text>
                     </svg>
+                    <div className="slimedoWordmarkFade">Slimedo</div>
                 </div>
             </div>
 
@@ -170,7 +157,7 @@ export default function CtaSection() {
                     <img
                         src="/images/logo/cta-banner.png"
                         alt="Slimedo Logo"
-                        style={{ objectFit: 'contain', flexShrink: 0 }}
+                        style={{objectFit: 'contain', flexShrink: 0}}
                     />
                 </div>
 
@@ -187,7 +174,7 @@ export default function CtaSection() {
                     }}
                 >
                     Bereit für deinen{' '}
-                    <em style={{ color: '#CDDDCB', fontStyle: 'italic' }}>Neuanfang?</em>
+                    <em style={{color: '#CDDDCB', fontStyle: 'italic'}}>Neuanfang?</em>
                 </h2>
 
                 <p
@@ -272,12 +259,36 @@ export default function CtaSection() {
           display: block;
         }
 
-        .brandText {
+        .slimedoWordmarkFade {
+          position: absolute;
+          left: 50%;
+          bottom: -26px;
+          transform: translateX(-50%);
           font-family: Inter, Poppins, Arial, sans-serif;
           font-weight: 740;
+          font-size: clamp(110px, 18vw, 330px);
+          line-height: 0.9;
           letter-spacing: -10px;
-          fill: url(#textGradient);
-          opacity: 0.7;
+          padding-inline: 0.06em;
+          white-space: nowrap;
+          user-select: none;
+          color: rgba(188, 200, 195, 0.92);
+          -webkit-mask-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.4) 30%,
+            rgba(0, 0, 0, 0.1) 48%,
+            rgba(0, 0, 0, 0) 62%
+          );
+          mask-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.4) 30%,
+            rgba(0, 0, 0, 0.1) 48%,
+            rgba(0, 0, 0, 0) 62%
+          );
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
         }
 
         .waveLine {
