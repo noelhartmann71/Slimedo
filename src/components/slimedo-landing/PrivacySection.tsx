@@ -221,75 +221,45 @@ function MobilePrivacyCard({
         </svg>
       </div>
 
-      <h4
+      <div
         style={{
-          fontFamily: '"Manrope", sans-serif',
-          fontSize: 'clamp(17px, 2.1vw, 19px)',
-          lineHeight: 1.17,
-          fontWeight: 600,
-          color: '#FAF5EA',
-          marginBottom: 11,
-          wordBreak: 'normal',
-          overflowWrap: 'break-word',
-          hyphens: 'none',
+          minHeight: 122,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          width: '100%',
         }}
       >
-        {title}
-      </h4>
+        <h4
+          style={{
+            fontFamily: '"Manrope", sans-serif',
+            fontSize: 'clamp(17px, 2.1vw, 19px)',
+            lineHeight: 1.17,
+            fontWeight: 600,
+            color: '#FAF5EA',
+            marginBottom: 11,
+            wordBreak: 'normal',
+            overflowWrap: 'break-word',
+            hyphens: 'none',
+          }}
+        >
+          {title}
+        </h4>
 
-      <p
-        style={{
-          fontSize: 'clamp(12.5px, 1.85vw, 14px)',
-          lineHeight: 1.35,
-          color: 'rgba(205,221,203,0.68)',
-          fontFamily: '"Inter", sans-serif',
-          marginTop: 'auto',
-          wordBreak: 'normal',
-          overflowWrap: 'break-word',
-          hyphens: 'none',
-        }}
-      >
-        {subtitle}
-      </p>
-    </div>
-  );
-}
-
-function MobileCenterShield({ size = 156 }: { size?: number }) {
-  return (
-    <div style={{ width: size, height: size }}>
-      <svg
-        viewBox="0 0 180 180"
-        width={size}
-        height={size}
-        fill="none"
-        style={{ width: '100%', height: '100%', display: 'block', filter: 'drop-shadow(0 8px 22px rgba(7,17,13,0.18))' }}
-      >
-        <path
-          d="M90 14L26 38V78C26 118 50 147 90 164C130 147 154 118 154 78V38L90 14Z"
-          stroke="#CDDDCB"
-          strokeWidth="3"
-          strokeLinejoin="round"
-          opacity="0.9"
-        />
-        <path
-          d="M95 93.5C90.7 93.5 87.3 90.8 87.3 87.6C87.3 84.3 90.7 81.6 95 81.6C99.2 81.6 102.6 84.3 102.6 87.6"
-          stroke="#CDDDCB"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          opacity="0.9"
-        />
-        <path
-          d="M102.7 87.8C102.7 91.2 99.4 93.8 95 93.8C90.7 93.8 87.3 96.5 87.3 99.8C87.3 103 90.7 105.7 95 105.7C99.4 105.7 102.7 103 102.7 99.8"
-          stroke="#CDDDCB"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          opacity="0.9"
-        />
-        <path d="M74 105L83.5 114.5L109 89.5" stroke="#CDDDCB" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-      </svg>
+        <p
+          style={{
+            fontSize: 'clamp(12.5px, 1.85vw, 14px)',
+            lineHeight: 1.35,
+            color: 'rgba(205,221,203,0.68)',
+            fontFamily: '"Inter", sans-serif',
+            wordBreak: 'normal',
+            overflowWrap: 'break-word',
+            hyphens: 'none',
+          }}
+        >
+          {subtitle}
+        </p>
+      </div>
     </div>
   );
 }
@@ -900,7 +870,7 @@ export default function PrivacySection() {
               marginBottom: 44,
             }}
           >
-            <MobileCenterShield size={162} />
+            <CentralShield size={200} />
           </div>
 
           <div className="priv-mobile-grid">
