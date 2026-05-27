@@ -898,6 +898,32 @@ export default function PrivacySection() {
         </div>
       </div>
 
+      {/* ── Weicher Nebelübergang nach unten ─────────────────────
+          Löst den harten Abschluss des 145°-Diagonalgradienten auf
+          und überführt die Section sanft in das Sand-Beige
+          der nachfolgenden LifestyleSection.
+          pointer-events: none → keine Interaktionsblockade.
+      ─────────────────────────────────────────────────────────── */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: 130,
+          background:
+            'linear-gradient(to bottom,' +
+            'rgba(250,245,234,0) 0%,' +
+            'rgba(250,245,234,0.28) 35%,' +
+            'rgba(250,245,234,0.62) 62%,' +
+            'rgba(250,245,234,0.90) 82%,' +
+            '#FAF5EA 100%)',
+          pointerEvents: 'none',
+          zIndex: 2,
+        }}
+      />
+
       <style>{`
         .priv-mobile-stage {
           display: none;
