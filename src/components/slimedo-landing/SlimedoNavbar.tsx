@@ -7,7 +7,8 @@ type DropdownKey = 'abnehmspritzen' | 'wissenswertes';
 
 type NavLink = {
   label: string;
-  href: string;
+  href?: string;
+  to?: string;
   dropdown?: DropdownKey;
 };
 
@@ -32,10 +33,11 @@ type WissenswertesArticle = {
 };
 
 const links: NavLink[] = [
-  { label: "So funktioniert's", href: '#schritte' },
-  { label: 'Abnehmspritzen', href: '#intro', dropdown: 'abnehmspritzen' },
-  { label: 'Wissenswertes', href: '#wirk', dropdown: 'wissenswertes' },
-  { label: 'FAQ', href: '#faq' },
+  { label: "So funktioniert's", href: '/#schritte' },
+  { label: 'Abnehmspritzen', href: '/#intro', dropdown: 'abnehmspritzen' },
+  { label: 'Wissenswertes', href: '/#wirk', dropdown: 'wissenswertes' },
+  { label: 'Unser Team', to: '/team' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
 const programs = [
@@ -54,12 +56,12 @@ const programs = [
 ];
 
 const wissenswertesLinks = [
-  { label: 'Symptome & Therapie', href: '#wirk' },
-  { label: 'Kosten und Kostendeckung', href: '#potenzial' },
-  { label: 'Der Blog', href: '#blog' },
-  { label: 'Arzneimittelsicherheit', href: '#datenschutz' },
-  { label: 'Terpene', href: '#wirk' },
-  { label: 'Staemme', href: '#wirk' },
+  { label: 'Therapie' , href: '#intro' },
+  { label: 'Wirkungsweise', href: '#wirk' },
+  { label: 'Blog', href: '#blog' },
+  { label: 'Potenzial', href: '#potenzial' },
+  { label: 'Anwendung', href: '#anwendung' },
+  { label: 'Patientenerfahrungen', href: '#bewertungen' },
   {
     label: 'Empfehle einen Freund weiter und sichere dir deine Praemie!',
     href: '#start',
@@ -228,9 +230,12 @@ function WissenswertesDropdown({
           </ul>
         </div>
 
-        <div className="mx-6 h-full min-h-[320px] w-px bg-[#d9d2c2]" aria-hidden="true" />
+        <div
+          className="h-full min-h-[320px] w-px justify-self-center bg-[#d9d2c2]"
+          aria-hidden="true"
+        />
 
-        <div className="pl-0">
+        <div className="pl-6">
           <p className="mb-5 text-[22px] font-semibold tracking-[-0.02em] text-[#1E3A2E]">
             Unsere Blogartikel
           </p>
@@ -389,8 +394,8 @@ export default function SlimedoNavbar() {
           height: 58,
         }}
       >
-        <a
-          href="#"
+        <Link
+          to="/"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -414,7 +419,7 @@ export default function SlimedoNavbar() {
           >
             Slimedo
           </span>
-        </a>
+        </Link>
 
         <div
           className="hidden md:flex"
@@ -436,20 +441,30 @@ export default function SlimedoNavbar() {
 
               return (
                 <li
-                  key={link.href}
+                  key={link.label}
                   className="relative"
                   onMouseEnter={() => link.dropdown && openMenu(link.dropdown)}
                   onMouseLeave={closeMenuWithDelay}
                 >
-                  <a
-                    href={link.href}
-                    className="inline-flex items-center gap-1.5 py-2 text-[14px] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
-                    style={{ fontFamily: '"Inter", sans-serif' }}
-                    onFocus={() => link.dropdown && openMenu(link.dropdown)}
-                  >
-                    {link.label}
-                    {link.dropdown ? <ChevronDown isOpen={Boolean(isOpen)} /> : null}
-                  </a>
+                  {link.to ? (
+                    <Link
+                      to={link.to}
+                      className="inline-flex items-center gap-1.5 py-2 text-[14px] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
+                      style={{ fontFamily: '"Inter", sans-serif' }}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="inline-flex items-center gap-1.5 py-2 text-[14px] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
+                      style={{ fontFamily: '"Inter", sans-serif' }}
+                      onFocus={() => link.dropdown && openMenu(link.dropdown)}
+                    >
+                      {link.label}
+                      {link.dropdown ? <ChevronDown isOpen={Boolean(isOpen)} /> : null}
+                    </a>
+                  )}
 
                   {link.dropdown ? (
                     <div
@@ -482,8 +497,8 @@ export default function SlimedoNavbar() {
         </div>
 
         <div className="hidden md:flex" style={{ alignItems: 'center', gap: 10 }}>
-          <a
-            href="#"
+          <Link
+            to="/auth/login"
             style={{
               background: 'transparent',
               color: '#3D5C4A',
@@ -511,9 +526,9 @@ export default function SlimedoNavbar() {
             }}
           >
             Login
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/product/select"
             style={{
               background: '#3D5C4A',
               color: '#FAF5EA',
@@ -534,7 +549,7 @@ export default function SlimedoNavbar() {
             }
           >
             Fragebogen starten -&gt;
-          </a>
+          </Link>
         </div>
 
         <button
@@ -583,25 +598,44 @@ export default function SlimedoNavbar() {
           }}
         >
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              style={{
-                fontSize: 15,
-                fontWeight: 500,
-                color: '#3D5C4A',
-                textDecoration: 'none',
-                fontFamily: '"Inter", sans-serif',
-                padding: '8px 0',
-                borderBottom: '1px solid rgba(30,58,46,.06)',
-              }}
-            >
-              {link.label}
-            </a>
+            link.to ? (
+              <Link
+                key={link.label}
+                to={link.to}
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  fontSize: 15,
+                  fontWeight: 500,
+                  color: '#3D5C4A',
+                  textDecoration: 'none',
+                  fontFamily: '"Inter", sans-serif',
+                  padding: '8px 0',
+                  borderBottom: '1px solid rgba(30,58,46,.06)',
+                }}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  fontSize: 15,
+                  fontWeight: 500,
+                  color: '#3D5C4A',
+                  textDecoration: 'none',
+                  fontFamily: '"Inter", sans-serif',
+                  padding: '8px 0',
+                  borderBottom: '1px solid rgba(30,58,46,.06)',
+                }}
+              >
+                {link.label}
+              </a>
+            )
           ))}
-          <a
-            href="#start"
+          <Link
+            to="/product/select"
             style={{
               background: '#3D5C4A',
               color: '#FAF5EA',
@@ -616,7 +650,7 @@ export default function SlimedoNavbar() {
             }}
           >
             Fragebogen starten -&gt;
-          </a>
+          </Link>
         </div>
       )}
     </nav>
