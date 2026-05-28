@@ -12,10 +12,16 @@ interface Author {
 interface SimilarPost {
   id: number;
   image: string;
-  tags: string[];
+  tags?: string[] | string;
   title: string;
   description: string;
-  category: string[];
+  category?: string[] | string;
+}
+
+function toArray(value?: string[] | string): string[] {
+  if (!value) return [];
+  if (Array.isArray(value)) return value.filter(Boolean);
+  return [value];
 }
 
 // ── Similar Blog Badge ──────────────────────────────────────────────────────
@@ -67,9 +73,9 @@ function SimilarCard({ post }: { post: SimilarPost }) {
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
-      <div className="flex flex-col flex-1 mt-6 gap-2">
-        <div className="flex flex-wrap gap-1.5">
-          {post.category?.map((t: string) => (
+        <div className="flex flex-col flex-1 mt-6 gap-2">
+          <div className="flex flex-wrap gap-1.5">
+          {toArray(post.category).map((t: string) => (
             <SimilarBlog key={t} label={t} />
           ))}
         </div>
@@ -207,7 +213,7 @@ export default function BlogDetail() {
 
         {/* Category Badge */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {blogDetailsData.category?.map((cat: string) => (
+          {toArray(blogDetailsData.category).map((cat: string) => (
             <TagBadge key={cat} label={cat} />
           ))}
         </div>
@@ -281,7 +287,7 @@ export default function BlogDetail() {
 
           {/* Topic Tags */}
           <div className="w-full flex flex-wrap gap-2 mt-1">
-            {blogDetailsData.category?.map((cat: string) => (
+            {toArray(blogDetailsData.category).map((cat: string) => (
               <span
                 key={cat}
                 className="text-xs text-[#6B7280] bg-gray-100 px-3 py-2 rounded-lg"

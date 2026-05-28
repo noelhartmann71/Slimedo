@@ -69,6 +69,12 @@ function BlogCardSkeleton() {
 }
 
 function BlogCard({ post }: { post: SimilarPost }) {
+  const categories = Array.isArray(post.category)
+    ? post.category
+    : post.category
+      ? [post.category]
+      : [];
+
   return (
     <article className="group flex flex-col rounded-3xl overflow-hidden bg-white border border-[#F5F7F8] p-4">
       {/* Image */}
@@ -84,7 +90,7 @@ function BlogCard({ post }: { post: SimilarPost }) {
       <div className="flex flex-col flex-1 pt-6 gap-3">
         {/* Tags */}
         <div className="flex flex-wrap gap-2">
-          {post.category?.map((cat: string) => (
+          {categories.map((cat: string) => (
             <TagBadge key={cat} label={cat} />
           ))}
         </div>
@@ -225,7 +231,7 @@ export function Pagination({
 interface SimilarPost {
   id: number;
   image: string;
-  category: string[];
+  category?: string[] | string;
   title: string;
   description: string;
 }
