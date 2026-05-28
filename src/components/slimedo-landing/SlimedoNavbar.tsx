@@ -41,13 +41,13 @@ const links: NavLink[] = [
 const programs = [
   {
     title: 'Mounjaro',
-    description: 'Verliere bis zu 22,5% Deines Koerpergewichts',
+    description: 'Verliere bis zu 22,5% Deines Körpergewichts',
     href: '/product/select',
     image: '/images/home/mounjaro-Img.png',
   },
   {
     title: 'Wegovy',
-    description: 'Verliere bis zu 22,5% Deines Koerpergewichts',
+    description: 'Verliere bis zu 22,5% Deines Körpergewichts',
     href: '/product/select',
     image: '/images/home/wegovy-img.png',
   },
@@ -64,7 +64,7 @@ const wissenswertesLinks = [
     label: 'Empfehle einen Freund weiter und sichere dir deine Praemie!',
     href: '#start',
   },
-  { label: 'Haeufig gestellte Fragen', href: '#faq' },
+  { label: 'Häufig gestellte Fragen', href: '#faq' },
 ];
 
 const closeDelayMs = 120;
@@ -135,13 +135,13 @@ function WeightLossDropdown() {
             Programme
           </p>
           <p className="mb-4 text-[13px] leading-relaxed text-[#4B6457]">
-            Egal, was Du brauchst, wir finden das ideale Programm fuer Dich.
+            Egal, was Du brauchst, wir finden das ideale Programm für Dich.
           </p>
           <a
             href="#intro"
             className="inline-flex items-center rounded-full bg-[#3D5C4A] px-4 py-2 text-[12px] font-semibold text-[#FAF5EA] transition-colors hover:bg-[#1E3A2E]"
           >
-            Jetzt Eignung pruefen
+            Jetzt Eignung prüfen
           </a>
         </div>
         <div className="mt-6">
@@ -209,7 +209,7 @@ function WissenswertesDropdown({
       <div className="grid grid-cols-[minmax(320px,0.95fr)_1px_minmax(560px,1.05fr)] items-start gap-0">
         <div className="pr-6">
           <p className="mb-5 text-[22px] font-semibold tracking-[-0.02em] text-[#1E3A2E]">
-            Alles ueber Cannabis
+            Alles was du wissen musst
           </p>
           <ul className="space-y-2.5">
             {wissenswertesLinks.map((item) => (
