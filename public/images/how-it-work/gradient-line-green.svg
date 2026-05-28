@@ -1,0 +1,23 @@
+    <svg width="100%" height="100%" viewBox="0 0 1851 564" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-full">
+        <defs>
+            <linearGradient id="animated-gradient-line-paint" gradientUnits="userSpaceOnUse" x1="-800" y1="361" x2="1200" y2="145">
+                <stop offset="0" stop-color="#EDD89A" stop-opacity="0.8" />
+                <stop offset="0.5" stop-color="white" stop-opacity="1" />
+                <stop offset="1" stop-color="#B0832B" stop-opacity="0.8" />
+                <!-- PERFORMANCE: Reduced from 6 animations to 1 -->
+                <animate 
+                    attributeName="x1" 
+                    values="-800;2500;-800" 
+                    dur="4s" 
+                    repeatCount="indefinite" />
+                <animate 
+                    attributeName="x2" 
+                    values="1200;4500;1200" 
+                    dur="4s" 
+                    repeatCount="indefinite" />
+            </linearGradient>
+        </defs>
+        <path d="M-8.51611 561.396C396.902 520.394 245.821 -298.627 597.435 122.57C926.44 516.683 1680.77 -261.41 1660.83 293.522C1652.28 531.531 1744.96 535.674 1859 451.265" 
+              stroke="url(#animated-gradient-line-paint)" 
+              stroke-width="5"/>
+    </svg>

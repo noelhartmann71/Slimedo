@@ -1,13 +1,16 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+﻿import { useCallback, useEffect, useRef, useState } from "react";
 
-import StepOneImg from "../../../public/images/how-it-work/step-1-de.png";
-import StepTwoImg from "../../../public/images/how-it-work/step-2.png";
-import StepThreeImg from "../../../public/images/how-it-work/step-3.png";
+import StepOneImg from "../../../public/images/how-it-work/badge5.2.png";
+import StepTwoImg from "../../../public/images/how-it-work/badge5.png";
+import StepThreeImg from "../../../public/images/how-it-work/badge5.1.png";
 import { useQuery } from "@tanstack/react-query";
 import { axiosPublic } from "@/hooks/useAxiosPublic";
 import { Check, Copy } from "lucide-react";
 
 const CARD_TRANSITION = "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+const FONT_INTER = '"Inter", sans-serif';
+const FONT_INSTRUMENT_SERIF = '"Instrument Serif", Georgia, serif';
+const FONT_MANROPE = '"Manrope", sans-serif';
 
 type CouponData = {
   code?: string;
@@ -59,7 +62,6 @@ const NewTrustSection = () => {
     };
   }, [updateActiveIndex]);
 
-  // IntersectionObserver to show/hide coupon popover on scroll
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -130,13 +132,13 @@ const NewTrustSection = () => {
       <section
         id="how-it-works-section"
         ref={sectionRef}
-        className="w-full overflow-hidden relative bg-[#f4f8ef] lg:bg-center lg:bg-cover lg:bg-no-repeat lg:bg-surface-green lg:px-0 max-[640px]:bg-[linear-gradient(180deg,rgba(255,255,255,0.3)_0%,#C1F7AD40_100%)] max-[640px]:max-w-360 max-[640px]:mx-auto max-[640px]:pb-6 max-[640px]:rounded-[15px] md:pt-12 pb-30 px-4 rounded-xl"
+        className="w-full overflow-hidden relative bg-[#EEF4EE] lg:bg-center lg:bg-cover lg:bg-no-repeat lg:bg-surface-green lg:px-0 max-[640px]:bg-[linear-gradient(180deg,#F0EDDF_0%,#EEF4EE_45%,#F5F5F0_100%)] max-[640px]:max-w-360 max-[640px]:mx-auto max-[640px]:pb-6 max-[640px]:rounded-[15px] md:pt-12 pb-30 px-4 rounded-xl"
       >
         <div className="hidden lg:block">
           <div className="w-full h-full pointer-events-none absolute left-0 top-0">
             <img
               aria-hidden="true"
-              src="https://images.doktorabc.com/redesign_2025/gradient_line_animations/gradient-line-green/gradient-line-green.svg"
+              src="/images/how-it-work/gradient-line-green.svg"
               alt=""
               className="w-full h-full object-cover"
               style={{ pointerEvents: "none", position: "relative" }}
@@ -146,15 +148,24 @@ const NewTrustSection = () => {
           </div>
         </div>
 
-        <div className="mx-auto relative select-none">
+        <div className="mx-auto relative select-none" style={{ fontFamily: FONT_INTER }}>
           <h2
-            className="text-center font-extrabold text-[#1f2937] text-[28px] lg:text-[52px] max-[640px]:mb-4 mb-10 leading-[110%]"
-            style={{ lineHeight: "110%" }}
+            className="text-center font-normal text-[#1A1A1A] text-[28px] lg:text-[52px] max-[640px]:mb-4 mb-10"
+            style={{
+              fontFamily: FONT_INSTRUMENT_SERIF,
+              fontSize: "clamp(28px, 5vw, 62px)",
+              lineHeight: 1.02,
+              fontWeight: 400,
+              letterSpacing: "-0.01em",
+            }}
           >
-            3 einfache Schritte{" "}
-            <span className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#269c6e_0%,#6CCB44_100%)] text-transparent">
+            In drei Schritten{" "}
+            <span
+              className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#4A6E58_0%,#3D5C4A_100%)] text-transparent"
+              style={{ fontStyle: "italic" }}
+            >
               <br />
-              100 % online
+              zur Behandlung
             </span>
           </h2>
 
@@ -163,7 +174,6 @@ const NewTrustSection = () => {
             ref={carouselRef}
             className="grid relative grid-cols-3 max-[640px]:-mx-4 max-[640px]:[-ms-overflow-style:none] max-[640px]:scroll-smooth max-[640px]:[scroll-snap-type:x_mandatory] max-[640px]:[scrollbar-width:none] max-[640px]:gap-6.75 max-[640px]:grid-cols-[80%_80%_80%] max-[640px]:overflow-x-auto max-[640px]:px-4.5 max-[640px]:py-5 max-w-300 mx-auto [&::-webkit-scrollbar]:hidden"
           >
-            {/* ── Card 1 ── */}
             <div
               className="self-end cursor-pointer group lg:z-12 lg:rotate-[-11deg] origin-top-right"
               style={cardWrapperStyle(0)}
@@ -175,20 +185,28 @@ const NewTrustSection = () => {
                 data-step="0"
                 className="lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] bg-white max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 relative rounded-3xl shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] max-[640px]:shadow-[0px_2.649px_11.19px_0px_rgba(0,0,0,0.25)] px-7.5 w-119.5 max-[640px]:w-full"
               >
-                <div className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#269c6e] font-medium h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100">
+                <div
+                  className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#3D5C4A] font-bold h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100"
+                  style={{ fontFamily: FONT_MANROPE }}
+                >
                   1
                 </div>
                 <div className="flex flex-col overflow-hidden max-[640px]:h-80 max-[640px]:justify-between h-105">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
-                    <h3 className="text-[20px] font-extrabold text-[#111827] leading-snug mb-0.75 sm:mb-2 select-none">
-                      Füllen Sie den{" "}
-                      <span className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#269c6e_0%,#6CCB44_100%)] text-transparent">
-                        medizinischen Fragebogen aus
+                    <h3
+                      className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2 select-none"
+                      style={{ fontFamily: FONT_MANROPE }}
+                    >
+                      Fragebogen{" "}
+                      <span className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#4A6E58_0%,#3D5C4A_100%)] text-transparent">
+                        ausfüllen
                       </span>
                     </h3>
-                    <p className="font-normal text-gray-500 text-[16px]">
-                      Starten Sie die Online-Konsultation und beantworten Sie
-                      die medizinischen Fragen.
+                    <p
+                        className="font-normal text-[#6E6A60] text-[16px]"
+                        style={{fontFamily: FONT_INTER, lineHeight: 1.6}}
+                    >
+                      Starte die Online-Konsultation und <br/> beantworte die medizinischen Fragen.
                     </p>
                   </div>
                   <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
@@ -198,8 +216,7 @@ const NewTrustSection = () => {
                         src={StepOneImg}
                         className="h-full w-full object-contain max-[640px]:max-h-40"
                         style={{
-                          transform:
-                            hoveredCard === 0 ? "scale(1.1)" : "scale(1)",
+                          transform: hoveredCard === 0 ? "scale(1.1)" : "scale(1)",
                           transition: CARD_TRANSITION,
                         }}
                         loading="lazy"
@@ -211,7 +228,6 @@ const NewTrustSection = () => {
               </div>
             </div>
 
-            {/* ── Card 2 ── */}
             <div
               className="self-end cursor-pointer group lg:z-13 lg:pt-2.5"
               style={cardWrapperStyle(1)}
@@ -223,20 +239,28 @@ const NewTrustSection = () => {
                 data-step="1"
                 className="flex flex-col relative rounded-3xl bg-white lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] px-6.25 w-100 max-[640px]:w-full"
               >
-                <div className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#269c6e] font-medium h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100">
+                <div
+                  className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#3D5C4A] font-bold h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100"
+                  style={{ fontFamily: FONT_MANROPE }}
+                >
                   2
                 </div>
                 <div className="flex flex-col overflow-hidden max-[640px]:h-80 max-[640px]:justify-between">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
-                    <h3 className="text-[20px] font-extrabold text-[#111827] leading-snug mb-0.75 sm:mb-2">
-                      Wählen Sie die{" "}
-                      <span className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#269c6e_0%,#6CCB44_100%)] text-transparent">
-                        gewünschte Behandlung
+                    <h3
+                      className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2"
+                      style={{ fontFamily: FONT_MANROPE }}
+                    >
+                      Arzt prüft &{" "}
+                      <span className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#4A6E58_0%,#3D5C4A_100%)] text-transparent">
+                        verschreibt
                       </span>
                     </h3>
-                    <p className="font-normal text-gray-500 text-[16px]">
-                      Der behandelnde Arzt prüft Ihre Angaben und stellt Ihnen
-                      bei Bedarf ein Rezept aus.
+                    <p
+                      className="font-normal text-[#6E6A60] text-[16px]"
+                      style={{ fontFamily: FONT_INTER, lineHeight: 1.6 }}
+                    >
+                      Approbierte Ärzte prüfen deine Angaben und stellen bei Bedarf ein Rezept aus.
                     </p>
                   </div>
                   <div className="flex justify-center pt-3 items-end">
@@ -246,8 +270,7 @@ const NewTrustSection = () => {
                         src={StepTwoImg}
                         className="object-contain max-[640px]:max-h-40 max-h-75 max-w-full"
                         style={{
-                          transform:
-                            hoveredCard === 1 ? "scale(1.1)" : "scale(1)",
+                          transform: hoveredCard === 1 ? "scale(1.1)" : "scale(1)",
                           transition: CARD_TRANSITION,
                         }}
                         loading="lazy"
@@ -259,7 +282,6 @@ const NewTrustSection = () => {
               </div>
             </div>
 
-            {/* ── Card 3 ── */}
             <div
               className="self-end cursor-pointer group lg:z-12 lg:rotate-11 origin-top-left"
               style={cardWrapperStyle(2)}
@@ -271,19 +293,28 @@ const NewTrustSection = () => {
                 data-step="2"
                 className="flex flex-col relative rounded-3xl bg-white lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] max-[640px]:shrink-0 max-[640px]:shadow-[0px_2.649px_11.19px_0px_rgba(0,0,0,0.25)] px-7.5 w-119.5 max-[640px]:w-full"
               >
-                <div className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#269c6e] font-medium h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100">
+                <div
+                  className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#3D5C4A] font-bold h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100"
+                  style={{ fontFamily: FONT_MANROPE }}
+                >
                   3
                 </div>
                 <div className="flex flex-col overflow-hidden max-[640px]:h-80 max-[640px]:justify-between h-105">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
-                    <h3 className="text-[20px] font-extrabold text-[#111827] leading-snug mb-0.75 sm:mb-2">
+                    <h3
+                      className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2"
+                      style={{ fontFamily: FONT_MANROPE }}
+                    >
                       Lieferung in{" "}
-                      <span className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#269c6e_0%,#6CCB44_100%)] text-transparent">
+                      <span className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#4A6E58_0%,#3D5C4A_100%)] text-transparent">
                         1-2 Werktagen
                       </span>
                     </h3>
-                    <p className="font-normal text-gray-500 text-[16px]">
-                      Sie erhalten Ihre Medikamente diskret und sicher
+                    <p
+                      className="font-normal text-[#6E6A60] text-[16px]"
+                      style={{ fontFamily: FONT_INTER, lineHeight: 1.6 }}
+                    >
+                      Diskreter Versand deiner Medikamente direkt zu dir nach Hause.
                     </p>
                   </div>
                   <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
@@ -293,8 +324,7 @@ const NewTrustSection = () => {
                         src={StepThreeImg}
                         className="h-full w-full object-contain max-[640px]:max-h-40"
                         style={{
-                          transform:
-                            hoveredCard === 2 ? "scale(1.1)" : "scale(1)",
+                          transform: hoveredCard === 2 ? "scale(1.1)" : "scale(1)",
                           transition: CARD_TRANSITION,
                         }}
                         loading="lazy"
@@ -307,14 +337,13 @@ const NewTrustSection = () => {
             </div>
           </div>
 
-          {/* Mobile nav dots + arrows */}
           <div className="items-center max-[640px]:flex hidden justify-between mt-2">
             <button
               type="button"
               aria-label="Previous step"
               id="how-it-works-prev"
               onClick={() => scrollToStep(activeIndex - 1)}
-              className="bg-white relative [transition:all_0.3s_ease] active:scale-95 border-0 h-14 rounded-full shadow-[0px_12px_18px_0px_rgba(206,208,216,0.7),0px_-12px_16px_0px_rgba(255,255,255,0.82)] text-[#1f2129] w-14"
+              className="bg-white relative [transition:all_0.3s_ease] active:scale-95 border-0 h-14 rounded-full shadow-[0px_12px_18px_0px_rgba(206,208,216,0.7),0px_-12px_16px_0px_rgba(255,255,255,0.82)] text-[#1A1A1A] w-14"
             >
               <svg
                 viewBox="0 0 18 16"
@@ -340,7 +369,7 @@ const NewTrustSection = () => {
                   key={index}
                   data-indicator={index}
                   className={`transition-colors duration-300 rounded-full h-3 w-3 ${
-                    activeIndex === index ? "bg-[#269c6e]" : "bg-[#e5e7eb]"
+                    activeIndex === index ? "bg-[#3D5C4A]" : "bg-[#D9D5CA]"
                   }`}
                 />
               ))}
@@ -351,7 +380,7 @@ const NewTrustSection = () => {
               aria-label="Next step"
               id="how-it-works-next"
               onClick={() => scrollToStep(activeIndex + 1)}
-              className="bg-white relative [transition:all_0.3s_ease] active:scale-95 border-0 h-14 rounded-full shadow-[0px_12px_18px_0px_rgba(206,208,216,0.7),0px_-12px_16px_0px_rgba(255,255,255,0.82)] text-[#1f2129] w-14"
+              className="bg-white relative [transition:all_0.3s_ease] active:scale-95 border-0 h-14 rounded-full shadow-[0px_12px_18px_0px_rgba(206,208,216,0.7),0px_-12px_16px_0px_rgba(255,255,255,0.82)] text-[#1A1A1A] w-14"
             >
               <svg
                 viewBox="0 0 18 16"
@@ -383,9 +412,8 @@ const NewTrustSection = () => {
         }`}
       >
         <div className="relative overflow-hidden rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-[0px_16px_40px_rgba(31,41,55,0.18)] backdrop-blur-sm sm:px-5 sm:py-4">
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(232,244,225,0.8)_0%,rgba(255,255,255,0.9)_52%,rgba(194,247,173,0.75)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.9)_45%,rgba(237,216,154,0.8)_100%)]" />
 
-          {/* Close button */}
           <button
             type="button"
             onClick={() => setShowCouponPopover(false)}
@@ -440,3 +468,4 @@ const NewTrustSection = () => {
 };
 
 export default NewTrustSection;
+

@@ -1,7 +1,7 @@
 const items = [
   {
     icon: (
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+      <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
         <path
           d="M8 1L2 4V8C2 11.5 4.5 14.5 8 15.5C11.5 14.5 14 11.5 14 8V4L8 1Z"
           stroke="#1E3A2E"
@@ -21,7 +21,7 @@ const items = [
   },
   {
     icon: (
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+      <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="8" r="5.5" stroke="#1E3A2E" strokeWidth="1.2" />
         <polyline
           points="5,8.5 7,10.5 11,6"
@@ -37,7 +37,7 @@ const items = [
   },
   {
     icon: (
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+      <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
         <path
           d="M8 1L2 4V8C2 11.5 4.5 14.5 8 15.5C11.5 14.5 14 11.5 14 8V4L8 1Z"
           stroke="#1E3A2E"
@@ -57,7 +57,7 @@ const items = [
   },
   {
     icon: (
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+      <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="4.5" r="3" stroke="#1E3A2E" strokeWidth="1.2" />
         <path
           d="M2 15C2 15 2 11 8 11C14 11 14 15 14 15"
@@ -114,8 +114,8 @@ export default function TrustStrip() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 9,
-              fontSize: 13,
+              gap: 10,
+              fontSize: 15,
               color: '#1E3A2E',
               fontWeight: 500,
               fontFamily: '"Inter", sans-serif',

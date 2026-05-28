@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 
 const MIN_KG = 60;
 const MAX_KG = 150;
@@ -104,7 +104,7 @@ export default function BmiCalculatorSection() {
           className="bmi-grid-resp"
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: '1fr 1.6fr',
             gap: 32,
             alignItems: 'stretch',
           }}
@@ -150,7 +150,7 @@ export default function BmiCalculatorSection() {
               }}
             >
               15
-              <span style={{ fontSize: 72, color: '#3D5C4A' }}>–</span>
+              <span style={{ fontSize: 72, color: '#3D5C4A' }}>-</span>
               20
               <span style={{ fontSize: 72, color: '#3D5C4A' }}>%</span>
             </p>
@@ -178,7 +178,7 @@ export default function BmiCalculatorSection() {
               >
                 Durchschnittliche
                 <br />
-                Körpergewichtsreduktion
+                  Körpergewichtsreduktion
               </p>
               <p
                 style={{
@@ -197,6 +197,7 @@ export default function BmiCalculatorSection() {
 
           {/* Slider card */}
           <div
+            className="bmi-slider-card-resp"
             style={{
               background: '#FFFDF7',
               borderRadius: 28,
@@ -353,6 +354,39 @@ export default function BmiCalculatorSection() {
               }}
             />
 
+            <div
+              className="bmi-result-layout-resp"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '170px minmax(0, 1fr)',
+                gap: 22,
+                alignItems: 'end',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  alignSelf: 'stretch',
+                }}
+              >
+                <img
+                  className="bmi-slider-image-resp"
+                  src="/images/home/women-bmi.png"
+                  alt=""
+                  aria-hidden="true"
+                  style={{
+                    width: 155,
+                    maxWidth: '100%',
+                    height: 'auto',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                  }}
+                />
+              </div>
+
+              <div>
             {/* Result */}
             <span
               style={{
@@ -399,7 +433,7 @@ export default function BmiCalculatorSection() {
                   fontWeight: 400,
                 }}
               >
-                −{lossLow} bis −{lossHigh}
+                -{lossLow} bis -{lossHigh}
               </span>
               <span
                 style={{
@@ -421,7 +455,7 @@ export default function BmiCalculatorSection() {
                 lineHeight: 1.4,
               }}
             >
-              Basierend auf 15–20 % durchschnittlicher Reduktion in klinischen Studien.
+              Basierend auf 15-20 % durchschnittlicher Reduktion in klinischen Studien.
             </p>
 
             <a
@@ -451,6 +485,8 @@ export default function BmiCalculatorSection() {
             >
               Behandlung starten <span style={{ fontSize: 16 }}>→</span>
             </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -471,7 +507,7 @@ export default function BmiCalculatorSection() {
           <sup style={{ color: '#B0832B', fontWeight: 600 }}>*</sup>
           Berechnungen basieren auf den Ergebnissen klinischer Studien (STEP- und
           SURMOUNT-Programme). Individuelle Ergebnisse können abweichen. Eine medikamentöse
-          Therapie ersetzt keine ärztliche Beratung.
+            Therapie ersetzt keine ärztliche Beratung.
         </p>
       </div>
       <style>{`
@@ -483,8 +519,13 @@ export default function BmiCalculatorSection() {
         @media (max-width: 640px) {
           .bmi-hl-resp { font-size: 28px !important; }
           .bmi-stat-num-resp { font-size: 44px !important; }
+          .bmi-result-layout-resp { grid-template-columns: 1fr !important; gap: 16px !important; }
+          .bmi-slider-image-resp { width: 150px !important; }
         }
       `}</style>
     </section>
   );
 }
+
+
+

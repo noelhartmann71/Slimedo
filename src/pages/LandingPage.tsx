@@ -1,5 +1,5 @@
 // ============================================================
-//  SLIMEDO · LANDING PAGE
+//  SLIMEDO · LANDINGPAGE
 //  Vollständige Neuimplementierung nach dem Design-Template
 //  slimedo_full_page-13.html · Mai 2026
 // ============================================================
@@ -10,7 +10,6 @@ import SlimedoNavbar from '@/components/slimedo-landing/SlimedoNavbar';
 import SlimedoHero from '@/components/slimedo-landing/SlimedoHero';
 import TrustStrip from '@/components/slimedo-landing/TrustStrip';
 import GlpIntroSection from '@/components/slimedo-landing/GlpIntroSection';
-import ThreeStepsSection from '@/components/slimedo-landing/ThreeStepsSection';
 import WirkungsweiseSection from '@/components/slimedo-landing/WirkungsweiseSection';
 import BmiCalculatorSection from '@/components/slimedo-landing/BmiCalculatorSection';
 import AnwendungSection from '@/components/slimedo-landing/AnwendungSection';
@@ -22,6 +21,7 @@ import BlogSection from '@/components/slimedo-landing/BlogSection';
 import FaqSection from '@/components/slimedo-landing/FaqSection';
 import CtaSection from '@/components/slimedo-landing/CtaSection';
 import SlimedoFooter from '@/components/slimedo-landing/SlimedoFooter';
+import NewTrustSection from "@/components/NewTrustSection/NewTrustSection.tsx";
 
 // ── Übergangs-Brücken ─────────────────────────────────────────
 type BridgeVariant =
@@ -92,7 +92,7 @@ export default function LandingPage() {
         fontFamily: '"Inter", system-ui, sans-serif',
         color: '#1A1A1A',
         WebkitFontSmoothing: 'antialiased',
-        overflowX: 'hidden',
+        overflowX: 'clip',
       }}
     >
       {/* ── Ticker ─────────────────────────── */}
@@ -114,7 +114,7 @@ export default function LandingPage() {
 
         {/* ── 3 Schritte ─────────────────────── */}
         <Bridge variant="cream-to-sand" />
-        <ThreeStepsSection />
+        <NewTrustSection />
 
         {/* ── Wirkungsweise ──────────────────── */}
         <Bridge variant="sand-to-cream" />
