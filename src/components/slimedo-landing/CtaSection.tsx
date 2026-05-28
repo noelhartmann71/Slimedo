@@ -1,6 +1,10 @@
 import {useEffect, useRef} from 'react';
 
-export default function CtaSection() {
+type CtaSectionProps = {
+    sectionBackground?: string;
+};
+
+export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionProps) {
     const ref = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
@@ -27,7 +31,7 @@ export default function CtaSection() {
             ref={ref}
             id="start"
             style={{
-                background: '#FFFDF7',
+                background: sectionBackground,
                 padding: '52px 0 72px',
                 position: 'relative',
             }}
