@@ -33,11 +33,10 @@ type WissenswertesArticle = {
 };
 
 const links: NavLink[] = [
-  { label: "So funktioniert's", href: '/#schritte' },
+  { label: "So funktioniert's", href: '/#how-it-works-section' },
   { label: 'Abnehmspritzen', href: '/#intro', dropdown: 'abnehmspritzen' },
   { label: 'Wissenswertes', href: '/#wirk', dropdown: 'wissenswertes' },
   { label: 'Unser Team', to: '/team' },
-  { label: 'FAQ', href: '/#faq' },
 ];
 
 const programs = [
@@ -62,10 +61,6 @@ const wissenswertesLinks = [
   { label: 'Potenzial', href: '#potenzial' },
   { label: 'Anwendung', href: '#anwendung' },
   { label: 'Patientenerfahrungen', href: '#bewertungen' },
-  {
-    label: 'Empfehle einen Freund weiter und sichere dir deine Praemie!',
-    href: '#start',
-  },
   { label: 'Häufig gestellte Fragen', href: '#faq' },
 ];
 
