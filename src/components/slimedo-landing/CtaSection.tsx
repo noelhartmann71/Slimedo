@@ -258,6 +258,12 @@ export default function CtaSection() {
           z-index: 0;
         }
 
+        .cta-card-resp {
+          --cta-top-cut: 22px; /* Feinjustierung: höherer Wert = oben stärker gekürzt */
+          clip-path: inset(var(--cta-top-cut) 0 0 0 round 70px);
+          -webkit-clip-path: inset(var(--cta-top-cut) 0 0 0 round 70px);
+        }
+
         .slimedoBanner {
           width: 100%;
           height: 100%;
@@ -285,7 +291,7 @@ export default function CtaSection() {
           font-weight: 740;
           font-size: clamp(110px, 18vw, 330px);
           line-height: 0.9;
-          letter-spacing: -10px;
+          letter-spacing: 5px;
           padding-inline: 0.06em;
           white-space: nowrap;
           user-select: none;
@@ -327,12 +333,21 @@ export default function CtaSection() {
         }
 
         @media (max-width: 900px) {
-          .cta-card-resp { border-radius: 30px !important; }
+          .cta-card-resp {
+            border-radius: 30px !important;
+            clip-path: inset(var(--cta-top-cut) 0 0 0 round 30px);
+            -webkit-clip-path: inset(var(--cta-top-cut) 0 0 0 round 30px);
+          }
         }
 
         @media (max-width: 640px) {
           .cta-shell-resp { padding-left: 16px !important; padding-right: 16px !important; }
-          .cta-card-resp { border-radius: 22px !important; min-height: 700px !important; }
+          .cta-card-resp {
+            border-radius: 22px !important;
+            min-height: 700px !important;
+            clip-path: inset(var(--cta-top-cut) 0 0 0 round 22px);
+            -webkit-clip-path: inset(var(--cta-top-cut) 0 0 0 round 22px);
+          }
           .cta-hl-resp { font-size: 40px !important; }
         }
       `}</style>
