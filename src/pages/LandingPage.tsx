@@ -50,16 +50,16 @@ const bridgeStyles: Record<BridgeVariant, CSSProperties> = {
     background: 'linear-gradient(to bottom,#CDDDCB,#FAF5EA)',
   },
   'cream-to-dark': {
-    height: 64,
-    background: 'linear-gradient(to bottom,#FAF5EA,#1E3A2E)',
+    height: 88,
+    background: 'linear-gradient(to bottom,#FAF5EA 0%,#3D5C4A 55%,#1E3A2E 100%)',
   },
   'dark-to-surf': {
-    height: 64,
-    background: 'linear-gradient(to bottom,#162B20,#FFFDF7)',
+    height: 80,
+    background: 'linear-gradient(to bottom,#1E3A2E,#FFFDF7)',
   },
   'surf-to-dark': {
-    height: 48,
-    background: 'linear-gradient(to bottom,#FFFDF7,#1E3A2E)',
+    height: 88,
+    background: 'linear-gradient(to bottom,#FFFDF7 0%,#3D5C4A 55%,#1E3A2E 100%)',
   },
   'dark-to-sand': {
     height: 48,
@@ -141,7 +141,7 @@ export default function LandingPage() {
         <PrivacySection />
 
         {/* ── Lifestyle Collage ──────────────── */}
-        <Bridge variant="dark-to-sand" />
+        <Bridge variant="cream-to-sand" />
         <LifestyleSection />
 
         {/* ── Blog ───────────────────────────── */}
@@ -153,7 +153,6 @@ export default function LandingPage() {
         <FaqSection />
 
         {/* ── CTA Section ────────────────────── */}
-        <Bridge variant="surf-to-dark" />
         <CtaSection />
       </main>
 

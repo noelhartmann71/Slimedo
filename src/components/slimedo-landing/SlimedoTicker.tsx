@@ -16,6 +16,9 @@ export default function SlimedoTicker() {
     <div
       aria-hidden="true"
       style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 210,
         background: '#1E3A2E',
         height: 36,
         overflow: 'hidden',

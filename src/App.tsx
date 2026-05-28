@@ -37,6 +37,7 @@ import VerifyIdentityPage from "./features/auth/pages/VerifyIdentityPage";
 import RecommendationPage from "./features/auth/pages/RecommendationPage";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import TeamPage from "./pages/TeamPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsConditionsPage from "./pages/TermsConditionsPage";
 import AdminDashboardLayout from "./features/admin-dashboard/components/AdminDashboardLayout";
@@ -72,6 +73,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <LandingPage /> },
       { path: "/blog", element: <Blog /> },
+      { path: "/team", element: <TeamPage /> },
       { path: "/prescriptions", element: <Prescription /> },
       { path: "/privacy", element: <PrivacyPolicyPage /> },
       { path: "/terms", element: <TermsConditionsPage /> },

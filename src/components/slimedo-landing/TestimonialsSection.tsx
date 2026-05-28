@@ -52,7 +52,10 @@ export default function TestimonialsSection() {
         borderBottom: '2px dashed #E5D9BD',
       }}
     >
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 40px' }}>
+      <div
+        className="testimonials-wrapper-resp"
+        style={{ margin: '0 auto', padding: '0 20px' }}
+      >
         <div
           style={{
             display: 'inline-flex',
@@ -103,7 +106,7 @@ export default function TestimonialsSection() {
             fontFamily: '"Inter", sans-serif',
           }}
         >
-          4,7 auf Trustpilot · 10353 Bewertungen
+          4,9 auf Trustpilot
         </p>
 
         <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
@@ -144,18 +147,23 @@ export default function TestimonialsSection() {
         <div
           className="testimonials-layout-resp"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1fr) 300px',
-            gap: 16,
+            display: 'flex',
+            gap: 20,
             alignItems: 'stretch',
-            maxWidth: 1000,
           }}
         >
           <div
+            className="testimonials-text-card-resp"
             style={{
               background: '#F5EEDB',
               borderRadius: 18,
-              padding: 36,
+              padding: '32px 36px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              width: '50%',
+              height: 438,
+              flexShrink: 0,
             }}
           >
             <div
@@ -205,22 +213,24 @@ export default function TestimonialsSection() {
           <div
             className="testimonials-images-resp"
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 12,
+              display: 'flex',
+              flex: 1,
+              alignItems: 'stretch',
             }}
           >
             <div
+              className="testimonials-image-card-resp"
               style={{
                 position: 'relative',
                 borderRadius: 14,
                 overflow: 'hidden',
-                minHeight: 168,
+                width: '100%',
+                height: 438,
               }}
             >
               <img
                 src={t.beforeImg}
-                alt="Vorher"
+                alt="1 Monat"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -242,43 +252,7 @@ export default function TestimonialsSection() {
                   borderRadius: 999,
                 }}
               >
-                Vorher
-              </span>
-            </div>
-
-            <div
-              style={{
-                position: 'relative',
-                borderRadius: 14,
-                overflow: 'hidden',
-                minHeight: 168,
-              }}
-            >
-              <img
-                src={t.afterImg}
-                alt="Nachher"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block',
-                }}
-              />
-              <span
-                style={{
-                  position: 'absolute',
-                  left: 10,
-                  bottom: 10,
-                  background: 'rgba(255,253,247,0.9)',
-                  color: '#1A1A1A',
-                  fontFamily: '"Inter", sans-serif',
-                  fontSize: 11,
-                  fontWeight: 500,
-                  padding: '4px 10px',
-                  borderRadius: 999,
-                }}
-              >
-                Nachher
+                1 Monat
               </span>
             </div>
           </div>
@@ -286,9 +260,40 @@ export default function TestimonialsSection() {
       </div>
 
       <style>{`
+        @media (min-width: 1024px) {
+          .testimonials-wrapper-resp {
+            padding-left: 40px !important;
+            padding-right: 40px !important;
+          }
+        }
+
+        @media (min-width: 1280px) {
+          .testimonials-wrapper-resp {
+            padding-left: 60px !important;
+            padding-right: 60px !important;
+          }
+        }
+
+        @media (min-width: 1536px) {
+          .testimonials-wrapper-resp {
+            padding-left: 200px !important;
+            padding-right: 200px !important;
+          }
+        }
+
         @media (max-width: 900px) {
-          .testimonials-layout-resp { grid-template-columns: 1fr !important; }
-          .testimonials-images-resp { grid-template-columns: 1fr 1fr !important; grid-template-rows: none !important; }
+          .testimonials-layout-resp {
+            flex-direction: column !important;
+          }
+          .testimonials-text-card-resp {
+            width: 100% !important;
+            height: auto !important;
+            flex: 1 1 auto !important;
+          }
+          .testimonials-image-card-resp {
+            width: 100% !important;
+            height: 340px !important;
+          }
         }
       `}</style>
     </section>

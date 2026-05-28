@@ -531,7 +531,7 @@ export default function WarumWirSection() {
                 <span
                   style={{
                     fontFamily: 'var(--font-serif)',
-                    fontSize: 17,
+                    fontSize: 30,
                     fontWeight: 600,
                     letterSpacing: '0.01em',
                     color: '#1E3A2E',

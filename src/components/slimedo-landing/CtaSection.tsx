@@ -1,6 +1,10 @@
-import { useEffect, useRef } from 'react';
+import {useEffect, useRef} from 'react';
 
-export default function CtaSection() {
+type CtaSectionProps = {
+    sectionBackground?: string;
+};
+
+export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionProps) {
     const ref = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
@@ -16,7 +20,7 @@ export default function CtaSection() {
                     }
                 });
             },
-            { threshold: 0.07, rootMargin: '0px 0px -20px 0px' }
+            {threshold: 0.07, rootMargin: '0px 0px -20px 0px'}
         );
         anims.forEach((el) => observer.observe(el));
         return () => observer.disconnect();
@@ -27,20 +31,32 @@ export default function CtaSection() {
             ref={ref}
             id="start"
             style={{
-                background: '#1E3A2E',
-                minHeight: 680,
-                padding: '104px 0',
-                textAlign: 'center',
+                background: sectionBackground,
+                padding: '52px 0 72px',
                 position: 'relative',
-                overflow: 'hidden',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
             }}
         >
-            <div className="slimedoReplicaPageBg" aria-hidden>
-                <div className="slimedoBanner">
-                    <svg viewBox="0 0 2048 602" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <div
+                className="cta-shell-resp"
+                style={{maxWidth: 2720, margin: '0 auto', padding: '0 56px'}}
+            >
+                <div
+                    className="cta-card-resp"
+                    style={{
+                        background: '#1E3A2E',
+                        minHeight: 600,
+                        textAlign: 'center',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: 70,
+                    }}
+                >
+                    <div className="slimedoReplicaPageBg" aria-hidden>
+                        <div className="slimedoBanner">
+                            <svg viewBox="0 0 2048 602" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
                         <defs>
                             <linearGradient id="topShadowGradient" x1="0" y1="0" x2="1" y2="1">
                                 <stop offset="0%" stopColor="#082924" stopOpacity="0.24"/>
@@ -54,11 +70,6 @@ export default function CtaSection() {
                                 <stop offset="56%" stopColor="#082723" stopOpacity="0.22"/>
                                 <stop offset="80%" stopColor="#082723" stopOpacity="0.12"/>
                                 <stop offset="100%" stopColor="#082723" stopOpacity="0"/>
-                            </linearGradient>
-
-                            <linearGradient id="textGradient" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor="#bcc8c3"/>
-                                <stop offset="100%" stopColor="#8f9d98"/>
                             </linearGradient>
 
                             <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="0">
@@ -107,29 +118,21 @@ export default function CtaSection() {
                             fill="url(#midShadowGradient)"
                         />
 
-                        <g mask="url(#edgeFadeMask)">
-                            {wavePaths.map((path, index) => (
-                                <path
-                                    key={index}
-                                    className="waveLine"
-                                    opacity={path.opacity}
-                                    d={path.d}
-                                />
-                            ))}
-                        </g>
+                                <g mask="url(#edgeFadeMask)">
+                                    {wavePaths.map((path, index) => (
+                                        <path
+                                            key={index}
+                                            className="waveLine"
+                                            opacity={path.opacity}
+                                            d={path.d}
+                                        />
+                                    ))}
+                                </g>
 
-                        <text
-                            className="brandText"
-                            x="50%"
-                            y="712"
-                            fontSize="330"
-                            textAnchor="middle"
-                        >
-                            Slimedo
-                        </text>
-                    </svg>
-                </div>
-            </div>
+                            </svg>
+                            <div className="slimedoWordmarkFade">Slimedo</div>
+                        </div>
+                    </div>
 
             <div
                 aria-hidden
@@ -154,7 +157,7 @@ export default function CtaSection() {
                 }}
             >
                 <div
-                    className="slimedo-anim"
+                    className="slimedo-anim played"
                     style={{
                         width: 80,
                         height: 80,
@@ -170,12 +173,12 @@ export default function CtaSection() {
                     <img
                         src="/images/logo/cta-banner.png"
                         alt="Slimedo Logo"
-                        style={{ objectFit: 'contain', flexShrink: 0 }}
+                        style={{objectFit: 'contain', flexShrink: 0}}
                     />
                 </div>
 
                 <h2
-                    className="slimedo-anim slimedo-d1 cta-hl-resp"
+                    className="slimedo-anim played slimedo-d1 cta-hl-resp"
                     style={{
                         fontFamily: '"Instrument Serif", Georgia, serif',
                         fontSize: 68,
@@ -187,11 +190,11 @@ export default function CtaSection() {
                     }}
                 >
                     Bereit für deinen{' '}
-                    <em style={{ color: '#CDDDCB', fontStyle: 'italic' }}>Neuanfang?</em>
+                    <em style={{color: '#CDDDCB', fontStyle: 'italic'}}>Neuanfang?</em>
                 </h2>
 
                 <p
-                    className="slimedo-anim slimedo-d2"
+                    className="slimedo-anim played slimedo-d2"
                     style={{
                         fontSize: 17,
                         color: 'rgba(205,221,203,.7)',
@@ -206,7 +209,7 @@ export default function CtaSection() {
 
                 <a
                     href="#"
-                    className="slimedo-anim slimedo-d3 ctaButton"
+                    className="slimedo-anim played slimedo-d3 ctaButton"
                     style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -247,6 +250,8 @@ export default function CtaSection() {
                         </svg>
                     </span>
                 </a>
+                    </div>
+                </div>
             </div>
 
             <style>{`
@@ -257,6 +262,12 @@ export default function CtaSection() {
           z-index: 0;
         }
 
+        .cta-card-resp {
+          --cta-top-cut: 22px; /* Feinjustierung: höherer Wert = oben stärker gekürzt */
+          clip-path: inset(var(--cta-top-cut) 0 0 0 round 70px);
+          -webkit-clip-path: inset(var(--cta-top-cut) 0 0 0 round 70px);
+        }
+
         .slimedoBanner {
           width: 100%;
           height: 100%;
@@ -264,20 +275,47 @@ export default function CtaSection() {
           overflow: hidden;
           border-radius: 0;
           background: #1E3A2E;
+          transform: translateY(80px);
+
         }
 
         .slimedoBanner svg {
           width: 100%;
           height: 100%;
           display: block;
+          transform: translateY(-10px);
         }
 
-        .brandText {
+        .slimedoWordmarkFade {
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
           font-family: Inter, Poppins, Arial, sans-serif;
           font-weight: 740;
-          letter-spacing: -10px;
-          fill: url(#textGradient);
-          opacity: 0.7;
+          font-size: clamp(110px, 18vw, 330px);
+          line-height: 0.9;
+          letter-spacing: 5px;
+          padding-inline: 0.06em;
+          white-space: nowrap;
+          user-select: none;
+          color: rgba(188, 200, 195, 0.92);
+          -webkit-mask-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.4) 30%,
+            rgba(0, 0, 0, 0.1) 48%,
+            rgba(0, 0, 0, 0) 62%
+          );
+          mask-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.4) 30%,
+            rgba(0, 0, 0, 0.1) 48%,
+            rgba(0, 0, 0, 0) 62%
+          );
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
         }
 
         .waveLine {
@@ -294,7 +332,43 @@ export default function CtaSection() {
           transform: translateY(-1px);
         }
 
+        @media (max-width: 1200px) {
+          .cta-shell-resp { padding-left: 32px !important; padding-right: 32px !important; }
+        }
+
+        @media (max-width: 900px) {
+          .cta-card-resp {
+            border-radius: 30px !important;
+            clip-path: inset(var(--cta-top-cut) 0 0 0 round 30px);
+            -webkit-clip-path: inset(var(--cta-top-cut) 0 0 0 round 30px);
+          }
+          .slimedoBanner {
+            transform: translateY(30px) !important;
+          }
+          .slimedoWordmarkFade {
+            bottom: -2px;
+            font-size: clamp(70px, 18vw, 130px);
+            letter-spacing: 0px;
+            -webkit-mask-image: none;
+            mask-image: none;
+            opacity: 0.5;
+            z-index: 2;
+          }
+        }
+
         @media (max-width: 640px) {
+          .cta-shell-resp { padding-left: 16px !important; padding-right: 16px !important; }
+          .cta-card-resp {
+            border-radius: 22px !important;
+            min-height: 700px !important;
+            clip-path: inset(var(--cta-top-cut) 0 0 0 round 22px);
+            -webkit-clip-path: inset(var(--cta-top-cut) 0 0 0 round 22px);
+          }
+          .slimedoWordmarkFade {
+            bottom: -2px;
+            font-size: clamp(72px, 24vw, 118px);
+            opacity: 0.46;
+          }
           .cta-hl-resp { font-size: 40px !important; }
         }
       `}</style>

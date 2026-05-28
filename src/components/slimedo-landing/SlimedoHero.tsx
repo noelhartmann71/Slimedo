@@ -331,7 +331,6 @@ export default function SlimedoHero() {
           src="/images/slimedo/slimedohero.mp4"
           autoPlay
           muted
-          loop
           playsInline
           style={{
             position: 'absolute',

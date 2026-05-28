@@ -47,37 +47,49 @@ export default function SlimedoFooter() {
           <div>
             <span
               style={{
-                fontFamily: '"Manrope", sans-serif',
-                fontSize: 16,
-                fontWeight: 700,
-                color: '#FAF5EA',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
                 marginBottom: 14,
-                letterSpacing: '.12em',
-                textTransform: 'uppercase',
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-                <circle cx="9" cy="7.5" r="3.8" fill="#CDDDCB" />
-                <path
-                  d="M2 22C2 22 2 16.5 9 16.5C16 16.5 16 22 16 22"
-                  stroke="#CDDDCB"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  fill="none"
+              <span
+                aria-hidden="true"
+                style={{
+                  width: 39,
+                  height: 39,
+                  borderRadius: '999px',
+                  background: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 6px 14px rgba(8,15,12,.22)',
+                  flexShrink: 0,
+                }}
+              >
+                <img
+                  src="/images/logo/cta-banner.png"
+                  alt="Slimedo Logo"
+                  style={{
+                    width: 38,
+                    height: 38,
+                    objectFit: 'contain',
+                    flexShrink: 0,
+                  }}
                 />
-                <circle cx="20" cy="6" r="4.5" fill="rgba(205,221,203,.65)" />
-                <path
-                  d="M13 22C13 22 13 15.5 20 15.5C27 15.5 27 22 27 22"
-                  stroke="rgba(205,221,203,.65)"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-              </svg>
-              SLIMEDO
+              </span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: 19,
+                  fontWeight: 700,
+                  color: '#FAF5EA',
+                  letterSpacing: '0',
+                  lineHeight: 1,
+                }}
+              >
+                Slimedo
+              </span>
             </span>
             <p
               style={{
