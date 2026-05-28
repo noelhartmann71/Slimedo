@@ -338,6 +338,18 @@ export default function CtaSection() {
             clip-path: inset(var(--cta-top-cut) 0 0 0 round 30px);
             -webkit-clip-path: inset(var(--cta-top-cut) 0 0 0 round 30px);
           }
+          .slimedoBanner {
+            transform: translateY(30px) !important;
+          }
+          .slimedoWordmarkFade {
+            bottom: -2px;
+            font-size: clamp(70px, 18vw, 130px);
+            letter-spacing: 0px;
+            -webkit-mask-image: none;
+            mask-image: none;
+            opacity: 0.5;
+            z-index: 2;
+          }
         }
 
         @media (max-width: 640px) {
@@ -347,6 +359,11 @@ export default function CtaSection() {
             min-height: 700px !important;
             clip-path: inset(var(--cta-top-cut) 0 0 0 round 22px);
             -webkit-clip-path: inset(var(--cta-top-cut) 0 0 0 round 22px);
+          }
+          .slimedoWordmarkFade {
+            bottom: -2px;
+            font-size: clamp(72px, 24vw, 118px);
+            opacity: 0.46;
           }
           .cta-hl-resp { font-size: 40px !important; }
         }
