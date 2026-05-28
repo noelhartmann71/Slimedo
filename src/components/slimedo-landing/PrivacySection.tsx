@@ -92,15 +92,8 @@ function ShieldItem({ title, subtitle, icon, side, className, style }: ShieldIte
     <div
       className={className}
       style={{
-        borderRadius: 24,
-        border: '1px solid rgba(205,221,203,0.22)',
-        background:
-          'linear-gradient(155deg, rgba(250,245,234,0.13) 0%, rgba(205,221,203,0.07) 48%, rgba(30,58,46,0.18) 100%)',
-        boxShadow: '0 14px 34px rgba(11,24,19,0.2), inset 0 1px 0 rgba(255,255,255,0.08)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-        padding: '16px 18px',
-        minHeight: 98,
+        padding: '0',
+        minHeight: 0,
         ...style,
       }}
     >
@@ -493,9 +486,11 @@ export default function PrivacySection() {
 
       const nextTracks: OrbitTrack[] = cards.map((card, index) => {
         const rect = (card as HTMLDivElement).getBoundingClientRect();
+        const icon = (card as HTMLDivElement).querySelector<SVGSVGElement>('svg');
+        const targetRect = icon?.getBoundingClientRect() ?? rect;
         const end: Point = {
-          x: rect.left + rect.width / 2 - stageRect.left,
-          y: rect.top + rect.height / 2 - stageRect.top,
+          x: targetRect.left + targetRect.width / 2 - stageRect.left,
+          y: targetRect.top + targetRect.height / 2 - stageRect.top,
         };
 
         const { c1, c2 } = deriveBezierControls(start, end, index);
@@ -1064,4 +1059,3 @@ export default function PrivacySection() {
     </section>
   );
 }
-
