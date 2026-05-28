@@ -48,6 +48,7 @@ export default function AnwendungSection() {
     return (
         <section
             ref={ref}
+            id="anwendung"
             style={{
                 background: 'radial-gradient(ellipse at 15% 20%, rgba(205,221,203,0.45) 0%, transparent 55%), radial-gradient(ellipse at 85% 80%, rgba(237,216,154,0.3) 0%, transparent 55%), #FAF5EA',
                 padding: '96px 0 104px',
