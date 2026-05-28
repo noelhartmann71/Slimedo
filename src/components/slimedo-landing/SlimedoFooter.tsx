@@ -47,29 +47,49 @@ export default function SlimedoFooter() {
           <div>
             <span
               style={{
-                fontFamily: '"Manrope", sans-serif',
-                fontSize: 16,
-                fontWeight: 700,
-                color: '#FAF5EA',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
                 marginBottom: 14,
-                letterSpacing: '.12em',
-                textTransform: 'uppercase',
               }}
             >
-              <img
-                src="/images/logo/cta-banner.png"
-                alt="Slimedo Logo"
+              <span
+                aria-hidden="true"
                 style={{
-                  width: 28,
-                  height: 28,
-                  objectFit: 'contain',
+                  width: 39,
+                  height: 39,
+                  borderRadius: '999px',
+                  background: '#FFFFFF',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 6px 14px rgba(8,15,12,.22)',
                   flexShrink: 0,
                 }}
-              />
-              SLIMEDO
+              >
+                <img
+                  src="/images/logo/cta-banner.png"
+                  alt="Slimedo Logo"
+                  style={{
+                    width: 38,
+                    height: 38,
+                    objectFit: 'contain',
+                    flexShrink: 0,
+                  }}
+                />
+              </span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: 19,
+                  fontWeight: 700,
+                  color: '#FAF5EA',
+                  letterSpacing: '0',
+                  lineHeight: 1,
+                }}
+              >
+                Slimedo
+              </span>
             </span>
             <p
               style={{
