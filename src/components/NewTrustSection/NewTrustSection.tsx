@@ -149,8 +149,22 @@ const NewTrustSection = () => {
         </div>
 
         <div className="mx-auto relative select-none" style={{ fontFamily: FONT_INTER }}>
+          <p
+            className="text-center mb-3"
+            style={{
+              fontFamily: FONT_INTER,
+              fontSize: 12,
+              fontWeight: 500,
+              textTransform: "uppercase",
+              letterSpacing: "0.16em",
+              color: "#3D5C4A",
+            }}
+          >
+            So einfach geht es
+          </p>
+
           <h2
-            className="text-center font-normal text-[#1A1A1A] text-[28px] lg:text-[52px] max-[640px]:mb-4 mb-10"
+            className="text-center font-normal text-[#1A1A1A] text-[28px] lg:text-[52px] max-[640px]:mb-4 mb-6"
             style={{
               fontFamily: FONT_INSTRUMENT_SERIF,
               fontSize: "clamp(28px, 5vw, 62px)",
@@ -159,15 +173,33 @@ const NewTrustSection = () => {
               letterSpacing: "-0.01em",
             }}
           >
-            In drei Schritten{" "}
+            In drei Schritten zur{" "}
             <span
               className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#4A6E58_0%,#3D5C4A_100%)] text-transparent"
               style={{ fontStyle: "italic" }}
             >
-              <br />
-              zur Behandlung
+              Behandlung
             </span>
           </h2>
+
+          <p
+            className="text-center mb-10"
+            style={{
+              fontFamily: FONT_INTER,
+              fontSize: 15,
+              color: "#6E6A60",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 10,
+            }}
+          >
+            <span>100% diskret</span>
+            <span style={{ opacity: 0.4 }}>·</span>
+            <span>online</span>
+            <span style={{ opacity: 0.4 }}>·</span>
+            <span>ärztlich begleitet</span>
+          </p>
 
           <div
             id="how-it-works-carousel"
@@ -293,6 +325,7 @@ const NewTrustSection = () => {
                 data-step="2"
                 className="flex flex-col relative rounded-3xl bg-white lg:shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25),0px_14.079px_276.301px_0px_rgba(0,193,19,0.13)] max-[640px]:px-4 max-[640px]:rounded-[27.967px] max-[640px]:snap-center pt-8 shadow-[0px_4px_16.9px_0px_rgba(0,0,0,0.25)] max-[640px]:shrink-0 max-[640px]:shadow-[0px_2.649px_11.19px_0px_rgba(0,0,0,0.25)] px-7.5 w-90 max-[640px]:w-full"
               >
+
                 <div
                   className="flex items-center justify-center absolute rounded-full -top-5.25 -translate-x-1/2 bg-[#3D5C4A] font-bold h-10.75 leading-[1.4] left-1/2 max-[640px]:-top-4.5 max-[640px]:h-9 max-[640px]:text-[22.605px] max-[640px]:w-9 max-[640px]:z-101 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04)] text-[27px] text-white w-10.75 z-100"
                   style={{ fontFamily: FONT_MANROPE }}
@@ -307,7 +340,7 @@ const NewTrustSection = () => {
                     >
                       Lieferung in{" "}
                       <span className="[-webkit-text-fill-color:transparent] bg-clip-text bg-[linear-gradient(90deg,#4A6E58_0%,#3D5C4A_100%)] text-transparent">
-                        1-2 Werktagen
+                        1–2 Werktagen
                       </span>
                     </h3>
                     <p
@@ -335,6 +368,46 @@ const NewTrustSection = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="flex flex-col items-center mt-10 gap-3">
+            <a
+              href="#start"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                background: "linear-gradient(160deg,#4A6E58 0%,#3D5C4A 55%,#324E3F 100%)",
+                color: "#FAF5EA",
+                fontFamily: FONT_INTER,
+                fontSize: 15,
+                fontWeight: 500,
+                padding: "16px 36px",
+                borderRadius: 14,
+                textDecoration: "none",
+                boxShadow: "0 4px 16px rgba(30,58,46,.22)",
+                transition: "box-shadow .25s,transform .2s",
+                letterSpacing: "0.005em",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.boxShadow = "0 8px 28px rgba(30,58,46,.32)";
+                el.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.boxShadow = "0 4px 16px rgba(30,58,46,.22)";
+                el.style.transform = "translateY(0)";
+              }}
+            >
+              Fragebogen starten
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+            <p style={{ fontFamily: FONT_INTER, fontSize: 13, color: "#6E6A60" }}>
+              Dauert nur 2–3 Minuten
+            </p>
           </div>
 
           <div className="items-center max-[640px]:flex hidden justify-between mt-2">
