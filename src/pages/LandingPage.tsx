@@ -8,7 +8,6 @@ import type { CSSProperties } from 'react';
 import SlimedoTicker from '@/components/slimedo-landing/SlimedoTicker';
 import SlimedoNavbar from '@/components/slimedo-landing/SlimedoNavbar';
 import SlimedoHero from '@/components/slimedo-landing/SlimedoHero';
-import TrustStrip from '@/components/slimedo-landing/TrustStrip';
 import GlpIntroSection from '@/components/slimedo-landing/GlpIntroSection';
 import WirkungsweiseSection from '@/components/slimedo-landing/WirkungsweiseSection';
 import BmiCalculatorSection from '@/components/slimedo-landing/BmiCalculatorSection';
@@ -105,11 +104,8 @@ export default function LandingPage() {
         {/* ── Hero ───────────────────────────── */}
         <SlimedoHero />
 
-        {/* ── Trust Strip (Sand → Mint Verlauf) ─ */}
-        <TrustStrip />
-
         {/* ── GLP-1 Intro ────────────────────── */}
-        <Bridge variant="mint-to-cream" />
+        <Bridge variant="sand-to-cream" />
         <GlpIntroSection />
 
         {/* ── 3 Schritte ─────────────────────── */}
