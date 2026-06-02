@@ -1,24 +1,24 @@
 ﻿import { useEffect, useRef } from 'react';
 
 const leftPoints = [
-  'Ärztlich verschriebenes Rezept — von approbierten Ärzt:innen in Deutschland',
-  'Diskreter Versand direkt zu dir nach Hause — ohne Arztbesuch',
-  'Laufende ärztliche Begleitung mit individueller Dosisanpassung',
-  'Klinisch geprüfte Wirkstoffe — verschreibungspflichtig und reguliert',
+  'Weniger Hunger & Heißhunger',
+  'Ärztlich begleitete Behandlung',
+  'Moderne Medikamente wie Wegovy® oder Mounjaro®',
+  'Bequem online beantragen',
 ];
 
 const offerPoints = [
   {
     title: 'Digitales E-Rezept',
-    text: 'QES-signiert von approbierten Ärzt:innen in Deutschland',
+    sub: 'QES-signiert',
   },
   {
     title: 'Expressversand inklusive',
-    text: 'direkt über Versandapotheke, 1–2 Werktage, neutrale Verpackung',
+    sub: '1–2 Werktage',
   },
   {
     title: 'Ärztliche Begleitung',
-    text: 'laufende Betreuung und individuelle Dosisanpassung',
+    sub: 'Persönlich betreut',
   },
 ];
 
@@ -76,10 +76,15 @@ export default function GlpIntroSection() {
               GLP-1-<em>Therapie?</em>
             </h2>
 
+            <p className="gi-subtitle slimedo-anim slimedo-d2">
+              Im Alltag oft als Abnehmspritze bekannt
+            </p>
+
             <p className="gi-lead slimedo-anim slimedo-d2">
-              Semaglutid und Tirzepatid ahmen das körpereigene Sättigungshormon GLP-1 nach — sie
-              reduzieren den Appetit und unterstützen so eine ärztlich begleitete
-              Gewichtsreduktion.
+              Die GLP-1-Therapie nutzt moderne Wirkstoffe, die das körpereigene
+              Sättigungsgefühl unterstützen. Sie können helfen, Appetit und
+              Heißhunger zu reduzieren – begleitet durch eine ärztliche Prüfung
+              und Behandlung.
             </p>
 
             <ul className="gi-points slimedo-anim slimedo-d3">
@@ -93,26 +98,27 @@ export default function GlpIntroSection() {
               ))}
             </ul>
 
-            <div className="gi-badge slimedo-anim slimedo-d3">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <circle cx="7" cy="7" r="5.5" stroke="#3D5C4A" strokeWidth="1.3" />
-                <line
-                  x1="7"
-                  y1="4.5"
-                  x2="7"
-                  y2="7.5"
-                  stroke="#3D5C4A"
-                  strokeWidth="1.3"
-                  strokeLinecap="round"
-                />
-                <circle cx="7" cy="9.5" r="0.8" fill="#3D5C4A" />
-              </svg>
-              Bekannt als die <strong>„Abnehmspritze"</strong>
+            <div className="gi-cta-row slimedo-anim slimedo-d4">
+              <div className="gi-badge">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <circle cx="7" cy="7" r="5.5" stroke="#3D5C4A" strokeWidth="1.3" />
+                  <line
+                    x1="7"
+                    y1="4.5"
+                    x2="7"
+                    y2="7.5"
+                    stroke="#3D5C4A"
+                    strokeWidth="1.3"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="7" cy="9.5" r="0.8" fill="#3D5C4A" />
+                </svg>
+                Bekannt als die <strong>„Abnehmspritze"</strong>
+              </div>
+              <a href="#start" className="gi-cta">
+                Behandlung anfragen →
+              </a>
             </div>
-
-            <a href="#start" className="gi-cta slimedo-anim slimedo-d4">
-              Rezept anfragen →
-            </a>
           </div>
 
           <div className="gi-right">
@@ -120,12 +126,12 @@ export default function GlpIntroSection() {
               <div className="gi-tc-badge">Unser Angebot</div>
 
               <div className="gi-tc-header">
-                <div className="gi-tc-eyebrow">Rezeptgebühr</div>
+                <div className="gi-tc-eyebrow">Behandlungsgebühr</div>
                 <div className="gi-tc-price-main">
-                  <span className="gi-tc-price-num">29,90</span>
+                  <span className="gi-tc-price-num">29</span>
                   <span className="gi-tc-price-eur">€</span>
                 </div>
-                <div className="gi-tc-price-sub">einmalig pro Rezept</div>
+                <div className="gi-tc-price-sub">einmalig je Behandlung</div>
               </div>
 
               <div className="gi-tc-divider" />
@@ -137,7 +143,8 @@ export default function GlpIntroSection() {
                       <CheckIcon strokeWidth={2.2} />
                     </span>
                     <div>
-                      <strong>{point.title}</strong> — {point.text}
+                      <strong>{point.title}</strong>
+                      <div className="gi-tc-list-sub">{point.sub}</div>
                     </div>
                   </li>
                 ))}
@@ -145,29 +152,17 @@ export default function GlpIntroSection() {
 
               <div className="gi-tc-footer">
                 <div className="gi-tc-med-row">
-                  <span className="gi-tc-med-label">Medikament</span>
-                  <span className="gi-tc-med-price">ab 161,96 €</span>
+                  <div>
+                    <span className="gi-tc-med-label">Medikament</span>
+                    <div className="gi-tc-med-note">separat über die Apotheke</div>
+                  </div>
+                  <span className="gi-tc-med-price">ab 171,96 €</span>
                 </div>
-                <p className="gi-tc-med-note">
-                  Der Medikamentenpreis variiert je nach Wirkstoff und Dosierung — direkt über die
-                  Versandapotheke abgerechnet, nicht in der Rezeptgebühr enthalten.
-                </p>
               </div>
 
-              <div className="gi-tc-addon">
-                <div className="gi-tc-addon-icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="6" width="13" height="12" rx="2" stroke="#B0832B" strokeWidth="1.6" />
-                    <path d="M16 10l5-3v10l-5-3z" stroke="#B0832B" strokeWidth="1.6" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <div className="gi-tc-addon-text">
-                  <div className="gi-tc-addon-title">Premium Add-on · Videosprechstunde</div>
-                  <div className="gi-tc-addon-desc">
-                    Persönliches Gespräch mit Arzt:in · <strong>139 €</strong>
-                  </div>
-                </div>
-              </div>
+              <p className="gi-tc-optional">
+                Optional: Videosprechstunde mit Ärzt:in <strong>(+139 €)</strong>
+              </p>
             </div>
           </div>
         </div>
@@ -217,9 +212,17 @@ export default function GlpIntroSection() {
           font-style: italic;
         }
 
+        .gi-subtitle {
+          font-family: "Instrument Serif", Georgia, serif;
+          font-size: 18px;
+          font-style: italic;
+          color: #6e6a60;
+          margin-bottom: 16px;
+        }
+
         .gi-lead {
           font-family: "Inter", sans-serif;
-          font-size: 16.5px;
+          font-size: 16px;
           color: #6e6a60;
           line-height: 1.7;
           margin-bottom: 28px;
@@ -256,19 +259,26 @@ export default function GlpIntroSection() {
           margin-top: 2px;
         }
 
+        .gi-cta-row {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+          margin-top: 4px;
+        }
+
         .gi-badge {
           display: inline-flex;
           align-items: center;
           gap: 8px;
           background: rgba(61, 92, 74, 0.08);
           border: 1px solid rgba(61, 92, 74, 0.15);
-          padding: 8px 16px;
+          padding: 11px 18px;
           border-radius: 999px;
           font-family: "Inter", sans-serif;
           font-size: 13px;
           color: #3d5c4a;
-          margin-bottom: 28px;
-          margin-right: 20px;
+          white-space: nowrap;
         }
 
         .gi-badge strong {
@@ -291,6 +301,7 @@ export default function GlpIntroSection() {
           cursor: pointer;
           text-decoration: none;
           transition: background 0.2s;
+          white-space: nowrap;
         }
 
         .gi-cta:hover {
@@ -408,10 +419,17 @@ export default function GlpIntroSection() {
         .gi-tc-list li strong {
           font-weight: 600;
           color: #1a1a1a;
+          display: block;
         }
 
         .gi-tc-list li > div {
           flex: 1;
+        }
+
+        .gi-tc-list-sub {
+          font-size: 12.5px;
+          color: #6e6a60;
+          margin-top: 1px;
         }
 
         .gi-tc-check {
@@ -437,8 +455,7 @@ export default function GlpIntroSection() {
         .gi-tc-med-row {
           display: flex;
           justify-content: space-between;
-          align-items: baseline;
-          margin-bottom: 6px;
+          align-items: center;
         }
 
         .gi-tc-med-label {
@@ -446,6 +463,7 @@ export default function GlpIntroSection() {
           font-size: 13px;
           font-weight: 600;
           color: #1a1a1a;
+          margin-bottom: 2px;
         }
 
         .gi-tc-med-price {
@@ -464,50 +482,16 @@ export default function GlpIntroSection() {
           margin: 0;
         }
 
-        .gi-tc-addon {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          background: linear-gradient(135deg, rgba(237, 216, 154, 0.18) 0%, rgba(237, 216, 154, 0.08) 100%);
-          border: 1px solid rgba(176, 131, 43, 0.2);
-          border-radius: 12px;
-          padding: 12px 16px;
-        }
-
-        .gi-tc-addon-icon {
-          width: 32px;
-          height: 32px;
-          border-radius: 8px;
-          background: rgba(176, 131, 43, 0.12);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .gi-tc-addon-text {
-          flex: 1;
-        }
-
-        .gi-tc-addon-title {
+        .gi-tc-optional {
           font-family: "Inter", sans-serif;
-          font-size: 12px;
-          font-weight: 600;
-          color: #7a5a1b;
-          text-transform: uppercase;
-          letter-spacing: 0.06em;
-          margin-bottom: 2px;
+          font-size: 12.5px;
+          color: #6e6a60;
+          margin: 0;
         }
 
-        .gi-tc-addon-desc {
-          font-family: "Inter", sans-serif;
-          font-size: 13px;
+        .gi-tc-optional strong {
           color: #1a1a1a;
-        }
-
-        .gi-tc-addon-desc strong {
           font-weight: 600;
-          color: #7a5a1b;
         }
 
         @media (max-width: 1024px) {
