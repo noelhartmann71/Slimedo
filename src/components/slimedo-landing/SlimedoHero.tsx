@@ -35,7 +35,7 @@ const trustItems = [
         />
       </svg>
     ),
-    label: 'Deutsche, approbierte Ärzte',
+    label: 'In Deutschland approbierte Ärzt:innen',
   },
   {
     icon: (
@@ -50,6 +50,26 @@ const trustItems = [
       </svg>
     ),
     label: 'Telemedizin-Plattform',
+  },
+  {
+    icon: (
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <path
+          d="M6.5 1L2 3.5V6.5C2 9.5 4 12 6.5 13C9 12 11 9.5 11 6.5V3.5L6.5 1Z"
+          stroke="#768064"
+          strokeWidth="1.2"
+        />
+        <polyline
+          points="3.5,6.5 5.5,8.5 9.5,4.5"
+          stroke="#768064"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </svg>
+    ),
+    label: '100% diskret & vertraulich',
   },
 ];
 
@@ -143,7 +163,7 @@ export default function SlimedoHero() {
               fill="none"
             />
           </svg>
-          Ärztlich begleitet · 100% diskret
+          Ärztlich begleitet · Persönlich betreut
         </span>
 
         {/* H1 */}
@@ -165,21 +185,38 @@ export default function SlimedoHero() {
           <em style={{ color: '#3D5C4A', fontStyle: 'italic' }}>Körpergefühl.</em>
         </h1>
 
-        {/* Subtitle */}
-        <p
-          className="slimedo-anim slimedo-d3 hero-sub-resp"
+        {/* Bullet points */}
+        <ul
+          className="slimedo-anim slimedo-d3"
           style={{
-            fontSize: 17,
-            color: '#6E6A60',
-            lineHeight: 1.65,
-            marginBottom: 40,
-            maxWidth: 430,
+            listStyle: 'none',
+            padding: 0,
+            margin: '0 0 40px 0',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 14,
             fontFamily: '"Inter", sans-serif',
           }}
         >
-          Ärztlich verschriebene GLP-1-Therapie (sog. Abnehmspritze) — diskret, klinisch geprüft
-          und direkt nach Hause geliefert.
-        </p>
+          {[
+            'Behandlungsgebühr 29 € + Medikament ab 171,96 €',
+            'Ärztliche Behandlung, klinisch geprüft',
+            'Direkt nach Hause geliefert',
+          ].map((text, i) => (
+            <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 16, color: '#3A3730' }}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
+                <polyline
+                  points="2,8 6,12 14,4"
+                  stroke="#3D5C4A"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              {text}
+            </li>
+          ))}
+        </ul>
 
         {/* CTA Row */}
         <div
@@ -229,7 +266,7 @@ export default function SlimedoHero() {
               el.style.transform = 'translateY(0)';
             }}
           >
-            Behandlung starten{' '}
+            Behandlung anfragen{' '}
             <span style={{ display: 'flex', alignItems: 'center', opacity: 0.85 }}>
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                 <path
