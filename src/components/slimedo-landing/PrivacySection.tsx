@@ -906,13 +906,13 @@ export default function PrivacySection() {
           bottom: 0,
           left: 0,
           right: 0,
-          height: 130,
+          height: 72,
           background:
             'linear-gradient(to bottom,' +
             'rgba(250,245,234,0) 0%,' +
-            'rgba(250,245,234,0.28) 35%,' +
-            'rgba(250,245,234,0.62) 62%,' +
-            'rgba(250,245,234,0.90) 82%,' +
+            'rgba(250,245,234,0.18) 42%,' +
+            'rgba(250,245,234,0.62) 70%,' +
+            'rgba(250,245,234,0.90) 88%,' +
             '#FAF5EA 100%)',
           pointerEvents: 'none',
           zIndex: 2,

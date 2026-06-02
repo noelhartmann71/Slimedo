@@ -348,7 +348,7 @@ export default function SlimedoHero() {
         </div>
       </div>
 
-      {/* Right — video / image placeholder */}
+      {/* Right — video  */}
       <div
         className="hero-right-resp"
         style={{ position: 'relative', overflow: 'hidden' }}
@@ -375,7 +375,7 @@ export default function SlimedoHero() {
             width: '110%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: '60% top',
+            objectPosition: '80% top',
             zIndex: 0,
           }}
         />
