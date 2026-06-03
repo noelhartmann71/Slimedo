@@ -20,7 +20,7 @@ import BlogSection from '@/components/slimedo-landing/BlogSection';
 import FaqSection from '@/components/slimedo-landing/FaqSection';
 import CtaSection from '@/components/slimedo-landing/CtaSection';
 import NewTrustSection from "@/components/NewTrustSection/NewTrustSection.tsx";
-import {Footer} from "react-day-picker";
+import Footer from "@/components/Footer/Footer";
 
 // ── Übergangs-Brücken ─────────────────────────────────────────
 type BridgeVariant =

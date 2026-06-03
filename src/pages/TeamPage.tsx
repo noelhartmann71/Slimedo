@@ -1,7 +1,7 @@
 import SlimedoTicker from '../components/SlimedoTicker/SlimedoTicker';
 import SlimedoNavbar from '@/components/Navbar/Navbar';
-import SlimedoFooter from '@/components/slimedo-landing/SlimedoFooter';
 import CtaSection from "@/components/slimedo-landing/CtaSection.tsx";
+import Footer from "@/components/Footer/Footer";
 
 type ExpertMember = {
   id: number;
@@ -129,7 +129,7 @@ export default function TeamPage() {
         </section>
       </main>
       <CtaSection sectionBackground="#FAF5EA" />
-      <SlimedoFooter />
+      <Footer />
     </div>
   );
 }
