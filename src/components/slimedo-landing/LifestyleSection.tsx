@@ -74,62 +74,47 @@ export default function LifestyleSection() {
           Mehr als nur ein{' '}
           <em style={{ color: '#3D5C4A', fontStyle: 'italic' }}>Rezept</em>
         </h2>
+      </div>
 
-        <div
-          className="collage-grid-resp"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3,1fr)',
-            gap: 16,
-          }}
-        >
-          {collageItems.map((item, i) => (
-            <div
-              key={i}
-              className={`slimedo-anim slimedo-d${i + 1}`}
+      <div
+        className="collage-grid-resp"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3,1fr)',
+          gap: 8,
+          padding: '0 8px',
+        }}
+      >
+        {collageItems.map((item, i) => (
+          <div
+            key={i}
+            className={`slimedo-anim slimedo-d${i + 1}`}
+            style={{
+              height: 'clamp(480px, 82vh, 960px)',
+              borderRadius: '18px 18px 0 0',
+              background: item.gradient,
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <img
+              src={item.img}
               style={{
-                aspectRatio: '4/5',
-                borderRadius: '18px 18px 0 0',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 10,
-                background: item.gradient,
-                position: 'relative',
-                overflow: 'hidden',
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
               }}
-            >
-              <img
-                src={item.img}
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-              <span
-                style={{
-                  fontFamily: '"Manrope", sans-serif',
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: 'rgba(30,58,46,.45)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '.1em',
-                  position: 'relative',
-                  zIndex: 1,
-                }}
-              >
-              </span>
-            </div>
-          ))}
-        </div>
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
+          </div>
+        ))}
+      </div>
 
+      <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
         <p
           style={{
             fontSize: 10,
@@ -144,7 +129,14 @@ export default function LifestyleSection() {
       </div>
       <style>{`
         @media (max-width: 640px) {
-          .collage-grid-resp { grid-template-columns: 1fr !important; }
+          .collage-grid-resp {
+            grid-template-columns: 1fr !important;
+            padding: 0 12px !important;
+            gap: 10px !important;
+          }
+          .collage-grid-resp > div {
+            height: clamp(320px, 70vh, 600px) !important;
+          }
           .lifestyle-hl-resp { font-size: 30px !important; }
         }
       `}</style>

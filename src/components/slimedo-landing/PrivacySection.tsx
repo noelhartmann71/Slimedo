@@ -118,8 +118,8 @@ function ShieldItem({ title, subtitle, icon, side, className, style }: ShieldIte
           viewBox="0 0 50 50"
           fill="none"
           style={{
-            width: 50,
-            height: 50,
+            width: 64,
+            height: 64,
             flexShrink: 0,
             filter: 'drop-shadow(0 6px 14px rgba(9,20,16,0.2))',
           }}
@@ -145,7 +145,7 @@ function ShieldItem({ title, subtitle, icon, side, className, style }: ShieldIte
           <h4
             style={{
               fontFamily: '"Manrope", sans-serif',
-              fontSize: 15,
+              fontSize: 17,
               lineHeight: 1.2,
               fontWeight: 600,
               color: '#FAF5EA',
@@ -156,7 +156,7 @@ function ShieldItem({ title, subtitle, icon, side, className, style }: ShieldIte
           </h4>
           <p
             style={{
-              fontSize: 12.5,
+              fontSize: 14,
               color: 'rgba(205,221,203,0.6)',
               lineHeight: 1.45,
               fontFamily: '"Inter", sans-serif',
@@ -684,7 +684,7 @@ export default function PrivacySection() {
         overflow: 'hidden',
       }}
     >
-      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
+      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 clamp(16px, 2vw, 32px)' }}>
         <header className="priv-header" style={{ marginBottom: 64 }}>
           <p
             className="slimedo-anim"
@@ -736,7 +736,7 @@ export default function PrivacySection() {
           style={{
             position: 'relative',
             display: 'grid',
-            gridTemplateColumns: 'minmax(250px, 1fr) 220px minmax(250px, 1fr)',
+            gridTemplateColumns: 'minmax(260px, 1fr) 260px minmax(260px, 1fr)',
             alignItems: 'center',
             maxWidth: 1575,
             margin: '0 auto',
@@ -807,7 +807,7 @@ export default function PrivacySection() {
               ref={(el) => {
                 cardRefs.current[0] = el;
               }}
-              style={{ width: '100%', maxWidth: 332, opacity: 0 }}
+              style={{ width: '100%', maxWidth: 360, opacity: 0 }}
             >
               <ShieldItem {...leftItems[0]} side="left" />
             </div>
@@ -815,7 +815,7 @@ export default function PrivacySection() {
               ref={(el) => {
                 cardRefs.current[1] = el;
               }}
-              style={{ width: '100%', maxWidth: 332, opacity: 0 }}
+              style={{ width: '100%', maxWidth: 360, opacity: 0 }}
             >
               <ShieldItem {...leftItems[1]} side="left" />
             </div>
@@ -832,7 +832,7 @@ export default function PrivacySection() {
             }}
           >
             <div ref={centerShieldRef}>
-              <CentralShield size={200} />
+              <CentralShield size={240} />
             </div>
           </div>
 
@@ -841,7 +841,7 @@ export default function PrivacySection() {
               ref={(el) => {
                 cardRefs.current[2] = el;
               }}
-              style={{ width: '100%', maxWidth: 332, opacity: 0 }}
+              style={{ width: '100%', maxWidth: 360, opacity: 0 }}
             >
               <ShieldItem {...rightItems[0]} side="right" />
             </div>
@@ -849,7 +849,7 @@ export default function PrivacySection() {
               ref={(el) => {
                 cardRefs.current[3] = el;
               }}
-              style={{ width: '100%', maxWidth: 332, opacity: 0 }}
+              style={{ width: '100%', maxWidth: 360, opacity: 0 }}
             >
               <ShieldItem {...rightItems[1]} side="right" />
             </div>
@@ -865,7 +865,7 @@ export default function PrivacySection() {
               marginBottom: 44,
             }}
           >
-            <CentralShield size={200} />
+            <CentralShield size={240} />
           </div>
 
           <div className="priv-mobile-grid">
@@ -954,7 +954,7 @@ export default function PrivacySection() {
 
         @media (max-width: 1120px) {
           .priv-desktop-stage {
-            grid-template-columns: minmax(220px, 1fr) 200px minmax(220px, 1fr) !important;
+            grid-template-columns: minmax(230px, 1fr) 230px minmax(230px, 1fr) !important;
           }
 
           .priv-col-left {

@@ -171,7 +171,7 @@ export default function GlpIntroSection() {
       <style>{`
         .gi-sec-intro {
           background: #faf5ea;
-          padding: clamp(60px, 4.88vw, 110px) 0;
+          padding: clamp(80px, 6vw, 130px) 0;
         }
 
         .gi-wrap {
@@ -184,7 +184,7 @@ export default function GlpIntroSection() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: clamp(40px, 5vw, 80px);
-          align-items: start;
+          align-items: stretch;
         }
 
         .gi-eyebrow {
@@ -313,6 +313,10 @@ export default function GlpIntroSection() {
           flex-direction: column;
           gap: 14px;
           padding-top: 0;
+        }
+
+        .gi-right .gi-tariff-card {
+          flex: 1;
         }
 
         .gi-tariff-card {
