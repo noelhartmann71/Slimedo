@@ -6,7 +6,6 @@ const TEXT = '#2E2620';
 const CREAM = '#FFFCF6';
 const BORDER = '#E8DFD0';
 const MIST = '#DCE5DC';
-const LINEN = '#FAF6EE';
 
 function CheckSage() {
   return (
@@ -70,7 +69,16 @@ function DualDiagram() {
 
 export default function TherapieSection() {
   return (
-    <section style={{ background: LINEN, padding: '80px 6vw' }}>
+    <section
+      style={{
+        position: 'relative',
+        padding: '80px 6vw',
+        backgroundImage: 'url(/images/therapie/doctorBackground.jpeg)',
+        backgroundSize: 'auto 100%',
+        backgroundPosition: '-80px center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <style>{`
         @keyframes slimedo-therapie-dash {
           to { stroke-dashoffset: -90; }
@@ -94,11 +102,44 @@ export default function TherapieSection() {
         }
         .slimedo-therapie-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 20px 44px -24px rgba(46,38,32,.18);
+          box-shadow: 0 20px 44px -24px rgba(46,38,32,.22);
+        }
+        @media (max-width: 600px) {
+          .slimedo-therapie-overlay {
+            background: linear-gradient(
+              to bottom,
+              rgba(250,246,238,0.94) 0%,
+              rgba(250,246,238,0.88) 100%
+            ) !important;
+          }
+        }
+        @media (min-width: 601px) and (max-width: 1024px) {
+          .slimedo-therapie-overlay {
+            background:
+              linear-gradient(to right, rgba(250,246,238,0.50) 0%, rgba(250,246,238,0.94) 52%, #FAF6EE 65%),
+              linear-gradient(to bottom, rgba(250,246,238,0.85) 0%, rgba(250,246,238,0) 20%, rgba(250,246,238,0) 80%, rgba(250,246,238,0.85) 100%)
+            !important;
+          }
         }
       `}</style>
 
-      <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+      {/* Overlay: fades image out to the right, soft top/bottom vignette on the left */}
+      <div
+        className="slimedo-therapie-overlay"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: `
+            linear-gradient(to right,  rgba(250,246,238,0.42) 0%, rgba(250,246,238,0.92) 44%, #FAF6EE 58%),
+            linear-gradient(to bottom, rgba(250,246,238,0.80) 0%, rgba(250,246,238,0) 18%, rgba(250,246,238,0) 80%, rgba(250,246,238,0.80) 100%)
+          `,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+
+      {/* All content sits above the overlay */}
+      <div style={{ maxWidth: 1300, margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
         {/* Headline */}
         <div style={{ marginBottom: 48 }}>
@@ -113,6 +154,7 @@ export default function TherapieSection() {
             fontFamily: "'Lora', Georgia, serif", fontWeight: 500,
             fontSize: 'clamp(2rem,3vw,2.8rem)', lineHeight: 1.1,
             letterSpacing: '-.02em', marginBottom: 12, color: TEXT,
+            textShadow: '0 2px 24px rgba(250,246,238,0.7)',
           }}>
             Zwei moderne Wirkmechanismen{' '}
             <em style={{ fontStyle: 'italic', color: SAGE }}>zum Abnehmen.</em>
@@ -120,6 +162,7 @@ export default function TherapieSection() {
           <p style={{
             fontFamily: "'Lora', Georgia, serif", fontStyle: 'italic',
             fontSize: '1rem', color: STONE,
+            textShadow: '0 1px 12px rgba(250,246,238,0.6)',
           }}>
             Im Alltag oft als „Abnehmspritze" bekannt
           </p>
@@ -130,11 +173,11 @@ export default function TherapieSection() {
           display: 'grid',
           gridTemplateColumns: 'clamp(220px,26vw,340px) 1fr',
           gap: 52,
-          alignItems: 'start',
+          alignItems: 'stretch',
           marginBottom: 22,
         }}>
-          {/* Left: CTA only */}
-          <div>
+          {/* Left: button pinned to bottom, flush with the cards */}
+          <div style={{ display: 'flex', alignItems: 'flex-end' }}>
             <a
               href="#"
               style={{
@@ -143,6 +186,7 @@ export default function TherapieSection() {
                 borderRadius: 999, fontSize: '.88rem', fontWeight: 500,
                 cursor: 'pointer', textDecoration: 'none',
                 transition: 'background .2s',
+                boxShadow: '0 4px 18px rgba(79,107,90,0.28)',
               }}
               onMouseEnter={e => (e.currentTarget.style.background = SAGE_DEEP)}
               onMouseLeave={e => (e.currentTarget.style.background = SAGE)}
@@ -161,19 +205,21 @@ export default function TherapieSection() {
             <div
               className="slimedo-therapie-card"
               style={{
-                background: CREAM, border: `1px solid ${BORDER}`,
+                background: CREAM,
+                border: `1px solid ${BORDER}`,
                 borderRadius: 22, padding: '26px 22px',
                 position: 'relative', overflow: 'hidden',
+                boxShadow: '0 2px 20px rgba(46,38,32,0.07)',
               }}
             >
               <img
-                  src="/images/therapie/injection1.png"
-                  alt="Wegovy Injektionspen"
-                  style={{
-                    position: 'absolute', top: 14, right: 14,
-                    width: 80, height: 80,
-                    objectFit: 'contain',
-                  }}
+                src="/images/therapie/injection1.png"
+                alt="Wegovy Injektionspen"
+                style={{
+                  position: 'absolute', top: 14, right: 14,
+                  width: 80, height: 80,
+                  objectFit: 'contain',
+                }}
               />
               <div style={{
                 fontSize: '.68rem', fontWeight: 600, letterSpacing: '.14em',
@@ -212,19 +258,21 @@ export default function TherapieSection() {
             <div
               className="slimedo-therapie-card"
               style={{
-                background: CREAM, border: `1px solid ${BORDER}`,
+                background: CREAM,
+                border: `1px solid ${BORDER}`,
                 borderRadius: 22, padding: '26px 22px',
                 position: 'relative', overflow: 'hidden',
+                boxShadow: '0 2px 20px rgba(46,38,32,0.07)',
               }}
             >
               <img
-                  src="/images/therapie/injection2.png"
-                  alt="Mounjaro Injektionspen"
-                  style={{
-                    position: 'absolute', top: 14, right: 14,
-                    width: 80, height: 80,
-                    objectFit: 'contain',
-                  }}
+                src="/images/therapie/injection2.png"
+                alt="Mounjaro Injektionspen"
+                style={{
+                  position: 'absolute', top: 14, right: 14,
+                  width: 80, height: 80,
+                  objectFit: 'contain',
+                }}
               />
               <div style={{
                 fontSize: '.68rem', fontWeight: 600, letterSpacing: '.14em',
@@ -264,10 +312,12 @@ export default function TherapieSection() {
 
         {/* Pipeline box */}
         <div style={{
-          background: CREAM, border: `1px solid ${BORDER}`,
+          background: CREAM,
+          border: `1px solid ${BORDER}`,
           borderRadius: 20, padding: '26px 32px', overflow: 'hidden',
           display: 'grid', gridTemplateColumns: 'auto 1fr',
           gap: 32, alignItems: 'center', position: 'relative',
+          boxShadow: '0 2px 20px rgba(46,38,32,0.07)',
         }}>
           {/* Corner badge */}
           <div style={{
