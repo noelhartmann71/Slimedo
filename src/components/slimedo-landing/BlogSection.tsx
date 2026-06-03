@@ -201,8 +201,8 @@ export default function BlogSection() {
   }, [isLoading, blogData.length, currentStep, cardsPerView]);
 
   return (
-    <section ref={ref} id="blog" style={{ background: '#FAF5EA', padding: '80px 0' }}>
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 40px' }}>
+    <section ref={ref} id="blog" style={{ background: '#FAF5EA', padding: 'clamp(60px, 4.88vw, 110px) 0' }}>
+      <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
         <div
           className="blog-hdr-resp"
           style={{
@@ -232,7 +232,7 @@ export default function BlogSection() {
               className="slimedo-anim slimedo-d1 blog-hl-resp"
               style={{
                 fontFamily: '"Instrument Serif", Georgia, serif',
-                fontSize: 48,
+                fontSize: 'clamp(38px, 2.94vw, 72px)',
                 fontWeight: 400,
                 letterSpacing: '-.01em',
                 lineHeight: 1.05,

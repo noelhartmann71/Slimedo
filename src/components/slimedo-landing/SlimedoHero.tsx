@@ -92,7 +92,7 @@ export default function SlimedoHero() {
         background: '#F5EEDB',
         display: 'grid',
         gridTemplateColumns: '58% 42%',
-        minHeight: '90vh',
+        minHeight: 'clamp(620px, 82vh, 1150px)',
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -171,7 +171,7 @@ export default function SlimedoHero() {
           className="slimedo-anim slimedo-d2 hero-h1-resp"
           style={{
             fontFamily: '"Instrument Serif", Georgia, serif',
-            fontSize: 66,
+            fontSize: 'clamp(50px, 4vw, 112px)',
             lineHeight: 1.07,
             fontWeight: 400,
             letterSpacing: '.005em',
@@ -389,7 +389,7 @@ export default function SlimedoHero() {
       <style>{`
         @media (max-width: 1024px) {
           .hero-left-resp { padding: 56px 32px !important; }
-          .hero-h1-resp { font-size: 52px !important; }
+          .hero-h1-resp { font-size: 50px !important; }
         }
         @media (max-width: 640px) {
           section[style*="58% 42%"] { grid-template-columns: 1fr !important; min-height: auto !important; }

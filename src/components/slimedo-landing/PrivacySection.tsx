@@ -679,12 +679,12 @@ export default function PrivacySection() {
       id="datenschutz"
       style={{
         background: 'linear-gradient(145deg,#1E3A2E 0%,#234035 38%,#3D6B50 66%,#FAF5EA 100%)',
-        padding: '96px 0',
+        padding: 'clamp(72px, 5.88vw, 130px) 0',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      <div className="priv-inner" style={{ maxWidth: 1160, margin: '0 auto', padding: '0 40px' }}>
+      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
         <header className="priv-header" style={{ marginBottom: 64 }}>
           <p
             className="slimedo-anim"
@@ -704,7 +704,7 @@ export default function PrivacySection() {
             className="slimedo-anim slimedo-d1 priv-hl-resp"
             style={{
               fontFamily: '"Instrument Serif", Georgia, serif',
-              fontSize: 62,
+              fontSize: 'clamp(48px, 3.75vw, 100px)',
               lineHeight: 1.02,
               fontWeight: 400,
               letterSpacing: '-.01em',
@@ -738,7 +738,7 @@ export default function PrivacySection() {
             display: 'grid',
             gridTemplateColumns: 'minmax(250px, 1fr) 220px minmax(250px, 1fr)',
             alignItems: 'center',
-            maxWidth: 1060,
+            maxWidth: 1575,
             margin: '0 auto',
           }}
         >
@@ -966,7 +966,7 @@ export default function PrivacySection() {
           }
 
           .priv-hl-resp {
-            font-size: 52px !important;
+            font-size: 48px !important;
           }
         }
 

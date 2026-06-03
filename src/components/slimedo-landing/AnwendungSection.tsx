@@ -51,12 +51,12 @@ export default function AnwendungSection() {
             id="anwendung"
             style={{
                 background: 'radial-gradient(ellipse at 15% 20%, rgba(205,221,203,0.45) 0%, transparent 55%), radial-gradient(ellipse at 85% 80%, rgba(237,216,154,0.3) 0%, transparent 55%), #FAF5EA',
-                padding: '96px 0 104px',
+                padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(78px, 6.38vw, 143px)',
                 position: 'relative',
                 overflow: 'hidden',
             }}
         >
-            <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 40px' }}>
+            <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
                 {/* Header */}
                 <header
                     style={{
@@ -84,7 +84,7 @@ export default function AnwendungSection() {
                         className="slimedo-anim slimedo-d1 anw-hl-resp"
                         style={{
                             fontFamily: '"Instrument Serif", Georgia, serif',
-                            fontSize: 62,
+                            fontSize: 'clamp(48px, 3.75vw, 100px)',
                             margin: 0,
                             color: '#1A1A1A',
                             lineHeight: 1.02,

@@ -134,7 +134,7 @@ export default function FaqSection() {
     <section
       ref={ref}
       id="faq"
-      style={{ background: '#FFFDF7', padding: '56px 0' }}
+      style={{ background: '#FFFDF7', padding: 'clamp(48px, 5vw, 100px) 0' }}
     >
       {/* Header */}
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 40px', textAlign: 'center', marginBottom: 0 }}>
@@ -158,7 +158,7 @@ export default function FaqSection() {
           className="slimedo-anim faq-hl-resp"
           style={{
             fontFamily: '"Instrument Serif", Georgia, serif',
-            fontSize: 52,
+            fontSize: 'clamp(40px, 3.19vw, 80px)',
             fontWeight: 400,
             letterSpacing: '-.01em',
             marginBottom: 14,
@@ -448,7 +448,7 @@ export default function FaqSection() {
       </div>
       <style>{`
         @media (max-width: 640px) {
-          .faq-hl-resp { font-size: 36px !important; }
+          .faq-hl-resp { font-size: 32px !important; }
         }
       `}</style>
     </section>

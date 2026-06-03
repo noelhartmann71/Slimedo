@@ -218,7 +218,7 @@ export default function WarumWirSection() {
       ref={sectionRef}
       style={{
         background: '#1E3A2E',
-        padding: '96px 0 104px',
+        padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(78px, 6.38vw, 143px)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -240,7 +240,7 @@ export default function WarumWirSection() {
 
       <div
         style={{
-          maxWidth: 1160,
+          maxWidth: 1800,
           margin: '0 auto',
           padding: '0 40px',
           position: 'relative',
@@ -269,7 +269,7 @@ export default function WarumWirSection() {
             className="slimedo-anim slimedo-d1 warum-hl-resp"
             style={{
               fontFamily: '"Instrument Serif", Georgia, serif',
-              fontSize: 62,
+              fontSize: 'clamp(48px, 3.75vw, 100px)',
               color: '#FAF5EA',
               lineHeight: 1.02,
               fontWeight: 400,

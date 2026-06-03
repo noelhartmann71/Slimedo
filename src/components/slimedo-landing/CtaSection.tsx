@@ -44,7 +44,7 @@ export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionPr
                     className="cta-card-resp"
                     style={{
                         background: '#1E3A2E',
-                        minHeight: 600,
+                        minHeight: 'clamp(480px, 52vh, 825px)',
                         textAlign: 'center',
                         position: 'relative',
                         overflow: 'hidden',
@@ -181,7 +181,7 @@ export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionPr
                     className="slimedo-anim played slimedo-d1 cta-hl-resp"
                     style={{
                         fontFamily: '"Instrument Serif", Georgia, serif',
-                        fontSize: 68,
+                        fontSize: 'clamp(50px, 4.19vw, 112px)',
                         lineHeight: 1.02,
                         fontWeight: 400,
                         letterSpacing: '-.01em',
@@ -369,7 +369,7 @@ export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionPr
             font-size: clamp(72px, 24vw, 118px);
             opacity: 0.46;
           }
-          .cta-hl-resp { font-size: 40px !important; }
+          .cta-hl-resp { font-size: 38px !important; }
         }
       `}</style>
         </section>

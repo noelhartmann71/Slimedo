@@ -41,9 +41,9 @@ export default function LifestyleSection() {
     <section
       ref={ref}
       id="slimedo"
-      style={{ background: '#F5EEDB', padding: '72px 0 56px', overflow: 'hidden' }}
+      style={{ background: '#F5EEDB', padding: 'clamp(54px, 4.38vw, 100px) 0 clamp(42px, 3.5vw, 80px)', overflow: 'hidden' }}
     >
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 40px' }}>
+      <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
         <p
           className="slimedo-anim"
           style={{
@@ -63,7 +63,7 @@ export default function LifestyleSection() {
           className="slimedo-anim slimedo-d1 lifestyle-hl-resp"
           style={{
             fontFamily: '"Instrument Serif", Georgia, serif',
-            fontSize: 56,
+            fontSize: 'clamp(42px, 3.44vw, 90px)',
             fontWeight: 400,
             letterSpacing: '-.01em',
             color: '#1A1A1A',
@@ -143,12 +143,9 @@ export default function LifestyleSection() {
         </p>
       </div>
       <style>{`
-        @media (max-width: 1024px) {
-          .lifestyle-hl-resp { font-size: 42px !important; }
-        }
         @media (max-width: 640px) {
           .collage-grid-resp { grid-template-columns: 1fr !important; }
-          .lifestyle-hl-resp { font-size: 32px !important; }
+          .lifestyle-hl-resp { font-size: 30px !important; }
         }
       `}</style>
     </section>

@@ -17,7 +17,7 @@ export default function BmiCalculatorSection() {
       id="potenzial"
       style={{
         background: '#F5EEDB',
-        padding: '96px 0 80px',
+        padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(60px, 4.88vw, 110px)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -39,7 +39,7 @@ export default function BmiCalculatorSection() {
 
       <div
         style={{
-          maxWidth: 1160,
+          maxWidth: 1800,
           margin: '0 auto',
           padding: '0 40px',
           position: 'relative',
@@ -73,7 +73,7 @@ export default function BmiCalculatorSection() {
             className="bmi-hl-resp"
             style={{
               fontFamily: '"Instrument Serif", Georgia, serif',
-              fontSize: 62,
+              fontSize: 'clamp(48px, 3.75vw, 100px)',
               margin: 0,
               color: '#1A1A1A',
               lineHeight: 1.02,
@@ -141,7 +141,7 @@ export default function BmiCalculatorSection() {
               className="bmi-stat-num-resp"
               style={{
                 fontFamily: '"Instrument Serif", Georgia, serif',
-                fontSize: 128,
+                fontSize: 'clamp(80px, 7.81vw, 185px)',
                 color: '#3D5C4A',
                 lineHeight: 0.95,
                 letterSpacing: '-0.03em',
@@ -150,9 +150,9 @@ export default function BmiCalculatorSection() {
               }}
             >
               15
-              <span style={{ fontSize: 72, color: '#3D5C4A' }}>-</span>
+              <span style={{ fontSize: 'clamp(48px, 4.38vw, 105px)', color: '#3D5C4A' }}>-</span>
               20
-              <span style={{ fontSize: 72, color: '#3D5C4A' }}>%</span>
+              <span style={{ fontSize: 'clamp(48px, 4.38vw, 105px)', color: '#3D5C4A' }}>%</span>
             </p>
             {/* Honey underline */}
             <span
@@ -426,7 +426,7 @@ export default function BmiCalculatorSection() {
                 style={{
                   fontFamily: '"Instrument Serif", Georgia, serif',
                   fontStyle: 'italic',
-                  fontSize: 56,
+                  fontSize: 'clamp(36px, 3.44vw, 80px)',
                   color: '#3D5C4A',
                   lineHeight: 1,
                   letterSpacing: '-0.02em',
@@ -514,11 +514,11 @@ export default function BmiCalculatorSection() {
         @media (max-width: 1024px) {
           .bmi-grid-resp { grid-template-columns: 1fr !important; }
           .bmi-hl-resp { font-size: 48px !important; }
-          .bmi-stat-num-resp { font-size: 96px !important; }
+          .bmi-stat-num-resp { font-size: 80px !important; }
         }
         @media (max-width: 640px) {
-          .bmi-hl-resp { font-size: 28px !important; }
-          .bmi-stat-num-resp { font-size: 44px !important; }
+          .bmi-hl-resp { font-size: 32px !important; }
+          .bmi-stat-num-resp { font-size: 52px !important; }
           .bmi-result-layout-resp { grid-template-columns: 1fr !important; gap: 16px !important; }
           .bmi-slider-image-resp { width: 150px !important; }
         }

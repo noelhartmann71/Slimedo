@@ -171,19 +171,19 @@ export default function GlpIntroSection() {
       <style>{`
         .gi-sec-intro {
           background: #faf5ea;
-          padding: 80px 0;
+          padding: clamp(60px, 4.88vw, 110px) 0;
         }
 
         .gi-wrap {
-          max-width: 1160px;
+          max-width: 1800px;
           margin: 0 auto;
-          padding: 0 40px;
+          padding: 0 clamp(24px, 2.5vw, 40px);
         }
 
         .gi-layout {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 64px;
+          gap: clamp(40px, 5vw, 80px);
           align-items: start;
         }
 
@@ -199,7 +199,7 @@ export default function GlpIntroSection() {
 
         .gi-title {
           font-family: "Instrument Serif", Georgia, serif;
-          font-size: 48px;
+          font-size: clamp(40px, 2.94vw, 75px);
           line-height: 1.06;
           font-weight: 400;
           letter-spacing: -0.01em;

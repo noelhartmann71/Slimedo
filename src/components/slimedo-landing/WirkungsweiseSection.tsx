@@ -71,7 +71,7 @@ export default function WirkungsweiseSection() {
       id="wirk"
       style={{
         background: '#FAF5EA',
-        padding: '96px 64px 104px',
+        padding: 'clamp(72px, 5.88vw, 130px) 40px clamp(78px, 6.38vw, 143px)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -99,7 +99,7 @@ export default function WirkungsweiseSection() {
           marginBottom: 56,
           position: 'relative',
           zIndex: 2,
-          maxWidth: 1160,
+          maxWidth: 1800,
           margin: '0 auto 56px',
         }}
       >
@@ -121,7 +121,7 @@ export default function WirkungsweiseSection() {
           className="slimedo-anim slimedo-d1 wirk-hl-resp"
           style={{
             fontFamily: '"Instrument Serif", Georgia, serif',
-            fontSize: 62,
+            fontSize: 'clamp(48px, 3.75vw, 100px)',
             color: '#1A1A1A',
             lineHeight: 1.02,
             fontWeight: 400,
@@ -155,7 +155,7 @@ export default function WirkungsweiseSection() {
           gap: 20,
           position: 'relative',
           zIndex: 2,
-          maxWidth: 1160,
+          maxWidth: 1800,
           margin: '0 auto',
         }}
       >
@@ -173,7 +173,7 @@ export default function WirkungsweiseSection() {
               textAlign: 'left',
               boxShadow:
                 '0 1px 2px rgba(15,31,26,.03),0 4px 12px rgba(15,31,26,.04),0 16px 32px rgba(15,31,26,.03)',
-              minHeight: 210,
+              minHeight: 'clamp(180px, 17.5vw, 300px)',
               transition: 'transform .25s',
             }}
             onMouseEnter={(e) =>
@@ -248,7 +248,7 @@ export default function WirkungsweiseSection() {
         }
         @media (max-width: 640px) {
           .wirk-grid-resp { grid-template-columns: 1fr !important; }
-          .wirk-hl-resp { font-size: 32px !important; }
+          .wirk-hl-resp { font-size: 34px !important; }
         }
       `}</style>
     </section>

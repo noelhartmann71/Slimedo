@@ -47,14 +47,14 @@ export default function TestimonialsSection() {
       id="bewertungen"
       style={{
         background: '#FFFDF7',
-        padding: '72px 0',
+        padding: 'clamp(54px, 4.38vw, 110px) 0',
         borderTop: '2px dashed #E5D9BD',
         borderBottom: '2px dashed #E5D9BD',
       }}
     >
       <div
         className="testimonials-wrapper-resp"
-        style={{ margin: '0 auto', padding: '0 20px' }}
+        style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}
       >
         <div
           style={{
@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
         <h2
           style={{
             fontFamily: '"Instrument Serif", Georgia, serif',
-            fontSize: 48,
+            fontSize: 'clamp(38px, 2.94vw, 72px)',
             fontWeight: 400,
             color: '#1A1A1A',
             marginBottom: 16,
@@ -260,27 +260,6 @@ export default function TestimonialsSection() {
       </div>
 
       <style>{`
-        @media (min-width: 1024px) {
-          .testimonials-wrapper-resp {
-            padding-left: 40px !important;
-            padding-right: 40px !important;
-          }
-        }
-
-        @media (min-width: 1280px) {
-          .testimonials-wrapper-resp {
-            padding-left: 60px !important;
-            padding-right: 60px !important;
-          }
-        }
-
-        @media (min-width: 1536px) {
-          .testimonials-wrapper-resp {
-            padding-left: 200px !important;
-            padding-right: 200px !important;
-          }
-        }
-
         @media (max-width: 900px) {
           .testimonials-layout-resp {
             flex-direction: column !important;
