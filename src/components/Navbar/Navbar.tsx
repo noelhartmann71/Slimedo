@@ -130,10 +130,10 @@ const ChevronDown = ({ isOpen }: { isOpen: boolean }) => (
  */
 function WeightLossDropdown() {
   return (
-    <div className="flex gap-3 xl:gap-4 rounded-[24px] border border-[#d9d2c2] bg-[#fffdf7] p-4 xl:p-5 mx-4 shadow-[0_22px_55px_rgba(30,58,46,0.24)]">
+    <div className="flex gap-3 rounded-[24px] border border-[#e1dacb] bg-[#fffdf7] p-3 xl:p-4 mx-4 shadow-[0_18px_44px_rgba(30,58,46,0.18)]">
 
       {/* Left panel — fixed width, never shrinks */}
-      <div className="shrink-0 w-56 xl:w-[280px] min-h-[280px] xl:min-h-[320px] flex flex-col justify-between rounded-[18px] bg-[#f7f1e4] px-5 xl:px-7 py-5 xl:py-6 text-[#1E3A2E]">
+      <div className="shrink-0 w-56 xl:w-[clamp(280px,20vw,420px)] min-h-[300px] xl:min-h-[340px] flex flex-col justify-between rounded-[16px] bg-[#f7f1e4] px-5 xl:px-7 py-5 xl:py-6 text-[#1E3A2E]">
         <div>
           <p className="mb-2 text-[22px] xl:text-[29px] leading-[1.05] font-semibold tracking-[-0.03em]">
             Abnehm-
@@ -145,7 +145,7 @@ function WeightLossDropdown() {
           </p>
           <a
             href="#intro"
-            className="inline-flex items-center rounded-full bg-[#3D5C4A] px-4 py-2 text-[12px] font-semibold text-[#FAF5EA] transition-colors hover:bg-[#1E3A2E]"
+            className="inline-flex items-center rounded-full bg-[#3D5C4A] px-5 py-2.5 text-[13px] font-semibold text-[#FAF5EA] transition-colors hover:bg-[#1E3A2E] xl:px-6 xl:py-3 xl:text-[14px]"
           >
             Jetzt Eignung prüfen
           </a>
@@ -168,9 +168,9 @@ function WeightLossDropdown() {
         <a
           key={program.title}
           href={program.href}
-          className="group relative flex-1 min-w-0 h-[280px] xl:h-[320px] overflow-hidden rounded-[18px] border border-[#d6cfbd] bg-[#ece9e1] shadow-[0_6px_18px_rgba(30,58,46,0.14)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_rgba(30,58,46,0.2)]"
+          className="group relative flex-1 min-w-0 h-[400px] xl:h-[clamp(430px,20vw,510px)] overflow-hidden rounded-[16px] border border-[#ded7c8]/80 bg-[#f6f2ea] shadow-[0_4px_14px_rgba(30,58,46,0.1)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#cfc5b2] hover:shadow-[0_16px_30px_rgba(30,58,46,0.16)]"
         >
-          <div className="absolute inset-x-0 top-0 z-10 flex h-[75px] xl:h-[85px] items-start justify-between gap-3 border-b border-[#e1dccf] bg-[#f7f5ef] px-4 xl:px-5 pb-4 pt-4">
+          <div className="absolute inset-x-0 top-0 z-10 flex h-[76px] xl:h-[82px] items-start justify-between gap-3 border-b border-[#e8e1d2]/70 bg-[#fffaf0]/90 px-4 xl:px-5 pb-3 pt-4 backdrop-blur-sm">
             <div className="min-w-0">
               <p className="text-[18px] xl:text-[22px] font-semibold tracking-[-0.02em] text-[#1E3A2E] truncate">
                 {program.title}
@@ -191,11 +191,11 @@ function WeightLossDropdown() {
               </svg>
             </span>
           </div>
-          <div className="absolute inset-x-0 bottom-0 top-[75px] xl:top-[85px]">
+          <div className="absolute inset-x-0 bottom-0 top-[76px] xl:top-[82px]">
             <img
               src={program.image}
               alt={program.title}
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.025]"
             />
           </div>
         </a>
