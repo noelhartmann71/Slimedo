@@ -67,7 +67,7 @@ const wissenswertesLinks = [
 const closeDelayMs = 120;
 
 // sticky top (36px banner) + nav height (58px) = dropdown starts here
-const DROPDOWN_TOP = 94;
+const DROPDOWN_TOP = 50;
 
 const CATEGORY_LABEL_MAP: Record<string, string> = {
   Telemedicine: 'Telemedizin',
@@ -489,13 +489,13 @@ export default function Navbar() {
                       className={`${
                         link.dropdown === 'abnehmspritzen'
                           ? 'fixed left-0 right-0'
-                          : 'absolute left-1/2 -translate-x-1/2 top-full w-[min(1240px,calc(100vw-32px))]'
+                          : 'fixed left-1/2 -translate-x-1/2 w-[min(1240px,calc(100vw-32px))]'
                       } z-[220] pt-3 transition-all duration-200 ${
                         isOpen
                           ? 'pointer-events-auto translate-y-0 opacity-100'
                           : 'pointer-events-none -translate-y-1 opacity-0'
                       }`}
-                      style={link.dropdown === 'abnehmspritzen' ? { top: DROPDOWN_TOP } : undefined}
+                      style={{ top: DROPDOWN_TOP }}
                       onMouseEnter={() => openMenu(link.dropdown!)}
                       onMouseLeave={closeMenuWithDelay}
                     >
