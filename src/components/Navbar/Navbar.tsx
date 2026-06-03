@@ -66,8 +66,8 @@ const wissenswertesLinks = [
 
 const closeDelayMs = 120;
 
-// sticky top (36px banner) + nav height (58px) = dropdown starts here
-const DROPDOWN_TOP = 50;
+// Keep the dropdown aligned below the slightly taller sticky nav.
+const DROPDOWN_TOP = 56;
 
 const CATEGORY_LABEL_MAP: Record<string, string> = {
   Telemedicine: 'Telemedizin',
@@ -398,11 +398,11 @@ export default function Navbar() {
         className="relative gap-3 xl:gap-6"
         style={{
           width: '100%',
-          padding: '0 18px 0 14px',
+          padding: '0 clamp(18px, 1.4vw, 28px) 0 clamp(14px, 1.1vw, 22px)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: 58,
+          height: 64,
         }}
       >
         {/* Spacer — balances centered logo against right-side buttons on mobile */}
@@ -415,7 +415,7 @@ export default function Navbar() {
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: 9,
+            gap: 'clamp(8px, 0.55vw, 12px)',
             minWidth: 120,
             textDecoration: 'none',
           }}
@@ -423,12 +423,12 @@ export default function Navbar() {
           <img
             src="/images/logo/cta-banner.png"
             alt=""
-            style={{ width: 40, height: 40, objectFit: 'contain', flexShrink: 0 }}
+            style={{ width: 'clamp(36px, 1.95vw, 50px)', height: 'clamp(36px, 1.95vw, 50px)', objectFit: 'contain', flexShrink: 0 }}
           />
           <span
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: 26,
+              fontSize: 'clamp(24px, 1.56vw, 32px)',
               fontWeight: 600,
               color: '#1E3A2E',
               letterSpacing: '-0.01em',
@@ -446,7 +446,7 @@ export default function Navbar() {
           <ul
             style={{
               alignItems: 'center',
-              gap: 40,
+              gap: 'clamp(28px, 1.95vw, 50px)',
               listStyle: 'none',
               margin: 0,
               padding: 0,
@@ -467,7 +467,7 @@ export default function Navbar() {
                   {link.to ? (
                     <Link
                       to={link.to}
-                      className="inline-flex items-center gap-1.5 py-2 text-[14px] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
+                      className="inline-flex items-center gap-1.5 py-2 text-[clamp(14px,0.7vw,18px)] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
                       style={{ fontFamily: '"Inter", sans-serif' }}
                     >
                       {link.label}
@@ -475,7 +475,7 @@ export default function Navbar() {
                   ) : (
                     <a
                       href={link.href}
-                      className="inline-flex items-center gap-1.5 py-2 text-[14px] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
+                      className="inline-flex items-center gap-1.5 py-2 text-[clamp(14px,0.7vw,18px)] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
                       style={{ fontFamily: '"Inter", sans-serif' }}
                       onFocus={() => link.dropdown && openMenu(link.dropdown)}
                     >
@@ -526,15 +526,17 @@ export default function Navbar() {
               style={{
                 background: 'transparent',
                 color: '#3D5C4A',
-                padding: '9px 20px',
+                padding: 'clamp(10px, 0.62vw, 13px) clamp(20px, 1.25vw, 26px)',
                 borderRadius: 999,
-                fontSize: 13,
+                fontSize: 'clamp(13px, 0.63vw, 16px)',
                 fontWeight: 500,
                 textDecoration: 'none',
                 fontFamily: '"Inter", sans-serif',
                 border: '1px solid rgba(61,92,74,.65)',
                 transition: 'background .2s,color .2s,border-color .2s',
-                display: 'inline-block',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
@@ -556,14 +558,16 @@ export default function Navbar() {
               style={{
                 background: '#3D5C4A',
                 color: '#FAF5EA',
-                padding: '9px 20px',
+                padding: 'clamp(10px, 0.62vw, 13px) clamp(20px, 1.25vw, 26px)',
                 borderRadius: 999,
-                fontSize: 13,
+                fontSize: 'clamp(13px, 0.63vw, 16px)',
                 fontWeight: 500,
                 textDecoration: 'none',
                 fontFamily: '"Inter", sans-serif',
                 transition: 'background .2s',
-                display: 'inline-block',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
               onMouseEnter={(e) =>
                 ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
