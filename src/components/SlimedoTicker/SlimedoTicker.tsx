@@ -1,42 +1,69 @@
-import {
-  DataSafetyIconSvg,
-  JederzeitIconSvg,
-  KostenloseIconSvg,
-  LaufendeIconSvg,
-} from "../svg-container/SvgContainer";
-
 const items = [
-  {
-    icon: <KostenloseIconSvg />,
-    text: "Kostenlose Lieferung in 1-2 Werktagen",
-  },
-  { icon: <DataSafetyIconSvg />, text: "Ihre Gesundheit und Daten sind sicher" },
-  { icon: <JederzeitIconSvg />, text: "Jederzeit kündbar" },
-  { icon: <LaufendeIconSvg />, text: "Laufende ärztliche Betreuung" },
-  { icon: <KostenloseIconSvg />, text: "100.000 Menschen vertrauen Slimedo" },
+  'Diskret',
+  'Deutschlandweit verfügbar',
+  'Telemedizinisch begleitet',
+  'Moderne Adipositas-Therapie',
+  'Medizinisch verantwortet',
+  'DSGVO-konform',
+  'Approbierte Ärzte',
 ];
 
-const SlimedoTicker = () => {
-  const allItems = [...items, ...items];
+export default function SlimedoTicker() {
+  // Duplicate for seamless loop
+  const all = [...items, ...items];
+
   return (
-    <div className="overflow-hidden pt-5 sm:pt-10 pb-5 sm:pb-10 xl:pt-10 xl:pb-10 select-none">
-      <style>{`
-        @keyframes ticker { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-        .ticker-track { animation: ticker 28s linear infinite; }
-      `}</style>
-      <div className="ticker-track flex whitespace-nowrap w-max">
-        {allItems.map((item, i) => (
-          <div key={i} className="flex items-center gap-2 px-6 font-inter">
-            <span className="text-sm">{item.icon}</span>
-            <span className="text-base font-normal text-black tracking-wide">
-              {item.text}
-            </span>
-            <span className="text-white/40 ml-4">•</span>
-          </div>
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 210,
+        background: '#1E3A2E',
+        height: 36,
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          whiteSpace: 'nowrap',
+          animation: 'slimedo-ticker 32s linear infinite',
+        }}
+      >
+        {all.map((text, i) => (
+          <span
+            key={i}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              fontSize: 10,
+              fontWeight: 400,
+              color: 'rgba(205,221,203,.80)',
+              padding: '0 28px',
+              letterSpacing: '.08em',
+              textTransform: 'uppercase',
+              textShadow: '0 0 12px rgba(205,221,203,.32)',
+              fontFamily: '"Inter", sans-serif',
+            }}
+          >
+            <span
+              style={{
+                display: 'inline-block',
+                width: 3,
+                height: 3,
+                borderRadius: '50%',
+                background: 'rgba(205,221,203,.45)',
+                flexShrink: 0,
+              }}
+            />
+            {text}
+          </span>
         ))}
       </div>
     </div>
   );
-};
-
-export default SlimedoTicker;
+}
