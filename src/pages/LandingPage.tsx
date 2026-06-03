@@ -19,8 +19,8 @@ import LifestyleSection from '@/components/slimedo-landing/LifestyleSection';
 import BlogSection from '@/components/slimedo-landing/BlogSection';
 import FaqSection from '@/components/slimedo-landing/FaqSection';
 import CtaSection from '@/components/slimedo-landing/CtaSection';
-import SlimedoFooter from '@/components/slimedo-landing/SlimedoFooter';
 import NewTrustSection from "@/components/NewTrustSection/NewTrustSection.tsx";
+import {Footer} from "react-day-picker";
 
 // ── Übergangs-Brücken ─────────────────────────────────────────
 type BridgeVariant =
@@ -153,7 +153,7 @@ export default function LandingPage() {
       </main>
 
       {/* ── Footer (nahtloser Übergang von sec9 dunkel) ─ */}
-      <SlimedoFooter />
+      <Footer />
     </div>
   );
 }

@@ -1,177 +1,291 @@
-const company = [
-  { label: "Über uns", path: "/about" },
-  { label: "Unser Team", path: "/team" },
-  { label: "Karriere", path: "/careers" },
-  { label: "Presse & Medien", path: "/press" },
-];
-const departments = [
-  { label: "Kardiologie", path: "/departments/cardiology" },
-  { label: "Neurologie", path: "/departments/neurology" },
-  { label: "Orthopädie", path: "/departments/orthopedics" },
-  { label: "Pädiatrie", path: "/departments/pediatrics" },
-];
-import { Link } from "react-router";
-import CtaBanner from "../../../public/images/logo/cta-banner.png";
-import {
-  FacebookSvg,
-  FooterLogoIconSvg,
-  InstagramSvg,
-  KlarnaSvg,
-  MasterCardSvg,
-  PaypalSvg,
-  PaySvg,
-  StripeSvg,
-  TiktokSvg,
-  TwitterSvg,
-  VisaIconSvg,
-} from "../svg-container/SvgContainer";
-const patientServices = [
-  { label: "Gesundheitspakete", path: "/services/packages" },
-  { label: "Termine", path: "/appointments" },
-  { label: "Rezepte", path: "/prescriptions" },
-  { label: "Medizinische Berichte", path: "/reports" },
-];
-const quickLinks = [
-  { label: "Datenschutzrichtlinie", path: "/privacy" },
-  { label: "Allgemeine Geschäftsbedingungen", path: "/terms" },
-  { label: "Medizinische Ethik", path: "/ethics" },
-  { label: "Cookie-Richtlinie", path: "/cookies" },
-  { label: "Apotheken-Dashboard", path: "/pharmacy-dashboard/login" },
+import { Link } from 'react-router';
+
+const behandlungLinks = [
+  { label: 'GLP-1 Therapie', path: '/' },
+  { label: 'Adipositas-Behandlung', path: '/' },
+  { label: 'Fragebogen starten', path: '/' },
+  { label: 'Unsere Ärzte', path: '/' },
 ];
 
-// Social icon paths
-const socials = [
-  {
-    label: "Facebook",
-    path: <FacebookSvg />,
-    url: "https://www.facebook.com",
-  },
-  {
-    label: "Twitter",
-    path: <TwitterSvg />,
-    url: "https://www.twitter.com",
-  },
-  {
-    label: "Instagram",
-    path: <InstagramSvg />,
-    url: "https://www.instagram.com",
-  },
-  {
-    label: "LinkedIn",
-    path: <TiktokSvg />,
-    url: "https://www.linkedin.com",
-  },
+const unternehmenLinks = [
+  { label: 'Über uns', path: '/' },
+  { label: 'Blog', path: '/' },
+  { label: 'FAQ', path: '/#faq' },
+  { label: 'Kontakt', path: '/' },
 ];
 
-// Payment logos as styled text badges
-const payments = [
-  { name: <VisaIconSvg /> },
-  { name: <MasterCardSvg /> },
-  { name: <StripeSvg /> },
-  { name: <PaypalSvg /> },
-  { name: <PaySvg /> },
-  { name: <KlarnaSvg /> },
+const rechtlichesLinks = [
+  { label: 'Datenschutz', path: '/privacy' },
+  { label: 'Impressum', path: '/' },
+  { label: 'AGB', path: '/terms' },
+  { label: 'Cookie-Einstellungen', path: '/' },
+  { label: 'Medizinische Ethik', path: '/' },
 ];
 
-export default function Footer() {
+export default function SlimedoFooter() {
   return (
-    <footer className="bg-[#0B1C19]">
-      <div className="mx-5 lg:mx-10 xl:mx-15 2xl:mx-30 py-10 lg:py-20">
-        {/* Top row */}
-        <div className="flex flex-col lg:flex-row gap-10 xl:gap-32 2xl:gap-95 mb-5 lg:mb-10">
-          {/* Brand */}
-          <div className="flex flex-col gap-4 lg:w-62.5 shrink-0">
-            <div className="flex items-center gap-2.5">
-              <Link to={"/"}>
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
-                  <img
-                    src={CtaBanner}
+      <footer
+          style={{
+            background:
+                'linear-gradient(to bottom, #1E3A2E 0%, #131E17 18%, #0F1F1A 40%)',
+            padding: '64px 32px 0',
+          }}
+      >
+        <div style={{ maxWidth: 1160, margin: '0 auto' }}>
+          {/* Top grid */}
+          <div
+              className="footer-top-resp"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1.5fr 1fr 1fr 1fr',
+                gap: 48,
+                paddingBottom: 56,
+                borderBottom: '1px solid rgba(205,221,203,.1)',
+              }}
+          >
+            {/* Brand column */}
+            <div>
+            <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  marginBottom: 14,
+                }}
+            >
+              <span
+                  aria-hidden="true"
+                  style={{
+                    width: 39,
+                    height: 39,
+                    borderRadius: '999px',
+                    background: '#FFFFFF',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 6px 14px rgba(8,15,12,.22)',
+                    flexShrink: 0,
+                  }}
+              >
+                <img
+                    src="/images/logo/cta-banner.png"
                     alt="Slimedo Logo"
-                    className="w-21.5 h-14 object-contain -mb-1"
-                  />
-                </div>
-              </Link>
-              <Link to={"/"}>
-                <FooterLogoIconSvg />
-              </Link>
-            </div>
-            <p className="text-[#96A9A5] text-sm leading-relaxed">
-              Ihr vertrauenswürdiger Telemedizin-Partner für professionelle medizinische
-              Beratung und Rezeptdienste.
-            </p>
-            {/* Social icons */}
-            <div className="flex gap-2 mt-1">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.url ?? "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden bg-[#FFFFFF1A]"
-                >
-                  {s.path}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Link columns */}
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-8">
-            {[
-              { title: "Unternehmen", links: company },
-              { title: "Fachabteilungen", links: departments },
-              { title: "Patientenservices", links: patientServices },
-              { title: "Schnellzugriff", links: quickLinks },
-            ].map((col) => (
-              <div key={col.title} className="flex flex-col gap-3">
-                <h4 className="text-[#F9FAFB] text-base lg:text-xl font-normal">
-                  {col.title}
-                </h4>
-                {col.links.map((link) => (
-                  <Link
-                    key={link.label}
-                    to={link.path}
-                    className="text-[#96A9A5] hover:text-white/70 text-sm transition-colors leading-relaxed"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-white/[0.07] pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
-          {/* Payment section */}
-          <div>
-            <p className="text-white/35 text-xs mb-2.5 font-medium">
-              Sichere Zahlungsmethoden
-            </p>
-            <div className="flex gap-2 flex-wrap">
-              {payments.map((p, index) => (
+                    style={{
+                      width: 38,
+                      height: 38,
+                      objectFit: 'contain',
+                      flexShrink: 0,
+                    }}
+                />
+              </span>
+              <span
+                  style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: 19,
+                    fontWeight: 700,
+                    color: '#FAF5EA',
+                    letterSpacing: '0',
+                    lineHeight: 1,
+                  }}
+              >
+                Slimedo
+              </span>
+            </span>
+              <p
+                  style={{
+                    fontSize: 13.5,
+                    color: 'rgba(205,221,203,.5)',
+                    lineHeight: 1.6,
+                    marginBottom: 22,
+                    maxWidth: 240,
+                    fontFamily: '"Inter", sans-serif',
+                  }}
+              >
+                Telemedizin-Plattform für ärztlich geprüfte Adipositas-Therapie — 100% diskret
+                und vertraulich.
+              </p>
+              {/* Social icons */}
+              <div style={{ display: 'flex', gap: 10 }}>
+                {/* Instagram */}
                 <div
-                  key={index}
-                  className="rounded  py-1 min-w-11.5 flex items-center justify-center"
+                    style={{
+                      width: 36,
+                      height: 36,
+                      background: 'rgba(205,221,203,.08)',
+                      borderRadius: 9,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: '1px solid rgba(205,221,203,.12)',
+                      cursor: 'pointer',
+                      transition: 'background .2s',
+                    }}
+                    onMouseEnter={(e) =>
+                        ((e.currentTarget as HTMLElement).style.background = 'rgba(205,221,203,.16)')
+                    }
+                    onMouseLeave={(e) =>
+                        ((e.currentTarget as HTMLElement).style.background = 'rgba(205,221,203,.08)')
+                    }
                 >
-                  <span className="font-bold text-[10px]">{p.name}</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <rect x="2" y="2" width="12" height="12" rx="3.5" stroke="#CDDDCB" strokeWidth="1.3" />
+                    <circle cx="8" cy="8" r="2.8" stroke="#CDDDCB" strokeWidth="1.3" />
+                    <circle cx="11.2" cy="4.8" r="0.8" fill="#CDDDCB" />
+                  </svg>
                 </div>
-              ))}
+                {/* TikTok */}
+                <div
+                    style={{
+                      width: 36,
+                      height: 36,
+                      background: 'rgba(205,221,203,.08)',
+                      borderRadius: 9,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: '1px solid rgba(205,221,203,.12)',
+                      cursor: 'pointer',
+                      transition: 'background .2s',
+                    }}
+                    onMouseEnter={(e) =>
+                        ((e.currentTarget as HTMLElement).style.background = 'rgba(205,221,203,.16)')
+                    }
+                    onMouseLeave={(e) =>
+                        ((e.currentTarget as HTMLElement).style.background = 'rgba(205,221,203,.08)')
+                    }
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                        d="M10.5 2C10.7 3.5 11.6 4.4 13 4.5V6.5C12 6.5 11.1 6.2 10.5 5.7V10.5C10.5 12.7 8.7 14 6.8 14C4.9 14 3 12.7 3 10.5C3 8.3 4.9 7 6.8 7C7 7 7.2 7 7.4 7V9.1C7.2 9 7 9 6.8 9C6 9 5.2 9.7 5.2 10.5C5.2 11.3 6 12 6.8 12C7.6 12 8.3 11.3 8.3 10.5V2H10.5Z"
+                        stroke="#CDDDCB"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
+
+            {/* Link columns */}
+            <FooterCol title="Behandlung" links={behandlungLinks} />
+            <FooterCol title="Unternehmen" links={unternehmenLinks} />
+            <FooterCol title="Rechtliches" links={rechtlichesLinks} />
           </div>
 
-          {/* Copyright */}
-          <div className="text-right">
-            <p className="text-white/30 text-xs">
-              © Slimedo Telemedicine Platform Ltd. 2026
-            </p>
-            <p className="text-white/20 text-xs mt-0.5">
-              Mit Sorgfalt entworfen • Alle Rechte vorbehalten
-            </p>
+          {/* Bottom bar */}
+          <div
+              className="footer-btm-resp"
+              style={{
+                padding: '22px 0 28px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 24,
+              }}
+          >
+            {/* Payment badges */}
+            <div>
+            <span
+                style={{ fontSize: 12, color: 'rgba(205,221,203,.35)', marginRight: 8, fontFamily: '"Inter", sans-serif' }}
+            >
+              Zahlung:
+            </span>
+              {['stripe', 'PayPal', 'Apple Pay', 'Klarna.'].map((name) => (
+                  <span
+                      key={name}
+                      style={{
+                        background: 'rgba(255,255,255,.9)',
+                        borderRadius: 5,
+                        padding: '3px 8px',
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#333',
+                        marginRight: 6,
+                        display: 'inline-block',
+                      }}
+                  >
+                {name}
+              </span>
+              ))}
+            </div>
+
+            {/* Copyright */}
+            <div style={{ textAlign: 'right' }}>
+              <p
+                  style={{
+                    fontSize: 12,
+                    color: 'rgba(205,221,203,.3)',
+                    lineHeight: 1.5,
+                    fontFamily: '"Inter", sans-serif',
+                  }}
+              >
+                © 2026 Slimedo Telemedicine Platform Ltd
+                <br />
+                Alle Rechte vorbehalten
+              </p>
+            </div>
           </div>
         </div>
+        <style>{`
+        @media (max-width: 1024px) {
+          .footer-top-resp { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+        }
+        @media (max-width: 640px) {
+          .footer-top-resp { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+          .footer-btm-resp { flex-direction: column !important; align-items: flex-start !important; }
+        }
+      `}</style>
+      </footer>
+  );
+}
+
+function FooterCol({
+                     title,
+                     links,
+                   }: {
+  title: string;
+  links: { label: string; path: string }[];
+}) {
+  return (
+      <div>
+        <h4
+            style={{
+              fontFamily: '"Manrope", sans-serif',
+              fontSize: 13,
+              fontWeight: 600,
+              color: '#FAF5EA',
+              textTransform: 'uppercase',
+              letterSpacing: '.08em',
+              marginBottom: 18,
+            }}
+        >
+          {title}
+        </h4>
+        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 11 }}>
+          {links.map((link) => (
+              <li key={link.label}>
+                <Link
+                    to={link.path}
+                    style={{
+                      fontSize: 14,
+                      color: 'rgba(205,221,203,.55)',
+                      textDecoration: 'none',
+                      transition: 'color .2s',
+                      fontFamily: '"Inter", sans-serif',
+                    }}
+                    onMouseEnter={(e) =>
+                        ((e.currentTarget as HTMLElement).style.color = '#FAF5EA')
+                    }
+                    onMouseLeave={(e) =>
+                        ((e.currentTarget as HTMLElement).style.color = 'rgba(205,221,203,.55)')
+                    }
+                >
+                  {link.label}
+                </Link>
+              </li>
+          ))}
+        </ul>
       </div>
-    </footer>
   );
 }
