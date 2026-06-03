@@ -20,6 +20,7 @@ import BlogSection from '@/components/slimedo-landing/BlogSection';
 import FaqSection from '@/components/slimedo-landing/FaqSection';
 import CtaSection from '@/components/slimedo-landing/CtaSection';
 import NewTrustSection from "@/components/NewTrustSection/NewTrustSection.tsx";
+import TherapieSection from '@/components/slimedo-landing/TherapieSection';
 import Footer from "@/components/Footer/Footer";
 
 // ── Übergangs-Brücken ─────────────────────────────────────────
@@ -33,7 +34,9 @@ type BridgeVariant =
   | 'dark-to-sand'
   | 'sand-to-dark'
   | 'cream-to-surf'
-  | 'surf-to-dark-footer';
+  | 'surf-to-dark-footer'
+  | 'sand-to-linen'
+  | 'linen-to-cream';
 
 const bridgeStyles: Record<BridgeVariant, CSSProperties> = {
   'sand-to-cream': {
@@ -76,6 +79,14 @@ const bridgeStyles: Record<BridgeVariant, CSSProperties> = {
     height: 48,
     background: 'linear-gradient(to bottom,#FFFDF7,#0F1F1A)',
   },
+  'sand-to-linen': {
+    height: 48,
+    background: 'linear-gradient(to bottom,#F5EEDB,#FAF6EE)',
+  },
+  'linen-to-cream': {
+    height: 48,
+    background: 'linear-gradient(to bottom,#FAF6EE,#FAF5EA)',
+  },
 };
 
 function Bridge({ variant }: { variant: BridgeVariant }) {
@@ -112,8 +123,12 @@ export default function LandingPage() {
         <Bridge variant="cream-to-sand" />
         <NewTrustSection />
 
+        {/* ── Die Therapie ───────────────────── */}
+        <Bridge variant="sand-to-linen" />
+        <TherapieSection />
+
         {/* ── Wirkungsweise ──────────────────── */}
-        <Bridge variant="sand-to-cream" />
+        <Bridge variant="linen-to-cream" />
         <WirkungsweiseSection />
 
         {/* ── BMI Rechner ────────────────────── */}
