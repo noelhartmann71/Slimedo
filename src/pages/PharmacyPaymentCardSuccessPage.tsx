@@ -21,12 +21,7 @@ const PharmacyPaymentCardSuccessPage = () => {
 
     axiosSecure
       .post("/payment/pharmacy/payment-success", { session_id: sessionId })
-      .then((res) => {
-        console.log("Payment success response:", res.data);
-      })
-      .catch((err) => {
-        console.error("Payment success API error:", err);
-      });
+      .catch(() => undefined);
   }, [axiosSecure, searchParams]);
 
   const [confirmedBooking] = useState<{

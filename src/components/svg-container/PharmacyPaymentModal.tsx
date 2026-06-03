@@ -26,7 +26,6 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
   const [isBankModalOpen, setIsBankModalOpen] = useState(false);
   const orderId = localStorage.getItem("order_id") || "";
   const TotalAmount = sessionStorage.getItem("pharmacy_price") || amount;
-  console.log("Total amount for pharmacy payment:", TotalAmount);
 
   const { mutate: payWithCard, isPending: isProcessingCard } = useMutation({
     mutationFn: async () => {
@@ -38,7 +37,6 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
       const response = await axiosSecure.post("/payment/card", {
         order_id: orderId,
       });
-      console.log("Card payment response:", response.data);
       return response.data;
     },
     onSuccess: (data) => {

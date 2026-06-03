@@ -93,8 +93,7 @@ const BookConsultationModal: React.FC<BookConsultationModalProps> = ({
       try {
         const res = await axiosSecure.get("/schedule");
         setSchedule(res.data?.data || {});
-      } catch (err) {
-        console.error("Failed to fetch schedule:", err);
+      } catch {
         toast.error("Verfügbare Termine konnten nicht geladen werden.");
       } finally {
         setScheduleLoading(false);
@@ -162,8 +161,7 @@ const BookConsultationModal: React.FC<BookConsultationModalProps> = ({
         setShowConfirmationModal(true);
         setSelectedDate(-1);
         setSelectedTime(-1);
-      } catch (error) {
-        console.error("Failed to book consultation:", error);
+      } catch {
         toast.error("Fehler beim Erstellen des Termins. Bitte versuchen Sie es erneut.");
       } finally {
         setLoading(false);

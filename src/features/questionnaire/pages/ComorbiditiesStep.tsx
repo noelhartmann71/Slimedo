@@ -56,9 +56,6 @@ export default function ComorbiditiesStep({
     }
   }, [hasComorbidities, selectedSubstances]);
 
-  console.log("Selected substances:", selectedSubstances);
-
-  // This is the Medical questionnaire
   const { data: comorbidities = [], isLoading } = useQuery({
     queryKey: ["comorbidities"],
     queryFn: async () => {
@@ -68,8 +65,6 @@ export default function ComorbiditiesStep({
       return response?.data?.data;
     },
   });
-
-  console.log("Comorbidities data:", comorbidities);
 
   return (
     <>
@@ -157,12 +152,6 @@ export default function ComorbiditiesStep({
                     }
 
                     const checked = selectedSubstances.includes(name);
-                    console.log(
-                      "Rendering substance:",
-                      name,
-                      "Checked:",
-                      checked,
-                    );
                     return (
                       <div
                         key={name}

@@ -74,7 +74,6 @@ const ChangePasswordPage = () => {
     },
     onSuccess: (response) => {
       const data = response.data;
-      console.log("Password changed successfully:", data);
       localStorage.removeItem("reset_token");
       localStorage.removeItem("user_email");
       toast.success(data.message || "Passwort erfolgreich geändert");
@@ -84,13 +83,11 @@ const ChangePasswordPage = () => {
     onError: (error: AxiosError<{ message?: string }>) => {
       const errorMessage =
         error?.response?.data?.message || (error as Error).message;
-      console.error("Reset failed:", errorMessage);
       toast.error(errorMessage);
     },
   });
 
   const onSubmit = (data: LoginFormValues) => {
-    console.log("Form Data:", data);
     changePasswordMutation.mutate(data);
   };
 

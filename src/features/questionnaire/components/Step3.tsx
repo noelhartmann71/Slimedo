@@ -26,7 +26,6 @@ export const Step3 = ({
     },
   });
 
-  console.log("Exclusion criteria data:", exclusionCriteria?.data);
   return (
     <>
       <div className="flex items-center gap-2 mb-4">

@@ -58,7 +58,6 @@ export default function DeliveryMethodSelectionPage() {
   );
 
   const { settings } = useSystemSetting();
-  console.log("System settings:", settings?.shipping_fee);
 
   const handlePartnerClick = () => {
     setSelectedMethod("partner");
@@ -120,22 +119,17 @@ export default function DeliveryMethodSelectionPage() {
       coupon_id: localStorage.getItem("coupon_id") || null,
     };
 
-    console.log("Creating order with payload:", payload);
-    console.log("Pricing from localStorage:", medicationPrice);
-
     setIsConfirming(true);
     try {
       const response = await axiosSecure.post("/order/create", payload);
       if (response.data) {
         const orderId = response.data?.order?._id || response.data?.order?.id;
-        console.log("Order created successfully:", orderId);
         localStorage.setItem("order_id", orderId);
         setCreatedOrderId(orderId);
         toast.success("Bestellung bestätigt");
         setIsConfirmed(true);
       }
-    } catch (error) {
-      console.error("Error creating order:", error);
+    } catch {
       toast.error("Fehler beim Erstellen der Bestellung");
     } finally {
       setIsConfirming(false);
@@ -147,48 +141,34 @@ export default function DeliveryMethodSelectionPage() {
     setIsSubmitting(true);
     localStorage.setItem("selectedDeliveryMethod", selectedMethod);
 
-    const payload = {
-      shipping,
-      pharmacy_type: pharmacyType,
-      selectedMethod,
-    };
-
-    console.log("Submitting payload:", payload);
-
     if (selectedMethod === "other") {
       try {
-        // Checkout order
         if (createdOrderId) {
           const checkoutResponse = await axiosSecure.post(
             `/order/checkout/${createdOrderId}`,
           );
-          console.log("Checkout response:", checkoutResponse.data);
           if (checkoutResponse.data?.checkout_url) {
             window.location.href = checkoutResponse.data.checkout_url;
             return;
           }
         }
-      } catch (error) {
-        console.error("Error during checkout:", error);
+      } catch {
         toast.error("Fehler beim Checkout");
       } finally {
         setIsSubmitting(false);
       }
     } else if (selectedMethod === "partner") {
       try {
-        // Checkout order
         if (createdOrderId) {
           const checkoutResponse = await axiosSecure.post(
             `/order/checkout/${createdOrderId}`,
           );
-          console.log("Checkout response:", checkoutResponse.data);
           if (checkoutResponse.data?.checkout_url) {
             window.location.href = checkoutResponse.data.checkout_url;
             return;
           }
         }
-      } catch (error) {
-        console.error("Error during checkout:", error);
+      } catch {
         toast.error("Fehler beim Checkout");
       } finally {
         setIsSubmitting(false);
@@ -207,8 +187,6 @@ export default function DeliveryMethodSelectionPage() {
     },
   });
 
-  console.log("Pharmacy data:", pharmacyData?.partner);
-
   const handleApplyCoupon = async () => {
     if (!couponCode) return;
     setCouponLoading(true);
@@ -217,7 +195,6 @@ export default function DeliveryMethodSelectionPage() {
       const response = await axiosPublic.post(
         `/coupon/${encodeURIComponent(couponCode)}`,
       );
-      console.log("Coupon applied successfully:", response.data?.data?.amount);
       const appliedDiscountAmount = Number(response.data?.data?.amount || 0);
       localStorage.setItem("coupon_id", response.data?.data?.id);
       setDiscountAmount(appliedDiscountAmount);
@@ -996,8 +973,6 @@ export default function DeliveryMethodSelectionPage() {
                       setSelectedPharmacy(payload);
                       setPharmacyName(pharmacy.name);
 
-                      console.log("Footer Button Payload:", payload);
-
                       setIsCreatingPharmacy(true);
                       try {
                         const response = await axiosSecure.post(
@@ -1006,18 +981,13 @@ export default function DeliveryMethodSelectionPage() {
                         );
                         if (response.data) {
                           const newPharmacy = response.data?.data;
-                          console.log(
-                            "Pharmacy created successfully:",
-                            newPharmacy?.id || newPharmacy?._id,
-                          );
                           setSelectedPharmacy(newPharmacy);
                           toast.success(
                             response.data.message ||
                               "Pharmacy created successfully",
                           );
                         }
-                      } catch (error) {
-                        console.error("Error creating pharmacy:", error);
+                      } catch {
                         toast.error(
                           "Error creating pharmacy. Please try again.",
                         );

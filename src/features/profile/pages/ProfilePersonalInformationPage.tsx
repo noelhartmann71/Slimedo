@@ -126,14 +126,11 @@ export default function ProfilePersonalInformationPage() {
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      console.error("Update error:", error);
       toast.error(error.response?.data?.message || "Failed to update profile");
     } finally {
       setIsUpdating(false);
     }
   };
-
-  console.log("User data in ProfilePersonalInformationPage:", user);
 
   if (isLoading) {
     return (

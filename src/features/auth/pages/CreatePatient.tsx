@@ -60,7 +60,6 @@ const CreatePatient = () => {
       return response.data;
     },
     onSuccess: (data) => {
-      console.log("Patient registration successful:", data);
       toast.success(data.message);
       if (data?.data) {
         localStorage.setItem("user", JSON.stringify(data.data.user));

@@ -16,6 +16,7 @@ import VisaImg from "../../../../public/images/payment-method/Visa.png";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useMutation } from "@tanstack/react-query";
 import useSystemSetting from "@/hooks/useSystemSetting";
+import toast from "react-hot-toast";
 
 interface FormData {
   firstName: string;
@@ -77,13 +78,12 @@ export default function ReviewAccountPage() {
       const response = await axiosSecure.post("/profile/update", payload);
       return response.data;
     },
-    onSuccess: (data) => {
-      console.log("Profile updated successfully:", data);
+    onSuccess: () => {
       localStorage.setItem("deliveryAddress", JSON.stringify(formData));
       navigate("/auth/delivery-method-selection");
     },
-    onError: (error: unknown) => {
-      console.error("Profile update failed:", error);
+    onError: () => {
+      toast.error("Profil konnte nicht aktualisiert werden");
     },
   });
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 import ProfileDashboardLayout from "../components/ProfileDashboardLayout";
 import { axiosSecure } from "@/hooks/useAxiosSecure";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -40,22 +41,19 @@ export default function ProfileOverviewPage() {
   });
 
   const handleView = async (id: number) => {
-    console.log("View button clicked for prescription ID:", id);
     setLoadingOrderId(id);
     try {
       const res = await axiosSecure.get(`/view/order/${id}`);
       setSelectedOrderDetails(res?.data?.data);
       setIsOrderModalOpen(true);
-      console.log("Fetched Prescription Details:", res?.data?.data);
-    } catch (error) {
-      console.error("Error fetching prescription details:", error);
+    } catch {
+      toast.error("Rezeptdetails konnten nicht geladen werden");
     } finally {
       setLoadingOrderId(null);
     }
   };
 
   const prescriptions = patientDashboardData?.allPrescription || [];
-  console.log("Fetched Prescriptions:", prescriptions);
 
   return (
     <ProfileDashboardLayout activeSection="overview" showActions={false}>

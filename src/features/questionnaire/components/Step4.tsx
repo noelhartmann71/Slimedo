@@ -18,8 +18,6 @@ export const Step4 = ({ medications, setMedications }: Step4Props) => {
     },
   });
 
-  console.log("Incompatible medications data:", incompatibleMedications?.data);
-
   return (
     <>
       <div className="flex items-center gap-2 mb-4">

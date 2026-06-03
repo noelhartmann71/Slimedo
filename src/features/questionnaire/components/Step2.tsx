@@ -36,7 +36,6 @@ export const Step2 = ({
     },
   });
 
-  console.log("Allergies data:", allergies);
   return (
     <>
       <div className="flex items-center gap-2 mb-4">

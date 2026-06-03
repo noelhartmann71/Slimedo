@@ -268,7 +268,6 @@ export default function PharmacyOverviewPage() {
         `/pharmacy/order/update-status/${orderId}`,
         { delivery_status: delivery_status.toLowerCase() },
       );
-      console.log("Status update response:", response.data?.data);
       return response.data;
     },
     onSuccess: (res) => {
@@ -294,7 +293,6 @@ export default function PharmacyOverviewPage() {
         `/pharmacy/order/update-status/${orderId}`,
         { payment_status: payment_status.toLowerCase() },
       );
-      console.log("Payment status update response:", response.data?.data);
       return response.data;
     },
     onSuccess: (res) => {
@@ -337,7 +335,6 @@ export default function PharmacyOverviewPage() {
         endpoint = `/pharmacy/orders/${orderId}/resend-payment-link`;
 
       const response = await axiosSecure.post(endpoint);
-      console.log(`Action ${action} response:`, response.data?.data);
       return response.data;
     },
     onSuccess: (res) => {
@@ -377,8 +374,6 @@ export default function PharmacyOverviewPage() {
       toast.error(err?.response?.data?.message || "Failed to export orders");
     },
   });
-
-  console.log("Dashboard API response:", data);
 
   const dashboardData = data?.data;
   const overviewData = dashboardData?.overview;
@@ -511,8 +506,6 @@ export default function PharmacyOverviewPage() {
       return acc;
     }, []);
 
-  //
-  console.log("Dashboard API response:", data?.pagination);
   return (
     <div className="space-y-8">
       {/* ── Pharmacy header banner ── unchanged ─────────────────────────────── */}
@@ -939,7 +932,7 @@ export default function PharmacyOverviewPage() {
                           <a
                             href={order.prescription_pdf_download_url}
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             title="Download Prescription"
                             className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#C8DDD9] bg-[#F0F8F6] text-[#2D6B61] transition-all hover:border-[#4A8E83] hover:bg-[#E4F3F0]"
                           >

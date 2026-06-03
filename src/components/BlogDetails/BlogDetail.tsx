@@ -164,7 +164,6 @@ function BlogDetailSkeleton() {
 // ── Main BlogDetail Component ──────────────────────────────────────────────
 export default function BlogDetail() {
   const { id } = useParams();
-  console.log("Blog ID from URL:", id);
 
   const { data: blogDetailsData, isLoading } = useQuery({
     queryKey: ["blogDetails", id],

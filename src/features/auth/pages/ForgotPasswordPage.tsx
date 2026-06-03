@@ -50,7 +50,6 @@ export default function ForgotPasswordPage() {
         data.message ||
           "Bestätigungscode erfolgreich gesendet! Bitte überprüfen Sie Ihre E-Mail.",
       );
-      console.log("Forgot password success:", data);
       navigate("/auth/verify", { state: { email: variables } });
     },
     onError: (error: AxiosError<{ message: string }>) => {
@@ -58,7 +57,6 @@ export default function ForgotPasswordPage() {
         error.response?.data?.message ||
           "Beim Senden des Bestätigungscodes ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       );
-      console.error("Forgot password error:", error);
     },
   });
 

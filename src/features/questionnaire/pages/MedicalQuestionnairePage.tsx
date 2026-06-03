@@ -178,13 +178,6 @@ export default function MedicalQuestionnairePage() {
   // Temporary thank-you panel state shown after confirming comorbidities
 
   function handleFurther() {
-    console.log("handleFurther called", {
-      step,
-      showComorbidities,
-      calculatedBmi,
-    });
-
-    // If we're on step 1 and the BMI results are shown (and it's in the co-morbidity range), transition to ComorbiditiesStep
     if (
       step === 1 &&
       !showComorbidities &&
@@ -192,7 +185,6 @@ export default function MedicalQuestionnairePage() {
       calculatedBmi >= 27 &&
       calculatedBmi < 30
     ) {
-      console.log("Diverting to comorbidities view");
       setShowComorbidities(true);
       return;
     }
@@ -210,7 +202,6 @@ export default function MedicalQuestionnairePage() {
     },
   });
 
-  console.log("Questionary data:", questionaryData);
   return (
     <div className="min-h-screen bg-[#f0f0ec] flex flex-col font-inter">
       {/* ── Top bar ── */}

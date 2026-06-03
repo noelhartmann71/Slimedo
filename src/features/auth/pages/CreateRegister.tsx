@@ -50,7 +50,6 @@ export default function CreateRegister() {
         data.message ||
           "Bestätigungscode erfolgreich gesendet! Bitte überprüfen Sie Ihre E-Mails.",
       );
-      console.log("Resend OTP success:", data);
       navigate("/auth/verify-register", { state: { email: variables } });
     },
     onError: (error: AxiosError<{ message: string }>) => {
@@ -58,7 +57,6 @@ export default function CreateRegister() {
         error.response?.data?.message ||
           "Beim Senden des Bestätigungscodes ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       );
-      console.error("Resend OTP error:", error);
     },
   });
 

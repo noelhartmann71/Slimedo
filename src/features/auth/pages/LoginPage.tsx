@@ -63,7 +63,6 @@ const LoginPage = () => {
     },
     onSuccess: (response) => {
       const data = response.data;
-      console.log("Login successful:", data);
       localStorage.setItem("user", JSON.stringify(data.data));
       localStorage.setItem("token", data.token);
       toast.success(data.message || "Erfolgreich angemeldet");
@@ -73,13 +72,11 @@ const LoginPage = () => {
     onError: (error: AxiosError<{ message?: string }>) => {
       const errorMessage =
         error?.response?.data?.message || (error as Error).message;
-      console.error("Login failed:", errorMessage);
       toast.error(errorMessage);
     },
   });
 
   const onSubmit = (data: LoginFormValues) => {
-    console.log("Form Data:", data);
     loginMutation.mutate(data);
   };
 

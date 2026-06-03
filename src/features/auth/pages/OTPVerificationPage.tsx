@@ -35,8 +35,6 @@ export default function OTPVerificationPage() {
     },
     onSuccess: (data) => {
       toast.success(data.message || "OTP erfolgreich verifiziert!");
-      console.log("OTP verification success:", data?.data?.token);
-      // You might want to save a temporary token here if the API returns one
       if (data?.data?.token) {
         localStorage.setItem("token", data.data.token);
       }

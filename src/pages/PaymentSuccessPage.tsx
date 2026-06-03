@@ -18,12 +18,7 @@ const PaymentSuccessPage: React.FC = () => {
 
     axiosSecure
       .post("/order/payment-success", { session_id: sessionId })
-      .then((res) => {
-        console.log("Payment success response:", res.data);
-      })
-      .catch((err) => {
-        console.error("Payment success API error:", err);
-      });
+      .catch(() => undefined);
   }, [axiosSecure, searchParams]);
 
   return (

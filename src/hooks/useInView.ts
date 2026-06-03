@@ -70,5 +70,5 @@ export function useChildInView(containerRef: RefObject<HTMLElement | null>) {
     });
 
     return () => observer.disconnect();
-  });
+  }, [containerRef]);
 }

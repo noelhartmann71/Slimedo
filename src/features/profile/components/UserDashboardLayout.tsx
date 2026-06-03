@@ -230,8 +230,7 @@ export default function UserDashboardLayout() {
       clearSessionStorage();
       toast.success("Logged out successfully");
       navigate("/login");
-    } catch (error) {
-      console.error("Logout failed:", error);
+    } catch {
       clearSessionStorage();
       toast.error("Logout failed. Please try again.");
     } finally {
@@ -247,8 +246,6 @@ export default function UserDashboardLayout() {
       return response?.data?.data;
     },
   });
-
-  console.log("Pharmacy profile data in UserDashboardLayout:", pharmacyProfile);
 
   return (
     <div className="min-h-screen bg-[#F7F8F6]">

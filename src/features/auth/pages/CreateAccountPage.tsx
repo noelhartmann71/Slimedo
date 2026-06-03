@@ -25,7 +25,6 @@ export default function CreateAccountPage() {
   const { user } = useUser();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
-  console.log("Current user:", user);
 
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -46,7 +45,6 @@ export default function CreateAccountPage() {
   const [isOtpVerified, setIsOtpVerified] = useState(false);
   const [otp, setOtp] = useState("");
   const { settings } = useSystemSetting();
-  console.log("System setting data:", settings);
 
   const medicationPrice = Number(localStorage.getItem("medication_price") || 0);
   const prescriptionFee = Number(settings?.prescription_fee || 0);
@@ -77,12 +75,10 @@ export default function CreateAccountPage() {
       const response = await axiosPublic.post("/verify_otp", payload);
       return response.data;
     },
-    onSuccess: (data) => {
-      console.log("OTP Verified successfully:", data);
+    onSuccess: () => {
       setIsOtpVerified(true);
     },
     onError: (error: unknown) => {
-      console.error("OTP verification failed:", error);
       toast.error(
         error instanceof Error ? error.message : "OTP verification failed",
       );
@@ -96,7 +92,6 @@ export default function CreateAccountPage() {
       return response.data;
     },
     onSuccess: async (data) => {
-      console.log("Registration successful:", data);
       localStorage.setItem("user", JSON.stringify(data?.data?.user));
       if (data?.data?.token) {
         localStorage.setItem("token", data?.data?.token);
@@ -123,13 +118,12 @@ export default function CreateAccountPage() {
         };
         await axiosSecure.post("/patient/create", questionnairePayload);
         navigate("/auth/review");
-      } catch (error) {
-        console.error("Patient creation failed:", error);
+      } catch {
         toast.error("Patient creation failed");
       }
     },
-    onError: (error: unknown) => {
-      console.error("Registration failed:", error);
+    onError: () => {
+      toast.error("Registration failed");
     },
   });
 

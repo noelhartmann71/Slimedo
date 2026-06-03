@@ -44,11 +44,6 @@ export default function AccountReadyPage() {
     },
   });
 
-  console.log(
-    "Telemedical treatment info data:",
-    telemedicalTreatmentInfo?.data,
-  );
-
   return (
     <div className="min-h-screen bg-[#f0f0ec] flex flex-col">
       {/* ── Top bar ── */}

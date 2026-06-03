@@ -5,58 +5,71 @@ import {
   ScrollRestoration,
   Outlet,
 } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
+// Eager-loaded: public marketing pages a first-time visitor will land on
 import LandingPage from "./pages/LandingPage";
-import LoginPage from "./features/auth/pages/LoginPage";
-import CreateAccountPage from "./features/auth/pages/CreateAccountPage";
-import ReviewAccountPage from "./features/auth/pages/ReviewAccountPage";
-import DeliveryMethodsPage from "./features/auth/pages/DeliveryMethodsPage";
-import DeliveryMethodSelectionPage from "./features/auth/pages/DeliveryMethodSelectionPage";
-import PharmacySelectionSuccessPage from "./features/auth/pages/PharmacySelectionSuccessPage";
-import OTPVerificationPage from "./features/auth/pages/OTPVerificationPage";
-import RegisterDetailsPage from "./features/auth/pages/RegisterDetailsPage";
-import ChangePasswordPage from "./features/auth/pages/ChangePasswordPage";
-import PasswordSuccessPage from "./features/auth/pages/PasswordSuccessPage";
-import AccountReadyPage from "./features/auth/pages/AccountReadyPage";
-import ForgotPasswordPage from "./features/auth/pages/ForgotPasswordPage";
-import ForgotPasswordSentPage from "./features/auth/pages/ForgotPasswordSentPage";
-import ProductSelectionPage from "./features/product/pages/ProductSelectionPage";
-import MedicalQuestionnairePage from "./features/questionnaire/pages/MedicalQuestionnairePage";
-import ImportantInformationPage from "./features/questionnaire/pages/ImportantInformationPage";
-import ProfilePersonalInformationPage from "./features/profile/pages/ProfilePersonalInformationPage";
-import ProfileAddressPage from "./features/profile/pages/ProfileAddressPage";
-import ProfileHealthInformationPage from "./features/profile/pages/ProfileHealthInformationPage";
-import ProfileQuestionnairePage from "./features/profile/pages/ProfileQuestionnairePage";
-import ProfilePaymentMethodsPage from "./features/profile/pages/ProfilePaymentMethodsPage";
-import ProfileOverviewPage from "./features/profile/pages/ProfileOverviewPage";
-import UserDashboardLayout from "./features/profile/components/UserDashboardLayout";
-import PharmacyOverviewPage from "./features/profile/pages/PharmacyOverviewPage";
-import PharmacyOrderListPage from "./features/profile/pages/PharmacyOrderListPage";
-import PharmacyInformationPage from "./features/profile/pages/PharmacyInformationPage";
-import CreatePatient from "./features/auth/pages/CreatePatient";
-import VerifyIdentityPage from "./features/auth/pages/VerifyIdentityPage";
-import RecommendationPage from "./features/auth/pages/RecommendationPage";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import TeamPage from "./pages/TeamPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsConditionsPage from "./pages/TermsConditionsPage";
-import AdminDashboardLayout from "./features/admin-dashboard/components/AdminDashboardLayout";
-import AdminOverviewPage from "./features/admin-dashboard/pages/AdminOverviewPage";
-import AdminRequestsPage from "./features/admin-dashboard/pages/AdminRequestsPage";
-import AdminBatchPage from "./features/admin-dashboard/pages/AdminBatchPage";
-import AdminInvoicesPage from "./features/admin-dashboard/pages/AdminInvoicesPage";
-import AdminPatientsPage from "./features/admin-dashboard/pages/AdminPatientsPage";
-import AdminDoctorsPage from "./features/admin-dashboard/pages/AdminDoctorsPage";
-import AdminSettingsPage from "./features/admin-dashboard/pages/AdminSettingsPage";
-import CreateRegister from "./features/auth/pages/CreateRegister";
-import VerifyRegister from "./features/auth/pages/VerifyRegister";
-import Prescription from "./pages/Prescription";
-import PaymentSuccessPage from "./pages/PaymentSuccessPage";
-import PharmacyDashboardLogin from "./features/auth/pages/PharmacyDashboardLogin";
-import PharmacyPaymentBankSuccessPage from "./pages/PharmacyPaymentBankSuccessPage";
-import PharmacyPaymentCardSuccessPage from "./pages/PharmacyPaymentCardSuccessPage";
-import BookingConfirmed from "./components/BookingConfirmed/BookingConfirmed";
-import PharmacySoldPerMonthPage from "./features/profile/pages/PharmacySoldPerMonthPage";
+
+// Auth pages — lazy (only needed after the user clicks CTA)
+const LoginPage = lazy(() => import("./features/auth/pages/LoginPage"));
+const CreateAccountPage = lazy(() => import("./features/auth/pages/CreateAccountPage"));
+const ReviewAccountPage = lazy(() => import("./features/auth/pages/ReviewAccountPage"));
+const DeliveryMethodsPage = lazy(() => import("./features/auth/pages/DeliveryMethodsPage"));
+const DeliveryMethodSelectionPage = lazy(() => import("./features/auth/pages/DeliveryMethodSelectionPage"));
+const PharmacySelectionSuccessPage = lazy(() => import("./features/auth/pages/PharmacySelectionSuccessPage"));
+const OTPVerificationPage = lazy(() => import("./features/auth/pages/OTPVerificationPage"));
+const RegisterDetailsPage = lazy(() => import("./features/auth/pages/RegisterDetailsPage"));
+const ChangePasswordPage = lazy(() => import("./features/auth/pages/ChangePasswordPage"));
+const PasswordSuccessPage = lazy(() => import("./features/auth/pages/PasswordSuccessPage"));
+const AccountReadyPage = lazy(() => import("./features/auth/pages/AccountReadyPage"));
+const ForgotPasswordPage = lazy(() => import("./features/auth/pages/ForgotPasswordPage"));
+const ForgotPasswordSentPage = lazy(() => import("./features/auth/pages/ForgotPasswordSentPage"));
+const CreateRegister = lazy(() => import("./features/auth/pages/CreateRegister"));
+const VerifyRegister = lazy(() => import("./features/auth/pages/VerifyRegister"));
+const CreatePatient = lazy(() => import("./features/auth/pages/CreatePatient"));
+const VerifyIdentityPage = lazy(() => import("./features/auth/pages/VerifyIdentityPage"));
+const RecommendationPage = lazy(() => import("./features/auth/pages/RecommendationPage"));
+const PharmacyDashboardLogin = lazy(() => import("./features/auth/pages/PharmacyDashboardLogin"));
+
+// Product / payment
+const ProductSelectionPage = lazy(() => import("./features/product/pages/ProductSelectionPage"));
+const PaymentSuccessPage = lazy(() => import("./pages/PaymentSuccessPage"));
+const PharmacyPaymentBankSuccessPage = lazy(() => import("./pages/PharmacyPaymentBankSuccessPage"));
+const PharmacyPaymentCardSuccessPage = lazy(() => import("./pages/PharmacyPaymentCardSuccessPage"));
+const Prescription = lazy(() => import("./pages/Prescription"));
+const BookingConfirmed = lazy(() => import("./components/BookingConfirmed/BookingConfirmed"));
+
+// Questionnaire
+const MedicalQuestionnairePage = lazy(() => import("./features/questionnaire/pages/MedicalQuestionnairePage"));
+const ImportantInformationPage = lazy(() => import("./features/questionnaire/pages/ImportantInformationPage"));
+
+// Patient profile dashboard
+const ProfilePersonalInformationPage = lazy(() => import("./features/profile/pages/ProfilePersonalInformationPage"));
+const ProfileAddressPage = lazy(() => import("./features/profile/pages/ProfileAddressPage"));
+const ProfileHealthInformationPage = lazy(() => import("./features/profile/pages/ProfileHealthInformationPage"));
+const ProfileQuestionnairePage = lazy(() => import("./features/profile/pages/ProfileQuestionnairePage"));
+const ProfilePaymentMethodsPage = lazy(() => import("./features/profile/pages/ProfilePaymentMethodsPage"));
+const ProfileOverviewPage = lazy(() => import("./features/profile/pages/ProfileOverviewPage"));
+const UserDashboardLayout = lazy(() => import("./features/profile/components/UserDashboardLayout"));
+const PharmacyOverviewPage = lazy(() => import("./features/profile/pages/PharmacyOverviewPage"));
+const PharmacyOrderListPage = lazy(() => import("./features/profile/pages/PharmacyOrderListPage"));
+const PharmacyInformationPage = lazy(() => import("./features/profile/pages/PharmacyInformationPage"));
+const PharmacySoldPerMonthPage = lazy(() => import("./features/profile/pages/PharmacySoldPerMonthPage"));
+
+// Admin dashboard
+const AdminDashboardLayout = lazy(() => import("./features/admin-dashboard/components/AdminDashboardLayout"));
+const AdminOverviewPage = lazy(() => import("./features/admin-dashboard/pages/AdminOverviewPage"));
+const AdminRequestsPage = lazy(() => import("./features/admin-dashboard/pages/AdminRequestsPage"));
+const AdminBatchPage = lazy(() => import("./features/admin-dashboard/pages/AdminBatchPage"));
+const AdminInvoicesPage = lazy(() => import("./features/admin-dashboard/pages/AdminInvoicesPage"));
+const AdminPatientsPage = lazy(() => import("./features/admin-dashboard/pages/AdminPatientsPage"));
+const AdminDoctorsPage = lazy(() => import("./features/admin-dashboard/pages/AdminDoctorsPage"));
+const AdminSettingsPage = lazy(() => import("./features/admin-dashboard/pages/AdminSettingsPage"));
 
 function Layout() {
   return (
@@ -129,7 +142,6 @@ const router = createBrowserRouter([
       {
         path: "/pharmacy-payment-card-success",
         element: <PharmacyPaymentCardSuccessPage />,
-        // element: "Hello, World!",
       },
       {
         path: "/pharmacy-payment-bank-success",
@@ -154,7 +166,6 @@ const router = createBrowserRouter([
       {
         path: "/patient/profile/overview",
         element: <ProfileOverviewPage />,
-        //
       },
       {
         path: "/patient/profile/personal-information",
@@ -214,5 +225,9 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={null}>
+      <RouterProvider router={router} />
+    </Suspense>
+  );
 }

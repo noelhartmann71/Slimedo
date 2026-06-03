@@ -116,8 +116,6 @@ export default function ProductSelectionPage() {
     },
   });
 
-  console.log("Product data:", products);
-
   const navigate = useNavigate();
 
   const [step, setStep] = useState<1 | 2>(1);
@@ -144,9 +142,6 @@ export default function ProductSelectionPage() {
     products.find((p: any) => (p._id || p.id) === selectedMfr) ||
     MANUFACTURERS.find((m) => m.id === selectedMfr);
 
-  console.log("Found mfr:", mfr?.dosage);
-  console.log("Selected Mfr ID:", selectedMfr);
-
   // Get dosages from the API product if available, otherwise fallback to DOSAGES map
   const dosages = mfr?.dosage
     ? (Array.isArray(mfr.dosage) ? mfr.dosage : [mfr.dosage]).map(
@@ -165,8 +160,6 @@ export default function ProductSelectionPage() {
     : selectedMfr
       ? (DOSAGES[selectedMfr] ?? [])
       : [];
-
-  console.log("Mapped dosages:", dosages);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const dosageIndex = dosages.findIndex((d: any) => d.id === selectedDosage);
@@ -349,10 +342,6 @@ export default function ProductSelectionPage() {
                                   "product_price",
                                   product.price.toString(),
                                 );
-                                console.log(
-                                  "Selected Manufacturer ID (API):",
-                                  product._id || product.id,
-                                );
                               }}
                               className={`px-5 py-3 rounded-lg border cursor-pointer transition-colors ${
                                 sel
@@ -398,10 +387,6 @@ export default function ProductSelectionPage() {
                                 sessionStorage.setItem(
                                   "product_price",
                                   product.price.toString(),
-                                );
-                                console.log(
-                                  "Selected Manufacturer ID:",
-                                  product.id,
                                 );
                               }}
                               className={`px-5 py-3 rounded-lg border cursor-pointer transition-colors ${
@@ -475,7 +460,6 @@ export default function ProductSelectionPage() {
                               sessionStorage.setItem("product_dosage", d.dose);
                               localStorage.setItem("dosage", d.dose);
                               setConfirmed(false);
-                              console.log("Selected Dosage Data:", d);
                             }}
                             className={`flex items-center justify-between px-5 py-4 rounded-lg border cursor-pointer transition-colors ${
                               sel
