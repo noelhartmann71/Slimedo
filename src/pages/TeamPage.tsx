@@ -1,5 +1,5 @@
 import SlimedoTicker from '@/components/slimedo-landing/SlimedoTicker';
-import SlimedoNavbar from '@/components/slimedo-landing/SlimedoNavbar';
+import SlimedoNavbar from '@/components/Navbar/Navbar';
 import SlimedoFooter from '@/components/slimedo-landing/SlimedoFooter';
 import CtaSection from "@/components/slimedo-landing/CtaSection.tsx";
 

@@ -6,7 +6,7 @@
 
 import type { CSSProperties } from 'react';
 import SlimedoTicker from '@/components/slimedo-landing/SlimedoTicker';
-import SlimedoNavbar from '@/components/slimedo-landing/SlimedoNavbar';
+import SlimedoNavbar from '@/components/Navbar/Navbar';
 import SlimedoHero from '@/components/slimedo-landing/SlimedoHero';
 import GlpIntroSection from '@/components/slimedo-landing/GlpIntroSection';
 import WirkungsweiseSection from '@/components/slimedo-landing/WirkungsweiseSection';
