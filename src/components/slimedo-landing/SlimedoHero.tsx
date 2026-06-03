@@ -179,10 +179,14 @@ export default function SlimedoHero() {
             marginBottom: 26,
           }}
         >
-          Dein Weg zu einem
+          Mit der
           <br />
-          gesünderen{' '}
-          <em style={{ color: '#3D5C4A', fontStyle: 'italic' }}>Körpergefühl.</em>
+          {' '}
+          <em style={{ color: '#3D5C4A', fontStyle: 'italic' }}>Abnehmspritze.</em>
+            <br/>
+            zu einem gesünderem
+            <br/>
+            Körpergefühl
         </h1>
 
         {/* Bullet points */}
