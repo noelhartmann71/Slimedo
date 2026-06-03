@@ -1,4 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+const heroVideoPoster = '/images/slimedo/slimedohero-poster.webp';
+const heroVideoSources = [
+  { src: '/images/slimedo/slimedohero.webm', type: 'video/webm' },
+  { src: '/images/slimedo/slimedohero-optimized.mp4', type: 'video/mp4' },
+];
 
 const trustItems = [
   {
@@ -75,6 +81,8 @@ const trustItems = [
 
 export default function SlimedoHero() {
   const containerRef = useRef<HTMLElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [shouldLoadHeroVideo, setShouldLoadHeroVideo] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -83,15 +91,51 @@ export default function SlimedoHero() {
     anims.forEach((el) => {
       setTimeout(() => el.classList.add('played'), 100);
     });
+
+    const connection = navigator as Navigator & {
+      connection?: { saveData?: boolean };
+    };
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (connection.connection?.saveData || prefersReducedMotion.matches) return;
+
+    const idleWindow = window as Window &
+      typeof globalThis & {
+        requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+        cancelIdleCallback?: (handle: number) => void;
+      };
+
+    let idleHandle: number | undefined;
+    let timeoutHandle: number | undefined;
+    const loadHeroVideo = () => setShouldLoadHeroVideo(true);
+
+    if (idleWindow.requestIdleCallback) {
+      idleHandle = idleWindow.requestIdleCallback(loadHeroVideo, { timeout: 1200 });
+    } else {
+      timeoutHandle = window.setTimeout(loadHeroVideo, 700);
+    }
+
+    return () => {
+      if (idleHandle !== undefined && idleWindow.cancelIdleCallback) {
+        idleWindow.cancelIdleCallback(idleHandle);
+      }
+      if (timeoutHandle !== undefined) window.clearTimeout(timeoutHandle);
+    };
   }, []);
+
+  useEffect(() => {
+    if (!shouldLoadHeroVideo || !videoRef.current) return;
+    videoRef.current.load();
+    void videoRef.current.play().catch(() => undefined);
+  }, [shouldLoadHeroVideo]);
 
   return (
     <section
       ref={containerRef}
+      className="slimedo-hero-section"
       style={{
         background: '#F5EEDB',
         display: 'grid',
-        gridTemplateColumns: '58% 42%',
+        gridTemplateColumns: '45% 55%',
         minHeight: 'clamp(620px, 82vh, 1150px)',
         overflow: 'hidden',
         position: 'relative',
@@ -123,7 +167,7 @@ export default function SlimedoHero() {
       <div
         className="hero-left-resp"
         style={{
-          padding: '88px 48px 88px 64px',
+          padding: '88px 40px 88px 64px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -369,20 +413,34 @@ export default function SlimedoHero() {
         />
         {/* Hero video */}
         <video
-          src="/images/slimedo/slimedohero.mp4"
+          ref={videoRef}
           autoPlay
           muted
           playsInline
+          preload={shouldLoadHeroVideo ? 'metadata' : 'none'}
+          poster={heroVideoPoster}
+          aria-hidden="true"
+          tabIndex={-1}
           style={{
             position: 'absolute',
             inset: 0,
-            width: '110%',
+            width: '116%',
             height: '100%',
             objectFit: 'cover',
             objectPosition: '80% top',
+            backgroundImage: `url(${heroVideoPoster})`,
+            backgroundPosition: '80% top',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
             zIndex: 0,
           }}
-        />
+        >
+          {shouldLoadHeroVideo
+            ? heroVideoSources.map((source) => (
+                <source key={source.src} src={source.src} type={source.type} />
+              ))
+            : null}
+        </video>
       </div>
 
       {/* Responsive overrides via style tag */}
@@ -392,7 +450,7 @@ export default function SlimedoHero() {
           .hero-h1-resp { font-size: 50px !important; }
         }
         @media (max-width: 640px) {
-          section[style*="58% 42%"] { grid-template-columns: 1fr !important; min-height: auto !important; }
+          .slimedo-hero-section { grid-template-columns: 1fr !important; min-height: auto !important; }
           .hero-right-resp { height: 300px !important; }
           .hero-left-resp { padding: 48px 20px !important; }
           .hero-h1-resp { font-size: 38px !important; }
