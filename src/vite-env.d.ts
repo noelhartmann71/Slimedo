@@ -2,6 +2,10 @@
 
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string;
+  readonly VITE_BASE_URL: string;
+  readonly VITE_GOOGLE_MAPS_API_KEY: string;
+  readonly VITE_USERCENTRICS_SETTINGS_ID?: string;
+  readonly VITE_USERCENTRICS_GOOGLE_MAPS_SERVICE_NAME?: string;
   // more env variables...
 }
 

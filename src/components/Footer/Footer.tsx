@@ -1,19 +1,31 @@
 import { Link } from 'react-router';
+import type { MouseEvent, ReactNode } from 'react';
+import toast from 'react-hot-toast';
+import {
+  isUsercentricsConfigured,
+  openUsercentricsSecondLayerWhenReady,
+} from '@/lib/usercentrics';
 
-const abnehmProgrammeLinks = [
+type FooterLink = {
+  label: string;
+  path: string;
+  action?: 'cookie-settings';
+};
+
+const abnehmProgrammeLinks: FooterLink[] = [
   { label: "So funktioniert's", path: '/#how-it-works-section' },
   { label: 'Eignung prüfen', path: '/product/select' },
   { label: 'Unsere Ärzte', path: '/team' },
 ];
 
-const rechtlichesLinks = [
+const rechtlichesLinks: FooterLink[] = [
   { label: 'Datenschutz', path: '/privacy' },
   { label: 'AGB', path: '/terms' },
   { label: 'Impressum', path: '/' },
-  { label: 'Cookie-Einstellungen', path: '/' },
+  { label: 'Cookie-Einstellungen', path: '/', action: 'cookie-settings' },
 ];
 
-const kontaktLinks = [
+const kontaktLinks: FooterLink[] = [
   { label: 'Häufige Fragen (FAQ)', path: '/#faq' },
   { label: 'Kontaktformular', path: '/' },
 ];
@@ -246,7 +258,7 @@ function SocialIcon({
                       children,
                     }: {
   label: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
       <div
@@ -282,7 +294,7 @@ function FooterCol({
                      links,
                    }: {
   title: string;
-  links: { label: string; path: string }[];
+  links: FooterLink[];
 }) {
   return (
       <div>
@@ -343,7 +355,7 @@ function ContactCol() {
   );
 }
 
-function FooterHeading({ children }: { children: React.ReactNode }) {
+function FooterHeading({ children }: { children: ReactNode }) {
   return (
       <h4
           style={{
@@ -361,13 +373,14 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
-function FooterLinks({ links }: { links: { label: string; path: string }[] }) {
+function FooterLinks({ links }: { links: FooterLink[] }) {
   return (
       <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 11 }}>
         {links.map((link) => (
             <li key={link.label}>
               <Link
                   to={link.path}
+                  onClick={link.action === 'cookie-settings' ? openCookieSettings : undefined}
                   style={{
                     fontSize: 14,
                     color: 'rgba(205,221,203,.55)',
@@ -388,4 +401,19 @@ function FooterLinks({ links }: { links: { label: string; path: string }[] }) {
         ))}
       </ul>
   );
+}
+
+async function openCookieSettings(event: MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault();
+
+  if (await openUsercentricsSecondLayerWhenReady()) {
+    return;
+  }
+
+  const message = isUsercentricsConfigured()
+      ? 'Cookie-Einstellungen konnten noch nicht geladen werden. Bitte versuche es erneut.'
+      : 'Cookie-Einstellungen sind noch nicht konfiguriert. Es fehlt die Usercentrics Settings ID.';
+
+  console.warn(message);
+  toast.error(message);
 }

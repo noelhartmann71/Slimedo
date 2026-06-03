@@ -5,6 +5,11 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import { useUsercentricsConsent } from "@/hooks/useUsercentricsConsent";
+import {
+  googleMapsUsercentricsServiceName,
+  type UsercentricsConsentState,
+} from "@/lib/usercentrics";
 
 interface PharmacyMapProps {
   center: {
@@ -38,6 +43,48 @@ const mapContainerStyle = {
 const libraries: "places"[] = ["places"];
 
 const PharmacyMap: React.FC<PharmacyMapProps> = ({
+  onPharmaciesFound,
+  onPharmacySelect,
+  ...props
+}) => {
+  const { status, isGranted, openSettings } = useUsercentricsConsent(
+    googleMapsUsercentricsServiceName,
+  );
+
+  useEffect(() => {
+    if (!isGranted) {
+      onPharmaciesFound?.([]);
+      onPharmacySelect?.(null);
+    }
+  }, [isGranted, onPharmaciesFound, onPharmacySelect]);
+
+  if (!isGranted) {
+    return (
+      <GoogleMapsConsentPlaceholder
+        status={status}
+        onOpenSettings={() => {
+          void openSettings().then((didOpen) => {
+            if (!didOpen) {
+              console.warn(
+                "Usercentrics is not available yet. Verify VITE_USERCENTRICS_SETTINGS_ID and CMP loading.",
+              );
+            }
+          });
+        }}
+      />
+    );
+  }
+
+  return (
+    <ConsentedPharmacyMap
+      {...props}
+      onPharmaciesFound={onPharmaciesFound}
+      onPharmacySelect={onPharmacySelect}
+    />
+  );
+};
+
+const ConsentedPharmacyMap: React.FC<PharmacyMapProps> = ({
   center,
   onPharmaciesFound,
   onPharmacySelect,
@@ -159,5 +206,78 @@ const PharmacyMap: React.FC<PharmacyMapProps> = ({
     </GoogleMap>
   );
 };
+
+function GoogleMapsConsentPlaceholder({
+  status,
+  onOpenSettings,
+}: {
+  status: UsercentricsConsentState;
+  onOpenSettings: () => void;
+}) {
+  const isUnconfigured = status === "unconfigured";
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        minHeight: 320,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 24,
+        borderRadius: 16,
+        border: "1px solid rgba(30,58,46,.16)",
+        background:
+          "linear-gradient(135deg, rgba(250,245,234,.96), rgba(205,221,203,.42))",
+        color: "#1E3A2E",
+        textAlign: "center",
+      }}
+    >
+      <div style={{ maxWidth: 420 }}>
+        <p
+          style={{
+            margin: "0 0 8px",
+            fontSize: 18,
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Google Maps ist deaktiviert
+        </p>
+        <p
+          style={{
+            margin: "0 0 18px",
+            fontSize: 14,
+            lineHeight: 1.55,
+            color: "rgba(30,58,46,.72)",
+          }}
+        >
+          {isUnconfigured
+            ? "Die Cookie-Verwaltung ist noch nicht konfiguriert. Sobald die Usercentrics Settings ID gesetzt ist, kann die Karte consent-basiert geladen werden."
+            : "Zur Anzeige der Apothekenkarte wird Google Maps verwendet. Bitte erlaube Google Maps in den Cookie-Einstellungen."}
+        </p>
+        <button
+          type="button"
+          onClick={onOpenSettings}
+          disabled={isUnconfigured}
+          style={{
+            border: "none",
+            borderRadius: 999,
+            background: isUnconfigured ? "rgba(61,92,74,.35)" : "#3D5C4A",
+            color: "#FAF5EA",
+            cursor: isUnconfigured ? "not-allowed" : "pointer",
+            fontSize: 13,
+            fontWeight: 700,
+            padding: "10px 16px",
+            fontFamily: '"Inter", sans-serif',
+          }}
+        >
+          Cookie-Einstellungen öffnen
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default React.memo(PharmacyMap);
