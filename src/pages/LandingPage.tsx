@@ -8,7 +8,7 @@ import type { CSSProperties } from 'react';
 import SlimedoTicker from '../components/SlimedoTicker/SlimedoTicker';
 import SlimedoNavbar from '@/components/Navbar/Navbar';
 import SlimedoHero from '@/components/slimedo-landing/SlimedoHero';
-import GlpIntroSection from '@/components/slimedo-landing/GlpIntroSection';
+import PricesSection from '@/components/slimedo-landing/PricesSection';
 import WirkungsweiseSection from '@/components/slimedo-landing/WirkungsweiseSection';
 import BmiCalculatorSection from '@/components/slimedo-landing/BmiCalculatorSection';
 import AnwendungSection from '@/components/slimedo-landing/AnwendungSection';
@@ -36,7 +36,9 @@ type BridgeVariant =
   | 'cream-to-surf'
   | 'surf-to-dark-footer'
   | 'sand-to-linen'
-  | 'linen-to-cream';
+  | 'linen-to-cream'
+  | 'sand-to-offwhite'
+  | 'offwhite-to-sand';
 
 const bridgeStyles: Record<BridgeVariant, CSSProperties> = {
   'sand-to-cream': {
@@ -87,6 +89,14 @@ const bridgeStyles: Record<BridgeVariant, CSSProperties> = {
     height: 48,
     background: 'linear-gradient(to bottom,#FAF6EE,#FAF5EA)',
   },
+  'sand-to-offwhite': {
+    height: 48,
+    background: 'linear-gradient(to bottom,#F5EEDB,#FAFBF9)',
+  },
+  'offwhite-to-sand': {
+    height: 48,
+    background: 'linear-gradient(to bottom,#FAFBF9,#F5EEDB)',
+  },
 };
 
 function Bridge({ variant }: { variant: BridgeVariant }) {
@@ -115,12 +125,12 @@ export default function LandingPage() {
         {/* ── Hero ───────────────────────────── */}
         <SlimedoHero />
 
-        {/* ── GLP-1 Intro ────────────────────── */}
-        <Bridge variant="sand-to-cream" />
-        <GlpIntroSection />
+        {/* ── Preise ─────────────────────────── */}
+        <Bridge variant="sand-to-offwhite" />
+        <PricesSection />
 
         {/* ── 3 Schritte ─────────────────────── */}
-        <Bridge variant="cream-to-sand" />
+        <Bridge variant="offwhite-to-sand" />
         <NewTrustSection />
 
         {/* ── Die Therapie ───────────────────── */}
