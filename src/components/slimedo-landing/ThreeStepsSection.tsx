@@ -59,10 +59,10 @@ export default function ThreeStepsSection() {
       id="schritte"
       style={{
         background: 'linear-gradient(180deg,#F0EDDF 0%,#EEF4EE 40%,#F5F5F0 100%)',
-        padding: '96px 0 80px',
+        padding: 'clamp(56px, 5vw, 96px) 0 clamp(48px, 4vw, 80px)',
       }}
     >
-      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 40px' }}>
+      <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 clamp(16px, 3.5vw, 40px)' }}>
         <p
           className="slimedo-anim"
           style={{

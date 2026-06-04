@@ -46,7 +46,7 @@ export default function SlimedoFooter() {
           style={{
             background:
                 'linear-gradient(to bottom, #1E3A2E 0%, #131E17 18%, #0F1F1A 40%)',
-            padding: '64px 32px 0',
+            padding: 'clamp(40px, 3.5vw, 64px) clamp(16px, 2.5vw, 32px) 0',
           }}
       >
         <div style={{ maxWidth: 1160, margin: '0 auto' }}>
@@ -247,6 +247,9 @@ export default function SlimedoFooter() {
           .footer-top-resp { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
           .footer-btm-resp { flex-direction: column !important; align-items: flex-start !important; }
           .footer-pay-resp { text-align: left !important; }
+        }
+        @media (max-width: 480px) {
+          .footer-top-resp { grid-template-columns: 1fr !important; gap: 20px !important; }
         }
       `}</style>
       </footer>

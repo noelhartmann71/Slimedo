@@ -32,13 +32,13 @@ export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionPr
             id="start"
             style={{
                 background: sectionBackground,
-                padding: '52px 0 72px',
+                padding: 'clamp(32px, 3vw, 52px) 0 clamp(48px, 4.5vw, 72px)',
                 position: 'relative',
             }}
         >
             <div
                 className="cta-shell-resp"
-                style={{maxWidth: 2720, margin: '0 auto', padding: '0 56px'}}
+                style={{maxWidth: 1920, margin: '0 auto', padding: '0 56px'}}
             >
                 <div
                     className="cta-card-resp"
