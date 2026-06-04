@@ -7,13 +7,16 @@ import {
 } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
-// Eager-loaded: public marketing pages a first-time visitor will land on
+// Eager-loaded: public pages + layout shells (lazy layouts cause double-waterfall)
 import LandingPage from "./pages/LandingPage";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import TeamPage from "./pages/TeamPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsConditionsPage from "./pages/TermsConditionsPage";
+import Prescription from "./pages/Prescription";
+import UserDashboardLayout from "./features/profile/components/UserDashboardLayout";
+import AdminDashboardLayout from "./features/admin-dashboard/components/AdminDashboardLayout";
 
 // Auth pages — lazy (only needed after the user clicks CTA)
 const LoginPage = lazy(() => import("./features/auth/pages/LoginPage"));
@@ -41,7 +44,6 @@ const ProductSelectionPage = lazy(() => import("./features/product/pages/Product
 const PaymentSuccessPage = lazy(() => import("./pages/PaymentSuccessPage"));
 const PharmacyPaymentBankSuccessPage = lazy(() => import("./pages/PharmacyPaymentBankSuccessPage"));
 const PharmacyPaymentCardSuccessPage = lazy(() => import("./pages/PharmacyPaymentCardSuccessPage"));
-const Prescription = lazy(() => import("./pages/Prescription"));
 const BookingConfirmed = lazy(() => import("./components/BookingConfirmed/BookingConfirmed"));
 
 // Questionnaire
@@ -55,14 +57,13 @@ const ProfileHealthInformationPage = lazy(() => import("./features/profile/pages
 const ProfileQuestionnairePage = lazy(() => import("./features/profile/pages/ProfileQuestionnairePage"));
 const ProfilePaymentMethodsPage = lazy(() => import("./features/profile/pages/ProfilePaymentMethodsPage"));
 const ProfileOverviewPage = lazy(() => import("./features/profile/pages/ProfileOverviewPage"));
-const UserDashboardLayout = lazy(() => import("./features/profile/components/UserDashboardLayout"));
+// UserDashboardLayout is eager — layout shell, lazy would cause double-waterfall before children render
 const PharmacyOverviewPage = lazy(() => import("./features/profile/pages/PharmacyOverviewPage"));
 const PharmacyOrderListPage = lazy(() => import("./features/profile/pages/PharmacyOrderListPage"));
 const PharmacyInformationPage = lazy(() => import("./features/profile/pages/PharmacyInformationPage"));
 const PharmacySoldPerMonthPage = lazy(() => import("./features/profile/pages/PharmacySoldPerMonthPage"));
 
-// Admin dashboard
-const AdminDashboardLayout = lazy(() => import("./features/admin-dashboard/components/AdminDashboardLayout"));
+// Admin dashboard — AdminDashboardLayout is eager for the same reason as UserDashboardLayout
 const AdminOverviewPage = lazy(() => import("./features/admin-dashboard/pages/AdminOverviewPage"));
 const AdminRequestsPage = lazy(() => import("./features/admin-dashboard/pages/AdminRequestsPage"));
 const AdminBatchPage = lazy(() => import("./features/admin-dashboard/pages/AdminBatchPage"));
@@ -226,7 +227,7 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
       <RouterProvider router={router} />
     </Suspense>
   );
