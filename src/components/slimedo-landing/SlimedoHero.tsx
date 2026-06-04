@@ -399,18 +399,13 @@ export default function SlimedoHero() {
       {/* Right — video  */}
       <div
         className="hero-right-resp"
-        style={{ position: 'relative', overflow: 'hidden' }}
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 38%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 38%)',
+        }}
       >
-        {/* Sand gradient overlay on left edge */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 1,
-            background:
-              'linear-gradient(to right,#F5EEDB 0%,rgba(245,238,219,.92) 12%,rgba(245,238,219,.6) 28%,rgba(245,238,219,.2) 52%,transparent 72%)',
-          }}
-        />
         {/* Hero video */}
         <video
           ref={videoRef}
@@ -442,6 +437,21 @@ export default function SlimedoHero() {
             : null}
         </video>
       </div>
+
+      {/* Bottom fade */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: 120,
+          background: 'linear-gradient(to bottom, transparent, #F5EEDB)',
+          pointerEvents: 'none',
+          zIndex: 3,
+        }}
+      />
 
       {/* Responsive overrides via style tag */}
       <style>{`
