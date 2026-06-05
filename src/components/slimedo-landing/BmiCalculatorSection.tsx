@@ -142,7 +142,7 @@ export default function BmiCalculatorSection() {
               style={{
                 fontFamily: '"Instrument Serif", Georgia, serif',
                 fontSize: 'clamp(80px, 7.81vw, 185px)',
-                color: '#3D5C4A',
+                color: '#1E3A2E',
                 lineHeight: 0.95,
                 letterSpacing: '-0.03em',
                 margin: 0,
@@ -150,9 +150,9 @@ export default function BmiCalculatorSection() {
               }}
             >
               15
-              <span style={{ fontSize: 'clamp(48px, 4.38vw, 105px)', color: '#3D5C4A' }}>-</span>
+              <span style={{ fontSize: 'clamp(48px, 4.38vw, 105px)', color: '#1E3A2E' }}>-</span>
               20
-              <span style={{ fontSize: 'clamp(48px, 4.38vw, 105px)', color: '#3D5C4A' }}>%</span>
+              <span style={{ fontSize: 'clamp(48px, 4.38vw, 105px)', color: '#1E3A2E' }}>%</span>
             </p>
             {/* Honey underline */}
             <span
@@ -339,7 +339,7 @@ export default function BmiCalculatorSection() {
                   top: 0,
                   height: '100%',
                   width: `${sliderPct}%`,
-                  background: '#3D5C4A',
+                  background: '#1E3A2E',
                   borderRadius: 999,
                 }}
               />
