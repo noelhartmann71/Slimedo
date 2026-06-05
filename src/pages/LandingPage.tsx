@@ -130,11 +130,9 @@ export default function LandingPage() {
         <PricesSection />
 
         {/* ── 3 Schritte ─────────────────────── */}
-        <Bridge variant="offwhite-to-sand" />
         <NewTrustSection />
 
         {/* ── Die Therapie ───────────────────── */}
-        <Bridge variant="sand-to-linen" />
         <TherapieSection />
 
         {/* ── Wirkungsweise ──────────────────── */}

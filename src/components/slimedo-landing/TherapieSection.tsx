@@ -72,9 +72,9 @@ export default function TherapieSection() {
     <section
       style={{
         position: 'relative',
-        padding: 'clamp(72px, 5.88vw, 130px) 6vw',
-        backgroundImage: 'url(/images/therapie/doctorBackground.jpeg)',
-        backgroundSize: 'auto 85%',
+          padding: 'clamp(40px, 4vw, 80px) 6vw',
+          backgroundImage: 'url(/images/therapie/doctorBackground.jpeg)',
+        backgroundSize: 'auto 100%',
         backgroundPosition: '-100px center',
         backgroundRepeat: 'no-repeat',
       }}
