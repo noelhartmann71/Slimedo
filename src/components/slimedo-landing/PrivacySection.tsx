@@ -679,7 +679,7 @@ export default function PrivacySection() {
       id="datenschutz"
       style={{
         background: 'linear-gradient(145deg,#1E3A2E 0%,#234035 38%,#3D6B50 66%,#FAF5EA 100%)',
-        padding: 'clamp(88px, 7vw, 152px) 0',
+        padding: 'clamp(140px, 12vw, 220px) 0',
         position: 'relative',
         overflow: 'hidden',
       }}
