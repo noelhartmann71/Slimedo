@@ -70,16 +70,25 @@ function DualDiagram() {
 export default function TherapieSection() {
   return (
     <section
+      className="slimedo-therapie-section-bg"
       style={{
         position: 'relative',
-          padding: 'clamp(40px, 4vw, 80px) 6vw',
-          backgroundImage: 'url(/images/therapie/doctorBackground.jpeg)',
+        padding: 'clamp(40px, 4vw, 80px) 6vw',
+        backgroundImage: 'url(/images/therapie/doctorBackground.jpeg)',
         backgroundSize: 'auto 100%',
-        backgroundPosition: '-100px center',
+        backgroundPosition: 'var(--slimedo-therapie-bg-x, -100px) center',
         backgroundRepeat: 'no-repeat',
       }}
     >
       <style>{`
+        .slimedo-therapie-section-bg {
+          --slimedo-therapie-bg-x: -100px;
+        }
+        @media (max-width: 1440px) {
+          .slimedo-therapie-section-bg {
+            --slimedo-therapie-bg-x: clamp(-360px, calc(28vw - 503px), -100px);
+          }
+        }
         @keyframes slimedo-therapie-dash {
           to { stroke-dashoffset: -90; }
         }
@@ -104,21 +113,71 @@ export default function TherapieSection() {
           transform: translateY(-4px);
           box-shadow: 0 20px 44px -24px rgba(46,38,32,.22);
         }
-        @media (max-width: 600px) {
+
+        /* ── Mobile ≤ 640px ── */
+        @media (max-width: 640px) {
+          .slimedo-therapie-section-bg {
+            background-position: center top !important;
+            background-size: cover !important;
+          }
           .slimedo-therapie-overlay {
             background: linear-gradient(
               to bottom,
-              rgba(250,246,238,0.94) 0%,
-              rgba(250,246,238,0.88) 100%
+              rgba(250,246,238,0.72) 0%,
+              rgba(250,246,238,0.62) 35%,
+              rgba(250,246,238,0.72) 100%
             ) !important;
           }
+          .therapie-main-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+          .therapie-btn-col {
+            order: 2;
+            align-items: flex-start !important;
+          }
+          .therapie-cards-grid {
+            grid-template-columns: 1fr !important;
+            order: 1;
+          }
+          .therapie-pipeline-box {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+          .therapie-pipeline-label {
+            border-right: none !important;
+            border-bottom: 1px solid #E8DFD0 !important;
+            padding-right: 0 !important;
+            min-width: 0 !important;
+            padding-bottom: 16px;
+          }
+          .therapie-pipeline-items {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
         }
-        @media (min-width: 601px) and (max-width: 1024px) {
+
+        /* ── Tablet 641px–1024px ── */
+        @media (min-width: 641px) and (max-width: 1024px) {
           .slimedo-therapie-overlay {
             background:
               linear-gradient(to right, rgba(250,246,238,0.50) 0%, rgba(250,246,238,0.94) 52%, #FAF6EE 65%),
               linear-gradient(to bottom, rgba(250,246,238,0.85) 0%, rgba(250,246,238,0) 20%, rgba(250,246,238,0) 80%, rgba(250,246,238,0.85) 100%)
             !important;
+          }
+          .therapie-main-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .therapie-btn-col {
+            order: 2;
+            align-items: flex-start !important;
+          }
+          .therapie-cards-grid {
+            order: 1;
+          }
+          .therapie-pipeline-items {
+            grid-template-columns: 1fr 1fr !important;
           }
         }
       `}</style>
@@ -169,7 +228,7 @@ export default function TherapieSection() {
         </div>
 
         {/* Main grid: left CTA + right cards */}
-        <div style={{
+        <div className="therapie-main-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'clamp(220px, 26vw, 425px) 1fr',
           gap: 'clamp(44px, 4vw, 65px)',
@@ -177,7 +236,7 @@ export default function TherapieSection() {
           marginBottom: 'clamp(18px, 1.7vw, 28px)',
         }}>
           {/* Left: button pinned to bottom */}
-          <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+          <div className="therapie-btn-col" style={{ display: 'flex', alignItems: 'flex-end' }}>
             <a
               href="#"
               style={{
@@ -200,7 +259,7 @@ export default function TherapieSection() {
           </div>
 
           {/* Right: two cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(14px, 1.25vw, 20px)' }}>
+          <div className="therapie-cards-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(14px, 1.25vw, 20px)' }}>
 
             {/* Card: GLP-1 */}
             <div
@@ -312,7 +371,7 @@ export default function TherapieSection() {
         </div>
 
         {/* Pipeline box */}
-        <div style={{
+        <div className="therapie-pipeline-box" style={{
           background: CREAM,
           border: `1px solid ${BORDER}`,
           borderRadius: 20,
@@ -341,7 +400,7 @@ export default function TherapieSection() {
           </div>
 
           {/* Label */}
-          <div style={{
+          <div className="therapie-pipeline-label" style={{
             display: 'flex', flexDirection: 'column', gap: 4,
             borderRight: `1px solid ${BORDER}`,
             paddingRight: 'clamp(26px, 2.5vw, 40px)',
@@ -356,7 +415,7 @@ export default function TherapieSection() {
           </div>
 
           {/* Pipeline items */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 'clamp(16px, 1.6vw, 25px)' }}>
+          <div className="therapie-pipeline-items" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 'clamp(16px, 1.6vw, 25px)' }}>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 'clamp(9px, 0.5vw, 13px)', fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 4, color: '#9c7223' }}>
