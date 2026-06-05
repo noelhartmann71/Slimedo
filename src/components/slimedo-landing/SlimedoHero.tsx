@@ -9,7 +9,7 @@ const heroVideoSources = [
 const trustItems = [
   {
     icon: (
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <svg width="17" height="17" viewBox="0 0 13 13" fill="none">
         <path
           d="M6.5 1L2 3.5V6.5C2 9.5 4 12 6.5 13C9 12 11 9.5 11 6.5V3.5L6.5 1Z"
           stroke="#768064"
@@ -29,7 +29,7 @@ const trustItems = [
   },
   {
     icon: (
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <svg width="17" height="17" viewBox="0 0 13 13" fill="none">
         <circle cx="6.5" cy="6.5" r="5" stroke="#768064" strokeWidth="1.2" />
         <polyline
           points="3.5,7 5.5,9 10,4.5"
@@ -45,7 +45,7 @@ const trustItems = [
   },
   {
     icon: (
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <svg width="17" height="17" viewBox="0 0 13 13" fill="none">
         <rect x="2" y="5" width="9" height="6" rx="1" stroke="#768064" strokeWidth="1.2" />
         <path
           d="M4 5V3.5C4 2.1 5 1 6.5 1C8 1 9 2.1 9 3.5V5"
@@ -59,7 +59,7 @@ const trustItems = [
   },
   {
     icon: (
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <svg width="17" height="17" viewBox="0 0 13 13" fill="none">
         <path
           d="M6.5 1L2 3.5V6.5C2 9.5 4 12 6.5 13C9 12 11 9.5 11 6.5V3.5L6.5 1Z"
           stroke="#768064"
@@ -186,7 +186,7 @@ export default function SlimedoHero() {
             border: '1px solid rgba(61,92,74,.18)',
             padding: '7px 16px',
             borderRadius: 999,
-            fontSize: 12,
+            fontSize: 14,
             fontWeight: 500,
             color: '#3D5C4A',
             textTransform: 'uppercase',
@@ -251,7 +251,7 @@ export default function SlimedoHero() {
             'Ärztliche Behandlung, klinisch geprüft',
             'Direkt nach Hause geliefert',
           ].map((text, i) => (
-            <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 16, color: '#3A3730' }}>
+            <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 18, color: '#3A3730' }}>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
                 <polyline
                   points="2,8 6,12 14,4"
@@ -287,9 +287,9 @@ export default function SlimedoHero() {
               background:
                 'linear-gradient(160deg,#4A6E58 0%,#3D5C4A 55%,#324E3F 100%)',
               color: '#FAF5EA',
-              fontSize: 15,
+              fontSize: 17,
               fontWeight: 500,
-              padding: '18px 32px 18px 36px',
+              padding: '20px 36px 20px 40px',
               borderRadius: 14,
               border: 'none',
               cursor: 'pointer',
@@ -330,7 +330,7 @@ export default function SlimedoHero() {
           <a
             href="#schritte"
             style={{
-              fontSize: 14,
+              fontSize: 16,
               color: '#3D5C4A',
               textDecoration: 'none',
               fontWeight: 500,
@@ -367,7 +367,7 @@ export default function SlimedoHero() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: 8,
-                fontSize: 12.5,
+                fontSize: 15,
                 color: '#768064',
                 paddingRight: i < trustItems.length - 1 ? 20 : 0,
                 marginRight: i < trustItems.length - 1 ? 20 : 0,
