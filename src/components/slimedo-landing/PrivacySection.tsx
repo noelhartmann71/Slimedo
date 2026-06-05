@@ -684,7 +684,7 @@ export default function PrivacySection() {
         overflow: 'hidden',
       }}
     >
-      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 clamp(20px, 2.5vw, 48px)' }}>
+      <div className="priv-inner" style={{ maxWidth: 1920, margin: '0 auto', padding: '0 clamp(12px, 1.2vw, 24px)' }}>
         <header className="priv-header" style={{ marginBottom: 88 }}>
           <p
             className="slimedo-anim"
