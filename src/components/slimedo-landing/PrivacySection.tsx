@@ -679,13 +679,13 @@ export default function PrivacySection() {
       id="datenschutz"
       style={{
         background: 'linear-gradient(145deg,#1E3A2E 0%,#234035 38%,#3D6B50 66%,#FAF5EA 100%)',
-        padding: 'clamp(72px, 5.88vw, 130px) 0',
+        padding: 'clamp(88px, 7vw, 152px) 0',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 clamp(16px, 2vw, 32px)' }}>
-        <header className="priv-header" style={{ marginBottom: 64 }}>
+      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 clamp(40px, 5vw, 100px)' }}>
+        <header className="priv-header" style={{ marginBottom: 88 }}>
           <p
             className="slimedo-anim"
             style={{
@@ -802,7 +802,7 @@ export default function PrivacySection() {
             ))}
           </svg>
 
-          <div className="priv-col-left" style={{ display: 'flex', flexDirection: 'column', gap: 38, alignItems: 'flex-end', paddingRight: 68 }}>
+          <div className="priv-col-left" style={{ display: 'flex', flexDirection: 'column', gap: 56, alignItems: 'flex-end', paddingRight: 88 }}>
             <div
               ref={(el) => {
                 cardRefs.current[0] = el;
@@ -836,7 +836,7 @@ export default function PrivacySection() {
             </div>
           </div>
 
-          <div className="priv-col-right" style={{ display: 'flex', flexDirection: 'column', gap: 38, alignItems: 'flex-start', paddingLeft: 68 }}>
+          <div className="priv-col-right" style={{ display: 'flex', flexDirection: 'column', gap: 56, alignItems: 'flex-start', paddingLeft: 88 }}>
             <div
               ref={(el) => {
                 cardRefs.current[2] = el;
@@ -958,11 +958,11 @@ export default function PrivacySection() {
           }
 
           .priv-col-left {
-            padding-right: 42px !important;
+            padding-right: 56px !important;
           }
 
           .priv-col-right {
-            padding-left: 42px !important;
+            padding-left: 56px !important;
           }
 
           .priv-hl-resp {
@@ -975,24 +975,29 @@ export default function PrivacySection() {
             grid-template-columns: minmax(214px, 1fr) 180px minmax(214px, 1fr) !important;
           }
 
-          .priv-col-left,
+          .priv-col-left {
+            padding-right: 36px !important;
+            gap: 40px !important;
+          }
+
           .priv-col-right {
-            gap: 28px !important;
+            padding-left: 36px !important;
+            gap: 40px !important;
           }
         }
 
         @media (max-width: 639px) {
           .priv-section {
-            padding: 72px 0 82px !important;
+            padding: 80px 0 92px !important;
           }
 
           .priv-inner {
-            padding: 0 16px !important;
+            padding: 0 24px !important;
           }
 
           .priv-header {
             text-align: center;
-            margin-bottom: 34px !important;
+            margin-bottom: 44px !important;
           }
 
           .priv-hl-resp {
@@ -1027,11 +1032,11 @@ export default function PrivacySection() {
 
         @media (max-width: 460px) {
           .priv-section {
-            padding: 66px 0 76px !important;
+            padding: 72px 0 82px !important;
           }
 
           .priv-inner {
-            padding: 0 14px !important;
+            padding: 0 20px !important;
           }
 
           .priv-hl-resp {
