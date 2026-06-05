@@ -738,8 +738,6 @@ export default function PrivacySection() {
             display: 'grid',
             gridTemplateColumns: 'minmax(260px, 1fr) 260px minmax(260px, 1fr)',
             alignItems: 'center',
-            maxWidth: 1575,
-            margin: '0 auto',
           }}
         >
           <svg
