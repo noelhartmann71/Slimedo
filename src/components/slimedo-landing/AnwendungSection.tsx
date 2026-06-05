@@ -143,6 +143,7 @@ export default function AnwendungSection() {
                             style={{
                                 aspectRatio: '3/4',
                                 background: card.gradient,
+                                border: '1px solid rgba(61,92,74,0.22)',
                                 borderRadius: 24,
                                 position: 'relative',
                                 overflow: 'hidden',
@@ -151,7 +152,7 @@ export default function AnwendungSection() {
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 boxShadow:
-                                    '0 1px 2px rgba(15,31,26,0.04),0 8px 24px rgba(15,31,26,0.06)',
+                                    '0 1px 0 rgba(255,253,247,0.72) inset, 0 0 0 1px rgba(255,253,247,0.28) inset, 0 18px 44px rgba(61,92,74,0.14), 0 6px 18px rgba(15,31,26,0.10)',
                             }}
                         >
                             {/* Tinted image layer: keeps checkerboard-like backgrounds from standing out */}
