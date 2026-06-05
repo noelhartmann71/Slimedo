@@ -76,17 +76,17 @@ export default function TherapieSection() {
         padding: 'clamp(40px, 4vw, 80px) 6vw',
         backgroundImage: 'url(/images/therapie/doctorBackground.jpeg)',
         backgroundSize: 'auto 100%',
-        backgroundPosition: 'var(--slimedo-therapie-bg-x, -100px) center',
+        backgroundPosition: 'var(--slimedo-therapie-bg-x, -300px) center',
         backgroundRepeat: 'no-repeat',
       }}
     >
       <style>{`
         .slimedo-therapie-section-bg {
-          --slimedo-therapie-bg-x: -100px;
+          --slimedo-therapie-bg-x: -300px;
         }
         @media (max-width: 1440px) {
           .slimedo-therapie-section-bg {
-            --slimedo-therapie-bg-x: clamp(-360px, calc(28vw - 503px), -100px);
+            --slimedo-therapie-bg-x: clamp(-620px, calc(32vw - 761px), -300px);
           }
         }
         @keyframes slimedo-therapie-dash {
