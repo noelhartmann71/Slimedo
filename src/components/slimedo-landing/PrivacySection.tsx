@@ -684,7 +684,7 @@ export default function PrivacySection() {
         overflow: 'hidden',
       }}
     >
-      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 clamp(40px, 5vw, 100px)' }}>
+      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 clamp(20px, 2.5vw, 48px)' }}>
         <header className="priv-header" style={{ marginBottom: 88 }}>
           <p
             className="slimedo-anim"
@@ -992,7 +992,7 @@ export default function PrivacySection() {
           }
 
           .priv-inner {
-            padding: 0 24px !important;
+            padding: 0 18px !important;
           }
 
           .priv-header {
@@ -1036,7 +1036,7 @@ export default function PrivacySection() {
           }
 
           .priv-inner {
-            padding: 0 20px !important;
+            padding: 0 14px !important;
           }
 
           .priv-hl-resp {
