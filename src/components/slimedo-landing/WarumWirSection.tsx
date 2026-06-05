@@ -73,10 +73,10 @@ function AnimatedCheckItem({ item, index, visible }: { item: string; index: numb
         cursor: 'default',
         opacity: visible ? undefined : 0,
         animationName: visible ? 'warum-item-in' : 'none',
-        animationDuration: '0.48s',
+        animationDuration: '0.65s',
         animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
         animationFillMode: 'both',
-        animationDelay: `${0.05 + index * 0.075}s`,
+        animationDelay: `${0.1 + index * 0.22}s`,
       }}
     >
       <div
@@ -144,10 +144,10 @@ function AnimatedXItem({ item, index, visible }: { item: string; index: number; 
         cursor: 'default',
         opacity: visible ? undefined : 0,
         animationName: visible ? 'warum-item-in' : 'none',
-        animationDuration: '0.48s',
+        animationDuration: '0.65s',
         animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
         animationFillMode: 'both',
-        animationDelay: `${0.12 + index * 0.075}s`,
+        animationDelay: `${0.15 + index * 0.22}s`,
       }}
     >
       <div
