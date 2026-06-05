@@ -56,7 +56,7 @@ export default function PricesSection() {
               <div className="ps-card-title">Rezept für<br />Abnehmspritze</div>
               <div className="ps-price-block">
                 <div className="ps-price">
-                  <sup>€</sup>29<sup className="ps-asterisk">*</sup>
+                  <span className="ps-eur">€</span>29<span className="ps-asterisk">*</span>
                 </div>
                 <span className="ps-price-sub">Rezept- &amp; Behandlungsgebühr</span>
               </div>
@@ -79,7 +79,7 @@ export default function PricesSection() {
               <div className="ps-card-title">Medikamenten&shy;kosten</div>
               <div className="ps-price-block">
                 <div className="ps-price">
-                  <span className="ps-ab">ab</span> <sup>€</sup>170
+                  <span className="ps-ab">ab</span><span className="ps-eur">€</span>170
                 </div>
                 <span className="ps-price-sub">Je nach Dosierung / Monat</span>
               </div>
@@ -123,7 +123,7 @@ export default function PricesSection() {
               <div className="ps-card-label">Zusatzleistung</div>
               <div className="ps-card-title ps-card-title-sm">Videosprechstunde</div>
               <div className="ps-price-block">
-                <div className="ps-price ps-price-sm"><sup>€</sup>99</div>
+                <div className="ps-price ps-price-sm"><span className="ps-eur">€</span>99</div>
                 <span className="ps-price-sub">Pro Termin · ohne Rezept</span>
               </div>
               <ul className="ps-features">
@@ -374,16 +374,22 @@ export default function PricesSection() {
           line-height: 1;
           color: #1a1a1a;
           letter-spacing: -.03em;
+          display: inline-flex;
+          align-items: flex-end;
         }
-        .ps-price sup {
+        .ps-eur {
+          font-family: "Lora", Georgia, serif;
           font-size: 1.4rem;
           font-weight: 500;
-          vertical-align: super;
-          margin-right: 2px;
+          line-height: 1;
+          margin-right: 1px;
+          align-self: flex-start;
         }
         .ps-asterisk {
-          font-size: .9rem !important;
+          font-size: .9rem;
           color: #6e6a60;
+          align-self: flex-start;
+          line-height: 1;
         }
         .ps-ab {
           font-size: 1.1rem;
