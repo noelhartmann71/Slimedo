@@ -76,7 +76,7 @@ function AnimatedCheckItem({ item, index, visible }: { item: string; index: numb
         animationDuration: '0.65s',
         animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
         animationFillMode: 'both',
-        animationDelay: `${0.1 + index * 0.22}s`,
+        animationDelay: `${0.1 + index * 0.32}s`,
       }}
     >
       <div
@@ -147,7 +147,7 @@ function AnimatedXItem({ item, index, visible }: { item: string; index: number; 
         animationDuration: '0.65s',
         animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
         animationFillMode: 'both',
-        animationDelay: `${0.15 + index * 0.22}s`,
+        animationDelay: `${0.15 + index * 0.32}s`,
       }}
     >
       <div
