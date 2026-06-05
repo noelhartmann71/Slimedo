@@ -167,6 +167,7 @@ export default function TestimonialsSection() {
             }}
           >
             <div
+              className="testimonials-result-resp"
               style={{
                 fontFamily: '"Manrope", sans-serif',
                 fontSize: 42,
@@ -188,18 +189,20 @@ export default function TestimonialsSection() {
               </span>
             </div>
             <p
+              className="testimonials-quote-resp"
               style={{
                 fontFamily: '"Instrument Serif", Georgia, serif',
-                fontSize: 17,
+                fontSize: 'clamp(26px, 1.72vw, 38px)',
                 fontStyle: 'italic',
-                color: '#6E6A60',
-                lineHeight: 1.6,
+                color: '#2E2620',
+                lineHeight: 1.22,
                 marginBottom: 12,
               }}
             >
               “{t.quote}”
             </p>
             <p
+              className="testimonials-disclaimer-resp"
               style={{
                 fontSize: 11,
                 color: '#768064',
@@ -213,7 +216,9 @@ export default function TestimonialsSection() {
           <div
             className="testimonials-images-resp"
             style={{
-              display: 'flex',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+              gap: 12,
               flex: 1,
               alignItems: 'stretch',
             }}
@@ -226,11 +231,12 @@ export default function TestimonialsSection() {
                 overflow: 'hidden',
                 width: '100%',
                 height: 438,
+                boxShadow: '0 16px 36px rgba(15,31,26,0.12)',
               }}
             >
               <img
                 src={t.beforeImg}
-                alt="1 Monat"
+                alt="Vorher"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -252,7 +258,47 @@ export default function TestimonialsSection() {
                   borderRadius: 999,
                 }}
               >
-                1 Monat
+                Vorher
+              </span>
+            </div>
+
+            <div
+              className="testimonials-image-card-resp"
+              style={{
+                position: 'relative',
+                borderRadius: 14,
+                overflow: 'hidden',
+                width: '100%',
+                height: 438,
+                boxShadow: '0 16px 36px rgba(15,31,26,0.12)',
+              }}
+            >
+              <img
+                src={t.afterImg}
+                alt="Nachher"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+              <span
+                style={{
+                  position: 'absolute',
+                  left: 10,
+                  bottom: 10,
+                  background: '#3D5C4A',
+                  color: '#FFFDF7',
+                  fontFamily: '"Inter", sans-serif',
+                  fontSize: 11,
+                  fontWeight: 600,
+                  padding: '4px 10px',
+                  borderRadius: 999,
+                  boxShadow: '0 8px 18px rgba(15,31,26,0.18)',
+                }}
+              >
+                Nachher
               </span>
             </div>
           </div>
@@ -265,13 +311,39 @@ export default function TestimonialsSection() {
             flex-direction: column !important;
           }
           .testimonials-text-card-resp {
+            order: 2;
             width: 100% !important;
             height: auto !important;
             flex: 1 1 auto !important;
           }
+          .testimonials-images-resp {
+            order: 1;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 8px !important;
+          }
           .testimonials-image-card-resp {
             width: 100% !important;
-            height: 340px !important;
+            height: clamp(280px, 74vw, 380px) !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .testimonials-images-resp {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+          .testimonials-text-card-resp {
+            gap: 18px;
+          }
+          .testimonials-disclaimer-resp {
+            order: 1;
+            margin: 0 !important;
+          }
+          .testimonials-quote-resp {
+            order: 2;
+            margin: 0 !important;
+          }
+          .testimonials-result-resp {
+            order: 3;
+            margin: 0 !important;
           }
         }
       `}</style>

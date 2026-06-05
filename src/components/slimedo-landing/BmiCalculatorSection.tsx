@@ -202,10 +202,54 @@ export default function BmiCalculatorSection() {
               background: '#FFFDF7',
               borderRadius: 28,
               padding: '40px 36px',
+              position: 'relative',
+              overflow: 'hidden',
               boxShadow:
                 '0 1px 2px rgba(15,31,26,0.03),0 8px 24px rgba(15,31,26,0.06),0 24px 48px rgba(15,31,26,0.04)',
             }}
           >
+            <div
+              className="bmi-card-photo-resp"
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                width: 'clamp(250px, 34%, 390px)',
+                zIndex: 0,
+                pointerEvents: 'none',
+              }}
+            >
+              <img
+                src="/images/BmiCalculater/BmiBackground.jpeg"
+                alt=""
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  display: 'block',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background:
+                    'linear-gradient(90deg, #FFFDF7 0%, rgba(255,253,247,0.78) 18%, rgba(255,253,247,0.12) 52%, rgba(61,92,74,0.10) 100%)',
+                }}
+              />
+            </div>
+
+            <div
+              className="bmi-card-content-resp"
+              style={{
+                position: 'relative',
+                zIndex: 1,
+                maxWidth: 'calc(66% - 18px)',
+              }}
+            >
             <p
               style={{
                 fontFamily: '"Inter", sans-serif',
@@ -487,6 +531,7 @@ export default function BmiCalculatorSection() {
             </a>
               </div>
             </div>
+            </div>
           </div>
         </div>
 
@@ -515,10 +560,14 @@ export default function BmiCalculatorSection() {
           .bmi-grid-resp { grid-template-columns: 1fr !important; }
           .bmi-hl-resp { font-size: 48px !important; }
           .bmi-stat-num-resp { font-size: 80px !important; }
+          .bmi-card-content-resp { max-width: calc(68% - 18px) !important; }
         }
         @media (max-width: 640px) {
           .bmi-hl-resp { font-size: 32px !important; }
           .bmi-stat-num-resp { font-size: 52px !important; }
+          .bmi-slider-card-resp { padding: 32px 24px !important; }
+          .bmi-card-photo-resp { display: none !important; }
+          .bmi-card-content-resp { max-width: none !important; }
           .bmi-result-layout-resp { grid-template-columns: 1fr !important; gap: 16px !important; }
           .bmi-slider-image-resp { width: 150px !important; }
         }
