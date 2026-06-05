@@ -57,7 +57,7 @@ function XIcon() {
 }
 
 /* ── Animated list-item for the Slimedo (left) card ── */
-function AnimatedCheckItem({ item, index }: { item: string; index: number }) {
+function AnimatedCheckItem({ item, index, visible }: { item: string; index: number; visible: boolean }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -65,61 +65,70 @@ function AnimatedCheckItem({ item, index }: { item: string; index: number }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        display: 'flex',
-        alignItems: 'flex-start',
-        gap: 12,
         padding: '5px 8px 5px 4px',
         marginLeft: -4,
         borderRadius: 8,
-        transform: hovered
-          ? 'translateX(5px) translateY(-2px)'
-          : 'translateX(0) translateY(0)',
         background: hovered ? 'rgba(61,92,74,0.065)' : 'transparent',
-        transition:
-          'transform 0.45s cubic-bezier(0.32, 0.72, 0, 1), background 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
+        transition: 'background 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
         cursor: 'default',
+        opacity: visible ? undefined : 0,
+        animationName: visible ? 'warum-item-in' : 'none',
+        animationDuration: '0.48s',
+        animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
+        animationFillMode: 'both',
+        animationDelay: `${0.05 + index * 0.075}s`,
       }}
     >
-      {/* Icon bubble */}
-      <span
+      <div
         style={{
-          width: 22,
-          height: 22,
-          borderRadius: '50%',
-          flexShrink: 0,
-          marginTop: 1,
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: hovered ? 'rgba(61,92,74,0.22)' : 'rgba(61,92,74,0.1)',
-          color: '#3D5C4A',
-          boxShadow: hovered ? '0 0 10px rgba(61,92,74,0.35)' : 'none',
-          transform: hovered ? 'scale(1.12)' : 'scale(1)',
-          transition:
-            'background 0.35s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.35s cubic-bezier(0.32, 0.72, 0, 1), transform 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
+          alignItems: 'flex-start',
+          gap: 12,
+          transform: hovered ? 'translateX(5px) translateY(-2px)' : 'translateX(0)',
+          transition: 'transform 0.45s cubic-bezier(0.32, 0.72, 0, 1)',
         }}
       >
-        <CheckIcon delay={0.6 + index * 0.1} />
-      </span>
-      {/* Label */}
-      <span
-        style={{
-          fontFamily: '"Inter", sans-serif',
-          fontSize: 14.5,
-          lineHeight: 1.5,
-          color: hovered ? '#0A1A10' : '#1A1A1A',
-          fontWeight: hovered ? 500 : 400,
-          transition: 'color 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
-        }}
-      >
-        {item}
-      </span>
+        {/* Icon bubble */}
+        <span
+          style={{
+            width: 22,
+            height: 22,
+            borderRadius: '50%',
+            flexShrink: 0,
+            marginTop: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: hovered ? 'rgba(61,92,74,0.22)' : 'rgba(61,92,74,0.1)',
+            color: '#3D5C4A',
+            boxShadow: hovered ? '0 0 10px rgba(61,92,74,0.35)' : 'none',
+            transform: hovered ? 'scale(1.12)' : 'scale(1)',
+            transition:
+              'background 0.35s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.35s cubic-bezier(0.32, 0.72, 0, 1), transform 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
+          }}
+        >
+          <CheckIcon delay={0.6 + index * 0.1} />
+        </span>
+        {/* Label */}
+        <span
+          style={{
+            fontFamily: '"Inter", sans-serif',
+            fontSize: 14.5,
+            lineHeight: 1.5,
+            color: hovered ? '#0A1A10' : '#1A1A1A',
+            fontWeight: hovered ? 500 : 400,
+            transition: 'color 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
+          }}
+        >
+          {item}
+        </span>
+      </div>
     </li>
   );
 }
 
 /* ── Animated list-item for the "Andere" (right) card ── */
-function AnimatedXItem({ item }: { item: string }) {
+function AnimatedXItem({ item, index, visible }: { item: string; index: number; visible: boolean }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -127,47 +136,58 @@ function AnimatedXItem({ item }: { item: string }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        display: 'flex',
-        alignItems: 'flex-start',
-        gap: 12,
         padding: '5px 8px 5px 4px',
         marginLeft: -4,
         borderRadius: 8,
-        transform: hovered ? 'translateX(3px)' : 'translateX(0)',
         background: hovered ? 'rgba(255,255,255,0.025)' : 'transparent',
-        transition:
-          'transform 0.45s cubic-bezier(0.32, 0.72, 0, 1), background 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
+        transition: 'background 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
         cursor: 'default',
+        opacity: visible ? undefined : 0,
+        animationName: visible ? 'warum-item-in' : 'none',
+        animationDuration: '0.48s',
+        animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
+        animationFillMode: 'both',
+        animationDelay: `${0.12 + index * 0.075}s`,
       }}
     >
-      <span
+      <div
         style={{
-          width: 22,
-          height: 22,
-          borderRadius: '50%',
-          flexShrink: 0,
-          marginTop: 1,
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: hovered ? 'rgba(181,101,75,0.25)' : 'rgba(181,101,75,0.15)',
-          transition: 'background 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
+          alignItems: 'flex-start',
+          gap: 12,
+          transform: hovered ? 'translateX(3px)' : 'translateX(0)',
+          transition: 'transform 0.45s cubic-bezier(0.32, 0.72, 0, 1)',
         }}
       >
-        <XIcon />
-      </span>
-      <span
-        style={{
-          fontFamily: '"Inter", sans-serif',
-          fontSize: 14,
-          lineHeight: 1.5,
-          color: hovered ? 'rgba(205,221,203,0.78)' : 'rgba(205,221,203,0.60)',
-          fontWeight: 400,
-          transition: 'color 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
-        }}
-      >
-        {item}
-      </span>
+        <span
+          style={{
+            width: 22,
+            height: 22,
+            borderRadius: '50%',
+            flexShrink: 0,
+            marginTop: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: hovered ? 'rgba(181,101,75,0.25)' : 'rgba(181,101,75,0.15)',
+            transition: 'background 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
+          }}
+        >
+          <XIcon />
+        </span>
+        <span
+          style={{
+            fontFamily: '"Inter", sans-serif',
+            fontSize: 14,
+            lineHeight: 1.5,
+            color: hovered ? 'rgba(205,221,203,0.78)' : 'rgba(205,221,203,0.60)',
+            fontWeight: 400,
+            transition: 'color 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
+          }}
+        >
+          {item}
+        </span>
+      </div>
     </li>
   );
 }
@@ -176,10 +196,12 @@ function AnimatedXItem({ item }: { item: string }) {
 
 export default function WarumWirSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  // Ref to the inner card div (for shimmer sweep trigger)
   const leftCardRef = useRef<HTMLDivElement | null>(null);
-  // Tracks hover state of the left (Slimedo) card
+  const leftUlRef = useRef<HTMLUListElement | null>(null);
+  const rightUlRef = useRef<HTMLUListElement | null>(null);
   const [leftHovered, setLeftHovered] = useState(false);
+  const [leftVisible, setLeftVisible] = useState(false);
+  const [rightVisible, setRightVisible] = useState(false);
 
   /* ── IntersectionObserver: entry animations ── */
   useEffect(() => {
@@ -199,6 +221,30 @@ export default function WarumWirSection() {
     );
     anims.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  /* ── Scroll reveal: trigger list items when each <ul> enters viewport ── */
+  useEffect(() => {
+    const targets = [
+      { ref: leftUlRef, set: setLeftVisible },
+      { ref: rightUlRef, set: setRightVisible },
+    ];
+    const observers = targets.map(({ ref, set }) => {
+      const el = ref.current;
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            set(true);
+            obs.disconnect();
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -32px 0px' }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((obs) => obs?.disconnect());
   }, []);
 
   /* ── Shimmer sweep: re-trigger the CSS animation on every hover-in ── */
@@ -543,6 +589,7 @@ export default function WarumWirSection() {
 
               {/* Feature list */}
               <ul
+                ref={leftUlRef}
                 style={{
                   listStyle: 'none',
                   display: 'flex',
@@ -553,7 +600,7 @@ export default function WarumWirSection() {
                 }}
               >
                 {slimedoItems.map((item, i) => (
-                  <AnimatedCheckItem key={i} item={item} index={i} />
+                  <AnimatedCheckItem key={i} item={item} index={i} visible={leftVisible} />
                 ))}
               </ul>
             </div>
@@ -678,6 +725,7 @@ export default function WarumWirSection() {
 
             {/* Feature list */}
             <ul
+              ref={rightUlRef}
               style={{
                 listStyle: 'none',
                 display: 'flex',
@@ -686,7 +734,7 @@ export default function WarumWirSection() {
               }}
             >
               {anderenItems.map((item, i) => (
-                <AnimatedXItem key={i} item={item} />
+                <AnimatedXItem key={i} item={item} index={i} visible={rightVisible} />
               ))}
             </ul>
           </div>
@@ -760,6 +808,12 @@ export default function WarumWirSection() {
         @media (max-width: 640px) {
           .warum-grid-resp { grid-template-columns: 1fr !important; gap: 12px !important; }
           .warum-hl-resp  { font-size: 30px !important; }
+        }
+
+        /* ── List-item scroll reveal ── */
+        @keyframes warum-item-in {
+          from { opacity: 0; transform: translateY(14px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
 
         /* ── Backlight halo: slow breathing pulse on the wide aura layer ── */
