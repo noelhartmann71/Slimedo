@@ -416,6 +416,7 @@ export default function SlimedoHero() {
           poster={heroVideoPoster}
           aria-hidden="true"
           tabIndex={-1}
+          className="hero-video-resp"
           style={{
             position: 'absolute',
             inset: 0,
@@ -490,6 +491,10 @@ export default function SlimedoHero() {
             font-size: 13px !important;
             padding: 13px 22px 13px 24px !important;
             border-radius: 10px !important;
+          }
+          .hero-video-resp {
+            object-position: 65% top !important;
+            background-position: 65% top !important;
           }
         }
       `}</style>
