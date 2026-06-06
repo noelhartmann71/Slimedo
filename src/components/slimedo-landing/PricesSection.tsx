@@ -28,7 +28,7 @@ export default function PricesSection() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.45 }
     );
 
     section.querySelectorAll<HTMLElement>('.ps-card').forEach((c) => observer.observe(c));
@@ -51,7 +51,7 @@ export default function PricesSection() {
             <div className="ps-corner-tag ps-tag-digital">
               Digital <span className="ps-sparkle" style={{ color: '#C8856B' }} aria-hidden="true">✦</span>
             </div>
-            <div className="ps-price-area">
+            <div className="ps-price-area ps-price-area-rezept">
               <div className="ps-card-label">Ärztliche Prüfung</div>
               <div className="ps-card-title">Rezept für<br />Abnehmspritze</div>
               <div className="ps-price-block">
@@ -59,6 +59,36 @@ export default function PricesSection() {
                   <span className="ps-eur">€</span>29<span className="ps-asterisk">*</span>
                 </div>
                 <span className="ps-price-sub">Rezept- &amp; Behandlungsgebühr</span>
+              </div>
+              {/* Mobile-only syringe overlay */}
+              <div className="ps-mobile-stage" aria-hidden="true">
+                <div style={{
+                  position: 'absolute',
+                  width: 160,
+                  height: 160,
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(201,236,217,.55) 0%, rgba(223,244,234,.22) 45%, transparent 70%)',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  pointerEvents: 'none',
+                }} />
+                <svg viewBox="0 0 60 160" fill="none" width="38" height="105" style={{ filter: 'drop-shadow(0 6px 16px rgba(61,92,74,.18))', animation: 'ps-float 4s ease-in-out infinite' }}>
+                  <rect x="22" y="4" width="16" height="22" rx="5" fill="#C9ECD9" opacity=".7" />
+                  <rect x="24" y="24" width="12" height="90" rx="4" fill="white" stroke="#DFF4EA" strokeWidth="1.5" />
+                  <rect x="26" y="34" width="8" height="38" rx="2" fill="#f0faf4" stroke="#C9ECD9" strokeWidth="1" />
+                  <rect x="27" y="42" width="6" height="26" rx="1.5" fill="#C9ECD9" opacity=".6" />
+                  <rect x="26" y="76" width="8" height="7" rx="1.5" fill="#e8f5ef" stroke="#C9ECD9" strokeWidth=".8" />
+                  <rect x="27" y="114" width="6" height="24" rx="3" fill="#C9ECD9" opacity=".7" />
+                  <rect x="29" y="136" width="2" height="18" rx="1" fill="#a8d8bc" opacity=".6" />
+                </svg>
+                <div className="ps-stat-badge ps-stat-badge-sm">
+                  <span className="ps-stat-icon" style={{ fontSize: '0.85rem' }}>↑</span>
+                  <div>
+                    <div className="ps-stat-value" style={{ fontSize: '0.8rem' }}>Bis zu 20 %</div>
+                    <div className="ps-stat-label">Gewichtsverlust*</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="ps-divider" />
@@ -437,14 +467,19 @@ export default function PricesSection() {
           color: #1a1a1a;
           line-height: 1.5;
           opacity: 0;
-          transform: translateX(-6px);
-          transition: opacity 300ms ease, transform 300ms ease;
+          transform: translateY(14px);
           min-height: 22px;
         }
-        .ps-feature.ps-feat-vis { opacity: 1; transform: translateX(0); }
-        .ps-feature:nth-child(1) { transition-delay: 200ms; }
-        .ps-feature:nth-child(2) { transition-delay: 320ms; }
-        .ps-feature:nth-child(3) { transition-delay: 440ms; }
+        .ps-feature.ps-feat-vis {
+          animation: ps-item-pop 0.75s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+        }
+        .ps-feature:nth-child(1).ps-feat-vis { animation-delay: 350ms; }
+        .ps-feature:nth-child(2).ps-feat-vis { animation-delay: 580ms; }
+        .ps-feature:nth-child(3).ps-feat-vis { animation-delay: 810ms; }
+        @keyframes ps-item-pop {
+          from { opacity: 0; transform: translateY(14px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
 
         .ps-check {
           width: 20px;
@@ -558,15 +593,52 @@ export default function PricesSection() {
             flex: 1;
           }
         }
+        .ps-mobile-stage { display: none; }
+
         @media (max-width: 560px) {
-          .ps-grid {
-            grid-template-columns: 1fr;
+          .ps-section { overflow: visible !important; }
+          .ps-wrap { padding: 0 16px !important; }
+          .ps-grid { grid-template-columns: 1fr; }
+          .ps-col3 { flex-direction: column !important; }
+          .ps-card {
+            padding: 28px 20px 24px !important;
+            border-radius: 20px !important;
           }
-          .ps-stage {
-            min-height: 220px;
+          .ps-price-area {
+            height: auto !important;
+            min-height: unset !important;
           }
-          .ps-price {
-            font-size: 2.6rem;
+          .ps-stage { display: none !important; }
+          .ps-price { font-size: 2.6rem; }
+
+          .ps-corner-tag { z-index: 10 !important; }
+
+          /* Mobile syringe overlay inside rezept price-area */
+          .ps-price-area-rezept {
+            position: relative !important;
+            overflow: hidden !important;
+            min-height: 190px !important;
+          }
+          .ps-price-area-rezept .ps-card-label,
+          .ps-price-area-rezept .ps-card-title,
+          .ps-price-area-rezept .ps-price-block { max-width: 55% !important; }
+          .ps-mobile-stage {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 46%;
+          }
+          .ps-stat-badge-sm {
+            padding: 7px 10px !important;
+            font-size: 0.65rem !important;
+            gap: 7px !important;
+            border-radius: 10px !important;
           }
         }
       `}</style>
