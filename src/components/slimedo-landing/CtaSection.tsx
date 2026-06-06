@@ -208,7 +208,7 @@ export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionPr
                 </p>
 
                 <a
-                    href="#"
+                    href="/product/select"
                     className="slimedo-anim played slimedo-d3 ctaButton"
                     style={{
                         display: 'inline-flex',

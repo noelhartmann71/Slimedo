@@ -608,11 +608,11 @@ export default function DeliveryMethodSelectionPage() {
                   >
                     Ich stimme der Übermittlung meines Rezepts an die gewählte
                     Apotheke zu und bestätige, dass ich die{" "}
-                    <a href="#" className="text-[#009689] hover:underline">
+                    <a href="/terms" className="text-[#009689] hover:underline">
                       AGB
                     </a>{" "}
                     und{" "}
-                    <a href="#" className="text-[#009689] hover:underline">
+                    <a href="/privacy" className="text-[#009689] hover:underline">
                       Datenschutzbestimmungen
                     </a>{" "}
                     gelesen habe.

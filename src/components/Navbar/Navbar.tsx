@@ -34,7 +34,7 @@ type WissenswertesArticle = {
 
 const links: NavLink[] = [
   { label: "So funktioniert's", href: '/#how-it-works-section' },
-  { label: 'Abnehmspritzen', href: '/#intro', dropdown: 'abnehmspritzen' },
+  { label: 'Abnehmspritzen', href: '/#therapie', dropdown: 'abnehmspritzen' },
   { label: 'Wissenswertes', href: '/#wirk', dropdown: 'wissenswertes' },
   { label: 'Unser Team', to: '/team' },
 ];
@@ -55,13 +55,14 @@ const programs = [
 ];
 
 const wissenswertesLinks = [
-  { label: 'Therapie', href: '#intro' },
-  { label: 'Wirkungsweise', href: '#wirk' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Potenzial', href: '#potenzial' },
-  { label: 'Anwendung', href: '#anwendung' },
-  { label: 'Patientenerfahrungen', href: '#bewertungen' },
-  { label: 'Häufig gestellte Fragen', href: '#faq' },
+  { label: 'Therapie', href: '/#therapie' },
+  { label: 'Preise', href: '/#preise' },
+  { label: 'Wirkungsweise', href: '/#wirk' },
+  { label: 'Blog', href: '/#blog' },
+  { label: 'Potenzial', href: '/#potenzial' },
+  { label: 'Anwendung', href: '/#anwendung' },
+  { label: 'Patientenerfahrungen', href: '/#bewertungen' },
+  { label: 'Häufig gestellte Fragen', href: '/#faq' },
 ];
 
 const closeDelayMs = 120;
@@ -144,7 +145,7 @@ function WeightLossDropdown() {
             Egal, was Du brauchst, wir finden das ideale Programm für Dich.
           </p>
           <a
-            href="#intro"
+            href="/product/select"
             className="inline-flex items-center rounded-full bg-[#3D5C4A] px-5 py-2.5 text-[13px] font-semibold text-[#FAF5EA] transition-colors hover:bg-[#1E3A2E] xl:px-6 xl:py-3 xl:text-[14px]"
           >
             Jetzt Eignung prüfen

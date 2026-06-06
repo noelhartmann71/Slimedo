@@ -756,7 +756,7 @@ export default function WarumWirSection() {
             Überzeug dich selbst — starte jetzt deinen ärztlich begleiteten Weg.
           </p>
           <a
-            href="#"
+            href="/product/select"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

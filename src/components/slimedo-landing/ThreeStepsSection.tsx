@@ -301,7 +301,7 @@ export default function ThreeStepsSection() {
         {/* CTA */}
         <div style={{ marginTop: 56, textAlign: 'center' }}>
           <a
-            href="#"
+            href="/product/select"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

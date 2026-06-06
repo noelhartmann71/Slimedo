@@ -278,7 +278,7 @@ export default function SlimedoHero() {
           }}
         >
           <a
-            href="#"
+            href="/product/select"
             className="btn-sage-primary hero-cta-btn-resp"
             style={{
               display: 'inline-flex',
@@ -328,7 +328,7 @@ export default function SlimedoHero() {
             </span>
           </a>
           <a
-            href="#schritte"
+            href="/#how-it-works-section"
             style={{
               fontSize: 16,
               color: '#3D5C4A',

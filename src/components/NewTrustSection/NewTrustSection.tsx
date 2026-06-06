@@ -372,7 +372,7 @@ const NewTrustSection = () => {
 
           <div className="flex flex-col items-center mt-10 gap-3">
             <a
-              href="#start"
+              href="/product/select"
               style={{
                 display: "inline-flex",
                 alignItems: "center",

@@ -36,7 +36,7 @@ export default function PricesSection() {
   }, []);
 
   return (
-    <section ref={ref} className="ps-section">
+    <section id="preise" ref={ref} className="ps-section">
       <div className="ps-wrap">
         <span className="ps-eyebrow">Kosten &amp; Preise</span>
         <h2 className="ps-heading">

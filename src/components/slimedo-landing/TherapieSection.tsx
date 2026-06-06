@@ -70,6 +70,7 @@ function DualDiagram() {
 export default function TherapieSection() {
   return (
     <section
+      id="therapie"
       className="slimedo-therapie-section-bg"
       style={{
         position: 'relative',
@@ -238,7 +239,7 @@ export default function TherapieSection() {
           {/* Left: button pinned to bottom */}
           <div className="therapie-btn-col" style={{ display: 'flex', alignItems: 'flex-end' }}>
             <a
-              href="#"
+              href="/product/select"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 background: SAGE, color: '#fff',

@@ -8,7 +8,8 @@ import {
 
 type FooterLink = {
   label: string;
-  path: string;
+  path?: string;
+  href?: string;
   action?: 'cookie-settings';
 };
 
@@ -21,13 +22,13 @@ const abnehmProgrammeLinks: FooterLink[] = [
 const rechtlichesLinks: FooterLink[] = [
   { label: 'Datenschutz', path: '/privacy' },
   { label: 'AGB', path: '/terms' },
-  { label: 'Impressum', path: '/' },
+  { label: 'Impressum', path: '/terms' },
   { label: 'Cookie-Einstellungen', path: '/', action: 'cookie-settings' },
 ];
 
 const kontaktLinks: FooterLink[] = [
   { label: 'Häufige Fragen (FAQ)', path: '/#faq' },
-  { label: 'Kontaktformular', path: '/' },
+  { label: 'Kontaktformular', href: 'mailto:support@slimedo.de' },
 ];
 
 const chipStyle = {
@@ -381,25 +382,46 @@ function FooterLinks({ links }: { links: FooterLink[] }) {
       <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 11 }}>
         {links.map((link) => (
             <li key={link.label}>
-              <Link
-                  to={link.path}
-                  onClick={link.action === 'cookie-settings' ? openCookieSettings : undefined}
-                  style={{
-                    fontSize: 14,
-                    color: 'rgba(205,221,203,.55)',
-                    textDecoration: 'none',
-                    transition: 'color .2s',
-                    fontFamily: '"Inter", sans-serif',
-                  }}
-                  onMouseEnter={(e) =>
-                      ((e.currentTarget as HTMLElement).style.color = '#FAF5EA')
-                  }
-                  onMouseLeave={(e) =>
-                      ((e.currentTarget as HTMLElement).style.color = 'rgba(205,221,203,.55)')
-                  }
-              >
-                {link.label}
-              </Link>
+              {link.href ? (
+                  <a
+                      href={link.href}
+                      style={{
+                        fontSize: 14,
+                        color: 'rgba(205,221,203,.55)',
+                        textDecoration: 'none',
+                        transition: 'color .2s',
+                        fontFamily: '"Inter", sans-serif',
+                      }}
+                      onMouseEnter={(e) =>
+                          ((e.currentTarget as HTMLElement).style.color = '#FAF5EA')
+                      }
+                      onMouseLeave={(e) =>
+                          ((e.currentTarget as HTMLElement).style.color = 'rgba(205,221,203,.55)')
+                      }
+                  >
+                    {link.label}
+                  </a>
+              ) : (
+                  <Link
+                      to={link.path ?? '/'}
+                      onClick={link.action === 'cookie-settings' ? openCookieSettings : undefined}
+                      style={{
+                        fontSize: 14,
+                        color: 'rgba(205,221,203,.55)',
+                        textDecoration: 'none',
+                        transition: 'color .2s',
+                        fontFamily: '"Inter", sans-serif',
+                      }}
+                      onMouseEnter={(e) =>
+                          ((e.currentTarget as HTMLElement).style.color = '#FAF5EA')
+                      }
+                      onMouseLeave={(e) =>
+                          ((e.currentTarget as HTMLElement).style.color = 'rgba(205,221,203,.55)')
+                      }
+                  >
+                    {link.label}
+                  </Link>
+              )}
             </li>
         ))}
       </ul>

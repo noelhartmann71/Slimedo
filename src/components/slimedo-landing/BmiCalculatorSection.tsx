@@ -503,7 +503,7 @@ export default function BmiCalculatorSection() {
             </p>
 
             <a
-              href="#"
+              href="/product/select"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

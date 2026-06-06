@@ -143,19 +143,19 @@ export default function DeliveryMethodsPage() {
               {/* Consent text */}
               <p className="text-[14px] text-muted-foreground mb-6">
                 Zustimmung zu den{" "}
-                <a href="#" className="text-primary hover:underline">
+                <a href="/terms" className="text-primary hover:underline">
                   Allgemeinen Geschäftsbedingungen
                 </a>{" "}
                 und Anerkennung der{" "}
-                <a href="#" className="text-primary hover:underline">
+                <a href="/terms" className="text-primary hover:underline">
                   Informationen
                 </a>
                 ,{" "}
-                <a href="#" className="text-primary hover:underline">
+                <a href="/privacy" className="text-primary hover:underline">
                   Datenschutzbestimmungen
                 </a>{" "}
                 sowie{" "}
-                <a href="#" className="text-primary hover:underline">
+                <a href="/terms" className="text-primary hover:underline">
                   Stornierungsbedingungen
                 </a>
                 .

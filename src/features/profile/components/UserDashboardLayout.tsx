@@ -229,7 +229,7 @@ export default function UserDashboardLayout() {
       await axiosSecure.post("/pharmacy/logout");
       clearSessionStorage();
       toast.success("Logged out successfully");
-      navigate("/login");
+      navigate("/auth/login");
     } catch {
       clearSessionStorage();
       toast.error("Logout failed. Please try again.");
