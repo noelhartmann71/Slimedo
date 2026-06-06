@@ -417,7 +417,7 @@ export default function BmiCalculatorSection() {
               >
                 <img
                   className="bmi-slider-image-resp"
-                  src="/images/home/women-bmi.png"
+                  src="/images/BmiCalculater/women-bmi.png"
                   alt=""
                   aria-hidden="true"
                   style={{
@@ -430,7 +430,17 @@ export default function BmiCalculatorSection() {
                 />
               </div>
 
-              <div>
+              {/* Mobile-only: BmiBackground photo next to silhouette */}
+              <div className="bmi-bg-photo-mobile-cell" aria-hidden="true">
+                <img
+                  src="/images/BmiCalculater/BmiBackground.jpeg"
+                  alt=""
+                  className="bmi-bg-photo-mobile"
+                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                />
+              </div>
+
+              <div className="bmi-result-text-resp">
             {/* Result */}
             <span
               style={{
@@ -562,14 +572,46 @@ export default function BmiCalculatorSection() {
           .bmi-stat-num-resp { font-size: 80px !important; }
           .bmi-card-content-resp { max-width: calc(68% - 18px) !important; }
         }
+        .bmi-bg-photo-mobile-cell { display: none; }
+
         @media (max-width: 640px) {
           .bmi-hl-resp { font-size: 32px !important; }
           .bmi-stat-num-resp { font-size: 52px !important; }
           .bmi-slider-card-resp { padding: 32px 24px !important; }
           .bmi-card-photo-resp { display: none !important; }
           .bmi-card-content-resp { max-width: none !important; }
-          .bmi-result-layout-resp { grid-template-columns: 1fr !important; gap: 16px !important; }
-          .bmi-slider-image-resp { width: 150px !important; }
+
+          /* Result grid: 2 images side by side, text below spanning full width */
+          .bmi-result-layout-resp {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 10px !important;
+            align-items: end !important;
+          }
+          .bmi-result-text-resp {
+            grid-column: 1 / -1 !important;
+          }
+
+          /* Silhouette: contain so no crop, aligned to bottom */
+          .bmi-slider-image-resp {
+            width: 100% !important;
+            height: 200px !important;
+            object-fit: contain !important;
+            object-position: bottom center !important;
+          }
+
+          /* Background photo: cover, show upper body */
+          .bmi-bg-photo-mobile-cell {
+            display: flex !important;
+            align-items: flex-end;
+          }
+          .bmi-bg-photo-mobile {
+            width: 100% !important;
+            height: 200px !important;
+            object-fit: cover !important;
+            object-position: top center !important;
+            border-radius: 14px !important;
+            display: block !important;
+          }
         }
       `}</style>
     </section>

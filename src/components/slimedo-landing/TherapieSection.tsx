@@ -156,6 +156,10 @@ export default function TherapieSection() {
             grid-template-columns: 1fr !important;
             gap: 24px !important;
           }
+          .therapie-card-label { font-size: 13px !important; }
+          .therapie-card-title { font-size: 22px !important; }
+          .therapie-card-desc  { font-size: 15px !important; }
+          .therapie-card-item  { font-size: 15px !important; }
         }
 
         /* ── Tablet 641px–1024px ── */
@@ -274,7 +278,7 @@ export default function TherapieSection() {
               }}
             >
               <img
-                src="/images/therapie/injection1.png"
+                src="/images/therapie/injection1t.png"
                 alt="Wegovy Injektionspen"
                 style={{
                   position: 'absolute', top: 14, right: 14,
@@ -282,21 +286,21 @@ export default function TherapieSection() {
                   objectFit: 'contain',
                 }}
               />
-              <div style={{
+              <div className="therapie-card-label" style={{
                 fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, letterSpacing: '.14em',
                 textTransform: 'uppercase', marginBottom: 8,
                 paddingRight: 'clamp(84px, 6.25vw, 125px)', color: SAGE,
               }}>
                 Einfaches Prinzip
               </div>
-              <h3 style={{
+              <h3 className="therapie-card-title" style={{
                 fontFamily: "'Lora', Georgia, serif", fontWeight: 500,
                 fontSize: 'clamp(17px, 1.02vw, 26px)', lineHeight: 1.2, marginBottom: 4,
                 paddingRight: 'clamp(67px, 5vw, 100px)', color: TEXT,
               }}>
                 Das <em style={{ fontStyle: 'italic', color: SAGE }}>GLP-1</em>-Prinzip
               </h3>
-              <p style={{ fontSize: 'clamp(11px, 0.61vw, 16px)', color: STONE, marginBottom: 16 }}>
+              <p className="therapie-card-desc" style={{ fontSize: 'clamp(11px, 0.61vw, 16px)', color: STONE, marginBottom: 16 }}>
                 Wirkt gezielt an einem Rezeptor<br />
                 <span style={{ fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, color: SAGE }}>Bsp. Wegovy®</span>
               </p>
@@ -307,7 +311,7 @@ export default function TherapieSection() {
                   'Verlangsamt die Magenentleerung',
                   'Kann Heißhunger reduzieren',
                 ].map(text => (
-                  <li key={text} style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(11px, 0.63vw, 16px)', color: TEXT, lineHeight: 1.45 }}>
+                  <li key={text} className="therapie-card-item" style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(11px, 0.63vw, 16px)', color: TEXT, lineHeight: 1.45 }}>
                     <CheckSage />
                     {text}
                   </li>
@@ -327,7 +331,7 @@ export default function TherapieSection() {
               }}
             >
               <img
-                src="/images/therapie/injection2.png"
+                src="/images/therapie/injection2t.png"
                 alt="Mounjaro Injektionspen"
                 style={{
                   position: 'absolute', top: 14, right: 14,
@@ -335,21 +339,21 @@ export default function TherapieSection() {
                   objectFit: 'contain',
                 }}
               />
-              <div style={{
+              <div className="therapie-card-label" style={{
                 fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, letterSpacing: '.14em',
                 textTransform: 'uppercase', marginBottom: 8,
                 paddingRight: 'clamp(84px, 6.25vw, 125px)', color: CLAY,
               }}>
                 Duales Prinzip
               </div>
-              <h3 style={{
+              <h3 className="therapie-card-title" style={{
                 fontFamily: "'Lora', Georgia, serif", fontWeight: 500,
                 fontSize: 'clamp(17px, 1.02vw, 26px)', lineHeight: 1.2, marginBottom: 4,
                 paddingRight: 'clamp(67px, 5vw, 100px)', color: TEXT,
               }}>
                 Das <em style={{ fontStyle: 'italic', color: CLAY }}>GLP-1 + GIP</em>-Prinzip
               </h3>
-              <p style={{ fontSize: 'clamp(11px, 0.61vw, 16px)', color: STONE, marginBottom: 16 }}>
+              <p className="therapie-card-desc" style={{ fontSize: 'clamp(11px, 0.61vw, 16px)', color: STONE, marginBottom: 16 }}>
                 Wirkt gleichzeitig an zwei Rezeptoren<br />
                 <span style={{ fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, color: CLAY }}>Bsp. Mounjaro®</span>
               </p>
@@ -360,7 +364,7 @@ export default function TherapieSection() {
                   'Unterstützt den Zucker- & Fettstoffwechsel',
                   'Kann das Sättigungsgefühl zusätzlich verstärken',
                 ].map(text => (
-                  <li key={text} style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(11px, 0.63vw, 16px)', color: TEXT, lineHeight: 1.45 }}>
+                  <li key={text} className="therapie-card-item" style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(11px, 0.63vw, 16px)', color: TEXT, lineHeight: 1.45 }}>
                     <CheckClay />
                     {text}
                   </li>

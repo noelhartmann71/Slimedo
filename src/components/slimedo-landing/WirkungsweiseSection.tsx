@@ -162,7 +162,7 @@ export default function WirkungsweiseSection() {
         {cards.map((card, i) => (
           <article
             key={i}
-            className={`slimedo-anim slimedo-d${i + 1}`}
+            className={`slimedo-anim slimedo-d${i + 1} wirk-card-resp`}
             style={{
               background: '#FFFDF7',
               borderRadius: 18,
@@ -184,6 +184,7 @@ export default function WirkungsweiseSection() {
             }
           >
             <div
+              className="wirk-card-icon"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -195,47 +196,52 @@ export default function WirkungsweiseSection() {
             >
               {card.icon}
             </div>
-            <span
-              style={{
-                display: 'inline-block',
-                background: '#CDDDCB',
-                color: '#1E3A2E',
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 13,
-                fontWeight: 500,
-                padding: '5px 13px',
-                borderRadius: 999,
-                letterSpacing: '.01em',
-                marginBottom: 12,
-              }}
-            >
-              {card.label}
-            </span>
-            <h3
-              style={{
-                fontFamily: '"Manrope", sans-serif',
-                fontSize: 22,
-                fontWeight: 600,
-                margin: '0 0 10px',
-                color: '#141414',
-                lineHeight: 1.25,
-                letterSpacing: '-.005em',
-              }}
-            >
-              {card.title}
-            </h3>
-            <p
-              style={{
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 16,
-                color: '#768064',
-                lineHeight: 1.55,
-                margin: 0,
-                fontWeight: 400,
-              }}
-            >
-              {card.body}
-            </p>
+            <div className="wirk-card-text">
+              <span
+                className="wirk-card-label-el"
+                style={{
+                  display: 'inline-block',
+                  background: '#CDDDCB',
+                  color: '#1E3A2E',
+                  fontFamily: '"Inter", sans-serif',
+                  fontSize: 13,
+                  fontWeight: 500,
+                  padding: '5px 13px',
+                  borderRadius: 999,
+                  letterSpacing: '.01em',
+                  marginBottom: 12,
+                }}
+              >
+                {card.label}
+              </span>
+              <h3
+                className="wirk-card-title-el"
+                style={{
+                  fontFamily: '"Manrope", sans-serif',
+                  fontSize: 22,
+                  fontWeight: 600,
+                  margin: '0 0 10px',
+                  color: '#141414',
+                  lineHeight: 1.25,
+                  letterSpacing: '-.005em',
+                }}
+              >
+                {card.title}
+              </h3>
+              <p
+                className="wirk-card-body-el"
+                style={{
+                  fontFamily: '"Inter", sans-serif',
+                  fontSize: 16,
+                  color: '#768064',
+                  lineHeight: 1.55,
+                  margin: 0,
+                  fontWeight: 400,
+                }}
+              >
+                {card.body}
+              </p>
+            </div>
           </article>
         ))}
       </div>
@@ -245,8 +251,28 @@ export default function WirkungsweiseSection() {
           .wirk-hl-resp { font-size: 48px !important; }
         }
         @media (max-width: 640px) {
-          .wirk-grid-resp { grid-template-columns: 1fr !important; }
+          .wirk-grid-resp { grid-template-columns: 1fr !important; gap: 10px !important; }
           .wirk-hl-resp { font-size: 34px !important; }
+          .wirk-card-resp {
+            flex-direction: row !important;
+            align-items: center !important;
+            padding: 16px 18px !important;
+            min-height: unset !important;
+            gap: 16px !important;
+          }
+          .wirk-card-icon {
+            margin-bottom: 0 !important;
+            flex-shrink: 0 !important;
+          }
+          .wirk-card-icon svg { width: 42px !important; height: 42px !important; }
+          .wirk-card-text { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; }
+          .wirk-card-label-el {
+            font-size: 11px !important;
+            padding: 3px 9px !important;
+            margin-bottom: 5px !important;
+          }
+          .wirk-card-title-el { font-size: 17px !important; margin-bottom: 3px !important; }
+          .wirk-card-body-el { font-size: 13px !important; }
         }
       `}</style>
     </section>

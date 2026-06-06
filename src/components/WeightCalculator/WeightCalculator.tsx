@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BMIImg from "../../../public/images/home/women-bmi.png";
+import BMIImg from "../../../public/images/BmiCalculater/women-bmi.png";
 import CtaBanner from "../../../public/images/logo/cta-banner.png";
 import { Link } from "react-router";
 export default function WeightCalculator() {
