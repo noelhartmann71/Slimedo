@@ -268,7 +268,7 @@ export default function SlimedoHero() {
 
         {/* CTA Row */}
         <div
-          className="slimedo-anim slimedo-d4"
+          className="slimedo-anim slimedo-d4 hero-cta-row-resp"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -461,7 +461,7 @@ export default function SlimedoHero() {
           .hero-h1-resp { font-size: 50px !important; }
         }
         @media (max-width: 640px) {
-          .slimedo-hero-section { grid-template-columns: 1fr !important; min-height: 520px !important; position: relative !important; }
+          .slimedo-hero-section { grid-template-columns: 1fr !important; min-height: 100svh !important; min-height: 100dvh !important; position: relative !important; }
           .hero-right-resp {
             position: absolute !important;
             right: 0 !important;
@@ -473,23 +473,34 @@ export default function SlimedoHero() {
             mask-image: linear-gradient(to right, transparent 0%, black 80%) !important;
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 68%) !important;
           }
-          .hero-left-resp { padding: 48px 20px !important; position: relative !important; z-index: 2 !important; }
-          .hero-h1-resp { font-size: 38px !important; }
-          .hero-trust-resp { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
-          .hero-sub-resp { font-size: 15px !important; }
-          .hero-badge-resp {
-            font-size: 10px !important;
-            padding: 5px 11px !important;
-            letter-spacing: .06em !important;
-            gap: 5px !important;
-            margin-bottom: 18px !important;
-            white-space: nowrap !important;
+          .hero-left-resp {
+            padding: 36px 20px 28px !important;
+            position: relative !important;
+            z-index: 2 !important;
+            justify-content: space-between !important;
           }
-          .hero-bullets-resp { gap: 9px !important; margin-bottom: 24px !important; }
-          .hero-bullets-resp li { font-size: 13px !important; gap: 8px !important; }
+          .hero-h1-resp {
+            font-size: 44px !important;
+            margin-bottom: 14px !important;
+            max-width: 58% !important;
+          }
+          .hero-trust-resp { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+          .hero-sub-resp { font-size: 14px !important; }
+          .hero-badge-resp {
+            font-size: 12px !important;
+            padding: 6px 13px !important;
+            letter-spacing: .07em !important;
+            gap: 6px !important;
+            margin-bottom: 12px !important;
+            white-space: nowrap !important;
+            max-width: calc(100vw - 40px) !important;
+          }
+          .hero-bullets-resp { gap: 9px !important; margin-bottom: 16px !important; max-width: 60% !important; }
+          .hero-bullets-resp li { font-size: 15px !important; gap: 9px !important; }
+          .hero-cta-row-resp { margin-bottom: 16px !important; gap: 12px !important; }
           .hero-cta-btn-resp {
-            font-size: 13px !important;
-            padding: 13px 22px 13px 24px !important;
+            font-size: 15px !important;
+            padding: 14px 24px 14px 26px !important;
             border-radius: 10px !important;
           }
           .hero-video-resp {
