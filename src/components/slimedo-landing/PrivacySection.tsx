@@ -24,6 +24,9 @@ type OrbitTrack = {
 
 const ORBIT_DURATION_MS = 1400;
 const ORBIT_STAGGERS_MS = [0, 110, 220, 330] as const;
+const REVEAL_TRIGGER_VIEWPORT_RATIO = 0.7;
+const ORBIT_TRIGGER_TOP_RATIO = 0.62;
+const ORBIT_TRIGGER_BOTTOM_RATIO = 0.28;
 const ORBIT_CURVE_PRESETS = [
   { bend: -160, lift: -82 },
   { bend: -180, lift: 72 },
@@ -412,7 +415,7 @@ export default function PrivacySection() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -20px 0px' }
+      { threshold: 0.18, rootMargin: '0px 0px -18% 0px' }
     );
 
     animTargets.forEach((el) => {
@@ -424,7 +427,7 @@ export default function PrivacySection() {
       }
 
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 24) {
+      if (rect.top < window.innerHeight * REVEAL_TRIGGER_VIEWPORT_RATIO) {
         el.classList.add('played');
       } else {
         observer.observe(el);
@@ -617,11 +620,11 @@ export default function PrivacySection() {
           }
         });
       },
-      { threshold: 0.28, rootMargin: '0px 0px -12% 0px' }
+      { threshold: 0.42, rootMargin: '0px 0px -24% 0px' }
     );
 
-    const stageRect = section.getBoundingClientRect();
-    if (stageRect.top < window.innerHeight * 0.82 && stageRect.bottom > window.innerHeight * 0.2) {
+    const stageRect = stage.getBoundingClientRect();
+    if (stageRect.top < window.innerHeight * ORBIT_TRIGGER_TOP_RATIO && stageRect.bottom > window.innerHeight * ORBIT_TRIGGER_BOTTOM_RATIO) {
       runOrbitalAnimation();
     }
 
@@ -635,7 +638,7 @@ export default function PrivacySection() {
         hasOrbitalFinishedRef.current = true;
       }
 
-      orbitalObserver.observe(section);
+      orbitalObserver.observe(stage);
     }
 
     const handleResize = () => {
