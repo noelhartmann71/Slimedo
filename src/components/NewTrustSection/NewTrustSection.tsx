@@ -246,7 +246,7 @@ const NewTrustSection = () => {
                       <img
                         alt=""
                         src={StepOneImg}
-                        className="h-full w-full object-contain max-[640px]:max-h-40"
+                        className="h-full w-full object-contain max-[640px]:max-h-60"
                         style={{
                           transform: hoveredCard === 0 ? "scale(1.1)" : "scale(1)",
                           transition: CARD_TRANSITION,
