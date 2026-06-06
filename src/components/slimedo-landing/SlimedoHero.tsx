@@ -177,7 +177,7 @@ export default function SlimedoHero() {
       >
         {/* Badge */}
         <span
-          className="slimedo-anim slimedo-d1"
+          className="slimedo-anim slimedo-d1 hero-badge-resp"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -235,7 +235,7 @@ export default function SlimedoHero() {
 
         {/* Bullet points */}
         <ul
-          className="slimedo-anim slimedo-d3"
+          className="slimedo-anim slimedo-d3 hero-bullets-resp"
           style={{
             listStyle: 'none',
             padding: 0,
@@ -279,7 +279,7 @@ export default function SlimedoHero() {
         >
           <a
             href="#"
-            className="btn-sage-primary"
+            className="btn-sage-primary hero-cta-btn-resp"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -460,12 +460,37 @@ export default function SlimedoHero() {
           .hero-h1-resp { font-size: 50px !important; }
         }
         @media (max-width: 640px) {
-          .slimedo-hero-section { grid-template-columns: 1fr !important; min-height: auto !important; }
-          .hero-right-resp { height: 300px !important; }
-          .hero-left-resp { padding: 48px 20px !important; }
+          .slimedo-hero-section { grid-template-columns: 1fr !important; min-height: 520px !important; position: relative !important; }
+          .hero-right-resp {
+            position: absolute !important;
+            right: 0 !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            width: 70% !important;
+            height: 100% !important;
+            z-index: 1 !important;
+            mask-image: linear-gradient(to right, transparent 0%, black 80%) !important;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 68%) !important;
+          }
+          .hero-left-resp { padding: 48px 20px !important; position: relative !important; z-index: 2 !important; }
           .hero-h1-resp { font-size: 38px !important; }
           .hero-trust-resp { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
           .hero-sub-resp { font-size: 15px !important; }
+          .hero-badge-resp {
+            font-size: 10px !important;
+            padding: 5px 11px !important;
+            letter-spacing: .06em !important;
+            gap: 5px !important;
+            margin-bottom: 18px !important;
+            white-space: nowrap !important;
+          }
+          .hero-bullets-resp { gap: 9px !important; margin-bottom: 24px !important; }
+          .hero-bullets-resp li { font-size: 13px !important; gap: 8px !important; }
+          .hero-cta-btn-resp {
+            font-size: 13px !important;
+            padding: 13px 22px 13px 24px !important;
+            border-radius: 10px !important;
+          }
         }
       `}</style>
     </section>
