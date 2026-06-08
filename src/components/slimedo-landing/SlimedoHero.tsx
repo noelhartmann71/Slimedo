@@ -410,6 +410,7 @@ export default function SlimedoHero() {
         <video
           ref={videoRef}
           autoPlay
+          loop
           muted
           playsInline
           preload={shouldLoadHeroVideo ? 'metadata' : 'none'}
