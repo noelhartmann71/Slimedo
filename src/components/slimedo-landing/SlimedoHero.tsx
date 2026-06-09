@@ -325,7 +325,7 @@ export default function SlimedoHero() {
         ref={badge1Ref}
         className="
           hero-badge-1
-          absolute left-[37%] max-2xl:left-[48%] max-xl:left-[45%] max-lg:left-[41%] top-[30%] z-[5]
+          absolute left-[37%] min-[1600px]:left-[50%] max-2xl:left-[48%] max-xl:left-[45%] max-lg:left-[41%] top-[30%] z-[5]
           flex items-center gap-4
           bg-white rounded-2xl p-4 pr-6 min-w-[240px]
           shadow-[0_8px_32px_rgba(0,0,0,.11),_0_1px_4px_rgba(0,0,0,.04)]
@@ -353,7 +353,7 @@ export default function SlimedoHero() {
         ref={badge2Ref}
         className="
           hero-badge-2
-          absolute left-[27%] max-2xl:left-[40%] max-xl:left-[39%] max-lg:left-[35%] top-[54%] z-[5]
+          absolute left-[27%] min-[1600px]:left-[40%] max-2xl:left-[40%] max-xl:left-[39%] max-lg:left-[35%] top-[54%] z-[5]
           flex items-center gap-4
           bg-white rounded-2xl p-4 pr-6 min-w-[240px]
           shadow-[0_8px_32px_rgba(0,0,0,.11),_0_1px_4px_rgba(0,0,0,.04)]
@@ -747,8 +747,6 @@ export default function SlimedoHero() {
 
         /* MacBook Pro 16" (~1728px): push badges further right, tighten bullets, constrain trust bar */
         @media (min-width: 1600px) and (max-width: 1800px) {
-          .hero-badge-1 { left: 49% !important; }
-          .hero-badge-2 { left: 39% !important; }
           .hero-bullet-list { gap: 12px !important; }
           .hero-copy-col {
             padding-bottom: 60px !important;

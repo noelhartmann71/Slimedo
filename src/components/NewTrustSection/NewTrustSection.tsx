@@ -400,7 +400,7 @@ const NewTrustSection = () => {
                 el.style.transform = "translateY(0)";
               }}
             >
-              Fragebogen starten
+              Rezeptanfrage starten
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
                 <path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

@@ -49,7 +49,7 @@ export default function PricesSection() {
           {/* ── Karte 1: Rezept ── */}
           <div className="ps-card ps-card-rezept">
             <div className="ps-corner-tag ps-tag-digital">
-              Digital <span className="ps-sparkle" style={{ color: '#C8856B' }} aria-hidden="true">✦</span>
+              Digital <span className="ps-sparkle" aria-hidden="true">✦</span>
             </div>
             <div className="ps-price-area ps-price-area-rezept">
               <div className="ps-card-label">Ärztliche Prüfung</div>
@@ -95,14 +95,14 @@ export default function PricesSection() {
             <ul className="ps-features">
               <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>Deutsche approbierte Ärzt:innen</li>
               <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>Online per Fragebogen</li>
-              <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>Diskrete Behandlung</li>
+              <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>100% diskret & vertraulich</li>
             </ul>
           </div>
 
           {/* ── Karte 2: Medikament ── */}
           <div className="ps-card ps-card-med">
             <div className="ps-corner-tag ps-tag-express">
-              Express <span className="ps-sparkle" style={{ color: '#E8C8B0', animationDelay: '0.6s' }} aria-hidden="true">✦</span>
+              Express <span className="ps-sparkle" style={{ animationDelay: '0.6s' }} aria-hidden="true">✦</span>
             </div>
             <div className="ps-price-area ps-price-area-med">
               <div className="ps-card-label">Abnehmmedikament</div>
@@ -118,7 +118,7 @@ export default function PricesSection() {
             <ul className="ps-features">
               <li className="ps-feature"><span className="ps-check ps-check-clay"><CheckIcon color="#C8856B" /></span>Abrechnung über die Apotheke</li>
               <li className="ps-feature"><span className="ps-check ps-check-clay"><CheckIcon color="#C8856B" /></span>Abholung oder Expressversand</li>
-              <li className="ps-feature"><span className="ps-check ps-check-clay"><CheckIcon color="#C8856B" /></span>Alle Dosierungen &amp; Wirkstoffe verfügbar</li>
+              <li className="ps-feature"><span className="ps-check ps-check-clay"><CheckIcon color="#C8856B" /></span>Alle Dosierungen verfügbar</li>
             </ul>
           </div>
 
@@ -290,20 +290,26 @@ export default function PricesSection() {
           gap: 3px;
         }
         .ps-tag-digital {
-          background: #3D5C4A;
-          color: #fff;
-          box-shadow: 0 0 0 3px rgba(61,92,74,.12), 0 2px 8px rgba(61,92,74,.2);
+          background: #EEF7F0;
+          color: #0B3D32;
+          border: 1px solid #DCEADF;
+          box-shadow: 0 0 0 3px rgba(61,92,74,.06), 0 2px 8px rgba(61,92,74,.08);
         }
         .ps-tag-express {
-          background: #1e3a2e;
+          background: #063D32;
           color: #fff;
-          box-shadow: 0 0 0 3px rgba(30,58,46,.12), 0 2px 8px rgba(30,58,46,.2);
+          border: 1px solid rgba(223,244,234,.16);
+          box-shadow: 0 0 0 3px rgba(6,61,50,.12), 0 2px 8px rgba(6,61,50,.22);
         }
         .ps-sparkle {
           display: inline-block;
           font-size: .6rem;
+          color: currentColor;
           animation: ps-sparkle 3s ease-in-out infinite;
           transform-origin: center;
+        }
+        .ps-tag-express .ps-sparkle {
+          color: #DFF4EA;
         }
         @keyframes ps-sparkle {
           0%,100%  { transform: rotate(0deg) scale(1); opacity: 1; }
