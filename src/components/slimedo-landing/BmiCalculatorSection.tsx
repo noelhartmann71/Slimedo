@@ -127,12 +127,12 @@ export default function BmiCalculatorSection() {
             <p
               style={{
                 fontFamily: '"Inter", sans-serif',
-                fontSize: 11.5,
+                fontSize: 'clamp(12px, 0.8vw, 16px)',
                 color: '#B0832B',
                 textTransform: 'uppercase',
                 letterSpacing: '0.16em',
                 fontWeight: 500,
-                margin: '0 0 16px',
+                margin: '0 0 20px',
               }}
             >
               Klinische Studien
@@ -158,32 +158,32 @@ export default function BmiCalculatorSection() {
             <span
               style={{
                 display: 'block',
-                width: 64,
+                width: 72,
                 height: 3,
                 background: '#EDD89A',
                 borderRadius: 999,
-                margin: '24px auto 0',
+                margin: '28px auto 0',
               }}
             />
-            <div style={{ marginTop: 16 }}>
+            <div style={{ marginTop: 20 }}>
               <p
                 style={{
                   fontFamily: '"Manrope", sans-serif',
-                  fontSize: 18,
+                  fontSize: 'clamp(18px, 1.4vw, 28px)',
                   fontWeight: 600,
                   color: '#1A1A1A',
-                  margin: '0 0 8px',
-                  lineHeight: 1.3,
+                  margin: '0 0 10px',
+                  lineHeight: 1.25,
                 }}
               >
                 Durchschnittliche
                 <br />
-                  Körpergewichtsreduktion
+                Körpergewichtsreduktion
               </p>
               <p
                 style={{
                   fontFamily: '"Inter", sans-serif',
-                  fontSize: 13,
+                  fontSize: 'clamp(14px, 0.9vw, 18px)',
                   color: '#768064',
                   margin: 0,
                   lineHeight: 1.45,
