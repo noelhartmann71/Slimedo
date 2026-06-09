@@ -162,15 +162,7 @@ export default function SlimedoHero() {
           text-[15px] font-medium text-sage tracking-[.08em] mb-10
           max-sm:text-xs max-sm:px-3 max-sm:py-[6px] max-sm:mb-3
         ">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <polyline
-              points="2,6 4.5,8.5 10,3.5"
-              stroke="currentColor"
-              strokeWidth="1.7"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+
           Einfach · Sicher · Digital
         </span>
 
