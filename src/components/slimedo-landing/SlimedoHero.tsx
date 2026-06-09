@@ -68,8 +68,6 @@ export default function SlimedoHero() {
   const [shouldLoadHeroVideo, setShouldLoadHeroVideo] = useState(false);
   const [connector, setConnector] = useState<{
     path: string;
-    sx: number; sy: number;
-    ex: number; ey: number;
   } | null>(null);
 
   useEffect(() => {
@@ -102,7 +100,6 @@ export default function SlimedoHero() {
       const dy = ey - sy;
       setConnector({
         path: `M ${sx} ${sy} C ${sx + dx * 0.15} ${sy + dy * 0.45}, ${sx + dx * 0.85} ${sy + dy * 0.55}, ${ex} ${ey}`,
-        sx, sy, ex, ey,
       });
     };
     calc();
@@ -113,13 +110,18 @@ export default function SlimedoHero() {
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-    container.querySelectorAll<HTMLElement>('.slimedo-anim').forEach((el) => {
-      setTimeout(() => el.classList.add('played'), 100);
-    });
+    const animationTimeouts = Array.from(
+      container.querySelectorAll<HTMLElement>('.slimedo-anim'),
+      (el) => window.setTimeout(() => el.classList.add('played'), 100),
+    );
 
-    const connection = navigator as Navigator & { connection?: { saveData?: boolean } };
+    const navigatorWithConnection = navigator as Navigator & { connection?: { saveData?: boolean } };
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (isMobileHero || connection.connection?.saveData || prefersReducedMotion.matches) return;
+    if (isMobileHero || navigatorWithConnection.connection?.saveData || prefersReducedMotion.matches) {
+      return () => {
+        animationTimeouts.forEach((handle) => window.clearTimeout(handle));
+      };
+    }
 
     const idleWindow = window as Window & typeof globalThis & {
       requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
@@ -137,6 +139,7 @@ export default function SlimedoHero() {
     }
 
     return () => {
+      animationTimeouts.forEach((handle) => window.clearTimeout(handle));
       if (idleHandle !== undefined && idleWindow.cancelIdleCallback) idleWindow.cancelIdleCallback(idleHandle);
       if (timeoutHandle !== undefined) window.clearTimeout(timeoutHandle);
     };
@@ -208,9 +211,9 @@ export default function SlimedoHero() {
           flex flex-col gap-[22px]
           max-sm:gap-[9px] max-sm:mb-4 max-sm:max-w-[60%]
         ">
-          {bullets.map((text, i) => (
+          {bullets.map((text) => (
             <li
-              key={i}
+              key={text}
               className="hero-bullet-item flex items-center gap-4 text-[21px] text-[#3A3730] max-sm:text-[15px] max-sm:gap-[9px]"
             >
               <span className="
@@ -445,7 +448,6 @@ export default function SlimedoHero() {
             font-size: 13px !important;
             letter-spacing: .01em !important;
             padding: 7px 14px !important;
-            margin-bottom: 25px !important:
           }
           .hero-title {
             max-width: 57% !important;
@@ -574,13 +576,6 @@ export default function SlimedoHero() {
           box-shadow: 0 8px 28px rgba(30,58,46,.32), 0 1px 0 rgba(255,255,255,.06) inset;
           transform: translateY(-2px);
         }
-
-        /* Secondary link gap animation */
-        .hero-secondary-link {
-          gap: 5px;
-          transition: gap .15s;
-        }
-        .hero-secondary-link:hover { gap: 9px; }
 
         /* Trust badges: flat row with top rule and separators, matching the reference */
         .hero-trust-bar {
