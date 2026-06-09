@@ -577,7 +577,7 @@ export default function Navbar() {
                 ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
               }
             >
-              Fragebogen starten -&gt;
+              Behandlung starten  -&gt;
             </Link>
           </div>
 
@@ -679,7 +679,7 @@ export default function Navbar() {
               fontFamily: '"Inter", sans-serif',
             }}
           >
-            Fragebogen starten -&gt;
+            Behandlung starten -&gt;
           </Link>
         </div>
       )}
