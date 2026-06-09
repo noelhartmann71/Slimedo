@@ -388,10 +388,9 @@ export default function SlimedoHero() {
         slimedo-anim slimedo-d5
         hero-trust-bar
         col-span-full flex items-center flex-nowrap
-        bg-transparent
-        px-20 pt-12 pb-9 -mt-24 z-[8] relative overflow-visible
-        max-lg:px-12 max-lg:-mt-20
-        max-sm:px-5 max-sm:pt-9 max-sm:pb-6 max-sm:-mt-14
+        px-8 py-5 mx-8 mb-8 -mt-16 z-[8] relative
+        max-lg:px-6 max-lg:mx-6 max-lg:-mt-12
+        max-sm:mx-4 max-sm:px-5 max-sm:pt-9 max-sm:pb-6 max-sm:-mt-14
       ">
         {trustItems.map((item, i) => (
           <span
@@ -577,26 +576,18 @@ export default function SlimedoHero() {
           transform: translateY(-2px);
         }
 
-        /* Trust badges: flat row with top rule and separators, matching the reference */
+        /* Trust badges: card bar matching navbar style */
         .hero-trust-bar {
-          overflow: visible;
+          overflow: hidden;
           flex-wrap: nowrap;
+          width: fit-content;
+          background: #fffdf7;
+          border: 1px solid #e1dacb;
+          border-radius: 999px;
+          box-shadow: 0 4px 20px rgba(30,58,46,0.07);
         }
         .hero-trust-bar::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 80px;
-          right: 80px;
-          height: 1px;
-          background: linear-gradient(
-            to right,
-            #E5D9BD 0%,
-            #E5D9BD 48%,
-            rgba(229,217,189,.62) 58%,
-            rgba(229,217,189,0) 72%
-          );
-          pointer-events: none;
+          display: none;
         }
         .hero-trust-item {
           position: relative;
@@ -643,15 +634,6 @@ export default function SlimedoHero() {
         }
         @media (max-width: 1440px) {
           .hero-trust-bar {
-            width: 70%;
-            max-width: 70%;
-            padding-left: clamp(40px, 5vw, 72px);
-            padding-right: 0;
-          }
-          .hero-trust-bar::before {
-            left: clamp(40px, 5vw, 72px);
-            right: 0;
-          }
           .hero-trust-item {
             gap: clamp(7px, .75vw, 11px);
             font-size: clamp(11px, .98vw, 14px);
@@ -674,15 +656,6 @@ export default function SlimedoHero() {
         }
         @media (max-width: 1024px) {
           .hero-trust-bar {
-            width: 70%;
-            max-width: 70%;
-            padding-left: 48px;
-            padding-right: 0;
-          }
-          .hero-trust-bar::before {
-            left: 48px;
-            right: 0;
-          }
           .hero-trust-item {
             gap: 7px;
             font-size: 10.5px;
@@ -709,11 +682,21 @@ export default function SlimedoHero() {
             margin-top: clamp(28px, 7vw, 36px) !important;
             padding: 28px 30px 0 !important;
             overflow: visible;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
           }
           .hero-trust-bar::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
             left: 30px;
             right: 30px;
+            height: 1px;
             background: #E5D9BD;
+            pointer-events: none;
           }
           .hero-trust-item--mobile-hidden {
             display: none !important;
@@ -760,6 +743,42 @@ export default function SlimedoHero() {
 
         @media (prefers-reduced-motion: reduce) {
           .hero-badge-1, .hero-badge-2 { animation: none; }
+        }
+
+        /* MacBook Pro 16" (~1728px): push badges further right, tighten bullets, constrain trust bar */
+        @media (min-width: 1600px) and (max-width: 1800px) {
+          .hero-badge-1 { left: 49% !important; }
+          .hero-badge-2 { left: 39% !important; }
+          .hero-bullet-list { gap: 12px !important; }
+          .hero-copy-col {
+            padding-bottom: 60px !important;
+          }
+          .hero-trust-bar {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 14px;
+            padding-bottom: 14px;
+          }
+          .hero-trust-item {
+            font-size: 9.5px;
+            gap: 6px;
+            white-space: nowrap;
+          }
+          .hero-trust-item--divided {
+            padding-right: 12px;
+            margin-right: 12px;
+          }
+          .hero-trust-item--divided::after {
+            height: 20px;
+          }
+          .hero-trust-icon {
+            width: 26px;
+            height: 26px;
+          }
+          .hero-trust-icon svg {
+            width: 13px;
+            height: 13px;
+          }
         }
       `}</style>
     </section>

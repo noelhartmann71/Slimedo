@@ -93,7 +93,7 @@ export default function PricesSection() {
             </div>
             <div className="ps-divider" />
             <ul className="ps-features">
-              <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>Ärztliche Prüfung</li>
+              <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>Deutsche approbierte Ärzt:innen</li>
               <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>Online per Fragebogen</li>
               <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>Diskrete Behandlung</li>
             </ul>
