@@ -73,10 +73,10 @@ function AnimatedCheckItem({ item, index, visible }: { item: string; index: numb
         cursor: 'default',
         opacity: visible ? undefined : 0,
         animationName: visible ? 'warum-item-in' : 'none',
-        animationDuration: '0.65s',
+        animationDuration: '0.38s',
         animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
         animationFillMode: 'both',
-        animationDelay: `${0.1 + index * 0.32}s`,
+        animationDelay: `${0.04 + index * 0.08}s`,
       }}
     >
       <div
@@ -107,7 +107,7 @@ function AnimatedCheckItem({ item, index, visible }: { item: string; index: numb
               'background 0.35s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.35s cubic-bezier(0.32, 0.72, 0, 1), transform 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
           }}
         >
-          <CheckIcon delay={0.6 + index * 0.1} />
+          <CheckIcon delay={0.08 + index * 0.05} />
         </span>
         {/* Label */}
         <span
@@ -144,10 +144,10 @@ function AnimatedXItem({ item, index, visible }: { item: string; index: number; 
         cursor: 'default',
         opacity: visible ? undefined : 0,
         animationName: visible ? 'warum-item-in' : 'none',
-        animationDuration: '0.65s',
+        animationDuration: '0.38s',
         animationTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)',
         animationFillMode: 'both',
-        animationDelay: `${0.15 + index * 0.32}s`,
+        animationDelay: `${0.06 + index * 0.08}s`,
       }}
     >
       <div
@@ -262,6 +262,7 @@ export default function WarumWirSection() {
   return (
     <section
       ref={sectionRef}
+      className="warum-section-resp"
       style={{
         background: '#1E3A2E',
         padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(78px, 6.38vw, 143px)',
@@ -295,6 +296,7 @@ export default function WarumWirSection() {
       >
         {/* ── Header ── */}
         <header
+          className="warum-header-resp"
           style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 2 }}
         >
           <p
@@ -392,8 +394,8 @@ export default function WarumWirSection() {
                   'radial-gradient(ellipse at 50% 42%, rgba(237,216,154,0.36) 0%, rgba(205,221,203,0.16) 50%, transparent 76%)',
                 pointerEvents: 'none',
                 zIndex: 0,
-                filter: 'blur(60px)',
-                /* opacity is driven by the CSS animation below — no inline opacity */
+                filter: 'blur(40px)',
+                opacity: 0.45,
                 animation: 'warum-aura-breathe 4.5s ease-in-out infinite',
               }}
             />
@@ -421,6 +423,7 @@ export default function WarumWirSection() {
               ref={leftCardRef}
               onMouseEnter={() => setLeftHovered(true)}
               onMouseLeave={() => setLeftHovered(false)}
+              className="warum-card-pad-left"
               style={{
                 background: '#FAF5EA',
                 clipPath: 'polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%)',
@@ -435,11 +438,10 @@ export default function WarumWirSection() {
                   : undefined,
                 // Base: warm glow even at rest. Hover: intense double-ring blaze.
                 filter: leftHovered
-                  ? 'drop-shadow(0 0 65px rgba(237,216,154,0.72)) drop-shadow(0 0 130px rgba(237,216,154,0.38)) drop-shadow(7px 14px 0 #C8BC9E) drop-shadow(0 36px 72px rgba(0,0,0,0.42))'
-                  : 'drop-shadow(0 0 24px rgba(237,216,154,0.35)) drop-shadow(7px 9px 0 #C8BC9E) drop-shadow(0 8px 20px rgba(0,0,0,0.18))',
+                  ? 'drop-shadow(0 0 28px rgba(237,216,154,0.55)) drop-shadow(7px 14px 0 #C8BC9E) drop-shadow(0 20px 40px rgba(0,0,0,0.32))'
+                  : 'drop-shadow(0 0 12px rgba(237,216,154,0.25)) drop-shadow(7px 9px 0 #C8BC9E) drop-shadow(0 8px 20px rgba(0,0,0,0.18))',
                 transition:
                   'transform 0.55s cubic-bezier(0.32, 0.72, 0, 1), filter 0.6s cubic-bezier(0.32, 0.72, 0, 1)',
-                willChange: 'transform, filter',
               }}
             >
               {/* Shimmer sweep — one-shot on each hover-in, driven by CSS class */}
@@ -590,6 +592,7 @@ export default function WarumWirSection() {
               {/* Feature list */}
               <ul
                 ref={leftUlRef}
+                className="warum-list-gap"
                 style={{
                   listStyle: 'none',
                   display: 'flex',
@@ -612,7 +615,7 @@ export default function WarumWirSection() {
               .slimedo-anim entry animation can control those properties freely.
           */}
           <div
-            className="slimedo-anim slimedo-d2"
+            className="slimedo-anim slimedo-d2 warum-card-pad-right"
             style={{
               background: '#162B20',
               clipPath: 'polygon(44px 0, 100% 0, 100% 100%, 0 100%, 0 44px)',
@@ -726,6 +729,7 @@ export default function WarumWirSection() {
             {/* Feature list */}
             <ul
               ref={rightUlRef}
+              className="warum-list-gap"
               style={{
                 listStyle: 'none',
                 display: 'flex',
@@ -808,6 +812,28 @@ export default function WarumWirSection() {
         @media (max-width: 640px) {
           .warum-grid-resp { grid-template-columns: 1fr !important; gap: 12px !important; }
           .warum-hl-resp  { font-size: 30px !important; }
+        }
+
+        /* MacBook 14" */
+        @media (min-width: 1280px) and (max-width: 1520px) {
+          .warum-section-resp { padding-top: 48px !important; padding-bottom: 48px !important; }
+          .warum-hl-resp { font-size: 44px !important; }
+          .warum-header-resp { margin-bottom: 32px !important; }
+          .warum-grid-resp { gap: 14px !important; margin-bottom: 28px !important; }
+          .warum-card-pad-left { padding: 28px 28px 32px !important; }
+          .warum-card-pad-right { padding: 36px 28px 32px !important; }
+          .warum-list-gap { gap: 8px !important; }
+        }
+
+        /* MacBook 16" */
+        @media (min-width: 1600px) and (max-width: 1800px) {
+          .warum-section-resp { padding-top: 56px !important; padding-bottom: 56px !important; }
+          .warum-hl-resp { font-size: 52px !important; }
+          .warum-header-resp { margin-bottom: 38px !important; }
+          .warum-grid-resp { gap: 16px !important; margin-bottom: 32px !important; }
+          .warum-card-pad-left { padding: 32px 32px 36px !important; }
+          .warum-card-pad-right { padding: 40px 32px 36px !important; }
+          .warum-list-gap { gap: 10px !important; }
         }
 
         /* ── List-item scroll reveal ── */
