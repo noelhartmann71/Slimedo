@@ -620,7 +620,7 @@ export default function PrivacySection() {
           }
         });
       },
-      { threshold: 0.42, rootMargin: '0px 0px -24% 0px' }
+      { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
     );
 
     const stageRect = stage.getBoundingClientRect();
@@ -682,13 +682,13 @@ export default function PrivacySection() {
       id="datenschutz"
       style={{
         background: 'linear-gradient(145deg,#1E3A2E 0%,#234035 38%,#3D6B50 66%,#FAF5EA 100%)',
-        padding: 'clamp(140px, 12vw, 220px) 0',
+        padding: 'clamp(72px, 6vw, 130px) 0',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      <div className="priv-inner" style={{ maxWidth: 1920, margin: '0 auto', padding: '0 clamp(12px, 1.2vw, 24px)' }}>
-        <header className="priv-header" style={{ marginBottom: 88 }}>
+      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
+        <header className="priv-header" style={{ marginBottom: 56, textAlign: 'center' }}>
           <p
             className="slimedo-anim"
             style={{
@@ -725,6 +725,7 @@ export default function PrivacySection() {
               fontSize: 16,
               color: 'rgba(205,221,203,.65)',
               maxWidth: 560,
+              margin: '0 auto',
               fontFamily: '"Inter", sans-serif',
             }}
           >
@@ -921,6 +922,11 @@ export default function PrivacySection() {
       />
 
       <style>{`
+        /* faster reveals within this section */
+        .priv-section .slimedo-anim.played {
+          animation-duration: 0.45s !important;
+        }
+
         .priv-mobile-stage {
           display: none;
         }
@@ -951,6 +957,27 @@ export default function PrivacySection() {
             transform: translate3d(0, 0, 0) scale(1);
             filter: saturate(1);
           }
+        }
+
+        /* MacBook 14" (~1280–1520px) */
+        @media (min-width: 1280px) and (max-width: 1520px) {
+          .priv-section { padding-top: 52px !important; padding-bottom: 52px !important; }
+          .priv-header { margin-bottom: 36px !important; }
+          .priv-hl-resp { font-size: 44px !important; }
+          .priv-desktop-stage {
+            grid-template-columns: minmax(220px, 1fr) 200px minmax(220px, 1fr) !important;
+          }
+          .priv-col-left { padding-right: 48px !important; gap: 36px !important; }
+          .priv-col-right { padding-left: 48px !important; gap: 36px !important; }
+        }
+
+        /* MacBook 16" (~1600–1800px) */
+        @media (min-width: 1600px) and (max-width: 1800px) {
+          .priv-section { padding-top: 60px !important; padding-bottom: 60px !important; }
+          .priv-header { margin-bottom: 44px !important; }
+          .priv-hl-resp { font-size: 52px !important; }
+          .priv-col-left { padding-right: 68px !important; gap: 44px !important; }
+          .priv-col-right { padding-left: 68px !important; gap: 44px !important; }
         }
 
         @media (max-width: 1120px) {
