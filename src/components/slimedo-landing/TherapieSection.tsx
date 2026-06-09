@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const SAGE = '#4F6B5A';
 const SAGE_DEEP = '#3F5848';
 const CLAY = '#C8856B';
@@ -27,47 +29,72 @@ function CheckClay() {
 
 function GlpDiagram() {
   return (
-    <svg viewBox="0 0 260 155" fill="none" style={{ width: '100%', height: 'clamp(130px, 7.6vw, 194px)', marginBottom: 16 }}>
+    <svg viewBox="0 0 260 155" fill="none" style={{ width: '100%', height: 'clamp(170px, 13vw, 270px)', marginBottom: 16 }}>
       <rect x="128" y="8" width="11" height="138" rx="5.5" fill={MIST} />
       <circle cx="133" cy="77" r="12" fill={SAGE} />
-      <text x="133" y="81" fontSize="10" fill="#fff" textAnchor="middle" fontFamily="Poppins" fontWeight="600">R</text>
+      <text x="133" y="81" fontSize="13" fill="#fff" textAnchor="middle" fontFamily="Poppins" fontWeight="600">R</text>
       <circle cx="56" cy="77" r="8" fill={SAGE} opacity=".5" className="slimedo-therapie-ion" />
       <path d="M68 77 H114" stroke={SAGE} strokeWidth="1.8" className="slimedo-therapie-flow" />
-      <text x="56" y="60" fontSize="8.5" fill={STONE} textAnchor="middle" fontFamily="Poppins">GLP-1</text>
+      <text x="56" y="60" fontSize="11" fill={STONE} textAnchor="middle" fontFamily="Poppins">GLP-1</text>
       <path d="M147 77 H196" stroke={SAGE} strokeWidth="1.8" className="slimedo-therapie-flow" />
       <path d="M196 77 l-6-3 v6 z" fill={SAGE} />
-      <text x="210" y="74" fontSize="8.5" fill={SAGE} fontFamily="Poppins" fontWeight="600">Sättigung</text>
-      <text x="225" y="88" fontSize="13" fill={SAGE} textAnchor="middle">↑</text>
-      <text x="133" y="130" fontSize="7.5" fill={STONE} textAnchor="middle" fontFamily="Poppins">Zellmembran</text>
+      <text x="210" y="74" fontSize="11" fill={SAGE} fontFamily="Poppins" fontWeight="600">Sättigung</text>
+      <text x="225" y="88" fontSize="16" fill={SAGE} textAnchor="middle">↑</text>
+      <text x="133" y="130" fontSize="10" fill={STONE} textAnchor="middle" fontFamily="Poppins">Zellmembran</text>
     </svg>
   );
 }
 
 function DualDiagram() {
   return (
-    <svg viewBox="0 0 260 155" fill="none" style={{ width: '100%', height: 'clamp(130px, 7.6vw, 194px)', marginBottom: 16 }}>
+    <svg viewBox="0 0 260 155" fill="none" style={{ width: '100%', height: 'clamp(170px, 13vw, 270px)', marginBottom: 16 }}>
       <rect x="128" y="8" width="11" height="138" rx="5.5" fill={MIST} />
       <circle cx="133" cy="56" r="11" fill={SAGE} />
-      <text x="133" y="60" fontSize="8" fill="#fff" textAnchor="middle" fontFamily="Poppins" fontWeight="600">R1</text>
+      <text x="133" y="60" fontSize="11" fill="#fff" textAnchor="middle" fontFamily="Poppins" fontWeight="600">R1</text>
       <circle cx="133" cy="100" r="11" fill={CLAY} />
-      <text x="133" y="104" fontSize="8" fill="#fff" textAnchor="middle" fontFamily="Poppins" fontWeight="600">R2</text>
+      <text x="133" y="104" fontSize="11" fill="#fff" textAnchor="middle" fontFamily="Poppins" fontWeight="600">R2</text>
       <circle cx="56" cy="56" r="7" fill={SAGE} opacity=".5" className="slimedo-therapie-ion" />
       <path d="M67 56 H115" stroke={SAGE} strokeWidth="1.8" className="slimedo-therapie-flow" />
-      <text x="54" y="41" fontSize="8.5" fill={STONE} textAnchor="middle" fontFamily="Poppins">GLP-1</text>
+      <text x="54" y="41" fontSize="11" fill={STONE} textAnchor="middle" fontFamily="Poppins">GLP-1</text>
       <circle cx="56" cy="100" r="7" fill={CLAY} opacity=".5" className="slimedo-therapie-ion slimedo-therapie-ion-b" />
       <path d="M67 100 H115" stroke={CLAY} strokeWidth="1.8" className="slimedo-therapie-flow" />
-      <text x="54" y="122" fontSize="8.5" fill={STONE} textAnchor="middle" fontFamily="Poppins">GIP</text>
+      <text x="54" y="122" fontSize="11" fill={STONE} textAnchor="middle" fontFamily="Poppins">GIP</text>
       <path d="M147 56 q30 0 30 22 H196" stroke={SAGE} strokeWidth="1.8" className="slimedo-therapie-flow" />
       <path d="M147 100 q30 0 30 -22 H196" stroke={CLAY} strokeWidth="1.8" className="slimedo-therapie-flow" />
       <path d="M196 78 l-6-3 v6 z" fill="#8a6f54" />
-      <text x="204" y="72" fontSize="8" fill="#8a6f54" fontFamily="Poppins" fontWeight="600">Sättigung</text>
-      <text x="204" y="82" fontSize="8" fill="#8a6f54" fontFamily="Poppins" fontWeight="600">verstärkt</text>
-      <text x="218" y="96" fontSize="13" fill="#8a6f54" textAnchor="middle">↑</text>
+      <text x="204" y="72" fontSize="11" fill="#8a6f54" fontFamily="Poppins" fontWeight="600">Sättigung</text>
+      <text x="204" y="82" fontSize="11" fill="#8a6f54" fontFamily="Poppins" fontWeight="600">verstärkt</text>
+      <text x="218" y="96" fontSize="16" fill="#8a6f54" textAnchor="middle">↑</text>
     </svg>
   );
 }
 
+const pipelineItems = [
+  {
+    statusColor: '#9c7223',
+    status: 'Bald verfügbar',
+    title: 'Semaglutid als Tablette',
+    subtitle: 'Oraltherapie · kein Stich mehr nötig',
+    desc: 'EU-Zulassungsempfehlung liegt vor · Marktstart DE: 2026–27',
+  },
+  {
+    statusColor: '#9c7223',
+    status: 'Bald verfügbar',
+    title: 'Höhere Dosisstufe',
+    subtitle: 'Hochdosis-Semaglutid (Injektion)',
+    desc: 'EU-zugelassen · Verfügbarkeit 2. Halbjahr 2026',
+  },
+  {
+    statusColor: '#566f86',
+    status: 'In Forschung',
+    title: 'Nächste Wirkstoffgeneration',
+    subtitle: 'Triple-Agonist (GLP-1 / GIP / Glukagon)',
+    desc: 'Spricht drei Rezeptoren gleichzeitig an · Phase III · stärkster bisher gemessener Gewichtsverlust in klinischen Studien',
+  },
+];
+
 export default function TherapieSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <section
       id="therapie"
@@ -115,6 +142,19 @@ export default function TherapieSection() {
           box-shadow: 0 20px 44px -24px rgba(46,38,32,.22);
         }
 
+        /* Accordion chevron — only visible on mobile */
+        .pipeline-chevron { display: none; }
+        .pipeline-accordion-btn { cursor: default !important; }
+
+        @media (max-width: 640px) {
+          .pipeline-chevron { display: block; }
+          .pipeline-accordion-btn { cursor: pointer !important; }
+          .pipeline-sub { display: none; }
+          .pipeline-sub--open { display: block; }
+          .pipeline-chevron { transition: transform .25s; }
+          .pipeline-chevron--open { transform: rotate(180deg); }
+        }
+
         /* ── Mobile ≤ 640px ── */
         @media (max-width: 640px) {
           .slimedo-therapie-section-bg {
@@ -160,6 +200,22 @@ export default function TherapieSection() {
           .therapie-card-title { font-size: 22px !important; }
           .therapie-card-desc  { font-size: 15px !important; }
           .therapie-card-item  { font-size: 15px !important; }
+        }
+
+        /* ── MacBook 14" (~1280–1520px) ── */
+        @media (min-width: 1280px) and (max-width: 1520px) {
+          .therapie-card-label { font-size: 12px !important; }
+          .therapie-card-title { font-size: 22px !important; }
+          .therapie-card-desc  { font-size: 14px !important; }
+          .therapie-card-item  { font-size: 14px !important; }
+        }
+
+        /* ── MacBook 16" (~1600–1800px) ── */
+        @media (min-width: 1600px) and (max-width: 1800px) {
+          .therapie-card-label { font-size: 14px !important; }
+          .therapie-card-title { font-size: 26px !important; }
+          .therapie-card-desc  { font-size: 16px !important; }
+          .therapie-card-item  { font-size: 16px !important; }
         }
 
         /* ── Tablet 641px–1024px ── */
@@ -225,8 +281,8 @@ export default function TherapieSection() {
           </h2>
           <p style={{
             fontFamily: "'Lora', Georgia, serif", fontStyle: 'italic',
-            fontSize: 'clamp(14px, 0.78vw, 20px)', color: STONE,
-            textShadow: '0 1px 12px rgba(250,246,238,0.6)',
+            fontSize: 'clamp(15px, 0.9vw, 22px)', color: TEXT,
+            textShadow: '0 1px 16px rgba(250,246,238,0.9)',
           }}>
             Im Alltag oft als „Abnehmspritze" bekannt
           </p>
@@ -281,13 +337,15 @@ export default function TherapieSection() {
                 src="/images/therapie/injection1t.png"
                 alt="Wegovy Injektionspen"
                 style={{
-                  position: 'absolute', top: 14, right: 14,
-                  width: 'clamp(70px, 4vw, 100px)', height: 'clamp(70px, 4vw, 100px)',
+                  position: 'absolute', top: 10, right: 10,
+                  width: 'clamp(100px, 6vw, 145px)', height: 'clamp(100px, 6vw, 145px)',
                   objectFit: 'contain',
+                  transform: 'rotate(-38deg)',
+                  transformOrigin: 'center center',
                 }}
               />
               <div className="therapie-card-label" style={{
-                fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, letterSpacing: '.14em',
+                fontSize: 'clamp(11px, 0.65vw, 16px)', fontWeight: 600, letterSpacing: '.14em',
                 textTransform: 'uppercase', marginBottom: 8,
                 paddingRight: 'clamp(84px, 6.25vw, 125px)', color: SAGE,
               }}>
@@ -295,12 +353,12 @@ export default function TherapieSection() {
               </div>
               <h3 className="therapie-card-title" style={{
                 fontFamily: "'Lora', Georgia, serif", fontWeight: 500,
-                fontSize: 'clamp(17px, 1.02vw, 26px)', lineHeight: 1.2, marginBottom: 4,
+                fontSize: 'clamp(19px, 1.25vw, 32px)', lineHeight: 1.2, marginBottom: 4,
                 paddingRight: 'clamp(67px, 5vw, 100px)', color: TEXT,
               }}>
                 Das <em style={{ fontStyle: 'italic', color: SAGE }}>GLP-1</em>-Prinzip
               </h3>
-              <p className="therapie-card-desc" style={{ fontSize: 'clamp(11px, 0.61vw, 16px)', color: STONE, marginBottom: 16 }}>
+              <p className="therapie-card-desc" style={{ fontSize: 'clamp(13px, 0.75vw, 18px)', color: STONE, marginBottom: 16 }}>
                 Wirkt gezielt an einem Rezeptor<br />
                 <span style={{ fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, color: SAGE }}>Bsp. Wegovy®</span>
               </p>
@@ -311,7 +369,7 @@ export default function TherapieSection() {
                   'Verlangsamt die Magenentleerung',
                   'Kann Heißhunger reduzieren',
                 ].map(text => (
-                  <li key={text} className="therapie-card-item" style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(11px, 0.63vw, 16px)', color: TEXT, lineHeight: 1.45 }}>
+                  <li key={text} className="therapie-card-item" style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(12px, 0.75vw, 18px)', color: TEXT, lineHeight: 1.45 }}>
                     <CheckSage />
                     {text}
                   </li>
@@ -334,13 +392,15 @@ export default function TherapieSection() {
                 src="/images/therapie/injection2t.png"
                 alt="Mounjaro Injektionspen"
                 style={{
-                  position: 'absolute', top: 14, right: 14,
-                  width: 'clamp(70px, 4vw, 100px)', height: 'clamp(70px, 4vw, 100px)',
+                  position: 'absolute', top: 10, right: 10,
+                  width: 'clamp(100px, 6vw, 145px)', height: 'clamp(100px, 6vw, 145px)',
                   objectFit: 'contain',
+                  transform: 'rotate(-38deg)',
+                  transformOrigin: 'center center',
                 }}
               />
               <div className="therapie-card-label" style={{
-                fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, letterSpacing: '.14em',
+                fontSize: 'clamp(11px, 0.65vw, 16px)', fontWeight: 600, letterSpacing: '.14em',
                 textTransform: 'uppercase', marginBottom: 8,
                 paddingRight: 'clamp(84px, 6.25vw, 125px)', color: CLAY,
               }}>
@@ -348,12 +408,12 @@ export default function TherapieSection() {
               </div>
               <h3 className="therapie-card-title" style={{
                 fontFamily: "'Lora', Georgia, serif", fontWeight: 500,
-                fontSize: 'clamp(17px, 1.02vw, 26px)', lineHeight: 1.2, marginBottom: 4,
+                fontSize: 'clamp(19px, 1.25vw, 32px)', lineHeight: 1.2, marginBottom: 4,
                 paddingRight: 'clamp(67px, 5vw, 100px)', color: TEXT,
               }}>
                 Das <em style={{ fontStyle: 'italic', color: CLAY }}>GLP-1 + GIP</em>-Prinzip
               </h3>
-              <p className="therapie-card-desc" style={{ fontSize: 'clamp(11px, 0.61vw, 16px)', color: STONE, marginBottom: 16 }}>
+              <p className="therapie-card-desc" style={{ fontSize: 'clamp(13px, 0.75vw, 18px)', color: STONE, marginBottom: 16 }}>
                 Wirkt gleichzeitig an zwei Rezeptoren<br />
                 <span style={{ fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, color: CLAY }}>Bsp. Mounjaro®</span>
               </p>
@@ -364,7 +424,7 @@ export default function TherapieSection() {
                   'Unterstützt den Zucker- & Fettstoffwechsel',
                   'Kann das Sättigungsgefühl zusätzlich verstärken',
                 ].map(text => (
-                  <li key={text} className="therapie-card-item" style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(11px, 0.63vw, 16px)', color: TEXT, lineHeight: 1.45 }}>
+                  <li key={text} className="therapie-card-item" style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(12px, 0.75vw, 18px)', color: TEXT, lineHeight: 1.45 }}>
                     <CheckClay />
                     {text}
                   </li>
@@ -411,47 +471,41 @@ export default function TherapieSection() {
             paddingRight: 'clamp(26px, 2.5vw, 40px)',
             minWidth: 'clamp(140px, 10vw, 200px)',
           }}>
-            <span style={{ fontSize: 'clamp(9px, 0.51vw, 13px)', fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: STONE, marginBottom: 4 }}>
+            <span style={{ fontSize: 'clamp(11px, 0.65vw, 15px)', fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: STONE, marginBottom: 4 }}>
               Ausblick
             </span>
-            <h4 style={{ fontFamily: "'Lora', Georgia, serif", fontWeight: 500, fontSize: 'clamp(14px, 0.82vw, 21px)', lineHeight: 1.25, color: TEXT }}>
+            <h4 style={{ fontFamily: "'Lora', Georgia, serif", fontWeight: 500, fontSize: 'clamp(16px, 1vw, 24px)', lineHeight: 1.25, color: TEXT }}>
               Was als Nächstes<br />kommt
             </h4>
           </div>
 
           {/* Pipeline items */}
           <div className="therapie-pipeline-items" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 'clamp(16px, 1.6vw, 25px)' }}>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 'clamp(9px, 0.5vw, 13px)', fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 4, color: '#9c7223' }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#9c7223', flexShrink: 0 }} />
-                Bald verfügbar
-              </span>
-              <span style={{ fontFamily: "'Lora', Georgia, serif", fontSize: 'clamp(13px, 0.74vw, 19px)', fontWeight: 500, color: TEXT }}>Semaglutid als Tablette</span>
-              <span style={{ fontSize: 'clamp(10px, 0.56vw, 14px)', color: STONE, lineHeight: 1.35, fontWeight: 500 }}>Oraltherapie · kein Stich mehr nötig</span>
-              <span style={{ fontSize: 'clamp(10px, 0.55vw, 14px)', color: STONE, marginTop: 3, fontStyle: 'italic', lineHeight: 1.4 }}>EU-Zulassungsempfehlung liegt vor · Marktstart DE: 2026–27</span>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 'clamp(9px, 0.5vw, 13px)', fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 4, color: '#9c7223' }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#9c7223', flexShrink: 0 }} />
-                Bald verfügbar
-              </span>
-              <span style={{ fontFamily: "'Lora', Georgia, serif", fontSize: 'clamp(13px, 0.74vw, 19px)', fontWeight: 500, color: TEXT }}>Höhere Dosisstufe</span>
-              <span style={{ fontSize: 'clamp(10px, 0.56vw, 14px)', color: STONE, lineHeight: 1.35, fontWeight: 500 }}>Hochdosis-Semaglutid (Injektion)</span>
-              <span style={{ fontSize: 'clamp(10px, 0.55vw, 14px)', color: STONE, marginTop: 3, fontStyle: 'italic', lineHeight: 1.4 }}>EU-zugelassen · Verfügbarkeit 2. Halbjahr 2026</span>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 'clamp(9px, 0.5vw, 13px)', fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 4, color: '#566f86' }}>
-                <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#566f86', flexShrink: 0 }} />
-                In Forschung
-              </span>
-              <span style={{ fontFamily: "'Lora', Georgia, serif", fontSize: 'clamp(13px, 0.74vw, 19px)', fontWeight: 500, color: TEXT }}>Nächste Wirkstoffgeneration</span>
-              <span style={{ fontSize: 'clamp(10px, 0.56vw, 14px)', color: STONE, lineHeight: 1.35, fontWeight: 500 }}>Triple-Agonist (GLP-1 / GIP / Glukagon)</span>
-              <span style={{ fontSize: 'clamp(10px, 0.55vw, 14px)', color: STONE, marginTop: 3, fontStyle: 'italic', lineHeight: 1.4 }}>Spricht drei Rezeptoren gleichzeitig an · Phase III · stärkster bisher gemessener Gewichtsverlust in klinischen Studien</span>
-            </div>
-
+            {pipelineItems.map((item, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 'clamp(11px, 0.62vw, 14px)', fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 4, color: item.statusColor }}>
+                    <span style={{ width: 5, height: 5, borderRadius: '50%', background: item.statusColor, flexShrink: 0 }} />
+                    {item.status}
+                  </span>
+                  <button
+                    className="pipeline-accordion-btn"
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    style={{ all: 'unset', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, cursor: 'pointer' }}
+                  >
+                    <span style={{ fontFamily: "'Lora', Georgia, serif", fontSize: 'clamp(15px, 0.9vw, 22px)', fontWeight: 500, color: TEXT }}>{item.title}</span>
+                    <svg className={`pipeline-chevron${isOpen ? ' pipeline-chevron--open' : ''}`} width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M3 5l4 4 4-4" stroke={STONE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                  <div className={`pipeline-sub${isOpen ? ' pipeline-sub--open' : ''}`}>
+                    <span style={{ display: 'block', fontSize: 'clamp(12px, 0.68vw, 16px)', color: STONE, lineHeight: 1.35, fontWeight: 500, marginTop: 4 }}>{item.subtitle}</span>
+                    <span style={{ display: 'block', fontSize: 'clamp(12px, 0.67vw, 15px)', color: STONE, marginTop: 3, fontStyle: 'italic', lineHeight: 1.4 }}>{item.desc}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
