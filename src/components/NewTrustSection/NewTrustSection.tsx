@@ -292,7 +292,7 @@ const NewTrustSection = () => {
                       className="font-normal text-[#6E6A60] text-[16px]"
                       style={{ fontFamily: FONT_INTER, lineHeight: 1.6 }}
                     >
-                      Approbierte Ärzte prüfen deine Angaben und stellen bei Bedarf ein Rezept aus.
+                      Approbierte Ärzte prüfen deine Angaben und stellen bei Bedarf ein Rezept für das Abnehm- Medikament aus.
                     </p>
                   </div>
                   <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
