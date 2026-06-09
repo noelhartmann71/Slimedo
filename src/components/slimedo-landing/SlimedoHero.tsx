@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 const heroVideoPoster = '/images/slimedo/slimedohero-poster.webp';
+const mobileHeroImage = '/images/slimedo/slimedohero-mobile.jpg';
+const mobileHeroMediaQuery = '(max-width: 640px)';
 const heroVideoSources = [
   { src: '/images/slimedo/slimedohero.webm', type: 'video/webm' },
   { src: '/images/slimedo/slimedohero-optimized.mp4', type: 'video/mp4' },
@@ -60,12 +62,27 @@ export default function SlimedoHero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const badge1Ref = useRef<HTMLDivElement | null>(null);
   const badge2Ref = useRef<HTMLDivElement | null>(null);
+  const [isMobileHero, setIsMobileHero] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(mobileHeroMediaQuery).matches,
+  );
   const [shouldLoadHeroVideo, setShouldLoadHeroVideo] = useState(false);
   const [connector, setConnector] = useState<{
     path: string;
     sx: number; sy: number;
     ex: number; ey: number;
   } | null>(null);
+
+  useEffect(() => {
+    const media = window.matchMedia(mobileHeroMediaQuery);
+    const syncMobileHero = () => {
+      setIsMobileHero(media.matches);
+      if (media.matches) setShouldLoadHeroVideo(false);
+    };
+
+    syncMobileHero();
+    media.addEventListener('change', syncMobileHero);
+    return () => media.removeEventListener('change', syncMobileHero);
+  }, []);
 
   useEffect(() => {
     const calc = () => {
@@ -102,7 +119,7 @@ export default function SlimedoHero() {
 
     const connection = navigator as Navigator & { connection?: { saveData?: boolean } };
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (connection.connection?.saveData || prefersReducedMotion.matches) return;
+    if (isMobileHero || connection.connection?.saveData || prefersReducedMotion.matches) return;
 
     const idleWindow = window as Window & typeof globalThis & {
       requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
@@ -123,18 +140,19 @@ export default function SlimedoHero() {
       if (idleHandle !== undefined && idleWindow.cancelIdleCallback) idleWindow.cancelIdleCallback(idleHandle);
       if (timeoutHandle !== undefined) window.clearTimeout(timeoutHandle);
     };
-  }, []);
+  }, [isMobileHero]);
 
   useEffect(() => {
-    if (!shouldLoadHeroVideo || !videoRef.current) return;
+    if (isMobileHero || !shouldLoadHeroVideo || !videoRef.current) return;
     videoRef.current.load();
     void videoRef.current.play().catch(() => undefined);
-  }, [shouldLoadHeroVideo]);
+  }, [isMobileHero, shouldLoadHeroVideo]);
 
   return (
     <section
       ref={containerRef}
       className="
+        slimedo-hero-section
         relative grid overflow-hidden bg-sand
         grid-cols-[50%_50%] grid-rows-[1fr_auto]
         min-h-[clamp(800px,92vh,1100px)]
@@ -147,6 +165,7 @@ export default function SlimedoHero() {
 
       {/* ── Left column ── */}
       <div className="
+        hero-copy-col
         flex flex-col justify-center relative z-[2]
         pl-20 pr-14 py-[120px]
         max-lg:pl-12 max-lg:pr-10 max-lg:py-[80px]
@@ -155,6 +174,7 @@ export default function SlimedoHero() {
 
         {/* Pill badge */}
         <span className="
+          hero-kicker
           slimedo-anim slimedo-d1
           inline-flex items-center gap-2 w-fit
           bg-sage/10 border border-sage/20 rounded-full
@@ -168,6 +188,7 @@ export default function SlimedoHero() {
 
         {/* H1 */}
         <h1 className="
+          hero-title
           slimedo-anim slimedo-d2
           font-instrument font-normal text-ink leading-[1.07] tracking-[.005em]
           text-[clamp(46px,4vw,88px)]
@@ -181,6 +202,7 @@ export default function SlimedoHero() {
 
         {/* Bullet list */}
         <ul className="
+          hero-bullet-list
           slimedo-anim slimedo-d3
           list-none p-0 m-0 mb-14
           flex flex-col gap-[22px]
@@ -189,7 +211,7 @@ export default function SlimedoHero() {
           {bullets.map((text, i) => (
             <li
               key={i}
-              className="flex items-center gap-4 text-[21px] text-[#3A3730] max-sm:text-[15px] max-sm:gap-[9px]"
+              className="hero-bullet-item flex items-center gap-4 text-[21px] text-[#3A3730] max-sm:text-[15px] max-sm:gap-[9px]"
             >
               <span className="
                 inline-flex items-center justify-center shrink-0
@@ -212,6 +234,7 @@ export default function SlimedoHero() {
 
         {/* CTA row */}
         <div className="
+          hero-cta-row
           slimedo-anim slimedo-d4
           flex items-center gap-4 flex-wrap
           max-sm:gap-3
@@ -242,37 +265,49 @@ export default function SlimedoHero() {
         </div>
       </div>
 
-      {/* ── Right column — video ── */}
+      {/* ── Right column — video on desktop, poster image on mobile ── */}
       <div className="
         hero-video-col relative overflow-hidden
         max-sm:absolute max-sm:right-0 max-sm:top-0 max-sm:bottom-0
         max-sm:w-[70%] max-sm:h-full max-sm:z-[1]
       ">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload={shouldLoadHeroVideo ? 'metadata' : 'none'}
-          poster={heroVideoPoster}
-          aria-hidden="true"
-          tabIndex={-1}
-          className="
-            hero-video
-            absolute inset-0 w-[116%] h-full
-            object-cover object-[80%_top]
-            max-sm:object-[65%_top]
-          "
-        >
-          {shouldLoadHeroVideo
-            ? heroVideoSources.map((s) => <source key={s.src} src={s.src} type={s.type} />)
-            : null}
-        </video>
+        {isMobileHero ? (
+          <img
+            src={mobileHeroImage}
+            alt=""
+            aria-hidden="true"
+            className="
+              hero-video
+              absolute inset-0 w-[116%] h-full
+              object-cover object-[65%_top]
+            "
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload={shouldLoadHeroVideo ? 'metadata' : 'none'}
+            poster={heroVideoPoster}
+            aria-hidden="true"
+            tabIndex={-1}
+            className="
+              hero-video
+              absolute inset-0 w-[116%] h-full
+              object-cover object-[80%_top]
+            "
+          >
+            {shouldLoadHeroVideo
+              ? heroVideoSources.map((s) => <source key={s.src} src={s.src} type={s.type} />)
+              : null}
+          </video>
+        )}
       </div>
 
       {/* ── Dynamic connector SVG — path calculated from actual badge positions ── */}
-      {connector && (
+      {connector && !isMobileHero && (
         <svg
           className="absolute inset-0 w-full h-full z-[4] pointer-events-none overflow-visible"
           aria-hidden="true"
@@ -361,6 +396,7 @@ export default function SlimedoHero() {
             className={`
               hero-trust-item
               ${i < trustItems.length - 1 ? 'hero-trust-item--divided' : ''}
+              ${i === 1 ? 'hero-trust-item--mobile-hidden' : ''}
               flex items-center gap-4
               text-[17px] text-olive whitespace-nowrap cursor-default font-[450]
               max-sm:text-[13px] max-sm:mb-1.5
@@ -393,9 +429,138 @@ export default function SlimedoHero() {
           -webkit-mask-image: linear-gradient(to right, transparent 0%, black 38%);
         }
         @media (max-width: 640px) {
+          .slimedo-hero-section {
+            display: block;
+            min-height: auto;
+            padding-bottom: 34px;
+            overflow: hidden;
+          }
+          .hero-copy-col {
+            display: block;
+            position: relative;
+            z-index: 3;
+            padding: 38px 29px 0 !important;
+          }
+          .hero-kicker {
+            font-size: 13px !important;
+            letter-spacing: .01em !important;
+            padding: 7px 14px !important;
+            margin-bottom: 25px !important:
+          }
+          .hero-title {
+            max-width: 57% !important;
+            font-size: clamp(37px, 8.6vw, 43px) !important;
+            line-height: 1.12 !important;
+            margin-bottom: clamp(58px, 13vw, 68px) !important;
+          }
+          .hero-bullet-list {
+            max-width: 64% !important;
+            gap: 13px !important;
+            margin-bottom: clamp(50px, 11vw, 60px) !important;
+          }
+          .hero-bullet-item {
+            gap: 9px !important;
+            font-size: clamp(12.5px, 2.55vw, 14px) !important;
+            line-height: 1.14 !important;
+          }
+          .hero-bullet-item > span {
+            width: 17px !important;
+            height: 17px !important;
+          }
+          .hero-cta-row {
+            width: 100%;
+            display: block !important;
+          }
+          .hero-cta {
+            width: 100%;
+            min-height: 62px;
+            justify-content: center;
+            border-radius: 12px !important;
+            font-size: clamp(18px, 4.1vw, 20px) !important;
+            padding: 0 24px !important;
+          }
           .hero-video-col {
-            mask-image: linear-gradient(to right, transparent 0%, black 68%) !important;
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 68%) !important;
+            top: 70px !important;
+            right: -34px !important;
+            bottom: auto !important;
+            width: 82% !important;
+            height: clamp(470px, 103vw, 535px) !important;
+            z-index: 1 !important;
+            mask-image: none !important;
+            -webkit-mask-image: none !important;
+          }
+          .hero-video-col::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, rgba(245,238,219,0), #F5EEDB 78%);
+            pointer-events: none;
+            z-index: 2;
+          }
+          .hero-video {
+            left: auto !important;
+            right: 0 !important;
+            top: 42px !important;
+            width: 80% !important;
+            height: 80% !important;
+            object-position: 54% top !important;
+            mask-image:
+              linear-gradient(to right, transparent 0%, black 26%, black 100%),
+              linear-gradient(to bottom, transparent 0%, black 13%, black 74%, transparent 100%);
+            mask-composite: intersect;
+            -webkit-mask-image:
+              linear-gradient(to right, transparent 0%, black 26%, black 100%),
+              linear-gradient(to bottom, transparent 0%, black 13%, black 74%, transparent 100%);
+            -webkit-mask-composite: source-in;
+          }
+          .hero-badge-1,
+          .hero-badge-2 {
+            display: flex !important;
+            animation: none !important;
+            left: auto !important;
+            min-width: 0 !important;
+            z-index: 6 !important;
+            align-items: center;
+            gap: 6px !important;
+            border-radius: 999px !important;
+            padding: 5px 10px 5px 5px !important;
+            box-shadow: 0 7px 20px rgba(0,0,0,.11), 0 1px 3px rgba(0,0,0,.04) !important;
+          }
+          .hero-badge-1 {
+            top: clamp(318px, 69vw, 350px) !important;
+            right: clamp(10px, 2.7vw, 15px) !important;
+          }
+          .hero-badge-2 {
+            top: clamp(382px, 81vw, 414px) !important;
+            right: clamp(10px, 2.7vw, 15px) !important;
+          }
+          .hero-badge-1 > span,
+          .hero-badge-2 > span {
+            width: 29px !important;
+            height: 29px !important;
+            border-radius: 999px !important;
+          }
+          .hero-badge-1 svg {
+            width: 14px !important;
+            height: 14px !important;
+          }
+          .hero-badge-2 img {
+            width: 17px !important;
+            height: 17px !important;
+          }
+          .hero-badge-1 p:first-child,
+          .hero-badge-2 p:first-child {
+            display: none;
+          }
+          .hero-badge-1 p:last-child,
+          .hero-badge-2 p:last-child {
+            font-size: clamp(12.5px, 2.75vw, 14px) !important;
+            line-height: 1 !important;
+            letter-spacing: 0 !important;
+            white-space: nowrap;
           }
         }
 
@@ -542,34 +707,47 @@ export default function SlimedoHero() {
         }
         @media (max-width: 640px) {
           .hero-trust-bar {
-            width: 70%;
-            max-width: 70%;
-            padding-left: 20px;
-            padding-right: 0;
-            overflow: hidden;
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            width: auto;
+            max-width: none;
+            margin-top: clamp(28px, 7vw, 36px) !important;
+            padding: 28px 30px 0 !important;
+            overflow: visible;
           }
           .hero-trust-bar::before {
-            left: 20px;
-            right: 0;
+            left: 30px;
+            right: 30px;
+            background: #E5D9BD;
+          }
+          .hero-trust-item--mobile-hidden {
+            display: none !important;
           }
           .hero-trust-item {
-            gap: 5px;
-            font-size: 8px;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 7px !important;
+            font-size: clamp(11px, 2.35vw, 12.5px) !important;
+            line-height: 1.22;
+            text-align: center;
+            white-space: normal !important;
+            margin-bottom: 0 !important;
           }
           .hero-trust-item--divided {
-            padding-right: 6px;
-            margin-right: 6px;
+            padding-right: 0;
+            margin-right: 0;
           }
           .hero-trust-item--divided::after {
-            height: 22px;
+            right: 0;
+            height: 58px;
           }
           .hero-trust-icon {
-            width: 22px;
-            height: 22px;
+            width: 38px;
+            height: 38px;
           }
           .hero-trust-icon svg {
-            width: 12px;
-            height: 12px;
+            width: 22px;
+            height: 22px;
           }
         }
 
