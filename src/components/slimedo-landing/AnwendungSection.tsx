@@ -139,7 +139,7 @@ export default function AnwendungSection() {
                     {imageCards.map((card, i) => (
                         <div
                             key={i}
-                            className={`slimedo-anim slimedo-d${i + 1}`}
+                            className={`slimedo-anim slimedo-d${i + 1} anw-card-resp`}
                             style={{
                                 aspectRatio: '3/4',
                                 background: card.gradient,
@@ -232,6 +232,18 @@ export default function AnwendungSection() {
         @media (max-width: 640px) {
           .anw-grid-resp { grid-template-columns: 1fr !important; }
           .anw-hl-resp { font-size: 32px !important; }
+        }
+
+        /* MacBook 14" (~1280–1520px) */
+        @media (min-width: 1280px) and (max-width: 1520px) {
+          .anw-card-resp { max-height: 540px !important; }
+          .anw-grid-resp { gap: 4px !important; }
+        }
+
+        /* MacBook 16" (~1600–1800px) */
+        @media (min-width: 1600px) and (max-width: 1800px) {
+          .anw-card-resp { max-height: 620px !important; }
+          .anw-grid-resp { gap: 6px !important; }
         }
       `}</style>
         </section>
