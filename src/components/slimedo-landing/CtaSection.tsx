@@ -30,30 +30,11 @@ export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionPr
         <section
             ref={ref}
             id="start"
-            style={{
-                background: sectionBackground,
-                padding: 'clamp(32px, 3vw, 52px) 0 clamp(48px, 4.5vw, 72px)',
-                position: 'relative',
-            }}
+            className="relative pt-[clamp(32px,3vw,52px)] pb-[clamp(48px,4.5vw,72px)]"
+            style={{background: sectionBackground}}
         >
-            <div
-                className="cta-shell-resp"
-                style={{maxWidth: 1920, margin: '0 auto', padding: '0 56px'}}
-            >
-                <div
-                    className="cta-card-resp"
-                    style={{
-                        background: '#1E3A2E',
-                        minHeight: 'clamp(480px, 52vh, 825px)',
-                        textAlign: 'center',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: 70,
-                    }}
-                >
+            <div className="cta-shell-resp mx-auto max-w-[1920px] px-14">
+                <div className="cta-card-resp relative flex min-h-[clamp(480px,52vh,825px)] items-center justify-center overflow-hidden rounded-[70px] bg-deep text-center">
                     <div className="slimedoReplicaPageBg" aria-hidden>
                         <div className="slimedoBanner">
                             <svg viewBox="0 0 2048 602" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
@@ -136,72 +117,24 @@ export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionPr
 
             <div
                 aria-hidden
-                style={{
-                    position: 'absolute',
-                    inset: 0,
-                    zIndex: 1,
-                    background:
-                        'radial-gradient(ellipse at 15% 50%, rgba(61,92,74,.3) 0%, transparent 60%), radial-gradient(ellipse at 85% 50%, rgba(61,92,74,.2) 0%, transparent 60%)',
-                    pointerEvents: 'none',
-                }}
+                className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_15%_50%,rgba(61,92,74,.3)_0%,transparent_60%),radial-gradient(ellipse_at_85%_50%,rgba(61,92,74,.2)_0%,transparent_60%)]"
             />
 
-            <div
-                style={{
-                    position: 'relative',
-                    zIndex: 2,
-                    width: '100%',
-                    maxWidth: 980,
-                    margin: '0 auto',
-                    padding: '0 24px',
-                }}
-            >
-                <div
-                    className="slimedo-anim played"
-                    style={{
-                        width: 80,
-                        height: 80,
-                        background: '#FAF5EA',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        margin: '0 auto 36px',
-                        boxShadow: '0 4px 24px rgba(0,0,0,.15)',
-                    }}
-                >
+            <div className="relative z-[2] mx-auto w-full max-w-[980px] px-6">
+                <div className="slimedo-anim played mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full bg-cream shadow-[0_4px_24px_rgba(0,0,0,0.15)]">
                     <img
                         src="/images/logo/cta-banner.png"
                         alt="Slimedo Logo"
-                        style={{objectFit: 'contain', flexShrink: 0}}
+                        className="shrink-0 object-contain"
                     />
                 </div>
 
-                <h2
-                    className="slimedo-anim played slimedo-d1 cta-hl-resp"
-                    style={{
-                        fontFamily: '"Instrument Serif", Georgia, serif',
-                        fontSize: 'clamp(50px, 4.19vw, 112px)',
-                        lineHeight: 1.02,
-                        fontWeight: 400,
-                        letterSpacing: '-.01em',
-                        color: '#FAF5EA',
-                        marginBottom: 20,
-                    }}
-                >
+                <h2 className="slimedo-anim played slimedo-d1 cta-hl-resp mb-5 font-instrument text-[clamp(50px,4.19vw,112px)] font-normal leading-[1.02] tracking-[-0.01em] text-cream">
                     Bereit für deinen{' '}
-                    <em style={{color: '#CDDDCB', fontStyle: 'italic'}}>Neuanfang?</em>
+                    <em className="italic text-mint">Neuanfang?</em>
                 </h2>
 
-                <p
-                    className="slimedo-anim played slimedo-d2"
-                    style={{
-                        fontSize: 17,
-                        color: 'rgba(205,221,203,.7)',
-                        marginBottom: 40,
-                        fontFamily: '"Inter", sans-serif',
-                    }}
-                >
+                <p className="slimedo-anim played slimedo-d2 mb-10 text-[17px] text-[rgba(205,221,203,0.7)]">
                     Starte jetzt deine ärztlich begleitete Behandlung.
                     <br/>
                     Diskret · ärztlich geprüft · direkt nach Hause.
@@ -209,36 +142,11 @@ export default function CtaSection({sectionBackground = '#FFFDF7'}: CtaSectionPr
 
                 <a
                     href="/product/select"
-                    className="slimedo-anim played slimedo-d3 ctaButton"
-                    style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: 10,
-                        background: '#FAF5EA',
-                        color: '#1E3A2E',
-                        fontSize: 16,
-                        fontWeight: 600,
-                        padding: '18px 44px',
-                        borderRadius: 999,
-                        cursor: 'pointer',
-                        textDecoration: 'none',
-                        boxShadow: '0 4px 24px rgba(0,0,0,.2)',
-                        transition: 'background .2s,transform .15s',
-                        fontFamily: '"Inter", sans-serif',
-                    }}
+                    className="slimedo-anim played slimedo-d3 ctaButton inline-flex items-center gap-2.5 rounded-full bg-cream px-11 py-[18px] text-[16px] font-semibold text-deep no-underline shadow-[0_4px_24px_rgba(0,0,0,0.2)] transition-[background-color,transform] duration-200"
+                    style={{fontFamily: '"Inter", sans-serif'}}
                 >
                     Rezeptanfrage machen
-                    <span
-                        style={{
-                            width: 32,
-                            height: 32,
-                            background: '#1E3A2E',
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
-                    >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-deep">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path
                                 d="M2 7h10M8 3l4 4-4 4"
