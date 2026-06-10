@@ -33,6 +33,7 @@
 | 4. Greens (Rest) | 40 Non-Landing-Dateien (profile, admin, questionnaire, product, svg-container-Modals, auth-components, Blog/FAQ/Testimonials/WeightCalculator-Komponenten, standalone Pages): §2a→deep, §2b→sage, #16302B→primary-hover, #0B1C19→dark. Bracket `[#hex]`→Token-Utility, Roh-Hex (inline/SVG)→Token-Hex. **Success-Greens (#22C55E/#16A34A/#10B981) bewusst behalten.** (verifiziert: product/select) | ✓ |
 | 5. Slate→Neutral | 59 Non-Landing-Dateien: #6B7280/#64748B/#667185/…→neutral-500, #4B5563→600, #374151→700, #101928/#111827→900, #ACB5BB/#94A3B8/#9CA3AF→400, #D1D5DB/#CBD5E1→300, #E5E7EB/#E2E8F0/#E8ECEB/#DCE4E8→200, #020817→ink. **Helle BG-Grays (F-Serie) + shared `ui/*` bewusst ausgelassen** (Card-Flächen-Shift + Landing-Risiko); Status/Brand-Farben behalten. (verifiziert: /privacy, /auth/login) | ✓ |
 | 6. Mobile | Audit @390px über alle erreichbaren migrierten Routen (auth/product/privacy/terms/blog): **kein horizontaler Overflow** (`scrollW==clientW`) — die reinen Farb-Edits haben kein Layout angefasst. Fix: Deko-Sprechblase „Schön dich zu sehen!" (`absolute left-[82%]`) ragte auf schmalen Auth-Panels raus → responsive `left-1/2 md:left-[82%]` auf allen 8 Auth-Sidebars (Desktop unverändert). Tooling: `capture-route.mjs` hat jetzt optionales Viewport-Width-Arg; neu `scripts/overflow-check.mjs`. | ✓ |
+| 7. Cards | Radien/Shadows auf Tokens: `rounded-3xl`→`rounded-card`, `rounded-2xl`→`rounded-card-sm` (wertgleich, 28+89×). Auth-Außenpanels `rounded-[40px]` + neutraler Bespoke-Shadow → `rounded-card` + `shadow-dropdown` (brand-grün getönt, 8 Seiten, verifiziert login Desktop+Mobile). Sprechblasen-Shadow Magenta `rgba(238,66,215,.3)` → deep-getönt `rgba(30,58,46,.25)`. **Belassen:** `rounded-xl/lg/md/[10px]/4xl` (kein passender Token) + brand-grüne Hero-Glows (gewollte negative spread). `vite build` ✓. | ✓ |
 
 ¹ **Deviation vom Inventory §6:** `AuthButton` wurde *nicht* auf `ui/button.tsx` umgestellt — die Pill-Form + fixe Höhe von `ui/button` passt nicht zu Full-Width-`rounded-lg`-Form-Submits. Stattdessen nur die Farben auf Brand-Tokens gemappt (gleiches Brand-Ergebnis, bessere Form-UX). Gilt analog für die Auth-Submit-`<Button>`s: Shape-Klassen (w-full/h-14/rounded-2xl) bleiben, nur Farb-Override entfernt → brand `default`-Variante greift.
 
@@ -88,10 +89,9 @@ Pro Section: lesen → statische Inline-Styles → Tokens/Utilities (dynamische 
 
 ### Phase 5 — Rest der Website (der große Konsistenz-Hebel)
 Reihenfolge: **Footer → Buttons → Farben/Grüns → Cards → Mobile.**
-✅ **Footer, Buttons, Grüns (auth + non-landing), Slate→Neutral, Mobile sind erledigt** (siehe Erledigt-Block oben).
+✅ **Phase 5 vollständig** (Footer, Buttons, Grüns auth + non-landing, Slate→Neutral, Mobile, Cards — siehe Erledigt-Block oben).
 
-**Noch offen in Phase 5:**
-- **Cards** — ad-hoc-Radien (`rounded-[40px]`, `rounded-2xl`, `rounded-xl`…) + bespoke Shadows (`shadow-[0_32px_64px_-12px_…]` etc.) auf `--radius-card/-sm` + `--shadow-card/-dropdown` vereinheitlichen. Noch **nicht** angefasst (heterogene Werte, kein 0-Diff-Zwang, aber pro Fläche Vorher/Nachher sinnvoll). Hotspots: Auth-Cards (`rounded-[40px]`), Profile/Admin-Cards. **Letztes offenes Phase-5-Item.**
+**Optionaler Rest / vor dem PR prüfen:**
 - **Mobile-Rest (nur falls Session möglich):** profile/admin sind auth-gated → nicht per `capture-route.mjs` prüfbar; bei vorhandener Test-Session @390px gegen-checken (Overflow-Tool: `node scripts/overflow-check.mjs <route…>`).
 - **Bewusst ausgelassen (optional nachziehen):**
   - Helle BG-Grays **F-Serie** (`#F3F4F6` = bereits `--color-accent/-muted`-Tokenwert, `#F8FAF9`, `#FAFBFC`, `#F1F5F9`, `#EDF2F7`…) → ggf. `neutral-50/100` oder `surf/cream`. Übersprungen, um Card-Flächen-Shift zu vermeiden.
@@ -109,4 +109,4 @@ Reihenfolge: **Footer → Buttons → Farben/Grüns → Cards → Mobile.**
 ## 🚀 Fortsetzen in frischer Session
 1. Repo lesen: dieses Dokument + `DESIGN-INVENTORY.md`.
 2. Branch `align-rest` ist aktuell; `git log --oneline` zeigt Stand.
-3. Sagen: *„mach Phase 4 weiter mit PricesSection"* (Landing-Sektionen, 0-Diff) oder *„mach Phase 5 weiter mit den Cards"* bzw. *„… mit dem Mobile-Check"* (Rest der Website, gewollte Änderungen).
+3. Sagen: *„mach Phase 4 weiter mit PricesSection"* (Landing-Sektionen, 0-Diff — restliche Sektionen siehe Phase-4-Liste). **Phase 5 ist durch** → sonst *„öffne den PR `align-rest` → `master`"* bzw. die vorbestehenden eslint-Errors vorher klären (siehe QA-Stand).
