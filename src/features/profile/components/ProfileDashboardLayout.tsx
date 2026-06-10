@@ -27,7 +27,7 @@ export default function ProfileDashboardLayout({
 
   return (
     <>
-      <Navbar />
+      <Navbar tickerOffset={false} />
       <div className="min-h-screen bg-[#F7F8F6] px-4 py-10 md:px-0 md:py-14 lg:py-14">
         <div className="mx-auto flex w-full max-w-364.25 flex-col gap-6.5 font-['Inter',sans-serif]">
           <header className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">

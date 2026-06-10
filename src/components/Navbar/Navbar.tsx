@@ -313,7 +313,7 @@ function WissenswertesDropdown({
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ tickerOffset = true }: { tickerOffset?: boolean } = {}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
@@ -380,7 +380,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-9 z-[200] border-b border-[rgba(30,58,46,0.08)] bg-[rgba(250,245,234,0.92)] backdrop-blur-[12px]">
+    <nav className={`sticky ${tickerOffset ? 'top-9' : 'top-0'} z-[200] border-b border-[rgba(30,58,46,0.08)] bg-[rgba(250,245,234,0.92)] backdrop-blur-[12px]`}>
       {/*
        * Responsive strategy:
        * - Below xl (< 1280px): logo centered, hamburger for nav
@@ -448,7 +448,7 @@ export default function Navbar() {
                           ? 'pointer-events-auto translate-y-0 opacity-100'
                           : 'pointer-events-none -translate-y-1 opacity-0'
                       }`}
-                      style={{ top: DROPDOWN_TOP }}
+                      style={{ top: tickerOffset ? DROPDOWN_TOP : DROPDOWN_TOP - 36 }}
                       onMouseEnter={() => openMenu(link.dropdown!)}
                       onMouseLeave={closeMenuWithDelay}
                     >
