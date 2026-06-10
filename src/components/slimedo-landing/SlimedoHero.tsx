@@ -99,6 +99,29 @@ const FloatingStatCard = forwardRef<
 ));
 FloatingStatCard.displayName = 'FloatingStatCard';
 
+function MobileHeroBadgeCard({
+  icon,
+  label,
+  stepNumber,
+  value,
+}: {
+  icon: ReactNode;
+  label: string;
+  stepNumber: number;
+  value: ReactNode;
+}) {
+  return (
+    <div className="hero-mobile-badge-card">
+      <span className="hero-mobile-badge-step">{stepNumber}</span>
+      <span className="hero-mobile-badge-icon">{icon}</span>
+      <span className="min-w-0">
+        <span className="block text-[11px] font-medium leading-[1.2] text-[#7B776E]">{label}</span>
+        <span className="block whitespace-nowrap text-[16px] font-bold leading-[1.15] tracking-[-0.025em] text-ink">{value}</span>
+      </span>
+    </div>
+  );
+}
+
 export default function SlimedoHero() {
   const containerRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -286,6 +309,32 @@ export default function SlimedoHero() {
             </li>
           ))}
         </ul>
+
+        <div className="hero-mobile-badges" aria-label="Behandlungskosten">
+          <MobileHeroBadgeCard
+            stepNumber={1}
+            label="Rezeptgebühr"
+            value="29 €"
+            icon={
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                <rect x="4" y="2" width="14" height="18" rx="2" stroke="#3D5C4A" strokeWidth="1.5" />
+                <path d="M8 7h6M8 11h6M8 15h4" stroke="#3D5C4A" strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
+            }
+          />
+          <MobileHeroBadgeCard
+            stepNumber={2}
+            label="Medikament"
+            value="ab 171,96 €"
+            icon={
+              <img
+                src="/images/therapie/injection2t.png"
+                alt=""
+                className="h-8 w-8 object-contain"
+              />
+            }
+          />
+        </div>
 
         {/* CTA row */}
         <div className="
@@ -509,6 +558,9 @@ export default function SlimedoHero() {
           mask-image: linear-gradient(to right, transparent 0%, black 38%);
           -webkit-mask-image: linear-gradient(to right, transparent 0%, black 38%);
         }
+        .hero-mobile-badges {
+          display: none;
+        }
         @media (max-width: 640px) {
           .slimedo-hero-section {
             display: block;
@@ -596,55 +648,64 @@ export default function SlimedoHero() {
               linear-gradient(to bottom, transparent 0%, black 13%, black 74%, transparent 100%);
             -webkit-mask-composite: source-in;
           }
+          .hero-badge-1,
           .hero-badge-2,
           .hero-badge-3 {
             display: none !important;
           }
-          .hero-badge-1 {
+          .hero-mobile-badges {
             display: flex !important;
-            animation: none !important;
-            top: 382px !important;
-            right: 55px !important;
-            left: auto !important;
-            min-width: 0 !important;
-            z-index: 6 !important;
+            flex-direction: row;
+            gap: 10px;
+            width: calc(100vw - 32px);
+            max-width: calc(100vw - 32px);
+            margin: 0 0 14px -13px;
+            position: relative;
+            z-index: 8;
+          }
+          .hero-mobile-badge-card {
+            min-height: 82px;
+            flex: 1 1 0;
+            min-width: 0;
+            position: relative;
+            display: flex;
             align-items: center;
-            gap: 6px !important;
-            border-radius: 999px !important;
-            padding: 5px 10px 5px 5px !important;
-            box-shadow: 0 7px 20px rgba(0,0,0,.11), 0 1px 3px rgba(0,0,0,.04) !important;
+            gap: 8px;
+            border: 1px solid rgba(255,255,255,.74);
+            border-radius: 22px;
+            background: rgba(255,255,255,.9);
+            padding: 10px 9px;
+            box-shadow: 0 12px 30px rgba(30,58,46,.14), 0 1px 4px rgba(0,0,0,.04);
+            backdrop-filter: blur(10px);
           }
-          .hero-badge-2 {
-            top: clamp(382px, 81vw, 414px) !important;
-            right: clamp(10px, 2.7vw, 15px) !important;
+          .hero-mobile-badge-step {
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            border-radius: 999px;
+            background: #1E3A2E;
+            color: #FAF5EA;
+            font-size: 11px;
+            font-weight: 800;
+            line-height: 1;
+            box-shadow: 0 6px 16px rgba(30,58,46,.22);
           }
-          .hero-badge-1 > span,
-          .hero-badge-2 > span {
-            width: 29px !important;
-            height: 29px !important;
-            border-radius: 999px !important;
-          }
-          .hero-badge-step {
-            display: none !important;
-          }
-          .hero-badge-1 svg {
-            width: 14px !important;
-            height: 14px !important;
-          }
-          .hero-badge-2 img {
-            width: 17px !important;
-            height: 17px !important;
-          }
-          .hero-badge-1 p:first-child,
-          .hero-badge-2 p:first-child {
-            display: none;
-          }
-          .hero-badge-1 p:last-child,
-          .hero-badge-2 p:last-child {
-            font-size: clamp(12.5px, 2.75vw, 14px) !important;
-            line-height: 1 !important;
-            letter-spacing: 0 !important;
-            white-space: nowrap;
+          .hero-mobile-badge-icon {
+            width: 38px;
+            height: 38px;
+            margin-left: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            border-radius: 16px;
+            background: #F5F3EE;
           }
         }
 
