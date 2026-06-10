@@ -23,6 +23,20 @@
 | PrivacySection | 43 → 34 | nur statische Chrome (Rest Animation) |
 | CtaSection | 12 → 2 | voll ✓ |
 
+**Phase 5 (5/n) — Rest der Website** (committet, `Design system phase 5 (n/n): …`):
+
+| Unit | Umfang | Status |
+|---|---|---|
+| 1. Footer | `components/Footer/Footer.tsx`: Inline-Styles → Utilities, JS-Hover → CSS `hover:`. Footer rendert auf der Landing-Fullpage → **0-Diff verifiziert** (Footer-Region clean). | ✓ |
+| 2. Buttons | `AuthButton` (#1d3a35/#16302b→deep/primary-hover, grays→neutral; Form-Shape behalten¹), `CTABanner` (#13302A→deep, #227C31→sage), `BankPaymentModal` (Override raus → brand default), 8 Auth-Form-Pages (Submit-Override `#29574E`+PayPal-Blau-Hover `#003569` raus → brand variant; Disabled+Google-Button → neutral). | ✓ |
+| 3. Auth-Greens | Alle `auth/pages`: #227C31→sage, #29574E→sage, #1B433B/#1D3A35/#1E4039/#1A3330→deep, #16302B→primary-hover, #0B1C19→dark, #01478F-Links→sage, SVG-stroke #1d3a35→#1E3A2E. Sidebars jetzt sage, Links sage statt blau (screenshot-verifiziert: login, account-ready). | ✓ |
+| 4. Greens (Rest) | 40 Non-Landing-Dateien (profile, admin, questionnaire, product, svg-container-Modals, auth-components, Blog/FAQ/Testimonials/WeightCalculator-Komponenten, standalone Pages): §2a→deep, §2b→sage, #16302B→primary-hover, #0B1C19→dark. Bracket `[#hex]`→Token-Utility, Roh-Hex (inline/SVG)→Token-Hex. **Success-Greens (#22C55E/#16A34A/#10B981) bewusst behalten.** (verifiziert: product/select) | ✓ |
+| 5. Slate→Neutral | 59 Non-Landing-Dateien: #6B7280/#64748B/#667185/…→neutral-500, #4B5563→600, #374151→700, #101928/#111827→900, #ACB5BB/#94A3B8/#9CA3AF→400, #D1D5DB/#CBD5E1→300, #E5E7EB/#E2E8F0/#E8ECEB/#DCE4E8→200, #020817→ink. **Helle BG-Grays (F-Serie) + shared `ui/*` bewusst ausgelassen** (Card-Flächen-Shift + Landing-Risiko); Status/Brand-Farben behalten. (verifiziert: /privacy, /auth/login) | ✓ |
+
+¹ **Deviation vom Inventory §6:** `AuthButton` wurde *nicht* auf `ui/button.tsx` umgestellt — die Pill-Form + fixe Höhe von `ui/button` passt nicht zu Full-Width-`rounded-lg`-Form-Submits. Stattdessen nur die Farben auf Brand-Tokens gemappt (gleiches Brand-Ergebnis, bessere Form-UX). Gilt analog für die Auth-Submit-`<Button>`s: Shape-Klassen (w-full/h-14/rounded-2xl) bleiben, nur Farb-Override entfernt → brand `default`-Variante greift.
+
+**QA-Stand nach Phase 5:** `tsc -b` ✓ · `vite build` ✓ (alle neuen Token-Utilities lösen auf). `eslint` hat **8 vorbestehende Errors** (`no-explicit-any`, `react-refresh/only-export-components`, `react-hooks/set-state-in-effect`) — **nicht** aus dieser Arbeit (u.a. in `BookConsultationModal.tsx`, nie angefasst); reine className/Hex-Swaps können diese nicht erzeugen. Vor PR separat adressieren oder bewusst akzeptieren.
+
 ---
 
 ## 🔧 Workflow (so wird verifiziert)
@@ -73,19 +87,25 @@ Pro Section: lesen → statische Inline-Styles → Tokens/Utilities (dynamische 
 
 ### Phase 5 — Rest der Website (der große Konsistenz-Hebel)
 Reihenfolge: **Footer → Buttons → Farben/Grüns → Cards → Mobile.**
-- **Grün-Konsolidierung** (aus `DESIGN-INVENTORY.md`): `#29574E`(114×)→sage, `#227C31`(106× CTA/Success)→sage/deep bzw. success-Token, `#1B433B`(62×)→deep, `#1D3A35`/`#16302B`→deep, AuthButton-Grüns. **Status-/Zahlart-/Social-Farben NICHT brand-mappen** (siehe Inventory §4).
-- **Button-Overrides entfernen:** Auth-Seiten überschreiben `ui/button.tsx` lokal mit `bg-[#29574E]!` etc. — diese Overrides raus, damit die Marken-Varianten greifen. Auch `AuthButton.tsx` und `CTABanner.tsx` auf `ui/button.tsx` umstellen.
-- **Slate/Gray-Welt** (`#6B7280`, `#667185`, `#101928`, `#E5E7EB`…) → Neutral-Skala/`ink`/`stein` (v. a. Admin).
-- Betroffen: `features/auth/*`, `features/profile/*`, `features/admin-dashboard/*`, `components/CTABanner`, `components/Footer`, `pages/*`.
-- **Kein 0-Diff-Zwang** hier (Änderungen sind *gewollt*) — pro Seite Vorher/Nachher-Screenshot via `scripts/capture-route.mjs <route> <name>` dokumentieren.
-- Hotspots (Zerlegung): `SvgContainer.tsx` (1640), `PharmacyOverviewPage` (1090), `DeliveryMethodSelectionPage` (991).
+✅ **Footer, Buttons, Grüns (auth + non-landing), Slate→Neutral sind erledigt** (siehe Erledigt-Block oben).
+
+**Noch offen in Phase 5:**
+- **Cards** — ad-hoc-Radien (`rounded-[40px]`, `rounded-2xl`, `rounded-xl`…) + bespoke Shadows (`shadow-[0_32px_64px_-12px_…]` etc.) auf `--radius-card/-sm` + `--shadow-card/-dropdown` vereinheitlichen. Noch **nicht** angefasst (heterogene Werte, kein 0-Diff-Zwang, aber pro Fläche Vorher/Nachher sinnvoll). Hotspots: Auth-Cards (`rounded-[40px]`), Profile/Admin-Cards.
+- **Mobile** — responsive Checkliste über die migrierten Bereiche (auth/profile/admin) durchgehen; Breakpoints/Container-Padding gegen Landing-Pattern (`mx-5 / lg:mx-10 / xl:mx-15`) prüfen.
+- **Bewusst ausgelassen (optional nachziehen):**
+  - Helle BG-Grays **F-Serie** (`#F3F4F6` = bereits `--color-accent/-muted`-Tokenwert, `#F8FAF9`, `#FAFBFC`, `#F1F5F9`, `#EDF2F7`…) → ggf. `neutral-50/100` oder `surf/cream`. Übersprungen, um Card-Flächen-Shift zu vermeiden.
+  - Shared `ui/*` (input, card, calendar-Rest, skeleton) → werden auch von der Landing genutzt; bei Änderung **Landing-Full-Diff** prüfen.
+  - `#01478F`/`#1D62EC`/Blau-Töne in **svg-container** (Zahlart-Brand?) — vor Mapping gegen Inventory §4 prüfen (nicht blind → info/sage).
+- **Kein 0-Diff-Zwang** hier (Änderungen sind *gewollt*). Auth-gated Dashboards (profile/admin) sind per `capture-route.mjs` **nicht** ohne Session screenshotbar → Verifikation dort via `tsc -b` + `vite build` + Token-Mapping-Review.
+- **Greens-/Neutral-Sweep-Muster** (für Wiederholung in neuen Dateien): `perl -i -pe` Zwei-Pass — erst `s/\[#HEX\]/token/gi` (Tailwind-Arbitrary→Utility), dann `s/#HEX\b/#TOKENHEX/gi` (inline/SVG). Datei-Liste vorher per `grep -ril` bauen und **Landing-Dateien ausschließen** (`slimedo-landing/`, `NewTrustSection`, `Navbar`, `SlimedoTicker`, `Footer`).
+- Hotspots (optionale Zerlegung): `SvgContainer.tsx` (1640), `PharmacyOverviewPage` (1090), `DeliveryMethodSelectionPage` (991).
 
 ### Phase 6 — QA
-`npm run build` + `npm run lint` grün · responsive Checkliste · Landing-Full-Diff = nur bekanntes Rauschen · keine neuen Dependencies · PR von `align-rest` → `master`.
+`npm run build` ✓ (grün nach Phase 5) · `npm run lint` hat **8 vorbestehende Errors** (nicht aus der Migration — vor PR separat klären) · responsive Checkliste (offen) · Landing-Full-Diff = nur bekanntes Rauschen (Phase-5-Edits betrafen keine Landing-Dateien) · keine neuen Dependencies ✓ · PR von `align-rest` → `master`.
 
 ---
 
 ## 🚀 Fortsetzen in frischer Session
 1. Repo lesen: dieses Dokument + `DESIGN-INVENTORY.md`.
 2. Branch `align-rest` ist aktuell; `git log --oneline` zeigt Stand.
-3. Sagen: *„mach Phase 4 weiter mit PricesSection"* oder *„starte Phase 5 mit den Auth-Buttons"*.
+3. Sagen: *„mach Phase 4 weiter mit PricesSection"* (Landing-Sektionen, 0-Diff) oder *„mach Phase 5 weiter mit den Cards"* bzw. *„… mit dem Mobile-Check"* (Rest der Website, gewollte Änderungen).
