@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, type ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 const heroVideoPoster = '/images/slimedo/slimedohero-poster.webp';
 const mobileHeroImage = '/images/slimedo/slimedohero-mobile.jpg';
@@ -56,6 +57,44 @@ const trustItems = [
     label: '100 % diskret & vertraulich',
   },
 ];
+
+// Floating price/medication card overlaid on the hero video.
+// `ref` is forwarded so the hero can measure the cards and draw the connector.
+const FloatingStatCard = forwardRef<
+  HTMLDivElement,
+  { className?: string; icon: ReactNode; label: string; value: string }
+>(({ className, icon, label, value }, ref) => (
+  <div
+    ref={ref}
+    aria-hidden="true"
+    className={cn(
+      'absolute z-[5] flex min-w-[240px] items-center gap-4 rounded-3xl bg-white p-4 pr-6 shadow-[0_8px_32px_rgba(0,0,0,.11),_0_1px_4px_rgba(0,0,0,.04)]',
+      className,
+    )}
+  >
+    <span className="inline-flex h-[60px] w-[60px] shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#F5F3EE]">
+      {icon}
+    </span>
+    <div>
+      <p className="m-0 p-0 text-[14px] leading-[1.3] text-[#888888]">{label}</p>
+      <p className="m-0 p-0 text-[23px] font-bold leading-[1.2] tracking-[-0.02em] text-ink">{value}</p>
+    </div>
+    <svg
+      aria-hidden="true"
+      className="pointer-events-none absolute -top-8 -right-6 overflow-visible"
+      width="72"
+      height="48"
+      viewBox="0 0 72 48"
+      fill="none"
+      overflow="visible"
+    >
+      <line x1="54" y1="13" x2="58" y2="1" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="61" y1="19" x2="71" y2="9" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="67" y1="26" x2="79" y2="22" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  </div>
+));
+FloatingStatCard.displayName = 'FloatingStatCard';
 
 export default function SlimedoHero() {
   const containerRef = useRef<HTMLElement | null>(null);
@@ -321,83 +360,33 @@ export default function SlimedoHero() {
       )}
 
       {/* ── Floating badge 1 — Rezeptgebühr (upper, further right) ── */}
-      <div
+      <FloatingStatCard
         ref={badge1Ref}
-        className="
-          hero-badge-1
-          absolute left-[37%] min-[1600px]:left-[50%] max-2xl:left-[48%] max-xl:left-[45%] max-lg:left-[41%] top-[30%] z-[5]
-          flex items-center gap-4
-          bg-white rounded-3xl p-4 pr-6 min-w-[240px]
-          shadow-[0_8px_32px_rgba(0,0,0,.11),_0_1px_4px_rgba(0,0,0,.04)]
-          max-md:hidden max-sm:flex
-        "
-        aria-hidden="true"
-      >
-        <span className="
-          inline-flex items-center justify-center shrink-0
-          w-[60px] h-[60px] rounded-2xl bg-[#F5F3EE]
-        ">
+        className="hero-badge-1 left-[37%] top-[30%] min-[1600px]:left-[50%] max-2xl:left-[48%] max-xl:left-[45%] max-lg:left-[41%] max-md:hidden max-sm:flex"
+        label="Rezeptgebühr"
+        value="29 €"
+        icon={
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
             <rect x="4" y="2" width="14" height="18" rx="2" stroke="#3D5C4A" strokeWidth="1.5" />
             <path d="M8 7h6M8 11h6M8 15h4" stroke="#3D5C4A" strokeWidth="1.4" strokeLinecap="round" />
           </svg>
-        </span>
-        <div>
-          <p className="m-0 p-0 text-[14px] text-[#888888] leading-[1.3]">Rezeptgebühr</p>
-          <p className="m-0 p-0 text-[23px] font-bold text-ink leading-[1.2] tracking-[-0.02em]">29 €</p>
-        </div>
-        <svg
-          aria-hidden="true"
-          className="absolute pointer-events-none"
-          style={{ top: '-32px', right: '-24px', overflow: 'visible' }}
-          width="72" height="48" viewBox="0 0 72 48" fill="none"
-          overflow="visible"
-        >
-          <line x1="54" y1="13" x2="58" y2="1"  stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-          <line x1="61" y1="19" x2="71" y2="9"  stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-          <line x1="67" y1="26" x2="79" y2="22" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-        </svg>
-      </div>
+        }
+      />
 
       {/* ── Floating badge 2 — Medikament (lower, further left) ── */}
-      <div
+      <FloatingStatCard
         ref={badge2Ref}
-        className="
-          hero-badge-2
-          absolute left-[27%] min-[1600px]:left-[40%] max-2xl:left-[40%] max-xl:left-[39%] max-lg:left-[35%] top-[54%] z-[5]
-          flex items-center gap-4
-          bg-white rounded-3xl p-4 pr-6 min-w-[240px]
-          shadow-[0_8px_32px_rgba(0,0,0,.11),_0_1px_4px_rgba(0,0,0,.04)]
-          max-md:hidden
-        "
-        aria-hidden="true"
-      >
-        <span className="
-          inline-flex items-center justify-center shrink-0 overflow-hidden
-          w-[60px] h-[60px] rounded-2xl bg-[#F5F3EE]
-        ">
+        className="hero-badge-2 left-[27%] top-[54%] min-[1600px]:left-[40%] max-2xl:left-[40%] max-xl:left-[39%] max-lg:left-[35%] max-md:hidden"
+        label="Medikament"
+        value="ab 171,96 €"
+        icon={
           <img
             src="/images/therapie/injection2t.png"
             alt=""
             className="w-9 h-9 object-contain"
           />
-        </span>
-        <div>
-          <p className="m-0 p-0 text-[14px] text-[#888888] leading-[1.3]">Medikament</p>
-          <p className="m-0 p-0 text-[23px] font-bold text-ink leading-[1.2] tracking-[-0.02em]">ab 171,96 €</p>
-        </div>
-        <svg
-          aria-hidden="true"
-          className="absolute pointer-events-none"
-          style={{ top: '-32px', right: '-24px', overflow: 'visible' }}
-          width="72" height="48" viewBox="0 0 72 48" fill="none"
-          overflow="visible"
-        >
-          <line x1="54" y1="13" x2="58" y2="1"  stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-          <line x1="61" y1="19" x2="71" y2="9"  stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-          <line x1="67" y1="26" x2="79" y2="22" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-        </svg>
-      </div>
+        }
+      />
 
       {/* Bottom fade into next section */}
       <div
