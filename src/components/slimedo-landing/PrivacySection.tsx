@@ -631,7 +631,9 @@ export default function PrivacySection() {
     if (!hasOrbitalFinishedRef.current) {
       if (!isOrbitalDisabled()) {
         requestAnimationFrame(() => {
-          prepareTracks();
+          if (!hasOrbitalStartedRef.current && !hasOrbitalFinishedRef.current) {
+            prepareTracks();
+          }
         });
       } else {
         setFinalState();
