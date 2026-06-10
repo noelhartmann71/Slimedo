@@ -380,80 +380,34 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
-      style={{
-        position: 'sticky',
-        top: 36,
-        zIndex: 200,
-        background: 'rgba(250,245,234,.92)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(30,58,46,.08)',
-      }}
-    >
+    <nav className="sticky top-9 z-[200] border-b border-[rgba(30,58,46,0.08)] bg-[rgba(250,245,234,0.92)] backdrop-blur-[12px]">
       {/*
        * Responsive strategy:
        * - Below xl (< 1280px): logo centered, hamburger for nav
        * - xl+ (>= 1280px):     logo left, all nav links, CTA, no hamburger
        */}
-      <div
-        className="relative gap-3 xl:gap-6"
-        style={{
-          width: '100%',
-          padding: '0 clamp(18px, 1.4vw, 28px) 0 clamp(14px, 1.1vw, 22px)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          height: 64,
-        }}
-      >
+      <div className="relative flex h-16 w-full items-center justify-between gap-3 pl-[clamp(14px,1.1vw,22px)] pr-[clamp(18px,1.4vw,28px)] xl:gap-6">
         {/* Spacer — balances centered logo against right-side buttons on mobile */}
         <div className="w-10 xl:hidden shrink-0" aria-hidden="true" />
 
         {/* Logo — centered on mobile/tablet, left-aligned on xl+ */}
         <Link
           to="/"
-          className="absolute left-1/2 -translate-x-1/2 shrink-0 justify-center xl:static xl:left-auto xl:translate-x-0 xl:justify-start"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 'clamp(8px, 0.55vw, 12px)',
-            minWidth: 120,
-            textDecoration: 'none',
-          }}
+          className="absolute left-1/2 inline-flex min-w-[120px] -translate-x-1/2 shrink-0 items-center justify-center gap-[clamp(8px,0.55vw,12px)] no-underline xl:static xl:left-auto xl:translate-x-0 xl:justify-start"
         >
           <img
             src="/images/logo/cta-banner.png"
             alt=""
-            style={{ width: 'clamp(36px, 1.95vw, 50px)', height: 'clamp(36px, 1.95vw, 50px)', objectFit: 'contain', flexShrink: 0 }}
+            className="h-[clamp(36px,1.95vw,50px)] w-[clamp(36px,1.95vw,50px)] shrink-0 object-contain"
           />
-          <span
-            style={{
-              fontFamily: 'var(--font-serif)',
-              fontSize: 'clamp(24px, 1.56vw, 32px)',
-              fontWeight: 600,
-              color: '#1E3A2E',
-              letterSpacing: '-0.01em',
-            }}
-          >
+          <span className="font-serif text-[clamp(24px,1.56vw,32px)] font-semibold tracking-[-0.01em] text-deep">
             Slimedo
           </span>
         </Link>
 
         {/* Desktop nav links - shown from xl upward */}
-        <div
-          className="hidden xl:flex"
-          style={{ flex: 1, alignItems: 'center', justifyContent: 'center', minWidth: 0 }}
-        >
-          <ul
-            style={{
-              alignItems: 'center',
-              gap: 'clamp(28px, 1.95vw, 50px)',
-              listStyle: 'none',
-              margin: 0,
-              padding: 0,
-              display: 'flex',
-            }}
-          >
+        <div className="hidden min-w-0 flex-1 items-center justify-center xl:flex">
+          <ul className="flex list-none items-center gap-[clamp(28px,1.95vw,50px)] p-0">
             {links.map((link) => {
               const isDropdown = Boolean(link.dropdown);
               const isOpen = isDropdown && openDropdown === link.dropdown;
@@ -468,16 +422,14 @@ export default function Navbar() {
                   {link.to ? (
                     <Link
                       to={link.to}
-                      className="inline-flex items-center gap-1.5 py-2 text-[clamp(14px,0.7vw,18px)] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
-                      style={{ fontFamily: '"Inter", sans-serif' }}
+                      className="inline-flex items-center gap-1.5 py-2 text-[clamp(14px,0.7vw,18px)] font-medium text-sage transition-colors hover:text-deep focus-visible:text-deep focus-visible:outline-none"
                     >
                       {link.label}
                     </Link>
                   ) : (
                     <a
                       href={link.href}
-                      className="inline-flex items-center gap-1.5 py-2 text-[clamp(14px,0.7vw,18px)] font-medium text-[#3D5C4A] transition-colors hover:text-[#1E3A2E] focus-visible:outline-none focus-visible:text-[#1E3A2E]"
-                      style={{ fontFamily: '"Inter", sans-serif' }}
+                      className="inline-flex items-center gap-1.5 py-2 text-[clamp(14px,0.7vw,18px)] font-medium text-sage transition-colors hover:text-deep focus-visible:text-deep focus-visible:outline-none"
                       onFocus={() => link.dropdown && openMenu(link.dropdown)}
                     >
                       {link.label}
@@ -518,64 +470,16 @@ export default function Navbar() {
 
         {/* Right-side: CTA visible from xl, hamburger visible below xl */}
         <div className="flex items-center gap-2 xl:gap-3 shrink-0">
-          <div
-            className="hidden xl:flex shrink-0"
-            style={{ alignItems: 'center', gap: 10 }}
-          >
+          <div className="hidden shrink-0 items-center gap-2.5 xl:flex">
             <Link
               to="/auth/login"
-              style={{
-                background: 'transparent',
-                color: '#3D5C4A',
-                padding: 'clamp(10px, 0.62vw, 13px) clamp(20px, 1.25vw, 26px)',
-                borderRadius: 999,
-                fontSize: 'clamp(13px, 0.63vw, 16px)',
-                fontWeight: 500,
-                textDecoration: 'none',
-                fontFamily: '"Inter", sans-serif',
-                border: '1px solid rgba(61,92,74,.65)',
-                transition: 'background .2s,color .2s,border-color .2s',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.background = 'rgba(61,92,74,.08)';
-                el.style.borderColor = '#3D5C4A';
-                el.style.color = '#1E3A2E';
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.background = 'transparent';
-                el.style.borderColor = 'rgba(61,92,74,.65)';
-                el.style.color = '#3D5C4A';
-              }}
+              className="inline-flex items-center justify-center rounded-pill border border-[rgba(61,92,74,0.65)] px-[clamp(20px,1.25vw,26px)] py-[clamp(10px,0.62vw,13px)] text-[clamp(13px,0.63vw,16px)] font-medium text-sage no-underline transition-colors duration-200 hover:border-sage hover:bg-[rgba(61,92,74,0.08)] hover:text-deep"
             >
               Login
             </Link>
             <Link
               to="/product/select"
-              style={{
-                background: '#3D5C4A',
-                color: '#FAF5EA',
-                padding: 'clamp(10px, 0.62vw, 13px) clamp(20px, 1.25vw, 26px)',
-                borderRadius: 999,
-                fontSize: 'clamp(13px, 0.63vw, 16px)',
-                fontWeight: 500,
-                textDecoration: 'none',
-                fontFamily: '"Inter", sans-serif',
-                transition: 'background .2s',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
-              }
+              className="inline-flex items-center justify-center rounded-pill bg-sage px-[clamp(20px,1.25vw,26px)] py-[clamp(10px,0.62vw,13px)] text-[clamp(13px,0.63vw,16px)] font-medium text-cream no-underline transition-colors duration-200 hover:bg-deep"
             >
               Behandlung starten  -&gt;
             </Link>
@@ -583,15 +487,8 @@ export default function Navbar() {
 
           {/* Hamburger - visible below xl */}
           <button
-            className="flex xl:hidden shrink-0"
+            className="flex shrink-0 cursor-pointer p-1 text-deep xl:hidden"
             onClick={() => setMobileOpen((o) => !o)}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#1E3A2E',
-              padding: 4,
-            }}
             aria-label="Menü"
           >
             {mobileOpen ? (
@@ -619,29 +516,14 @@ export default function Navbar() {
 
       {/* Mobile menu - shown below xl */}
       {mobileOpen && (
-        <div
-          className="xl:hidden flex flex-col gap-3"
-          style={{
-            background: 'rgba(250,245,234,.97)',
-            borderTop: '1px solid rgba(30,58,46,.08)',
-            padding: '16px 24px',
-          }}
-        >
+        <div className="flex flex-col gap-3 border-t border-[rgba(30,58,46,0.08)] bg-[rgba(250,245,234,0.97)] px-6 py-4 xl:hidden">
           {links.map((link) =>
             link.to ? (
               <Link
                 key={link.label}
                 to={link.to}
                 onClick={() => setMobileOpen(false)}
-                style={{
-                  fontSize: 15,
-                  fontWeight: 500,
-                  color: '#3D5C4A',
-                  textDecoration: 'none',
-                  fontFamily: '"Inter", sans-serif',
-                  padding: '8px 0',
-                  borderBottom: '1px solid rgba(30,58,46,.06)',
-                }}
+                className="border-b border-[rgba(30,58,46,0.06)] py-2 text-[15px] font-medium text-sage no-underline"
               >
                 {link.label}
               </Link>
@@ -650,15 +532,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                style={{
-                  fontSize: 15,
-                  fontWeight: 500,
-                  color: '#3D5C4A',
-                  textDecoration: 'none',
-                  fontFamily: '"Inter", sans-serif',
-                  padding: '8px 0',
-                  borderBottom: '1px solid rgba(30,58,46,.06)',
-                }}
+                className="border-b border-[rgba(30,58,46,0.06)] py-2 text-[15px] font-medium text-sage no-underline"
               >
                 {link.label}
               </a>
@@ -666,18 +540,7 @@ export default function Navbar() {
           )}
           <Link
             to="/product/select"
-            style={{
-              background: '#3D5C4A',
-              color: '#FAF5EA',
-              padding: '12px 20px',
-              borderRadius: 999,
-              fontSize: 14,
-              fontWeight: 500,
-              textDecoration: 'none',
-              textAlign: 'center',
-              marginTop: 8,
-              fontFamily: '"Inter", sans-serif',
-            }}
+            className="mt-2 rounded-pill bg-sage px-5 py-3 text-center text-sm font-medium text-cream no-underline"
           >
             Behandlung starten -&gt;
           </Link>
