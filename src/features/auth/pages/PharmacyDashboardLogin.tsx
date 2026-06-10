@@ -138,7 +138,7 @@ const PharmacyDashboardLogin = () => {
               </div>
 
               {/* Speech Bubble - Absolutely positioned */}
-              <div className="absolute left-[82%] top-8 z-20">
+              <div className="absolute left-1/2 md:left-[82%] top-8 z-20">
                 <div className="bg-[#EE42D7] text-white text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(238,66,215,0.3)] whitespace-nowrap">
                   Schön, Sie zu sehen!
                 </div>
