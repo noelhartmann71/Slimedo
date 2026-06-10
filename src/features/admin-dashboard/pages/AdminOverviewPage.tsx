@@ -130,18 +130,18 @@ const AdminOverviewPage = () => {
       {/* ── Header ── */}
       <div className="flex items-end justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#101928] mb-1">
+          <h1 className="text-2xl font-bold text-neutral-900 mb-1">
             Welcome back, Rahim
           </h1>
-          <p className="text-sm text-[#667185]">
+          <p className="text-sm text-neutral-500">
             there is the latest update for the last 7 days. check now
           </p>
         </div>
         <div className="flex gap-3">
-          <button className="h-11 px-5 border border-[#E5E9EB] rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-gray-50 bg-white text-[#101928]">
+          <button className="h-11 px-5 border border-neutral-200 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-gray-50 bg-white text-neutral-900">
             Today <ChevronDown size={16} />
           </button>
-          <button className="h-11 px-5 bg-sage text-white rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-[#101928]">
+          <button className="h-11 px-5 bg-sage text-white rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-neutral-900">
             <Share size={16} /> Export
           </button>
         </div>
@@ -152,20 +152,20 @@ const AdminOverviewPage = () => {
         {stats.map((stat, idx) => (
           <div
             key={idx}
-            className={`p-5 rounded-xl border border-[#E5E9EB] shadow-sm flex flex-col justify-between min-h-40 ${
-              idx === 0 ? "bg-sage text-white" : "bg-white text-[#101928]"
+            className={`p-5 rounded-xl border border-neutral-200 shadow-sm flex flex-col justify-between min-h-40 ${
+              idx === 0 ? "bg-sage text-white" : "bg-white text-neutral-900"
             }`}
           >
             <div className="flex items-start gap-2">
               <stat.icon
                 size={16}
                 className={`mt-0.5 shrink-0 ${
-                  idx === 0 ? "text-white/70" : "text-[#667185]"
+                  idx === 0 ? "text-white/70" : "text-neutral-500"
                 }`}
               />
               <span
                 className={`text-[12px] font-semibold leading-tight ${
-                  idx === 0 ? "text-white/90" : "text-[#667185]"
+                  idx === 0 ? "text-white/90" : "text-neutral-500"
                 }`}
               >
                 {stat.label}
@@ -189,7 +189,7 @@ const AdminOverviewPage = () => {
                   </span>
                   <span
                     className={`text-[10px] leading-tight ${
-                      idx === 0 ? "text-white/60" : "text-[#667185]"
+                      idx === 0 ? "text-white/60" : "text-neutral-500"
                     }`}
                   >
                     {stat.trendLabel}
@@ -206,29 +206,29 @@ const AdminOverviewPage = () => {
         {revenues.map((rev, idx) => (
           <div
             key={idx}
-            className="bg-white p-6 rounded-xl border border-[#E5E9EB] shadow-sm"
+            className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm"
           >
             <div className="flex items-center gap-2 mb-4">
               <span className="text-base">{rev.icon}</span>
-              <span className="text-[12px] font-semibold text-[#667185]">
+              <span className="text-[12px] font-semibold text-neutral-500">
                 {rev.label}
               </span>
             </div>
             <div className="text-3xl font-bold text-sage">
               {rev.amount}
             </div>
-            <div className="text-[12px] text-[#667185] mt-1">{rev.subtext}</div>
+            <div className="text-[12px] text-neutral-500 mt-1">{rev.subtext}</div>
           </div>
         ))}
       </div>
 
       {/* ── Table ── */}
-      <div className="bg-white rounded-xl border border-[#E5E9EB] shadow-sm">
-        <div className="p-6 border-b border-[#E5E9EB]">
-          <h2 className="text-lg font-bold text-[#101928]">
+      <div className="bg-white rounded-xl border border-neutral-200 shadow-sm">
+        <div className="p-6 border-b border-neutral-200">
+          <h2 className="text-lg font-bold text-neutral-900">
             Incoming Prescription Requests
           </h2>
-          <p className="text-sm text-[#667185]">
+          <p className="text-sm text-neutral-500">
             Review and process prescription requests from patients
           </p>
         </div>
@@ -236,7 +236,7 @@ const AdminOverviewPage = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="bg-[#F9FAFB] text-[11px] uppercase tracking-wider text-[#667185]">
+              <tr className="bg-[#F9FAFB] text-[11px] uppercase tracking-wider text-neutral-500">
                 <th className="px-6 py-4 font-semibold">Patient ID</th>
                 <th className="px-6 py-4 font-semibold">Call Request</th>
                 <th className="px-6 py-4 font-semibold">
@@ -260,32 +260,32 @@ const AdminOverviewPage = () => {
                   }`}
                 >
                   {/* Patient ID */}
-                  <td className="px-6 py-5 font-semibold text-[#101928]">
+                  <td className="px-6 py-5 font-semibold text-neutral-900">
                     {row.id}
                   </td>
 
                   {/* Call Request */}
                   <td className="px-6 py-5">
                     <div className="flex items-center gap-2">
-                      <Calendar size={16} className="text-[#667185] shrink-0" />
+                      <Calendar size={16} className="text-neutral-500 shrink-0" />
                       <div className="text-[13px] leading-snug">
-                        <span className="font-semibold text-[#101928]">
+                        <span className="font-semibold text-neutral-900">
                           Thursday
                         </span>{" "}
-                        <span className="text-[#667185]">Mar 5</span>
+                        <span className="text-neutral-500">Mar 5</span>
                         <br />
-                        <span className="text-[#667185]">09am</span>
+                        <span className="text-neutral-500">09am</span>
                       </div>
                     </div>
                   </td>
 
                   {/* Medication */}
-                  <td className="px-6 py-5 font-semibold text-[#101928]">
+                  <td className="px-6 py-5 font-semibold text-neutral-900">
                     {row.medication}
                   </td>
 
                   {/* Date */}
-                  <td className="px-6 py-5 text-[#667185] text-[16px]">
+                  <td className="px-6 py-5 text-neutral-500 text-[16px]">
                     {row.date}
                   </td>
 
@@ -306,7 +306,7 @@ const AdminOverviewPage = () => {
                       className={`h-9 px-24.5 rounded-[100px] text-[14px] font-semibold transition-colors ${
                         row.statusType === "BLOCKED"
                           ? "bg-[#EF4444] text-white hover:bg-[#D92D20]"
-                          : "bg-sage text-white hover:bg-[#101928]"
+                          : "bg-sage text-white hover:bg-neutral-900"
                       }`}
                     >
                       {row.statusType === "BLOCKED" ? "BLOCKED" : "Review"}
@@ -319,10 +319,10 @@ const AdminOverviewPage = () => {
         </div>
 
         {/* ── Pagination ── */}
-        <div className="p-6 border-t border-[#E5E9EB]">
+        <div className="p-6 border-t border-neutral-200">
           <div className="flex items-center gap-1">
-            <button className="h-8 w-8 rounded-full border border-[#E5E9EB] flex items-center justify-center hover:bg-gray-50 bg-white">
-              <ChevronDown size={13} className="rotate-90 text-[#667185]" />
+            <button className="h-8 w-8 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-gray-50 bg-white">
+              <ChevronDown size={13} className="rotate-90 text-neutral-500" />
             </button>
             {[1, 2].map((n) => (
               <button
@@ -330,23 +330,23 @@ const AdminOverviewPage = () => {
                 className={`h-8 w-8 rounded-full text-[13px] font-medium ${
                   n === 1
                     ? "bg-[#1D2739] text-white font-bold"
-                    : "text-[#667185] hover:bg-gray-50"
+                    : "text-neutral-500 hover:bg-gray-50"
                 }`}
               >
                 {n}
               </button>
             ))}
-            <span className="text-[#667185] px-1">...</span>
+            <span className="text-neutral-500 px-1">...</span>
             {[10, 11].map((n) => (
               <button
                 key={n}
-                className="h-8 w-8 rounded-full text-[#667185] text-[13px] font-medium hover:bg-gray-50"
+                className="h-8 w-8 rounded-full text-neutral-500 text-[13px] font-medium hover:bg-gray-50"
               >
                 {n}
               </button>
             ))}
-            <button className="h-8 w-8 rounded-full border border-[#E5E9EB] flex items-center justify-center hover:bg-gray-50 bg-white">
-              <ChevronDown size={13} className="-rotate-90 text-[#667185]" />
+            <button className="h-8 w-8 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-gray-50 bg-white">
+              <ChevronDown size={13} className="-rotate-90 text-neutral-500" />
             </button>
           </div>
         </div>

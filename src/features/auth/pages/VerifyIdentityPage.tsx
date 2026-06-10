@@ -135,7 +135,7 @@ export default function VerifyIdentityPage() {
 
           {/* Upload Card */}
           <div className="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col gap-5">
-            <div className="bg-[#E8ECEB] rounded-xl p-4 flex items-center gap-4">
+            <div className="bg-neutral-200 rounded-xl p-4 flex items-center gap-4">
               <div className="p-2.5 bg-white rounded-lg">
                 <svg
                   width="20"
@@ -170,7 +170,7 @@ export default function VerifyIdentityPage() {
               className={`relative h-55 rounded-2xl border-2 border-dashed transition-colors flex flex-col items-center justify-center p-6 ${
                 dragActive
                   ? "border-deep bg-[#f8faf9]"
-                  : "border-[#E5E7EB]"
+                  : "border-neutral-200"
               }`}
             >
               <div className="w-12 h-12 rounded-full bg-[#f8faf9] border border-gray-100 flex items-center justify-center mb-4">

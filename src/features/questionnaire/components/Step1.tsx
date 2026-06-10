@@ -143,7 +143,7 @@ export const Step1 = ({
                 }}
                 className={`flex-1 py-3 text-[15px] font-medium rounded-md transition ${
                   unitSystem === "metric"
-                    ? "bg-[#E8ECEB] text-deep border border-[#96A9A5]"
+                    ? "bg-neutral-200 text-deep border border-[#96A9A5]"
                     : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                 }`}
               >
@@ -157,7 +157,7 @@ export const Step1 = ({
                 }}
                 className={`flex-1 py-3 text-[15px] font-medium rounded-md transition ${
                   unitSystem === "imperial"
-                    ? "bg-[#E8ECEB] text-deep border border-[#96A9A5]"
+                    ? "bg-neutral-200 text-deep border border-[#96A9A5]"
                     : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                 }`}
               >

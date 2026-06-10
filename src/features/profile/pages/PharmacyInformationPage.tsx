@@ -110,7 +110,7 @@ function ProfileField({
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={inputId} className="text-sm font-medium text-[#4B5563]">
+      <label htmlFor={inputId} className="text-sm font-medium text-neutral-600">
         {label}
       </label>
       <div className="relative">
@@ -122,7 +122,7 @@ function ProfileField({
           placeholder={placeholder}
           autoComplete={autoComplete}
           inputMode={inputMode}
-          className={`h-12 w-full rounded-xl border border-[#DDE3E7] bg-[#FCFCFD] px-4 text-sm font-medium text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-deep focus:ring-2 focus:ring-deep/10 ${
+          className={`h-12 w-full rounded-xl border border-[#DDE3E7] bg-[#FCFCFD] px-4 text-sm font-medium text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-deep focus:ring-2 focus:ring-deep/10 ${
             isPasswordField ? "pr-12" : ""
           }`}
         />
@@ -130,7 +130,7 @@ function ProfileField({
           <button
             type="button"
             onClick={() => setIsVisible((current) => !current)}
-            className="absolute inset-y-0 right-3 flex items-center text-[#6B7280] transition-colors hover:text-deep"
+            className="absolute inset-y-0 right-3 flex items-center text-neutral-500 transition-colors hover:text-deep"
             aria-label={isVisible ? `Hide ${label}` : `Show ${label}`}
           >
             {isVisible ? (
@@ -267,7 +267,7 @@ export default function PharmacyInformationPage() {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-72 items-center justify-center rounded-3xl border border-[#E5E7EB] bg-white">
+      <div className="flex min-h-72 items-center justify-center rounded-3xl border border-neutral-200 bg-white">
         <div className="h-10 w-10 animate-spin rounded-full border-2 border-deep border-t-transparent" />
       </div>
     );
@@ -326,17 +326,17 @@ export default function PharmacyInformationPage() {
       <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
         <form
           onSubmit={handleSubmit}
-          className="rounded-3xl border border-[#E5E7EB] bg-white p-5 shadow-sm md:p-6"
+          className="rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm md:p-6"
         >
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#6B7280]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral-500">
                 Edit profile
               </p>
-              <h2 className="mt-2 text-2xl font-semibold text-[#111827]">
+              <h2 className="mt-2 text-2xl font-semibold text-neutral-900">
                 Update pharmacy information
               </h2>
-              <p className="mt-1 text-sm text-[#6B7280]">
+              <p className="mt-1 text-sm text-neutral-500">
                 Keep the contact and location details up to date.
               </p>
             </div>
@@ -459,7 +459,7 @@ export default function PharmacyInformationPage() {
         </form>
 
         <aside className="space-y-6">
-          <section className="rounded-3xl border border-[#E5E7EB] bg-[#0F5132] p-6 text-white shadow-sm">
+          <section className="rounded-3xl border border-neutral-200 bg-[#0F5132] p-6 text-white shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
               Current profile
             </p>

@@ -65,7 +65,7 @@ export default function WeightCalculator() {
           {/* Slider */}
           <div className="mb-5">
             <style>{`
-              .wslider{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;outline:none;cursor:pointer;background:linear-gradient(to right,#e07b39 ${pct}%,#e5e7eb ${pct}%)}
+              .wslider{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;outline:none;cursor:pointer;background:linear-gradient(to right,#e07b39 ${pct}%,#E5E9EB ${pct}%)}
               .wslider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#1E3A2E;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.25);cursor:pointer}
               .wslider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#1E3A2E;border:2px solid white;cursor:pointer}
             `}</style>

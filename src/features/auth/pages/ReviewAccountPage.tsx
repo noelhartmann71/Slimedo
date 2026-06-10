@@ -112,7 +112,7 @@ export default function ReviewAccountPage() {
   return (
     <div className="bg-[#f7f8f6] min-h-screen flex font-inter">
       {/* Header */}
-      <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-3 sm:px-6 py-4 flex items-center justify-between z-50">
+      <div className="fixed top-0 left-0 right-0 bg-white border-b border-neutral-200 px-3 sm:px-6 py-4 flex items-center justify-between z-50">
         <button
           onClick={() => navigate(-1)}
           className="text-deep text-xs sm:text-base font-medium cursor-pointer"
@@ -137,7 +137,7 @@ export default function ReviewAccountPage() {
         <div className="w-full max-w-xl">
           <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
             {/* Patient data section */}
-            <div className="mb-8 pb-8 border-b border-[#e5e7eb]">
+            <div className="mb-8 pb-8 border-b border-neutral-200">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-medium text-black">Patient data</h2>
                 <button className="text-[14px] text-primary font-semibold hover:underline cursor-pointer">
@@ -146,7 +146,7 @@ export default function ReviewAccountPage() {
               </div>
               <div className="text-[14px] text-muted-foreground flex flex-row justify-between">
                 <div className="flex flex-col justify-between gap-3">
-                  <p className="text-[#6B7280]">
+                  <p className="text-neutral-500">
                     {formData.firstName} {formData.lastName}
                   </p>
                   <p>{formData.birthday}</p>
@@ -177,7 +177,7 @@ export default function ReviewAccountPage() {
                       value={formData.streetName}
                       onChange={handleInputChange}
                       placeholder="Rajshahi"
-                      className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                      className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                     />
                   </div>
                   <div className="flex-1">
@@ -190,7 +190,7 @@ export default function ReviewAccountPage() {
                       value={formData.houseNumber}
                       onChange={handleInputChange}
                       placeholder="e.g. 101"
-                      className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                      className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                     />
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function ReviewAccountPage() {
                     value={formData.additionalAddress}
                     onChange={handleInputChange}
                     placeholder="Apartment 4B"
-                    className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                    className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                   />
                 </div>
 
@@ -222,7 +222,7 @@ export default function ReviewAccountPage() {
                       value={formData.city}
                       onChange={handleInputChange}
                       placeholder="Natore"
-                      className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                      className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                     />
                   </div>
                   <div className="flex-1">
@@ -235,7 +235,7 @@ export default function ReviewAccountPage() {
                       value={formData.postalCode}
                       onChange={handleInputChange}
                       placeholder="1011"
-                      className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                      className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                     />
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export default function ReviewAccountPage() {
                     <Popover.Trigger asChild>
                       <button
                         type="button"
-                        className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white hover:border-[#d1d5db] flex items-center justify-between transition-colors"
+                        className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white hover:border-neutral-300 flex items-center justify-between transition-colors"
                       >
                         <span>{formData.country}</span>
                         <svg
@@ -267,7 +267,7 @@ export default function ReviewAccountPage() {
                         </svg>
                       </button>
                     </Popover.Trigger>
-                    <Popover.Content className="w-(--radix-popover-trigger-width) rounded-md border border-[#e5e7eb] bg-white shadow-md p-1 z-50">
+                    <Popover.Content className="w-(--radix-popover-trigger-width) rounded-md border border-neutral-200 bg-white shadow-md p-1 z-50">
                       <div className="flex flex-col">
                         {countries.map((country) => (
                           <button
@@ -283,7 +283,7 @@ export default function ReviewAccountPage() {
                             className={`px-4 py-2 text-left text-[16px] rounded transition-colors ${
                               formData.country === country
                                 ? "bg-primary text-white"
-                                : "text-[#4b5563] hover:bg-[#f3f4f6]"
+                                : "text-neutral-600 hover:bg-[#f3f4f6]"
                             }`}
                           >
                             {country}
@@ -330,7 +330,7 @@ export default function ReviewAccountPage() {
                 {/* Product */}
                 <div className="mb-6">
                   <div className="flex justify-between items-center">
-                    <p className="text-[14px] text-[#6B7280] mb-2">
+                    <p className="text-[14px] text-neutral-500 mb-2">
                       {sessionStorage.getItem("product_name") || "Product Name"}
                     </p>
                     <span className="text-[16px] font-medium text-sage">
@@ -338,7 +338,7 @@ export default function ReviewAccountPage() {
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <p className="text-[14px] text-[#6B7280] mb-2">
+                    <p className="text-[14px] text-neutral-500 mb-2">
                       Shipping costs
                     </p>
                     <span className="text-base text-sage font-semibold">
@@ -348,7 +348,7 @@ export default function ReviewAccountPage() {
                 </div>
 
                 {/* Info box */}
-                <div className="bg-[#E8ECEB] rounded-lg p-4 mb-6 flex gap-3">
+                <div className="bg-neutral-200 rounded-lg p-4 mb-6 flex gap-3">
                   <WarnIcon />
                   <p className="text-[14px] text-muted-foreground">
                     The pharmacy will contact you within a few hours with
@@ -357,7 +357,7 @@ export default function ReviewAccountPage() {
                 </div>
 
                 {/* Prescription Fee */}
-                <div className="mb-6 pb-6 border-b border-[#e5e7eb] flex justify-between items-center">
+                <div className="mb-6 pb-6 border-b border-neutral-200 flex justify-between items-center">
                   <p className="text-[14px] text-muted-foreground">
                     Prescription Fee
                   </p>
@@ -396,7 +396,7 @@ export default function ReviewAccountPage() {
 
             {/* Payment methods - always visible */}
             <div className="bg-[#F3F4F6] p-4 rounded-lg">
-              <p className="text-base text-[#6B7280] mb-3 border-b border-[#e5e7eb] pb-3">
+              <p className="text-base text-neutral-500 mb-3 border-b border-neutral-200 pb-3">
                 Payment methods
               </p>
               <div className="flex items-center gap-1.5">

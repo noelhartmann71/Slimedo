@@ -68,13 +68,13 @@ function Accordion({
     <div className="border bg-white border-gray-200 rounded-lg overflow-hidden p-5 font-inter">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-[#E8ECEB] hover:bg-gray-100 transition-color rounded-lg cursor-pointer"
+        className="w-full flex items-center justify-between px-4 py-3 bg-neutral-200 hover:bg-gray-100 transition-color rounded-lg cursor-pointer"
       >
         <span className="text-[16px] font-medium text-gray-800">{title}</span>
         <ChevronIcon open={open} />
       </button>
       {open && (
-        <div className="py-4 text-[14px] text-[#6B7280] leading-relaxed flex flex-col gap-2">
+        <div className="py-4 text-[14px] text-neutral-500 leading-relaxed flex flex-col gap-2">
           {isLoading ? (
             <div className="animate-pulse space-y-3">
               <div className="flex items-center gap-2">
@@ -224,7 +224,7 @@ export default function ImportantInformationPage() {
             <h1 className="text-[24px] font-semibold text-black mb-2">
               Important information
             </h1>
-            <p className="text-[16px] text-[#6B7280] leading-relaxed">
+            <p className="text-[16px] text-neutral-500 leading-relaxed">
               Please read the information on risks and side effects carefully
               and then confirm that you understand it.
             </p>
@@ -278,7 +278,7 @@ export default function ImportantInformationPage() {
 
           {/* Agreement card */}
           <div className="bg-white rounded-lg border border-gray-200 p-8 font-inter">
-            <p className="text-[14px] text-[#6B7280] mb-8 leading-relaxed">
+            <p className="text-[14px] text-neutral-500 mb-8 leading-relaxed">
               Have you read and understood all the information above and do you
               agree to the treatment?
             </p>
@@ -290,8 +290,8 @@ export default function ImportantInformationPage() {
                 }}
                 className={`flex-1 py-4 rounded-md border text-[16px] font-medium cursor-pointer transition-colors ${
                   agreed === "no"
-                    ? "border-red-300 bg-[#FEF2F2] text-[#4B5563]"
-                    : "border-red-200 bg-red-50/60 text-[#4B5563] hover:bg-red-50"
+                    ? "border-red-300 bg-[#FEF2F2] text-neutral-600"
+                    : "border-red-200 bg-red-50/60 text-neutral-600 hover:bg-red-50"
                 }`}
               >
                 No
@@ -310,7 +310,7 @@ export default function ImportantInformationPage() {
                 Yes
               </button>
             </div>
-            <p className="text-[14px] text-[#6B7280] mt-8 leading-relaxed">
+            <p className="text-[14px] text-neutral-500 mt-8 leading-relaxed">
               I understand that this treatment is provided within a telemedical
               care concept and that immediate in-person medical evaluation is
               required in the event of severe or newly occurring symptoms.

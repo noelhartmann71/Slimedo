@@ -22,12 +22,12 @@ export default function ProfilePaymentMethodsPage() {
           </button>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 rounded-[10px] border border-[#dce4e8] bg-white px-5 py-6">
+        <div className="flex flex-wrap items-center gap-4 rounded-[10px] border border-neutral-200 bg-white px-5 py-6">
           <div className="flex h-10.75 w-15 items-center justify-center rounded-sm border border-[#f3f4f6] bg-white">
             <MasterCardIcon />
           </div>
 
-          <div className="hidden h-6.75 w-px bg-[#dce4e8] sm:block" />
+          <div className="hidden h-6.75 w-px bg-neutral-200 sm:block" />
 
           <div className="min-w-50 flex-1">
             <p className="text-[16px] font-medium leading-6 text-accent-foreground">
@@ -44,7 +44,7 @@ export default function ProfilePaymentMethodsPage() {
           <div className="flex flex-wrap items-center gap-3.5">
             <button
               type="button"
-              className="inline-flex h-12.5 items-center gap-2 rounded-[10px] bg-[#e8eceb] px-4 text-[16px] font-medium leading-6 text-primary transition-colors hover:bg-[#dce4e2]"
+              className="inline-flex h-12.5 items-center gap-2 rounded-[10px] bg-neutral-200 px-4 text-[16px] font-medium leading-6 text-primary transition-colors hover:bg-[#dce4e2]"
             >
               <EditIcon className="h-4.5 w-4.5" />
               Edit

@@ -71,10 +71,10 @@ export const Step2 = ({
         </div>
       ) : (
         <>
-          <p className="text-[14px] font-medium text-[#111827] mb-1.5">
+          <p className="text-[14px] font-medium text-neutral-900 mb-1.5">
             {allergies?.question}
           </p>
-          <p className="text-[14px] text-[#6B7280] mb-4">
+          <p className="text-[14px] text-neutral-500 mb-4">
             {allergies?.description}
           </p>
           <div className="flex gap-4 mb-4">

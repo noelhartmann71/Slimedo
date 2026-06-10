@@ -76,11 +76,11 @@ export default function ComorbiditiesStep({
           </div>
         ) : (
           <>
-            <p className="text-[14px] font-medium text-[#111827] mb-1.5">
+            <p className="text-[14px] font-medium text-neutral-900 mb-1.5">
               {comorbidities?.question ||
                 "Do you have any known comorbidities?"}
             </p>
-            <p className="text-[14px] text-[#6B7280] mb-8">
+            <p className="text-[14px] text-neutral-500 mb-8">
               {comorbidities?.description ||
                 "Info: Ab BMI 27 eine Verschreibung nur mit Begleiterkrankung möglich."}
             </p>
@@ -126,7 +126,7 @@ export default function ComorbiditiesStep({
       {hasComorbidities === "yes" && (
         <>
           <div className="mb-4">
-            <p className="text-[14px] font-medium text-[#111827] mb-3">
+            <p className="text-[14px] font-medium text-neutral-900 mb-3">
               Bitte wählen Sie mindestens eine Begleiterkrankung aus.
             </p>
             <div className="flex flex-col gap-3">
@@ -158,7 +158,7 @@ export default function ComorbiditiesStep({
                         onClick={() => toggleSubstance(name)}
                         className={`flex items-center gap-3 px-3 py-3.5 cursor-pointer transition-colors rounded-md border ${
                           checked
-                            ? "bg-[#E8ECEB] border-[#96A9A5]"
+                            ? "bg-neutral-200 border-[#96A9A5]"
                             : "bg-white hover:bg-gray-50 border-[#96A9A5]"
                         }`}
                       >

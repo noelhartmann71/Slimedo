@@ -116,7 +116,7 @@ export default function Testimonials() {
               <p className="text-lg text-[#092530] font-normal mb-4">
                 {t.period}
               </p>
-              <p className="text-lg md:text-2xl text-[#374151] leading-relaxed italic mt-10 xl:mt-27.75">
+              <p className="text-lg md:text-2xl text-neutral-700 leading-relaxed italic mt-10 xl:mt-27.75">
                 {t.quote}
               </p>
             </div>

@@ -79,7 +79,7 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
           <h2 className="mb-2 text-2xl font-medium tracking-tight text-black">
             Apothekenzahlung
           </h2>
-          <p className="text-base font-normal text-[#6B7280]">
+          <p className="text-base font-normal text-neutral-500">
             Schließen Sie Ihre Zahlung an die ausgewählte Apotheke ab
           </p>
         </div>
@@ -95,7 +95,7 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
               <h3 className="text-base font-medium text-sage">
                 Zahlungsinformationen
               </h3>
-              <p className="text-[14px] leading-normal text-[#4B5563]">
+              <p className="text-[14px] leading-normal text-neutral-600">
                 Diese Zahlung geht direkt an Ihre ausgewählte Apotheke.
               </p>
               <p className="text-[14px] leading-normal text-sage">
@@ -105,7 +105,7 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
           </div>
 
           {/* Amount Box */}
-          <div className="flex items-center justify-between rounded-md border border-gray-100 bg-[#E8ECEB] px-5 py-4">
+          <div className="flex items-center justify-between rounded-md border border-gray-100 bg-neutral-200 px-5 py-4">
             <span className="text-sm font-medium text-black">Gesamtbetrag</span>
             <span className="text-sm font-medium text-black">
               {TotalAmount} €
@@ -134,10 +134,10 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
                 )}
               </div>
               <div className="flex-1 text-left">
-                <p className="text-sm font-medium text-[#111827]">
+                <p className="text-sm font-medium text-neutral-900">
                   Mit Karte bezahlen
                 </p>
-                <p className="text-[14px] text-[#6B7280]">
+                <p className="text-[14px] text-neutral-500">
                   {isProcessingCard
                     ? "Verarbeitung..."
                     : "Verwenden Sie Ihre Kredit- oder Debitkarte"}
@@ -158,10 +158,10 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
                 <SelectPaymentMethodIconSvg />
               </div>
               <div className="flex-1 text-left">
-                <p className="text-sm font-medium text-[#111827]">
+                <p className="text-sm font-medium text-neutral-900">
                   Mit Banküberweisung bezahlen
                 </p>
-                <p className="text-[14px] text-[#6B7280]">
+                <p className="text-[14px] text-neutral-500">
                   Online-Banking oder Mobile-Banking
                 </p>
               </div>

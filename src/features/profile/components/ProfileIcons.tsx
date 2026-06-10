@@ -241,7 +241,7 @@ export function BangladeshFlag({ className }: { className?: string }) {
     <span
       className={
         className ??
-        "relative inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-xs border border-[#9CA3AF] bg-[#0B8A4A]"
+        "relative inline-flex h-4 w-6 items-center justify-center overflow-hidden rounded-xs border border-neutral-400 bg-[#0B8A4A]"
       }
       aria-hidden="true"
     >

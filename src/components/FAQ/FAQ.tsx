@@ -250,7 +250,7 @@ export default function FAQ() {
                   }
                 >
                   <span
-                    className={`text-base lg:text-2xl font-serif text-[#111827] ${
+                    className={`text-base lg:text-2xl font-serif text-neutral-900 ${
                       openId === faq.id ? "font-semibold" : "font-normal"
                     }`}
                   >

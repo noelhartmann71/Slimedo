@@ -101,11 +101,11 @@ const PharmacyPaymentCardSuccessPage = () => {
 
         {/* Payment confirmation message - show if only sessionId exists */}
         {!confirmedBooking && sessionId && (
-          <div className="bg-[#E8ECEB] rounded-2xl p-5 mb-8 border border-[#D1D9D4]">
+          <div className="bg-neutral-200 rounded-2xl p-5 mb-8 border border-[#D1D9D4]">
             <p className="text-sm text-deep font-medium mb-2">
               Sitzungs-ID:
             </p>
-            <p className="text-xs text-[#6B7280] font-mono break-all">
+            <p className="text-xs text-neutral-500 font-mono break-all">
               {sessionId}
             </p>
           </div>

@@ -65,34 +65,34 @@ export default function PharmacyOrderListPage() {
         <h2 className="text-xl font-bold text-black text-[22px]">
           Latest Order
         </h2>
-        <p className="text-sm font-normal text-[#6C7278]">
+        <p className="text-sm font-normal text-neutral-500">
           View the latest order list
         </p>
       </div>
 
-      <div className="overflow-hidden overflow-x-auto rounded-lg border border-[#E5E7EB] bg-white">
+      <div className="overflow-hidden overflow-x-auto rounded-lg border border-neutral-200 bg-white">
         <table className="w-full min-w-245 border-collapse text-left">
           <thead className="bg-[#D8DDDC]">
             <tr>
-              <th className="px-5 py-3 text-center text-[14px] font-medium text-[#374151]">
+              <th className="px-5 py-3 text-center text-[14px] font-medium text-neutral-700">
                 Order ID
               </th>
-              <th className="px-5 py-3 text-center text-[14px] font-medium text-[#374151]">
+              <th className="px-5 py-3 text-center text-[14px] font-medium text-neutral-700">
                 Medication
               </th>
-              <th className="px-5 py-3 text-center text-[14px] font-medium text-[#374151]">
+              <th className="px-5 py-3 text-center text-[14px] font-medium text-neutral-700">
                 Quantity
               </th>
-              <th className="px-5 py-3 text-center text-[14px] font-medium text-[#374151]">
+              <th className="px-5 py-3 text-center text-[14px] font-medium text-neutral-700">
                 Client Name
               </th>
-              <th className="px-5 py-3 text-center text-[14px] font-medium text-[#374151]">
+              <th className="px-5 py-3 text-center text-[14px] font-medium text-neutral-700">
                 Date
               </th>
-              <th className="px-5 py-3 text-center text-[14px] font-medium text-[#374151]">
+              <th className="px-5 py-3 text-center text-[14px] font-medium text-neutral-700">
                 Status
               </th>
-              <th className="px-5 py-3 text-center text-[14px] font-medium text-[#374151]">
+              <th className="px-5 py-3 text-center text-[14px] font-medium text-neutral-700">
                 Action
               </th>
             </tr>
@@ -103,13 +103,13 @@ export default function PharmacyOrderListPage() {
                 key={`${order.id}-${index}`}
                 className="border-b border-[#EEF1F3] last:border-b-0"
               >
-                <td className="px-5 py-4 text-center text-[16px] font-normal text-[#6B7280]">
+                <td className="px-5 py-4 text-center text-[16px] font-normal text-neutral-500">
                   {order.id}
                 </td>
-                <td className="px-5 py-4 text-center text-[16px] font-normal text-[#6B7280]">
+                <td className="px-5 py-4 text-center text-[16px] font-normal text-neutral-500">
                   {order.medication}
                 </td>
-                <td className="px-5 py-4 text-center text-[16px] font-normal text-[#6B7280]">
+                <td className="px-5 py-4 text-center text-[16px] font-normal text-neutral-500">
                   {order.quantity}
                 </td>
                 <td className="px-5 py-4 text-center">
@@ -122,7 +122,7 @@ export default function PharmacyOrderListPage() {
                     </p>
                   ) : null}
                 </td>
-                <td className="px-5 py-4 text-center text-[16px] font-normal text-[#6B7280]">
+                <td className="px-5 py-4 text-center text-[16px] font-normal text-neutral-500">
                   {order.date}
                 </td>
                 <td className="px-5 py-4 text-center">
@@ -138,7 +138,7 @@ export default function PharmacyOrderListPage() {
                       View
                     </button>
                     <button
-                      className="text-[#6B7280] transition-colors hover:text-deep"
+                      className="text-neutral-500 transition-colors hover:text-deep"
                       aria-label="Download order"
                     >
                       <svg

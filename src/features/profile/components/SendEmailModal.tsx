@@ -62,7 +62,7 @@ export default function SendEmailModal({
         </button>
 
         {/* Header */}
-        <h2 className="mb-4 text-xl font-semibold text-[#111827]">
+        <h2 className="mb-4 text-xl font-semibold text-neutral-900">
           Send Email
         </h2>
 
@@ -72,7 +72,7 @@ export default function SendEmailModal({
           <div className="space-y-1.5">
             <label
               htmlFor="subject"
-              className="text-sm font-medium text-[#374151]"
+              className="text-sm font-medium text-neutral-700"
             >
               Subject
             </label>
@@ -82,7 +82,7 @@ export default function SendEmailModal({
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               placeholder="Enter email subject"
-              className="w-full rounded-lg border border-[#E5E7EB] bg-white px-4 py-2.5 text-sm text-[#111827] placeholder-[#9CA3AF] focus:border-sage focus:outline-none focus:ring-2 focus:ring-sage/10"
+              className="w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-sage focus:outline-none focus:ring-2 focus:ring-sage/10"
             />
           </div>
 
@@ -90,7 +90,7 @@ export default function SendEmailModal({
           <div className="space-y-1.5">
             <label
               htmlFor="body"
-              className="text-sm font-medium text-[#374151]"
+              className="text-sm font-medium text-neutral-700"
             >
               Message
             </label>
@@ -100,7 +100,7 @@ export default function SendEmailModal({
               onChange={(e) => setBody(e.target.value)}
               placeholder="Enter email message"
               rows={4}
-              className="w-full rounded-lg border border-[#E5E7EB] bg-white px-4 py-2.5 text-sm text-[#111827] placeholder-[#9CA3AF] focus:border-sage focus:outline-none focus:ring-2 focus:ring-sage/10 resize-none"
+              className="w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-sage focus:outline-none focus:ring-2 focus:ring-sage/10 resize-none"
             />
           </div>
 
@@ -109,7 +109,7 @@ export default function SendEmailModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-lg border border-[#E5E7EB] bg-white py-2.5 text-sm font-semibold text-[#374151] transition-colors hover:bg-[#F9FAFB] cursor-pointer"
+              className="flex-1 rounded-lg border border-neutral-200 bg-white py-2.5 text-sm font-semibold text-neutral-700 transition-colors hover:bg-[#F9FAFB] cursor-pointer"
             >
               Cancel
             </button>

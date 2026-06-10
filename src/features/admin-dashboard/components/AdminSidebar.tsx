@@ -34,7 +34,7 @@ const NAVIGATION_ITEMS = [
 
 export default function AdminSidebar() {
   return (
-    <aside className="w-64 bg-white border-r border-[#E5E9EB] flex flex-col h-screen sticky top-0 font-inter">
+    <aside className="w-64 bg-white border-r border-neutral-200 flex flex-col h-screen sticky top-0 font-inter">
       <div className="p-6">
         <div className="flex items-center justify-center gap-2 mb-4">
           <img
@@ -48,11 +48,11 @@ export default function AdminSidebar() {
             </h1>
           </div>
         </div>
-        <p className="text-center text-[#6B7280] text-[10px] font-inter">
+        <p className="text-center text-neutral-500 text-[10px] font-inter">
           Medical Admin Dashboard
         </p>
         <nav className="space-y-2 mt-10">
-          <p className="text-[12px] font-medium text-[#6B7280] mb-4">
+          <p className="text-[12px] font-medium text-neutral-500 mb-4">
             Main Menu
           </p>
           {NAVIGATION_ITEMS.map((item) => (
@@ -63,8 +63,8 @@ export default function AdminSidebar() {
                 flex items-center gap-3 px-5 py-3 text-sm font-medium transition-colors
                 ${
                   isActive
-                    ? "bg-[#E8ECEB] text-sage border-r-4 border-sage rounded-r-none"
-                    : "text-[#667185] hover:bg-[#E8ECEB]"
+                    ? "bg-neutral-200 text-sage border-r-4 border-sage rounded-r-none"
+                    : "text-neutral-500 hover:bg-neutral-200"
                 }
               `}
             >

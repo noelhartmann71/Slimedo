@@ -105,7 +105,7 @@ export default function VerifyRegister() {
   const isComplete = digits.every((d) => d !== "");
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-[#E2E8F0] md:h-screen p-6 font-inter">
+    <div className="flex flex-col md:flex-row min-h-screen bg-neutral-200 md:h-screen p-6 font-inter">
       <div className="w-full bg-white rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row border border-white">
         {/* Sidebar Section */}
         <div className="w-full md:w-120 bg-deep p-7 flex flex-col items-center justify-between text-white sticky top-0">
@@ -159,12 +159,12 @@ export default function VerifyRegister() {
         {/* Main Content Section */}
         <div className="flex-1 flex flex-col items-center relative pt-12 overflow-y-auto">
           <div className="flex-1 flex items-center justify-center w-full pb-8">
-            <div className="w-full max-w-130 bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#E2E8F0]">
+            <div className="w-full max-w-130 bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-200">
               <div className="mb-8 text-center">
-                <h2 className="text-2xl font-medium text-[#020817] mb-2">
+                <h2 className="text-2xl font-medium text-ink mb-2">
                   Enter Your Code
                 </h2>
-                <p className="text-[#64748B] text-base font-normal">
+                <p className="text-neutral-500 text-base font-normal">
                   We've sent a verification code to{" "}
                   <span className="text-[#4a90d9]">{email}</span>.
                 </p>
@@ -186,16 +186,16 @@ export default function VerifyRegister() {
                     onChange={(e) => handleChange(i, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(i, e)}
                     className={`w-full h-14 text-center text-lg font-semibold border rounded-xl outline-none transition
-                      ${d ? "border-deep bg-white ring-1 ring-deep" : "border-[#E2E8F0] bg-white"}
+                      ${d ? "border-deep bg-white ring-1 ring-deep" : "border-neutral-200 bg-white"}
                       focus:border-deep focus:ring-1 focus:ring-deep`}
                   />
                 ))}
               </div>
 
               <div className="text-center mb-8">
-                <p className="text-sm text-[#94A3B8]">
+                <p className="text-sm text-neutral-400">
                   Wait for&nbsp;
-                  <span className="text-[#64748B] font-medium">
+                  <span className="text-neutral-500 font-medium">
                     {pad(Math.floor(timer / 60))}:{pad(timer % 60)}
                   </span>
                 </p>
@@ -218,7 +218,7 @@ export default function VerifyRegister() {
               </Button>
 
               <button
-                className="w-full text-center text-sm text-[#64748B] hover:text-deep font-medium py-4 cursor-pointer bg-transparent border-none mt-2 transition-colors"
+                className="w-full text-center text-sm text-neutral-500 hover:text-deep font-medium py-4 cursor-pointer bg-transparent border-none mt-2 transition-colors"
                 onClick={() => {
                   setTimer(TIMER_START);
                   setDigits(Array(CODE_LENGTH).fill(""));
@@ -232,10 +232,10 @@ export default function VerifyRegister() {
 
               <div className="relative my-8">
                 <div className="absolute inset-0 flex items-center">
-                  <Separator className="w-full bg-[#E2E8F0]" />
+                  <Separator className="w-full bg-neutral-200" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-white px-3 text-[#94A3B8] font-medium">
+                  <span className="bg-white px-3 text-neutral-400 font-medium">
                     Or
                   </span>
                 </div>
@@ -252,7 +252,7 @@ export default function VerifyRegister() {
               </div>
 
               <div className="text-center">
-                <p className="text-base text-[#64748B] font-medium">
+                <p className="text-base text-neutral-500 font-medium">
                   Need to fix it?{" "}
                   <Link
                     to="/auth/create-patient"
@@ -267,7 +267,7 @@ export default function VerifyRegister() {
 
           {/* Footer */}
           <div className="w-full border-t border-slate-200/60">
-            <p className="text-[#94A3B8] text-base px-7 py-6 text-center md:text-left">
+            <p className="text-neutral-400 text-base px-7 py-6 text-center md:text-left">
               © 2026 Slimedo Online Prescriptions. All rights reserved.
             </p>
           </div>

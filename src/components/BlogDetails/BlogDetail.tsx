@@ -46,13 +46,13 @@ function TagBadge({ label }: { label: string }) {
 // This is the similar blog
 function SimilarBlog({ label }: { label: string }) {
   const colorMap: Record<string, string> = {
-    Telemedizin: "bg-[#E8ECEB] text-sage",
-    "Patientenaufklärung": "bg-[#E8ECEB] text-sage",
-    Wellness: "bg-[#E8ECEB] text-sage",
-    "Psychische Gesundheit": "bg-[#E8ECEB] text-sage",
-    "Tipps & Ratgeber": "bg-[#E8ECEB] text-sage",
+    Telemedizin: "bg-neutral-200 text-sage",
+    "Patientenaufklärung": "bg-neutral-200 text-sage",
+    Wellness: "bg-neutral-200 text-sage",
+    "Psychische Gesundheit": "bg-neutral-200 text-sage",
+    "Tipps & Ratgeber": "bg-neutral-200 text-sage",
   };
-  const cls = colorMap[label] ?? "bg-[#E8ECEB]";
+  const cls = colorMap[label] ?? "bg-neutral-200";
   return (
     <span
       className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-sage ${cls}`}
@@ -82,11 +82,11 @@ function SimilarCard({ post }: { post: SimilarPost }) {
         <h3 className="text-xl font-medium text-black leading-snug line-clamp-2">
           {post.title}
         </h3>
-        <p className="text-base text-[#6B7280] leading-relaxed line-clamp-2 flex-1">
+        <p className="text-base text-neutral-500 leading-relaxed line-clamp-2 flex-1">
           {post.description}
         </p>
         <Link to={`/blog/${post.id}`} className="self-start">
-          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-[#E8ECEB] px-4 py-3 text-base font-medium text-sage hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
+          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-neutral-200 px-4 py-3 text-base font-medium text-sage hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
             Weiterlesen
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +200,7 @@ export default function BlogDetail() {
     <div className="min-h-screen bg-white font-inter">
       <div className="mx-5 lg:mx-10 xl:mx-15 2xl:mx-87.5 py-10 2xl:py-20">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-base text-[#808897] mb-6">
+        <nav className="flex items-center gap-1.5 text-base text-neutral-500 mb-6">
           <Link to="/blog" className="hover:text-teal-600 transition-colors">
             Blog
           </Link>
@@ -233,7 +233,7 @@ export default function BlogDetail() {
             />
             <div>
               <p className="text-sm font-medium text-black">{AUTHOR.name}</p>
-              <p className="text-xs text-[#6B7280]">{AUTHOR.role}</p>
+              <p className="text-xs text-neutral-500">{AUTHOR.role}</p>
             </div>
           </div>
 
@@ -289,7 +289,7 @@ export default function BlogDetail() {
             {toArray(blogDetailsData.category).map((cat: string) => (
               <span
                 key={cat}
-                className="text-xs text-[#6B7280] bg-gray-100 px-3 py-2 rounded-lg"
+                className="text-xs text-neutral-500 bg-gray-100 px-3 py-2 rounded-lg"
               >
                 {cat}
               </span>
@@ -307,7 +307,7 @@ export default function BlogDetail() {
         </div>
 
         {/* Article Body */}
-        <div className="text-[#6B7280] text-base leading-relaxed space-y-5">
+        <div className="text-neutral-500 text-base leading-relaxed space-y-5">
           <p>{blogDetailsData.description}</p>
         </div>
 

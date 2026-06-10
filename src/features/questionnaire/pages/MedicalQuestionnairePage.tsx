@@ -48,7 +48,7 @@ function CompletedRow({ label, value }: { label: string; value: string }) {
         </span>
         <span className="text-[16px] font-medium text-black">{label}</span>
       </div>
-      <span className="text-[16px] text-[#9CA3AF]">{value}</span>
+      <span className="text-[16px] text-neutral-400">{value}</span>
     </div>
   );
 }
@@ -330,7 +330,7 @@ export default function MedicalQuestionnairePage() {
                   <h1 className="text-[24px] font-semibold text-black mb-2">
                     {questionaryData?.question || "Medical questionnaire"}
                   </h1>
-                  <p className="text-[16px] text-[#6B7280] leading-relaxed">
+                  <p className="text-[16px] text-neutral-500 leading-relaxed">
                     {questionaryData?.description ||
                       "Please fill out your medical information truthfully. It will only be accessible to the relevant doctors. Your data is safe, protected, and will not be shared with any third parties."}
                   </p>

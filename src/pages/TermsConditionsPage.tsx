@@ -71,12 +71,12 @@ const termsSections: TermsSection[] = [
 
 function TermsCard({ section }: { section: TermsSection }) {
   return (
-    <article className="rounded-3xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-      <h2 className="text-xl font-semibold text-[#111827]">{section.title}</h2>
-      <p className="mt-3 text-sm leading-6 text-[#4B5563]">
+    <article className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+      <h2 className="text-xl font-semibold text-neutral-900">{section.title}</h2>
+      <p className="mt-3 text-sm leading-6 text-neutral-600">
         {section.description}
       </p>
-      <ul className="mt-4 space-y-3 text-sm leading-6 text-[#374151]">
+      <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-700">
         {section.points.map((point) => (
           <li key={point} className="flex gap-3">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-deep" />
@@ -151,11 +151,11 @@ export default function TermsConditionsPage() {
           </div>
 
           <aside className="space-y-6">
-            <section className="rounded-3xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#6B7280]">
+            <section className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral-500">
                 Verpflichtungen der Nutzer
               </p>
-              <div className="mt-4 space-y-4 text-sm leading-6 text-[#4B5563]">
+              <div className="mt-4 space-y-4 text-sm leading-6 text-neutral-600">
                 <p>
                   Bewahren Sie Ihre Zugangsdaten sicher auf und nutzen Sie die Plattform nur für
                   rechtmäßige Zwecke.
@@ -171,7 +171,7 @@ export default function TermsConditionsPage() {
               </div>
             </section>
 
-            <section className="rounded-3xl border border-[#E5E7EB] bg-[#0F5132] p-6 text-white shadow-sm">
+            <section className="rounded-3xl border border-neutral-200 bg-[#0F5132] p-6 text-white shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
                 Brauchen Sie Hilfe?
               </p>

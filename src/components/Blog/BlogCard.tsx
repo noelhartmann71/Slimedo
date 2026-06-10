@@ -101,13 +101,13 @@ function BlogCard({ post }: { post: SimilarPost }) {
         </h3>
 
         {/* Description */}
-        <p className="text-sm xl:text-base text-[#6B7280] leading-relaxed line-clamp-2 flex-1">
+        <p className="text-sm xl:text-base text-neutral-500 leading-relaxed line-clamp-2 flex-1">
           {post.description}
         </p>
 
         {/* Read More */}
         <Link to={`/blog/${post.id}`}>
-          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-[#B8C5C2] bg-[#E8ECEB] px-2 xl:px-4 xl:py-3 py-1.5 text-base font-medium text-gray-700 hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
+          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-[#B8C5C2] bg-neutral-200 px-2 xl:px-4 xl:py-3 py-1.5 text-base font-medium text-gray-700 hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
             Weiterlesen
             <svg
               xmlns="http://www.w3.org/2000/svg"

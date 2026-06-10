@@ -35,7 +35,7 @@ export default function ProfileDashboardLayout({
               <h1 className="text-[24px] font-bold text-black">
                 Hello {user?.first_name} {user?.last_name || "User"}
               </h1>
-              <p className="text-[14px] font-normal leading-5 text-[#6C7278]">
+              <p className="text-[14px] font-normal leading-5 text-neutral-500">
                 Welcome back. Here you can see the current status of your
                 prescriptions and medical requests.
               </p>
@@ -44,7 +44,7 @@ export default function ProfileDashboardLayout({
 
           <section className="overflow-hidden rounded-xl bg-white p-6 lg:min-h-108.5">
             <div className="flex flex-col gap-6 lg:flex-row lg:gap-6">
-              <aside className="lg:h-96.5 lg:w-59.75 lg:shrink-0 lg:border-r lg:border-[#dce4e8] lg:pr-6">
+              <aside className="lg:h-96.5 lg:w-59.75 lg:shrink-0 lg:border-r lg:border-neutral-200 lg:pr-6">
                 <nav className="flex gap-2.5 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible lg:pb-0">
                   {PROFILE_NAVIGATION_ITEMS.map((item) => {
                     const isActive = item.key === activeSection;
@@ -55,7 +55,7 @@ export default function ProfileDashboardLayout({
                         className={joinClassNames(
                           "flex h-11 min-w-max items-center gap-3 px-5 py-3 text-[14px] font-medium leading-5 transition-colors lg:w-53.75",
                           isActive
-                            ? "bg-[#e8eceb] text-primary lg:border-r-[3px] lg:border-primary"
+                            ? "bg-neutral-200 text-primary lg:border-r-[3px] lg:border-primary"
                             : "text-muted-foreground hover:bg-[#f5f7f6]",
                         )}
                       >

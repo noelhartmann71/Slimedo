@@ -100,7 +100,7 @@ function CompletedRow({ label, value }: { label: string; value: string }) {
         </span>
         <span className="text-[16px] font-medium text-black">{label}</span>
       </div>
-      <span className="text-[16px] text-[#9CA3AF]">{value}</span>
+      <span className="text-[16px] text-neutral-400">{value}</span>
     </div>
   );
 }
@@ -257,7 +257,7 @@ export default function ProductSelectionPage() {
               Produktauswahl
             </h1>
             <div className="bg-[#F3F4F6] rounded-lg p-6">
-              <p className="text-base text-[#4B5563] mb-2">
+              <p className="text-base text-neutral-600 mb-2">
                 Wählen Sie das Produkt, das am besten zu Ihren Bedürfnissen passt.
               </p>
               <ul className="flex flex-col gap-1.5">
@@ -267,7 +267,7 @@ export default function ProductSelectionPage() {
                 ].map((t) => (
                   <li
                     key={t}
-                    className="flex items-start gap-2 text-sm text-[#4B5563]"
+                    className="flex items-start gap-2 text-sm text-neutral-600"
                   >
                     <svg
                       className="mt-px shrink-0"
@@ -308,7 +308,7 @@ export default function ProductSelectionPage() {
                     ? Array.from({ length: 4 }).map((_, i) => (
                         <div
                           key={i}
-                          className="px-5 py-3 rounded-lg border border-[#E8ECEB] flex items-center justify-between"
+                          className="px-5 py-3 rounded-lg border border-neutral-200 flex items-center justify-between"
                         >
                           <div className="flex flex-col gap-4">
                             <Skeleton className="h-5 w-35" />
@@ -345,13 +345,13 @@ export default function ProductSelectionPage() {
                               }}
                               className={`px-5 py-3 rounded-lg border cursor-pointer transition-colors ${
                                 sel
-                                  ? "bg-[#E8ECEB] border-[#96A9A5]"
-                                  : "border-[#E8ECEB] hover:bg-gray-50/60"
+                                  ? "bg-neutral-200 border-[#96A9A5]"
+                                  : "border-neutral-200 hover:bg-gray-50/60"
                               }`}
                             >
                               <div className="flex items-center justify-between">
                                 <div>
-                                  <span className="text-[16px] font-medium text-[#4B5563]">
+                                  <span className="text-[16px] font-medium text-neutral-600">
                                     {product.name}
                                   </span>
                                   <button className="flex items-center gap-0.5 text-[14px] text-sage hover:text-gray-600 mt-4 cursor-pointer">
@@ -359,7 +359,7 @@ export default function ProductSelectionPage() {
                                   </button>
                                 </div>
                                 <div className="flex flex-col items-end gap-2">
-                                  <span className="text-[16px] font-medium text-[#4B5563]">
+                                  <span className="text-[16px] font-medium text-neutral-600">
                                     ab €{product.price}
                                   </span>
                                   {sel && (
@@ -391,13 +391,13 @@ export default function ProductSelectionPage() {
                               }}
                               className={`px-5 py-3 rounded-lg border cursor-pointer transition-colors ${
                                 sel
-                                  ? "bg-[#E8ECEB] border-[#96A9A5]"
-                                  : "border-[#E8ECEB] hover:bg-gray-50/60"
+                                  ? "bg-neutral-200 border-[#96A9A5]"
+                                  : "border-neutral-200 hover:bg-gray-50/60"
                               }`}
                             >
                               <div className="flex items-center justify-between">
                                 <div>
-                                  <span className="text-[16px] font-medium text-[#4B5563]">
+                                  <span className="text-[16px] font-medium text-neutral-600">
                                     {product.name}
                                   </span>
                                   <button className="flex items-center gap-0.5 text-[14px] text-deep hover:text-gray-600 mt-4 cursor-pointer">
@@ -405,7 +405,7 @@ export default function ProductSelectionPage() {
                                   </button>
                                 </div>
                                 <div className="flex flex-col items-end gap-2">
-                                  <span className="text-[16px] font-medium text-[#4B5563]">
+                                  <span className="text-[16px] font-medium text-neutral-600">
                                     ab {product.price}
                                   </span>
                                   {sel && (
@@ -431,7 +431,7 @@ export default function ProductSelectionPage() {
                   </span>{" "}
                   &nbsp; Wählen Sie Ihre Dosierung
                 </p>
-                <p className="text-[14px] text-[#6B7280] mb-3">
+                <p className="text-[14px] text-neutral-500 mb-3">
                   Wählen Sie die Dosierung für einen Abnehmspritzen-Pen.
                 </p>
                 <div className="grid grid-cols-2 gap-2">
@@ -463,15 +463,15 @@ export default function ProductSelectionPage() {
                             }}
                             className={`flex items-center justify-between px-5 py-4 rounded-lg border cursor-pointer transition-colors ${
                               sel
-                                ? "border-[#96A9A5] bg-[#E8ECEB]"
+                                ? "border-[#96A9A5] bg-neutral-200"
                                 : "border-gray-200 hover:border-gray-300"
                             }`}
                           >
-                            <span className="text-base font-medium text-[#4B5563]">
+                            <span className="text-base font-medium text-neutral-600">
                               {d.dose}
                             </span>
                             <div className="flex items-center gap-1.5">
-                              <span className="text-[16px] text-[#6B7280]">
+                              <span className="text-[16px] text-neutral-500">
                                 {d.price}
                               </span>
                               {sel && (
@@ -487,7 +487,7 @@ export default function ProductSelectionPage() {
                 {selectedDosage && needsConfirm && (
                   <label
                     onClick={() => setConfirmed((c) => !c)}
-                    className="flex items-start gap-3 mt-8 p-4 bg-[#E8ECEB] rounded-xl cursor-pointer select-none"
+                    className="flex items-start gap-3 mt-8 p-4 bg-neutral-200 rounded-xl cursor-pointer select-none"
                   >
                     <span
                       className={`mt-0.5 w-5 h-5 rounded border shrink-0 flex items-center justify-center transition-colors ${

@@ -29,11 +29,11 @@ interface BlogData {
 // This is the similar blog
 function SimilarBlog({ label }: { label: string }) {
   const colorMap: Record<string, string> = {
-    Telemedicine: "bg-[#E8ECEB] text-sage",
-    "Patient Education": "bg-[#E8ECEB] text-sage",
-    Wellness: "bg-[#E8ECEB] text-sage",
-    "Mental Health": "bg-[#E8ECEB] text-sage",
-    "Tips & Guide": "bg-[#E8ECEB] text-sage",
+    Telemedicine: "bg-neutral-200 text-sage",
+    "Patient Education": "bg-neutral-200 text-sage",
+    Wellness: "bg-neutral-200 text-sage",
+    "Mental Health": "bg-neutral-200 text-sage",
+    "Tips & Guide": "bg-neutral-200 text-sage",
   };
   const labelMap: Record<string, string> = {
     Telemedicine: "Telemedizin",
@@ -43,7 +43,7 @@ function SimilarBlog({ label }: { label: string }) {
     "Tips & Guide": "Tipps & Leitfäden",
   };
   const displayLabel = labelMap[label] ?? label;
-  const cls = colorMap[label] ?? "bg-[#E8ECEB]";
+  const cls = colorMap[label] ?? "bg-neutral-200";
   return (
     <span
       className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-sage ${cls}`}
@@ -75,7 +75,7 @@ function SimilarCard({ post }: { post: SimilarPost }) {
         <h3 className="text-xl font-medium text-black leading-snug line-clamp-2">
           {post.title}
         </h3>
-        <p className="text-base text-[#6B7280] leading-relaxed line-clamp-2 flex-1">
+        <p className="text-base text-neutral-500 leading-relaxed line-clamp-2 flex-1">
           {post.description}
         </p>
         <Link to={`/blog/${post.id}`} className="self-start">
@@ -150,7 +150,7 @@ const LatestHealth = () => {
             <h2 className="text-3xl lg:text-[46px] font-serif font-semibold text-sage mb-4">
               Neueste Gesundheitserkenntnisse
             </h2>
-            <h2 className="text-base font-inter font-normal text-[#6B7280] md:mb-7">
+            <h2 className="text-base font-inter font-normal text-neutral-500 md:mb-7">
               Expertenrat, Gesundheitstipps und Branchen-News von unserem Team aus <br /> zugelassenen Ärzten
             </h2>
           </div>
@@ -158,7 +158,7 @@ const LatestHealth = () => {
           <Link to={"/"}>
             <button className="flex items-center gap-3 bg-[#0f4a4a] text-[#FFF] px-2 md:px-4 md:py-3 py-1.5 md:rounded-full rounded-4xl text-sm font-medium">
               <span>Alle ansehen</span>
-              <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#E8ECEB] text-[#0f4a4a] text-lg font-bold">
+              <span className="flex items-center justify-center w-7 h-7 rounded-full bg-neutral-200 text-[#0f4a4a] text-lg font-bold">
                 ›
               </span>
             </button>

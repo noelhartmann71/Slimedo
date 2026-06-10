@@ -122,7 +122,7 @@ export default function ProfileOverviewPage() {
           </div>
 
           {/* Status Card */}
-          <div className="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
             {isLoading ? (
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
@@ -150,7 +150,7 @@ export default function ProfileOverviewPage() {
                       <polyline points="12 6 12 12 16 14" />
                     </svg>
                   </div>
-                  <span className="text-sm font-medium text-[#6B7280]">
+                  <span className="text-sm font-medium text-neutral-500">
                     Current Status
                   </span>
                 </div>
@@ -164,7 +164,7 @@ export default function ProfileOverviewPage() {
                   >
                     {prescriptions[0]?.status || "No Status"}
                   </h3>
-                  <p className="text-sm text-[#6B7280]">
+                  <p className="text-sm text-neutral-500">
                     {prescriptions[0]?.status === "Pending"
                       ? "Awaiting medical review"
                       : "Prescription is active"}
@@ -175,7 +175,7 @@ export default function ProfileOverviewPage() {
           </div>
 
           {/* Total Prescriptions Card */}
-          <div className="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
             {isLoading ? (
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
@@ -203,15 +203,15 @@ export default function ProfileOverviewPage() {
                       <path d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
                     </svg>
                   </div>
-                  <span className="text-sm font-medium text-[#6B7280]">
+                  <span className="text-sm font-medium text-neutral-500">
                     Total Requests
                   </span>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-3xl font-semibold text-[#111827]">
+                  <h3 className="text-3xl font-semibold text-neutral-900">
                     {prescriptions.length}
                   </h3>
-                  <p className="text-sm text-[#6B7280]">
+                  <p className="text-sm text-neutral-500">
                     Total found in records
                   </p>
                 </div>
@@ -223,7 +223,7 @@ export default function ProfileOverviewPage() {
         {/* Action Banners */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {/* Follow-Up Banner */}
-          <div className="rounded-2xl border border-[#E5E7EB] bg-white p-6">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-6">
             <div className="mb-2 flex items-center gap-2">
               <svg
                 width="20"
@@ -238,11 +238,11 @@ export default function ProfileOverviewPage() {
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                 <polyline points="22 4 12 14.01 9 11.01" />
               </svg>
-              <h4 className="text-lg font-semibold text-[#111827]">
+              <h4 className="text-lg font-semibold text-neutral-900">
                 Follow-Up Prescription
               </h4>
             </div>
-            <p className="mb-6 text-sm leading-relaxed text-[#6B7280]">
+            <p className="mb-6 text-sm leading-relaxed text-neutral-500">
               Need a new prescription or a dosage adjustment? You can request a
               follow-up consultation here.
             </p>
@@ -262,7 +262,7 @@ export default function ProfileOverviewPage() {
           </div>
 
           {/* Need Help Banner */}
-          <div className="rounded-2xl border border-[#E5E7EB] bg-white p-6">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-6">
             <div className="mb-2 flex items-center gap-2">
               <svg
                 width="20"
@@ -277,11 +277,11 @@ export default function ProfileOverviewPage() {
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                 <polyline points="22 4 12 14.01 9 11.01" />
               </svg>
-              <h4 className="text-lg font-semibold text-[#111827]">
+              <h4 className="text-lg font-semibold text-neutral-900">
                 Need Help?
               </h4>
             </div>
-            <p className="mb-6 text-sm leading-relaxed text-[#6B7280]">
+            <p className="mb-6 text-sm leading-relaxed text-neutral-500">
               If you have any questions about your prescription or treatment,
               please contact our support team.
             </p>
@@ -298,13 +298,13 @@ export default function ProfileOverviewPage() {
                   setEmailModalKey((current) => current + 1);
                   setIsEmailModalOpen(true);
                 }}
-                className="flex-1 rounded-xl bg-[#F3F4F6] py-3.5 text-sm font-semibold text-[#374151] transition-colors hover:bg-[#E5E7EB] cursor-pointer"
+                className="flex-1 rounded-xl bg-[#F3F4F6] py-3.5 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-200 cursor-pointer"
               >
                 Send Email
               </button>
               <button
                 onClick={() => setIsViewEmailOpen(true)}
-                className="flex-1 rounded-xl bg-[#F3F4F6] py-3.5 text-sm font-semibold text-[#374151] transition-colors hover:bg-[#E5E7EB] cursor-pointer"
+                className="flex-1 rounded-xl bg-[#F3F4F6] py-3.5 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-200 cursor-pointer"
               >
                 View Email
               </button>
@@ -314,17 +314,17 @@ export default function ProfileOverviewPage() {
         {/* Prescription Details Table */}
         <div className="space-y-4">
           <div className="space-y-1">
-            <h4 className="text-lg font-semibold text-[#111827]">
+            <h4 className="text-lg font-semibold text-neutral-900">
               Prescription Details
             </h4>
-            <p className="text-sm text-[#6B7280]">
+            <p className="text-sm text-neutral-500">
               View complete information about your current prescription
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-xl border border-[#E5E7EB]">
+          <div className="overflow-hidden rounded-xl border border-neutral-200">
             <table className="w-full text-left text-sm">
-              <thead className="bg-[#F9FAFB] text-[#6B7280]">
+              <thead className="bg-[#F9FAFB] text-neutral-500">
                 <tr>
                   <th className="px-6 py-4 font-medium">Medication</th>
                   <th className="px-6 py-4 font-medium text-center">
@@ -334,7 +334,7 @@ export default function ProfileOverviewPage() {
                   <th className="px-6 py-4 font-medium text-center">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E5E7EB] bg-white">
+              <tbody className="divide-y divide-neutral-200 bg-white">
                 {isLoading ? (
                   Array.from({ length: 3 }).map((_, i) => (
                     <tr key={i}>
@@ -361,10 +361,10 @@ export default function ProfileOverviewPage() {
                 ) : prescriptions.length > 0 ? (
                   prescriptions.map((prescription: prescriptionData) => (
                     <tr key={prescription.id}>
-                      <td className="px-6 py-6 text-[#111827] font-medium">
+                      <td className="px-6 py-6 text-neutral-900 font-medium">
                         {prescription?.product?.name}
                       </td>
-                      <td className="px-6 py-6 text-[#6B7280] text-center">
+                      <td className="px-6 py-6 text-neutral-500 text-center">
                         {prescription?.product?.category}
                       </td>
                       <td className="px-6 py-6 text-center">
@@ -426,7 +426,7 @@ export default function ProfileOverviewPage() {
                   <tr>
                     <td
                       colSpan={4}
-                      className="px-6 py-10 text-center text-[#6B7280]"
+                      className="px-6 py-10 text-center text-neutral-500"
                     >
                       No prescriptions found.
                     </td>

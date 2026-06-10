@@ -387,7 +387,7 @@ export default function PharmacyOverviewPage() {
     {
       label: "Total Cases",
       value: overviewData?.total_cases ?? 0,
-      cardClass: "border-[#DBE7E4] bg-[#F7FBFA]",
+      cardClass: "border-neutral-200 bg-[#F7FBFA]",
       valueClass: "text-deep",
     },
     {
@@ -509,7 +509,7 @@ export default function PharmacyOverviewPage() {
   return (
     <div className="space-y-8">
       {/* ── Pharmacy header banner ── unchanged ─────────────────────────────── */}
-      <div className="rounded-2xl border border-[#DBE7E4] bg-linear-to-r from-[#F5FAF8] to-[#EFF6F4] p-5 md:p-6">
+      <div className="rounded-2xl border border-neutral-200 bg-linear-to-r from-[#F5FAF8] to-[#EFF6F4] p-5 md:p-6">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm font-medium text-sage">
@@ -522,7 +522,7 @@ export default function PharmacyOverviewPage() {
               Pharmacy: {pharmacyData.name} ({pharmacyData.type})
             </p>
           </div>
-          <div className="rounded-xl border border-[#DBE7E4] bg-white px-4 py-3 text-sm text-[#3D4C48]">
+          <div className="rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-[#3D4C48]">
             <p>
               Address: {pharmacyData.street}, {pharmacyData.house},{" "}
               {pharmacyData.city}, {pharmacyData.postal}, {pharmacyData.country}
@@ -559,7 +559,7 @@ export default function PharmacyOverviewPage() {
         <div className="flex flex-row justify-between gap-1 items-center">
           <div>
             <h2 className="text-[22px] font-bold text-black">Orders</h2>
-            <p className="text-sm font-normal text-[#6C7278]">
+            <p className="text-sm font-normal text-neutral-500">
               View all pharmacy orders from the dashboard API response.
             </p>
           </div>
@@ -569,7 +569,7 @@ export default function PharmacyOverviewPage() {
               href={exportLinksData?.csv_filtered}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#DBE7E4] bg-white px-4 text-[13px] font-medium text-deep transition-all hover:border-sage hover:bg-gray-50"
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-neutral-200 bg-white px-4 text-[13px] font-medium text-deep transition-all hover:border-sage hover:bg-gray-50"
             >
               <FileSpreadsheet className="h-4 w-4" />
               Export Filtered
@@ -577,7 +577,7 @@ export default function PharmacyOverviewPage() {
             <button
               onClick={() => exportOrders()}
               disabled={isExporting}
-              className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#DBE7E4] bg-sage px-4 text-[13px] font-medium text-white transition-all hover:bg-[#1B4F48] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-neutral-200 bg-sage px-4 text-[13px] font-medium text-white transition-all hover:bg-[#1B4F48] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isExporting ? (
                 <Loader2 className="h-4 w-4 animate-spin" />

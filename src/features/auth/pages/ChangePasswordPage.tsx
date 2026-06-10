@@ -92,7 +92,7 @@ const ChangePasswordPage = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-[#E2E8F0] md:h-screen p-6 font-inter">
+    <div className="flex flex-col md:flex-row min-h-screen bg-neutral-200 md:h-screen p-6 font-inter">
       <div className="w-full bg-white rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row border border-white">
         {/* Sidebar Section */}
         <div className="w-full md:w-120 bg-sage p-7 flex flex-col items-center justify-between text-white sticky top-0">
@@ -164,12 +164,12 @@ const ChangePasswordPage = () => {
         {/* Main Content Section */}
         <div className="flex-1 flex flex-col items-center relative pt-12 overflow-y-auto">
           <div className="flex-1 flex items-center justify-center w-full pb-8">
-            <div className="w-full max-w-130 bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#E2E8F0]">
+            <div className="w-full max-w-130 bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-200">
               <div className="mb-6">
-                <h2 className="text-2xl font-medium text-[#020817] mb-2">
+                <h2 className="text-2xl font-medium text-ink mb-2">
                   Neues Passwort erstellen
                 </h2>
-                <p className="text-[#64748B] text-base font-normal">
+                <p className="text-neutral-500 text-base font-normal">
                   Bitte geben Sie ein starkes neues Passwort ein, um Ihr Konto
                   zu sichern.
                 </p>
@@ -185,22 +185,22 @@ const ChangePasswordPage = () => {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-[#020817]">
+                        <FormLabel className="text-sm font-medium text-ink">
                           Passwort
                         </FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                             <Input
                               type={showPassword ? "text" : "password"}
                               placeholder="Passwort eingeben"
-                              className="pl-12 pr-12 h-14 rounded-xl border-[#E2E8F0] focus:border-sage focus-visible:ring-0 text-base placeholder:text-[#94A3B8] bg-white!"
+                              className="pl-12 pr-12 h-14 rounded-xl border-neutral-200 focus:border-sage focus-visible:ring-0 text-base placeholder:text-neutral-400 bg-white!"
                               {...field}
                             />
                             <button
                               type="button"
                               onClick={() => setShowPassword(!showPassword)}
-                              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#020817] transition-colors"
+                              className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-ink transition-colors"
                             >
                               {showPassword ? (
                                 <EyeOff className="w-5 h-5" />
@@ -220,16 +220,16 @@ const ChangePasswordPage = () => {
                     name="password_confirmation"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-[#020817]">
+                        <FormLabel className="text-sm font-medium text-ink">
                           Passwort bestätigen
                         </FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                             <Input
                               type={showConfirmPassword ? "text" : "password"}
                               placeholder="Passwort bestätigen"
-                              className="pl-12 pr-12 h-14 rounded-xl border-[#E2E8F0] focus:border-sage focus-visible:ring-0 text-base placeholder:text-[#94A3B8] bg-white!"
+                              className="pl-12 pr-12 h-14 rounded-xl border-neutral-200 focus:border-sage focus-visible:ring-0 text-base placeholder:text-neutral-400 bg-white!"
                               {...field}
                             />
                             <button
@@ -237,7 +237,7 @@ const ChangePasswordPage = () => {
                               onClick={() =>
                                 setShowConfirmPassword(!showConfirmPassword)
                               }
-                              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#020817] transition-colors"
+                              className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-ink transition-colors"
                             >
                               {showConfirmPassword ? (
                                 <EyeOff className="w-5 h-5" />
@@ -279,10 +279,10 @@ const ChangePasswordPage = () => {
 
               <div className="relative my-8">
                 <div className="absolute inset-0 flex items-center">
-                  <Separator className="w-full bg-[#E2E8F0]" />
+                  <Separator className="w-full bg-neutral-200" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-white px-3 text-[#94A3B8] font-medium">
+                  <span className="bg-white px-3 text-neutral-400 font-medium">
                     Oder
                   </span>
                 </div>
@@ -299,7 +299,7 @@ const ChangePasswordPage = () => {
               </div>
 
               <div className="text-center">
-                <p className="text-base text-[#64748B] font-medium">
+                <p className="text-base text-neutral-500 font-medium">
                   Sie haben noch kein Konto?{" "}
                   <Link
                     to="/auth/create-patient"
@@ -314,7 +314,7 @@ const ChangePasswordPage = () => {
 
           {/* Footer */}
           <div className="w-full border-t border-slate-200/60">
-            <p className="text-[#94A3B8] text-base px-7 py-6 text-center md:text-left">
+            <p className="text-neutral-400 text-base px-7 py-6 text-center md:text-left">
               © 2026 Slimedo Online-Rezepte. Alle Rechte vorbehalten.
             </p>
           </div>

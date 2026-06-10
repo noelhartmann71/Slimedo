@@ -160,10 +160,10 @@ export default function ProfilePersonalInformationPage() {
               <img
                 src={previewImage || user.avatar}
                 alt="Avatar"
-                className="h-14 w-14 rounded-full border border-[#dce4e8] object-cover"
+                className="h-14 w-14 rounded-full border border-neutral-200 object-cover"
               />
             ) : (
-              <div className="h-14 w-14 rounded-full border border-dashed border-[#9ca3af] bg-[#d1d5db]" />
+              <div className="h-14 w-14 rounded-full border border-dashed border-neutral-400 bg-neutral-300" />
             )}
             <div className="flex flex-wrap items-center gap-3">
               <input
@@ -183,7 +183,7 @@ export default function ProfilePersonalInformationPage() {
               </button>
               <button
                 type="button"
-                className="h-12 w-37 rounded-[10px] border border-[#dce4e8] bg-white text-[16px] font-medium leading-6 text-primary transition-colors hover:bg-[#f8faf9]"
+                className="h-12 w-37 rounded-[10px] border border-neutral-200 bg-white text-[16px] font-medium leading-6 text-primary transition-colors hover:bg-[#f8faf9]"
               >
                 Delete
               </button>
@@ -194,7 +194,7 @@ export default function ProfilePersonalInformationPage() {
             {/* First Name Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   First Name
                 </span>
               </div>
@@ -202,14 +202,14 @@ export default function ProfilePersonalInformationPage() {
                 type="text"
                 value={formData.firstName}
                 onChange={(e) => handleChange("firstName", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
 
             {/* Last Name Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Last Name
                 </span>
               </div>
@@ -217,14 +217,14 @@ export default function ProfilePersonalInformationPage() {
                 type="text"
                 value={formData.lastName}
                 onChange={(e) => handleChange("lastName", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
 
             {/* Birthday Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Birthday
                 </span>
               </div>
@@ -236,14 +236,14 @@ export default function ProfilePersonalInformationPage() {
                     : ""
                 }
                 onChange={(e) => handleChange("birthday", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none [&::-webkit-calendar-picker-indicator]:cursor-pointer"
               />
             </div>
 
             {/* Email Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   E-mail
                 </span>
               </div>
@@ -252,7 +252,7 @@ export default function ProfilePersonalInformationPage() {
                 value={formData.email}
                 readOnly
                 disabled
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-[#f9fafb] px-5 h-14 text-[16px] font-medium leading-6 text-[#9ca3af] cursor-not-allowed outline-none"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-[#f9fafb] px-5 h-14 text-[16px] font-medium leading-6 text-neutral-400 cursor-not-allowed outline-none"
               />
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function ProfilePersonalInformationPage() {
               {/* Street name */}
               <div className="flex min-w-0 flex-1 flex-col pb-2.75">
                 <div className="z-2 -mb-2.75 px-3">
-                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                     Street name
                   </span>
                 </div>
@@ -273,14 +273,14 @@ export default function ProfilePersonalInformationPage() {
                   value={formData.streetName}
                   onChange={(e) => handleChange("streetName", e.target.value)}
                   placeholder="Street name"
-                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-[#dce4e8] bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-neutral-200 bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
               {/* House number */}
               <div className="flex min-w-0 flex-1 flex-col pb-2.75">
                 <div className="z-2 -mb-2.75 px-3">
-                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                     House number
                   </span>
                 </div>
@@ -289,14 +289,14 @@ export default function ProfilePersonalInformationPage() {
                   value={formData.houseNumber}
                   onChange={(e) => handleChange("houseNumber", e.target.value)}
                   placeholder="e.g. 101"
-                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-[#dce4e8] bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-neutral-200 bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
               {/* Additional address */}
               <div className="flex min-w-0 flex-1 flex-col pb-2.75">
                 <div className="z-2 -mb-2.75 px-3">
-                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                     Additional address (optional)
                   </span>
                 </div>
@@ -307,14 +307,14 @@ export default function ProfilePersonalInformationPage() {
                     handleChange("additionalAddress", e.target.value)
                   }
                   placeholder="Apartment, suite, etc."
-                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-[#dce4e8] bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-neutral-200 bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
               {/* City */}
               <div className="flex min-w-0 flex-1 flex-col pb-2.75">
                 <div className="z-2 -mb-2.75 px-3">
-                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                     City
                   </span>
                 </div>
@@ -323,14 +323,14 @@ export default function ProfilePersonalInformationPage() {
                   value={formData.city}
                   onChange={(e) => handleChange("city", e.target.value)}
                   placeholder="City"
-                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-[#dce4e8] bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-neutral-200 bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
               {/* Postal code */}
               <div className="flex min-w-0 flex-1 flex-col pb-2.75">
                 <div className="z-2 -mb-2.75 px-3">
-                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                     Postal code
                   </span>
                 </div>
@@ -339,7 +339,7 @@ export default function ProfilePersonalInformationPage() {
                   value={formData.postalCode}
                   onChange={(e) => handleChange("postalCode", e.target.value)}
                   placeholder="0000"
-                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-[#dce4e8] bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="z-1 -mb-2.75 h-14 rounded-[10px] border border-neutral-200 bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
@@ -348,14 +348,14 @@ export default function ProfilePersonalInformationPage() {
                 className={`relative flex min-w-0 flex-1 flex-col pb-2.75 ${isOpen ? "z-60" : "z-10"}`}
               >
                 <div className="z-10 -mb-2.75 px-3">
-                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                  <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                     Country
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsOpen(!isOpen)}
-                  className="z-1 -mb-2.75 flex h-14 items-center justify-between rounded-[10px] border border-[#dce4e8] bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="z-1 -mb-2.75 flex h-14 items-center justify-between rounded-[10px] border border-neutral-200 bg-white px-5 text-[16px] font-medium leading-6 text-accent-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-[14px] font-bold text-accent-foreground">
@@ -382,7 +382,7 @@ export default function ProfilePersonalInformationPage() {
                 </button>
 
                 {isOpen && (
-                  <div className="absolute top-[calc(100%-8px)] left-0 z-999 w-full overflow-hidden rounded-[10px] border border-[#dce4e8] bg-white shadow-lg">
+                  <div className="absolute top-[calc(100%-8px)] left-0 z-999 w-full overflow-hidden rounded-[10px] border border-neutral-200 bg-white shadow-lg">
                     {countries.map((c) => (
                       <button
                         key={c.name}

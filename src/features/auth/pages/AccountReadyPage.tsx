@@ -138,7 +138,7 @@ export default function AccountReadyPage() {
                 <h1 className="text-[24px] font-medium text-black mb-2">
                   {telemedicalTreatmentInfo?.question}
                 </h1>
-                <p className="text-[16px] text-[#6B7280] leading-relaxed">
+                <p className="text-[16px] text-neutral-500 leading-relaxed">
                   {telemedicalTreatmentInfo?.description}
                 </p>
               </>
@@ -148,7 +148,7 @@ export default function AccountReadyPage() {
           {/* Consent card */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8">
             <div className="mb-5">
-              <p className="bg-[#E8ECEB] text-[13px] font-semibold text-gray-900 mb-3 p-3 rounded-lg">
+              <p className="bg-neutral-200 text-[13px] font-semibold text-gray-900 mb-3 p-3 rounded-lg">
                 Ich bestätige
               </p>
               <ul className="flex flex-col gap-3">
@@ -220,7 +220,7 @@ export default function AccountReadyPage() {
               <label
                 className={`flex-1 flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-all ${
                   agreed === "yes"
-                    ? "border-deep bg-[#E8ECEB]"
+                    ? "border-deep bg-neutral-200"
                     : "border-gray-200 hover:bg-gray-50 bg-white"
                 }`}
               >

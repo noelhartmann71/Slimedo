@@ -143,7 +143,7 @@ export default function CreateAccountPage() {
   return (
     <div className="bg-[#f7f8f6] min-h-screen flex font-inter pb-5 xl:pb-0">
       {/* Header */}
-      <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-3 sm:px-6 py-5 flex items-center justify-between z-50">
+      <div className="fixed top-0 left-0 right-0 bg-white border-b border-neutral-200 px-3 sm:px-6 py-5 flex items-center justify-between z-50">
         <button
           onClick={() => navigate(-1)}
           className="text-deep text-xs sm:text-base font-medium cursor-pointer"
@@ -176,7 +176,7 @@ export default function CreateAccountPage() {
                   <h1 className="text-2xl font-medium text-black mb-4">
                     Registrieren
                   </h1>
-                  <p className="text-[16px] text-[#6B7280]">
+                  <p className="text-[16px] text-neutral-500">
                     Haben Sie bereits ein Slimedo-Konto?{" "}
                     <button className="font-semibold text-primary hover:underline cursor-pointer">
                       Einloggen
@@ -202,7 +202,7 @@ export default function CreateAccountPage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="Geben Sie Ihre E-Mail-Adresse ein"
-                        className="w-full px-5 py-3 lg:py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                        className="w-full px-5 py-3 lg:py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                         required
                       />
                     </div>
@@ -287,7 +287,7 @@ export default function CreateAccountPage() {
                                 }
                               }
                             }}
-                            className="w-10 h-12 sm:w-12 sm:h-14 border border-[#e5e7eb] rounded-lg text-center text-xl font-semibold text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white transition-all shadow-sm"
+                            className="w-10 h-12 sm:w-12 sm:h-14 border border-neutral-200 rounded-lg text-center text-xl font-semibold text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white transition-all shadow-sm"
                           />
                         ))}
                       </div>
@@ -323,7 +323,7 @@ export default function CreateAccountPage() {
                           value={formData.firstName}
                           onChange={handleInputChange}
                           placeholder="Abdur"
-                          className="w-full px-5 py-3 lg:py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                          className="w-full px-5 py-3 lg:py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                         />
                       </div>
                       <div className="flex-1">
@@ -336,7 +336,7 @@ export default function CreateAccountPage() {
                           value={formData.lastName}
                           onChange={handleInputChange}
                           placeholder="Rahim"
-                          className="w-full px-5 py-3 lg:py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                          className="w-full px-5 py-3 lg:py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                         />
                       </div>
                     </div>
@@ -353,7 +353,7 @@ export default function CreateAccountPage() {
                         onChange={handleInputChange}
                         disabled
                         placeholder="demo1mail@gmail.com"
-                        className="w-full px-5 py-3 lg:py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-gray-100 cursor-not-allowed"
+                        className="w-full px-5 py-3 lg:py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-gray-100 cursor-not-allowed"
                       />
                     </div>
 
@@ -369,7 +369,7 @@ export default function CreateAccountPage() {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="+49 1622 343333"
-                          className="w-full px-5 py-3 lg:py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                          className="w-full px-5 py-3 lg:py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                         />
                       </div>
                     </div>
@@ -387,7 +387,7 @@ export default function CreateAccountPage() {
                             value={formData.password}
                             onChange={handleInputChange}
                             placeholder="••••••••"
-                            className="w-full px-5 py-3 lg:py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                            className="w-full px-5 py-3 lg:py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                             required
                           />
                           <button
@@ -414,7 +414,7 @@ export default function CreateAccountPage() {
                             value={formData.password_confirmation}
                             onChange={handleInputChange}
                             placeholder="••••••••"
-                            className="w-full px-5 py-3 lg:py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                            className="w-full px-5 py-3 lg:py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                             required
                           />
                           <button
@@ -443,11 +443,11 @@ export default function CreateAccountPage() {
                         ? "Konto wird erstellt..."
                         : "Konto erstellen"}
                     </button>
-                    <p className="text-[14px] text-[#6B7280] mt-2">
+                    <p className="text-[14px] text-neutral-500 mt-2">
                       Das Passwort muss mindestens 8 Zeichen, 1 Zahl und 1 Sonderzeichen enthalten.
                       
                     </p>
-                    <p className="text-[14px] text-[#6B7280]">
+                    <p className="text-[14px] text-neutral-500">
                       Ich stimme den <span className="font-semibold text-primary">Allgemeinen Geschäftsbedingungen</span>, den <span className="font-semibold text-primary">Informationen, der Datenschutzerklärung</span> und den <span className="font-semibold text-primary">Stornierungsbedingungen</span> zu.
                     </p>
                   </form>
@@ -485,7 +485,7 @@ export default function CreateAccountPage() {
                 {/* Product */}
                 <div className="mb-6">
                   <div className="flex justify-between items-center">
-                    <p className="text-[14px] text-[#6B7280] mb-2">
+                    <p className="text-[14px] text-neutral-500 mb-2">
                       {sessionStorage.getItem("product_name") || "Produktname"}
                     </p>
                     <span className="text-[16px] font-medium text-sage">
@@ -493,7 +493,7 @@ export default function CreateAccountPage() {
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <p className="text-[14px] text-[#6B7280] mb-2">
+                    <p className="text-[14px] text-neutral-500 mb-2">
                       Versandkosten
                     </p>
                     <span className="text-base text-sage font-semibold">
@@ -503,7 +503,7 @@ export default function CreateAccountPage() {
                 </div>
 
                 {/* Info box */}
-                <div className="bg-[#E8ECEB] rounded-lg p-4 mb-6 flex gap-3">
+                <div className="bg-neutral-200 rounded-lg p-4 mb-6 flex gap-3">
                   <WarnIcon />
                   <p className="text-[14px] text-muted-foreground">
                     Die Apotheke wird Sie innerhalb weniger Stunden mit
@@ -512,7 +512,7 @@ export default function CreateAccountPage() {
                 </div>
 
                 {/* Recipe cost */}
-                <div className="mb-6 pb-6 border-b border-[#e5e7eb] flex justify-between items-center">
+                <div className="mb-6 pb-6 border-b border-neutral-200 flex justify-between items-center">
                   <p className="text-[14px] text-muted-foreground">
                     Rezeptgebühr
                   </p>
@@ -551,7 +551,7 @@ export default function CreateAccountPage() {
 
             {/* Payment methods */}
             <div className="bg-[#F3F4F6] p-4 rounded-lg">
-              <p className="text-base text-[#6B7280] mb-3 border-b border-[#e5e7eb] pb-3">
+              <p className="text-base text-neutral-500 mb-3 border-b border-neutral-200 pb-3">
                 Zahlungsmethoden
               </p>
               <div className="flex items-center gap-1.5">

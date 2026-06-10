@@ -11,7 +11,7 @@ const USER_ICON = (
     height="15"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="#9ca3af"
+    stroke="#ACB5BB"
     strokeWidth="2"
   >
     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -25,7 +25,7 @@ const LOCK_ICON = (
     height="15"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="#9ca3af"
+    stroke="#ACB5BB"
     strokeWidth="2"
   >
     <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />

@@ -58,7 +58,7 @@ export default function PharmacySelectionSuccessPage() {
   return (
     <div className="bg-[#f7f8f6] min-h-screen font-inter">
       {/* Header */}
-      <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-3 sm:px-6 py-4 flex items-center justify-between z-50">
+      <div className="fixed top-0 left-0 right-0 bg-white border-b border-neutral-200 px-3 sm:px-6 py-4 flex items-center justify-between z-50">
         <button className="text-deep text-base font-medium">
           <div className="flex items-center gap-0 sm:gap-3">
             <MedizinischerFragebogenIcon />
@@ -90,7 +90,7 @@ export default function PharmacySelectionSuccessPage() {
           </h1>
 
           {/* Success Description */}
-          <p className="text-center text-base text-[#6B7280] mb-8">
+          <p className="text-center text-base text-neutral-500 mb-8">
             Your order has been confirmed and your payment has been processed
             successfully.
           </p>
@@ -100,10 +100,10 @@ export default function PharmacySelectionSuccessPage() {
             <h2 className="text-lg font-medium text-black mb-4">
               What happens next?
             </h2>
-            <p className="text-[14px] text-[#6B7280] mb-4">
+            <p className="text-[14px] text-neutral-500 mb-4">
               I confirm that I do not suffer from any of the following diseases:
             </p>
-            <ul className="text-[14px] text-[#6B7280] space-y-3">
+            <ul className="text-[14px] text-neutral-500 space-y-3">
               <li className="flex gap-3">
                 <span>•</span>
                 <span>
@@ -129,11 +129,11 @@ export default function PharmacySelectionSuccessPage() {
           </div>
 
           {/* Doctor consultation info box */}
-          <div className="bg-[#E8ECEB] rounded-lg p-4 mb-8 border border-[#E5E7EB] text-center">
+          <div className="bg-neutral-200 rounded-lg p-4 mb-8 border border-neutral-200 text-center">
             <h3 className="text-lg font-medium text-black mb-3">
               Need to speak with a doctor?
             </h3>
-            <p className="text-base text-[#6B7280]">
+            <p className="text-base text-neutral-500">
               Book a telemedical consultation to discuss your treatment plan,
               ask questions, or get personalized advice from our medical team.
             </p>
@@ -143,7 +143,7 @@ export default function PharmacySelectionSuccessPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={() => navigate("/")}
-              className="flex-1 bg-[#FEF2F2] hover:bg-[#E5E7EB] text-black rounded-lg py-3 text-[16px] font-medium transition cursor-pointer"
+              className="flex-1 bg-[#FEF2F2] hover:bg-neutral-200 text-black rounded-lg py-3 text-[16px] font-medium transition cursor-pointer"
             >
               Go to Home
             </button>
@@ -173,13 +173,13 @@ export default function PharmacySelectionSuccessPage() {
                 ✕
               </button>
             </div>
-            <p className="text-base sm:text-lg text-[#4A5565] mb-5 leading-relaxed">
+            <p className="text-base sm:text-lg text-neutral-600 mb-5 leading-relaxed">
               Select your preferred date and time for a telemedical consultation
               with our medical team.
             </p>
 
             {/* Select Date */}
-            <p className="text-lg font-semibold text-[#4A5565] mb-2">
+            <p className="text-lg font-semibold text-neutral-600 mb-2">
               Select Date
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-5">
@@ -189,7 +189,7 @@ export default function PharmacySelectionSuccessPage() {
                   onClick={() => setSelectedDate(i)}
                   className={`relative rounded-xl border py-5 px-5 text-center transition-all duration-150 ${
                     selectedDate === i
-                      ? "bg-[#E8ECEB] border-primary"
+                      ? "bg-neutral-200 border-primary"
                       : "bg-white border-gray-200 hover:border-primary hover:bg-[#f7f8f6]"
                   }`}
                 >
@@ -201,7 +201,7 @@ export default function PharmacySelectionSuccessPage() {
                       <span className="block text-base font-semibold text-deep">
                         {d.day}
                       </span>
-                      <span className="block text-sm text-[#4B5563] mt-0.5">
+                      <span className="block text-sm text-neutral-600 mt-0.5">
                         {d.date}
                       </span>
                     </div>
@@ -211,7 +211,7 @@ export default function PharmacySelectionSuccessPage() {
             </div>
 
             {/* Time */}
-            <p className="text-lg font-semibold text-[#4A5565] mb-2">Time</p>
+            <p className="text-lg font-semibold text-neutral-600 mb-2">Time</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
               {times.map((t, i) => (
                 <button
@@ -219,7 +219,7 @@ export default function PharmacySelectionSuccessPage() {
                   onClick={() => setSelectedTime(i)}
                   className={`flex items-center justify-center rounded-xl border p-4 text-center transition-all duration-150 ${
                     selectedTime === i
-                      ? "bg-[#E8ECEB] border-primary"
+                      ? "bg-neutral-200 border-primary"
                       : "bg-white border-gray-200 hover:border-primary hover:bg-[#f7f8f6]"
                   }`}
                 >
@@ -237,7 +237,7 @@ export default function PharmacySelectionSuccessPage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => setShowBookingModal(false)}
-                className="flex-1 py-4 px-5 rounded-md border border-gray-200 text-base font-medium text-[#4B5563] bg-[#FEF2F2] transition-colors"
+                className="flex-1 py-4 px-5 rounded-md border border-gray-200 text-base font-medium text-neutral-600 bg-[#FEF2F2] transition-colors"
               >
                 Cancel
               </button>
@@ -286,19 +286,19 @@ export default function PharmacySelectionSuccessPage() {
             </h2>
 
             {/* Description */}
-            <p className="text-center text-[14px] text-[#6B7280] mb-6">
+            <p className="text-center text-[14px] text-neutral-500 mb-6">
               Your consultation has been successfully scheduled.
             </p>
 
             {/* Booking Details Box */}
-            <div className="border border-[#E5E7EB] rounded-lg p-4 mb-6 bg-[#F9FAFB]">
+            <div className="border border-neutral-200 rounded-lg p-4 mb-6 bg-[#F9FAFB]">
               <div className="flex items-center gap-3 mb-4">
                 <CalenderIcon />
                 <div>
                   <p className="text-[14px] font-medium text-black">
                     {confirmedBooking.date.split(" ")[0]}
                   </p>
-                  <p className="text-[14px] text-[#6B7280]">
+                  <p className="text-[14px] text-neutral-500">
                     {confirmedBooking.date.split(" ").slice(1).join(" ")}
                   </p>
                 </div>
@@ -316,7 +316,7 @@ export default function PharmacySelectionSuccessPage() {
               <h3 className="text-[14px] font-semibold text-black mb-3">
                 What to expect:
               </h3>
-              <ul className="space-y-2 text-[14px] text-[#6B7280]">
+              <ul className="space-y-2 text-[14px] text-neutral-500">
                 <li className="flex gap-2">
                   <span>•</span>
                   <span>

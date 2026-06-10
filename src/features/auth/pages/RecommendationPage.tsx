@@ -96,13 +96,13 @@ export default function RecommendationPage() {
         {/* RECOMMENDED PROGRAM CARD */}
         <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
           <div className="p-8 flex flex-col items-center text-center">
-            <span className="text-[12px] font-normal text-[#6B7280] uppercase tracking-wider mb-2">
+            <span className="text-[12px] font-normal text-neutral-500 uppercase tracking-wider mb-2">
               Our Recommendation
             </span>
             <h1 className="text-[32px] font-semibold text-black leading-tight">
               Weight loss program
             </h1>
-            <p className="text-2xl text-[#6B7280] font-medium flex items-center justify-center gap-1.5 mt-1">
+            <p className="text-2xl text-neutral-500 font-medium flex items-center justify-center gap-1.5 mt-1">
               with Wegovy®
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function RecommendationPage() {
               ].map((text, i) => (
                 <li
                   key={i}
-                  className="flex items-center gap-3 text-base text-[#6B7280]"
+                  className="flex items-center gap-3 text-base text-neutral-500"
                 >
                   <span className="w-1.5 h-1.5 bg-deep rounded-full shrink-0" />
                   {text}
@@ -128,10 +128,10 @@ export default function RecommendationPage() {
             </ul>
 
             {/* Price section */}
-            <div className="mt-8 bg-[#E8ECEB] rounded-2xl p-6">
+            <div className="mt-8 bg-neutral-200 rounded-2xl p-6">
               <div className="grid grid-cols-3 text-center border-b border-gray-200/60 pb-4 mb-4">
                 <div>
-                  <p className="text-[12px] text-[#6B7280] font-medium">
+                  <p className="text-[12px] text-neutral-500 font-medium">
                     Medication
                   </p>
                   <p className="text-base font-bold text-black">
@@ -139,13 +139,13 @@ export default function RecommendationPage() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-[12px] text-[#6B7280] font-medium">
+                  <p className="text-[12px] text-neutral-500 font-medium">
                     Frequency
                   </p>
                   <p className="text-base font-bold text-black">Monthly</p>
                 </div>
                 <div>
-                  <p className="text-[12px] text-[#6B7280] font-medium">
+                  <p className="text-[12px] text-neutral-500 font-medium">
                     Dosage
                   </p>
                   <p className="text-base font-bold text-black">
@@ -154,13 +154,13 @@ export default function RecommendationPage() {
                 </div>
               </div>
               <div className="text-center">
-                <p className="text-base text-[#6B7280] mb-1">
+                <p className="text-base text-neutral-500 mb-1">
                   <span className="text-[32px] text-black font-semibold mr-0.5">
                     €{localStorage.getItem("medication_price") || "€246"}
                   </span>
                   in the first month
                 </p>
-                <p className="text-xs text-[#6B7280]">
+                <p className="text-xs text-neutral-500">
                   The current monthly price varies depending on the dosage.
                 </p>
               </div>
@@ -172,7 +172,7 @@ export default function RecommendationPage() {
             >
               To checkout
             </button>
-            <p className="text-center text-sm text-[#6B7280] mt-3 flex items-center justify-center gap-1.5">
+            <p className="text-center text-sm text-neutral-500 mt-3 flex items-center justify-center gap-1.5">
               <TruckIconSvg /> Fast delivery in 1-2 working days
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function RecommendationPage() {
               ? Array.from({ length: 2 }).map((_, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between p-4 bg-[#E8ECEB] rounded-2xl border border-transparent"
+                    className="flex items-center justify-between p-4 bg-neutral-200 rounded-2xl border border-transparent"
                   >
                     <div className="flex items-center gap-4">
                       <Skeleton className="w-12 h-12 rounded-lg" />
@@ -208,7 +208,7 @@ export default function RecommendationPage() {
                     .map((product: Product, index: number) => (
                       <div
                         key={(product.id || product._id || index).toString()}
-                        className="flex items-center justify-between p-4 bg-[#E8ECEB] rounded-2xl border border-transparent hover:border-gray-200 cursor-pointer group transition"
+                        className="flex items-center justify-between p-4 bg-neutral-200 rounded-2xl border border-transparent hover:border-gray-200 cursor-pointer group transition"
                       >
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12">
@@ -227,7 +227,7 @@ export default function RecommendationPage() {
                                 </span>
                               )}
                             </div>
-                            <p className="text-xs text-[#6B7280] mt-0.5">
+                            <p className="text-xs text-neutral-500 mt-0.5">
                               €{product.price || "0"}-€
                               {product.dosage?.[0]?.price || "0"}
                             </p>
@@ -244,13 +244,13 @@ export default function RecommendationPage() {
 
         {/* COMPARISON CARD */}
         <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-          <p className="text-[12px] font-normal text-[#6B7280] mb-2">
+          <p className="text-[12px] font-normal text-neutral-500 mb-2">
             MEDICATIONS COMPARED
           </p>
           <h2 className="text-[24px] font-medium text-accent-foreground mb-2 leading-tight">
             {comparedProducts[0].name} vs. {comparedProducts[1].name}
           </h2>
-          <p className="text-base text-[#6B7280] mb-8 leading-relaxed">
+          <p className="text-base text-neutral-500 mb-8 leading-relaxed">
             Which treatment is best for you depends on your individual needs.
           </p>
 
@@ -259,7 +259,7 @@ export default function RecommendationPage() {
               ? Array.from({ length: 2 }).map((_, i) => (
                   <div
                     key={i}
-                    className="bg-[#E8ECEB] rounded-xl p-5 flex flex-col"
+                    className="bg-neutral-200 rounded-xl p-5 flex flex-col"
                   >
                     <Skeleton className="w-full h-20 rounded-lg mb-4" />
                     <Skeleton className="h-4 w-20 mb-2" />
@@ -270,7 +270,7 @@ export default function RecommendationPage() {
               : comparedProducts.map((prod, i) => (
                   <div
                     key={i}
-                    className="bg-[#E8ECEB] rounded-xl p-5 flex flex-col"
+                    className="bg-neutral-200 rounded-xl p-5 flex flex-col"
                   >
                     <div className="w-full h-20 bg-white p-2">
                       <img
@@ -279,7 +279,7 @@ export default function RecommendationPage() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <p className="text-[12px] text-[#6B7280] font-medium mt-6 mb-1">
+                    <p className="text-[12px] text-neutral-500 font-medium mt-6 mb-1">
                       First month price
                     </p>
                     <p className="text-[16px] font-bold text-black mb-3">
@@ -297,10 +297,10 @@ export default function RecommendationPage() {
                       ))}
                     </div>
                     <div className="text-center mt-6">
-                      <p className="text-[#6B7280] text-xs">
+                      <p className="text-neutral-500 text-xs">
                         Further advantages:
                       </p>
-                      <p className="text-[#111827] text-xs">Highest efficacy</p>
+                      <p className="text-neutral-900 text-xs">Highest efficacy</p>
                     </div>
                   </div>
                 ))}
@@ -331,7 +331,7 @@ export default function RecommendationPage() {
             </p>
           )}
 
-          <div className="w-full bg-[#E8ECEB] rounded-xl p-3 mb-8 relative">
+          <div className="w-full bg-neutral-200 rounded-xl p-3 mb-8 relative">
             <span className="absolute top-8 right-6 text-[20px] font-bold text-accent-foreground">
               -20.7%
             </span>
@@ -342,7 +342,7 @@ export default function RecommendationPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="text-center text-[12px] text-[#6B7280] mt-6">
+            <p className="text-center text-[12px] text-neutral-500 mt-6">
               Verliere im Durchschnitt 20.7 % Deines Körpergewichts
             </p>
             <p className="text-center text-[12px] font-normal text-black mt-1 tracking-wider">
@@ -367,7 +367,7 @@ export default function RecommendationPage() {
               <h3 className="text-2xl font-medium text-black mb-2">
                 What is {selectedProductDetails?.name || "Wegovy®"}?
               </h3>
-              <p className="text-[18px] text-[#6B7280] leading-relaxed">
+              <p className="text-[18px] text-neutral-500 leading-relaxed">
                 {selectedProductDetails?.name || "Wegovy®"} is a weekly
                 injection containing{" "}
                 {selectedProductDetails?.category || "tirzepatide"}, which has
@@ -375,7 +375,7 @@ export default function RecommendationPage() {
               </p>
             </div>
             <div>
-              <p className="text-[18px] text-[#6B7280] leading-relaxed italic">
+              <p className="text-[18px] text-neutral-500 leading-relaxed italic">
                 In preventing the most often occurring weight gain problems and
                 shows better results than preparations like Ozempic or{" "}
                 {selectedProductDetails?.name || "Wegovy®"}. In clinical trials,
@@ -411,7 +411,7 @@ export default function RecommendationPage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-4 p-3 bg-[#E8ECEB] rounded-xl transition hover:bg-white hover:border-gray-100 border border-transparent"
+                className="flex items-center gap-4 p-3 bg-neutral-200 rounded-xl transition hover:bg-white hover:border-gray-100 border border-transparent"
               >
                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-50 shrink-0 overflow-hidden">
                   <img
@@ -424,7 +424,7 @@ export default function RecommendationPage() {
                   <p className="text-[16px] font-bold text-black mb-1">
                     {item.title}
                   </p>
-                  <p className="text-[16px] text-[#6B7280] leading-relaxed">
+                  <p className="text-[16px] text-neutral-500 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
