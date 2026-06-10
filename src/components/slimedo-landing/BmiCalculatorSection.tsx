@@ -94,7 +94,7 @@ export default function BmiCalculatorSection() {
             <p className="mb-2 text-[11.5px] font-medium tracking-[0.16em] uppercase text-sage">
               Dein Rechner
             </p>
-            <h3 className="mb-7 font-[Manrope,sans-serif] text-[22px] font-semibold tracking-[-0.01em] text-ink">
+            <h3 className="bmi-slider-question-resp mb-7 font-[Manrope,sans-serif] text-[22px] font-semibold tracking-[-0.01em] text-ink">
               Wie viel könntest du abnehmen?
             </h3>
 
@@ -138,7 +138,7 @@ export default function BmiCalculatorSection() {
             </div>
 
             {/* Divider */}
-            <div className="mb-7 h-px bg-sand2" />
+            <div className="bmi-slider-divider-resp mb-7 h-px bg-sand2" />
 
             <div className="bmi-result-layout-resp grid grid-cols-[170px_minmax(0,1fr)] items-end gap-[22px]">
               <div className="flex items-end justify-center self-stretch">
@@ -269,14 +269,30 @@ export default function BmiCalculatorSection() {
             font-size: clamp(11px, 3vw, 13px) !important;
             line-height: 1.32 !important;
           }
-          .bmi-slider-card-resp { padding: 32px 24px !important; }
+          .bmi-slider-card-resp {
+            padding: 22px 18px !important;
+            border-radius: 22px !important;
+          }
+          .bmi-slider-question-resp {
+            margin-bottom: 18px !important;
+            font-size: clamp(15.5px, 4.15vw, 18px) !important;
+            line-height: 1.12 !important;
+            white-space: nowrap !important;
+            letter-spacing: -0.02em !important;
+          }
+          .bmi-slider-divider-resp {
+            display: none !important;
+          }
+          .bmi-slider-card-resp .mb-8 {
+            margin-bottom: 18px !important;
+          }
           .bmi-card-photo-resp { display: none !important; }
           .bmi-card-content-resp { max-width: none !important; }
 
           /* Result grid: 2 images side by side, text below spanning full width */
           .bmi-result-layout-resp {
             grid-template-columns: 1fr 1fr !important;
-            gap: 10px !important;
+            gap: 8px !important;
             align-items: end !important;
           }
           .bmi-result-text-resp {
@@ -286,7 +302,7 @@ export default function BmiCalculatorSection() {
           /* Silhouette: contain so no crop, aligned to bottom */
           .bmi-slider-image-resp {
             width: 100% !important;
-            height: 200px !important;
+            height: 158px !important;
             object-fit: contain !important;
             object-position: bottom center !important;
           }
@@ -298,7 +314,7 @@ export default function BmiCalculatorSection() {
           }
           .bmi-bg-photo-mobile {
             width: 100% !important;
-            height: 200px !important;
+            height: 158px !important;
             object-fit: cover !important;
             object-position: top center !important;
             border-radius: 14px !important;
