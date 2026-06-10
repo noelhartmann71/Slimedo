@@ -7,7 +7,7 @@ interface AuthCardProps {
 
 export default function AuthCard({ title, subtitle, subtitleColor, children }: AuthCardProps) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 p-7 w-full shadow-sm">
+    <div className="bg-white rounded-card-sm border border-gray-200 p-7 w-full shadow-sm">
       <div className="mb-5">
         <h1 className="text-[22px] font-semibold text-gray-900 mb-1">{title}</h1>
         {subtitle && (

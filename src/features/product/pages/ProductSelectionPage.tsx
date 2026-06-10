@@ -252,7 +252,7 @@ export default function ProductSelectionPage() {
       <main className="flex-1 flex flex-col items-center py-4 sm:py-8 px-4 font-inter">
         <div className="w-full max-w-xl flex flex-col gap-3">
           {/* Info card — always shown */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8">
             <h1 className="text-2xl font-semibold text-black mb-6">
               Produktauswahl
             </h1>
@@ -292,7 +292,7 @@ export default function ProductSelectionPage() {
             <CompletedRow label="Select manufacturer" value={mfr.name} />
           )}
           {/* Active step card */}
-          <div className="bg-white rounded-2xl p-8">
+          <div className="bg-white rounded-card-sm p-8">
             {/* ── Step 1 ── */}
             {step === 1 && (
               <>
@@ -511,7 +511,7 @@ export default function ProductSelectionPage() {
           <button
             onClick={goForward}
             disabled={!canProceed}
-            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-2xl p-4 text-[18px] font-medium transition cursor-pointer"
+            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-card-sm p-4 text-[18px] font-medium transition cursor-pointer"
           >
             Weiter
           </button>

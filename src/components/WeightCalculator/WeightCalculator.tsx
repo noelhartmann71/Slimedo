@@ -40,7 +40,7 @@ export default function WeightCalculator() {
       </div>
 
       {/* Right panel */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-12 px-5 py-5 xl:px-12 xl:py-8 bg-white rounded-3xl w-full max-w-191.25 shadow-2xl min-h-142.75">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-12 px-5 py-5 xl:px-12 xl:py-8 bg-white rounded-card w-full max-w-191.25 shadow-2xl min-h-142.75">
         <div className="flex items-end justify-center gap-8 h-40 sm:h-96.75 sm:w-54.75">
           <img
             src={BMIImg}

@@ -67,7 +67,7 @@ const policySections: PolicySection[] = [
 
 function PolicyCard({ section }: { section: PolicySection }) {
   return (
-    <article className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+    <article className="rounded-card border border-neutral-200 bg-white p-6 shadow-sm">
       <h2 className="text-xl font-semibold text-neutral-900">{section.title}</h2>
       <p className="mt-3 text-sm leading-6 text-neutral-600">
         {section.description}
@@ -86,7 +86,7 @@ function PolicyCard({ section }: { section: PolicySection }) {
 
 function FactCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
+    <div className="rounded-card-sm border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
       <p className="text-xs uppercase tracking-[0.2em] text-white/60">
         {label}
       </p>
@@ -146,7 +146,7 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <aside className="space-y-6">
-            <section className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <section className="rounded-card border border-neutral-200 bg-white p-6 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral-500">
                 Kurze Zusammenfassung
               </p>
@@ -166,7 +166,7 @@ export default function PrivacyPolicyPage() {
               </div>
             </section>
 
-            <section className="rounded-3xl border border-neutral-200 bg-[#0F5132] p-6 text-white shadow-sm">
+            <section className="rounded-card border border-neutral-200 bg-[#0F5132] p-6 text-white shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
                 Brauchen Sie Hilfe?
               </p>

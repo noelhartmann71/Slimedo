@@ -135,7 +135,7 @@ export default function ReviewAccountPage() {
       <div className="flex-1 flex flex-col md:flex-row items-start justify-center pt-22.5 md:pt-20 lg:pt-25 px-4 sm:px-8 gap-7 lg:gap-14">
         {/* Left side - Review form */}
         <div className="w-full max-w-xl">
-          <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
+          <div className="bg-white rounded-card-sm p-6 lg:p-8 shadow-sm">
             {/* Patient data section */}
             <div className="mb-8 pb-8 border-b border-neutral-200">
               <div className="flex justify-between items-center mb-6">
@@ -310,7 +310,7 @@ export default function ReviewAccountPage() {
 
         {/* Right side - Order overview */}
         <div className="w-full max-w-xl">
-          <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
+          <div className="bg-white rounded-card-sm p-6 lg:p-8 shadow-sm">
             {/* Header - always visible */}
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-medium text-[#000000]">

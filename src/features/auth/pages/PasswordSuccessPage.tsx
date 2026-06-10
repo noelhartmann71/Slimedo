@@ -14,7 +14,7 @@ export default function PasswordSuccessPage() {
   const navigate = useNavigate();
   return (
     <AuthLayout>
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 w-full text-center flex flex-col items-center gap-4">
+      <div className="bg-white rounded-card-sm border border-gray-200 shadow-sm p-8 w-full text-center flex flex-col items-center gap-4">
         <div className="w-16 h-16 rounded-full bg-[#f0f7f4] flex items-center justify-center">
           {LOCK_ICON}
         </div>

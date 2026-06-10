@@ -93,7 +93,7 @@ const ChangePasswordPage = () => {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-neutral-200 md:h-screen p-6 font-inter">
-      <div className="w-full bg-white rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row border border-white">
+      <div className="w-full bg-white rounded-card shadow-dropdown overflow-hidden flex flex-col md:flex-row border border-white">
         {/* Sidebar Section */}
         <div className="w-full md:w-120 bg-sage p-7 flex flex-col items-center justify-between text-white sticky top-0">
           <div>
@@ -154,7 +154,7 @@ const ChangePasswordPage = () => {
 
               {/* Speech Bubble - Absolutely positioned */}
               <div className="absolute left-1/2 md:left-[82%] top-8 z-20">
-                <div className="bg-[#EE42D7] text-white text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(238,66,215,0.3)] whitespace-nowrap">
+                <div className="bg-[#EE42D7] text-white text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(30,58,46,0.25)] whitespace-nowrap">
                   Schön dich zu sehen!
                 </div>
               </div>
@@ -164,7 +164,7 @@ const ChangePasswordPage = () => {
         {/* Main Content Section */}
         <div className="flex-1 flex flex-col items-center relative pt-12 overflow-y-auto">
           <div className="flex-1 flex items-center justify-center w-full pb-8">
-            <div className="w-full max-w-130 bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-200">
+            <div className="w-full max-w-130 bg-white rounded-card p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-200">
               <div className="mb-6">
                 <h2 className="text-2xl font-medium text-ink mb-2">
                   Neues Passwort erstellen
@@ -264,7 +264,7 @@ const ChangePasswordPage = () => {
                   <Button
                     type="submit"
                     disabled={changePasswordMutation.isPending}
-                    className={`w-full mt-6 h-14 font-bold text-base rounded-2xl shadow-none transition-all duration-300 ${
+                    className={`w-full mt-6 h-14 font-bold text-base rounded-card-sm shadow-none transition-all duration-300 ${
                       isFormFilled
                         ? "cursor-pointer"
                         : "bg-neutral-50 text-neutral-300 border border-neutral-100 cursor-not-allowed"

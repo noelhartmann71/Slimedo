@@ -255,7 +255,7 @@ export default function DeliveryMethodSelectionPage() {
       <div className="flex-1 flex flex-col md:flex-row items-start justify-center pt-22.5 md:pt-20 lg:pt-25 pb-10 px-4 sm:px-8 gap-7 lg:gap-14">
         {/* Left side - Delivery methods selection */}
         <div className="w-full max-w-xl">
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
+          <div className="bg-white rounded-card-sm p-8 shadow-sm">
             {/* Patient data section */}
             <div className="mb-4 pb-4 border-b border-neutral-200">
               <div className="flex justify-between items-center mb-6">
@@ -679,7 +679,7 @@ export default function DeliveryMethodSelectionPage() {
 
         {/* Right side - Order overview */}
         <div className="w-full max-w-xl">
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
+          <div className="bg-white rounded-card-sm p-8 shadow-sm">
             {/* Header - always visible */}
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-medium text-[#000000]">
@@ -856,7 +856,7 @@ export default function DeliveryMethodSelectionPage() {
       {/* Pharmacy Selection Modal */}
       {showPharmacyModal && (
         <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-237.5 overflow-hidden rounded-3xl bg-white p-6 shadow-2xl sm:p-10">
+          <div className="relative w-full max-w-237.5 overflow-hidden rounded-card bg-white p-6 shadow-2xl sm:p-10">
             {/* Header */}
             <div className="mb-6 flex items-start justify-between">
               <div>
@@ -878,7 +878,7 @@ export default function DeliveryMethodSelectionPage() {
             {/* Content Area */}
             <div className="flex flex-col gap-6 lg:flex-row">
               {/* Map Section */}
-              <div className="relative min-h-100 flex-1 overflow-hidden rounded-2xl bg-[#edf2f7]">
+              <div className="relative min-h-100 flex-1 overflow-hidden rounded-card-sm bg-[#edf2f7]">
                 <PharmacyMap
                   center={mapCenter}
                   onPharmaciesFound={setNearbyPharmacies}

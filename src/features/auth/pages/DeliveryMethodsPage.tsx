@@ -59,7 +59,7 @@ export default function DeliveryMethodsPage() {
       <div className="flex-1 flex items-start justify-center pt-25 px-8 gap-14">
         {/* Left side - Delivery methods */}
         <div className="w-full max-w-xl">
-          <div className="bg-white rounded-2xl p-4 shadow-sm">
+          <div className="bg-white rounded-card-sm p-4 shadow-sm">
             {/* Patient data section */}
             <div className="mb-8 pb-8 border-b border-neutral-200">
               <div className="flex justify-between items-center mb-6">
@@ -172,7 +172,7 @@ export default function DeliveryMethodsPage() {
         </div>
         {/* Right side - Order overview */}
         <div className="w-full max-w-xl">
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
+          <div className="bg-white rounded-card-sm p-8 shadow-sm">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-medium text-[#000000]">
                 Bestellübersicht

@@ -97,7 +97,7 @@ export const Step3 = ({
           </p>
         </div>
       )}
-      <div className="bg-white rounded-2xl border border-gray-200 p-4 mt-3">
+      <div className="bg-white rounded-card-sm border border-gray-200 p-4 mt-3">
         <div className="flex items-start gap-4">
           <textarea
             value={otherMedications}

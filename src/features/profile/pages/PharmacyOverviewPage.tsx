@@ -426,7 +426,7 @@ export default function PharmacyOverviewPage() {
     return (
       <div className="space-y-8 animate-pulse">
         {/* Header Skeleton */}
-        <div className="rounded-2xl border border-gray-100 bg-gray-50/50 p-6">
+        <div className="rounded-card-sm border border-gray-100 bg-gray-50/50 p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="space-y-3">
               <div className="h-4 w-32 rounded bg-gray-200" />
@@ -442,7 +442,7 @@ export default function PharmacyOverviewPage() {
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div
               key={i}
-              className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm space-y-3"
+              className="rounded-card-sm border border-gray-100 bg-white p-5 shadow-sm space-y-3"
             >
               <div className="h-4 w-24 rounded bg-gray-100" />
               <div className="h-10 w-16 rounded bg-gray-100" />
@@ -456,7 +456,7 @@ export default function PharmacyOverviewPage() {
             <div className="h-7 w-32 rounded bg-gray-200" />
             <div className="h-4 w-64 rounded bg-gray-200" />
           </div>
-          <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white">
+          <div className="overflow-hidden rounded-card-sm border border-gray-100 bg-white">
             <div className="h-12 border-b border-gray-50 bg-gray-50/50" />
             <div className="p-5 space-y-4">
               {[1, 2, 3, 4, 5].map((row) => (
@@ -509,7 +509,7 @@ export default function PharmacyOverviewPage() {
   return (
     <div className="space-y-8">
       {/* ── Pharmacy header banner ── unchanged ─────────────────────────────── */}
-      <div className="rounded-2xl border border-neutral-200 bg-linear-to-r from-[#F5FAF8] to-[#EFF6F4] p-5 md:p-6">
+      <div className="rounded-card-sm border border-neutral-200 bg-linear-to-r from-[#F5FAF8] to-[#EFF6F4] p-5 md:p-6">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm font-medium text-sage">
@@ -543,7 +543,7 @@ export default function PharmacyOverviewPage() {
         {metricCards.map((card) => (
           <div
             key={card.label}
-            className={`rounded-2xl border p-5 shadow-sm ${card.cardClass}`}
+            className={`rounded-card-sm border p-5 shadow-sm ${card.cardClass}`}
           >
             <p className="text-sm font-medium text-sage">{card.label}</p>
             <p className={`mt-3 text-3xl font-bold ${card.valueClass}`}>
@@ -589,7 +589,7 @@ export default function PharmacyOverviewPage() {
           </div>
         </div>
         {/* ── Filters Section ────────────────────────────────────────────────── */}
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+        <div className="rounded-card-sm border border-gray-200 bg-white p-5 shadow-sm">
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <h3 className="flex items-center gap-2 text-sm font-semibold text-gray-700">
@@ -735,7 +735,7 @@ export default function PharmacyOverviewPage() {
             </div>
           </div>
         </div>
-        <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+        <div className="overflow-hidden rounded-card-sm border border-gray-200 bg-white shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-left">
               {/* ── Head ── */}

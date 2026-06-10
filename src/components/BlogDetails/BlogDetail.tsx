@@ -65,7 +65,7 @@ function SimilarBlog({ label }: { label: string }) {
 // ── Similar Blog Card ──────────────────────────────────────────────────────
 function SimilarCard({ post }: { post: SimilarPost }) {
   return (
-    <article className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-4">
+    <article className="group flex flex-col rounded-card-sm overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-4">
       <div className="relative overflow-hidden aspect-video">
         <img
           src={post.image}
@@ -146,7 +146,7 @@ function BlogDetailSkeleton() {
         </div>
 
         {/* Hero Image Skeleton */}
-        <div className="rounded-2xl bg-gray-200 h-62.5 md:h-133 mb-7"></div>
+        <div className="rounded-card-sm bg-gray-200 h-62.5 md:h-133 mb-7"></div>
 
         {/* Article Body Skeleton */}
         <div className="space-y-4">
@@ -298,7 +298,7 @@ export default function BlogDetail() {
         </div>
 
         {/* Hero Image */}
-        <div className="rounded-2xl overflow-hidden mb-7">
+        <div className="rounded-card-sm overflow-hidden mb-7">
           <img
             src={blogDetailsData.image || BlogDetailsImg}
             alt={blogDetailsData.title}
@@ -321,7 +321,7 @@ export default function BlogDetail() {
               ? [...Array(3)].map((_, i) => (
                   <div
                     key={i}
-                    className="h-80 bg-gray-100 rounded-2xl animate-pulse"
+                    className="h-80 bg-gray-100 rounded-card-sm animate-pulse"
                   ></div>
                 ))
               : blogData

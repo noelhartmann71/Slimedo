@@ -94,7 +94,7 @@ export default function RecommendationPage() {
     <div className="min-h-screen bg-[#F0F0EC] py-5 md:py-10 px-4 font-inter">
       <div className="max-w-2xl mx-auto flex flex-col gap-6">
         {/* RECOMMENDED PROGRAM CARD */}
-        <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+        <div className="bg-white rounded-card overflow-hidden shadow-sm border border-gray-100">
           <div className="p-8 flex flex-col items-center text-center">
             <span className="text-[12px] font-normal text-neutral-500 uppercase tracking-wider mb-2">
               Our Recommendation
@@ -128,7 +128,7 @@ export default function RecommendationPage() {
             </ul>
 
             {/* Price section */}
-            <div className="mt-8 bg-neutral-200 rounded-2xl p-6">
+            <div className="mt-8 bg-neutral-200 rounded-card-sm p-6">
               <div className="grid grid-cols-3 text-center border-b border-gray-200/60 pb-4 mb-4">
                 <div>
                   <p className="text-[12px] text-neutral-500 font-medium">
@@ -179,7 +179,7 @@ export default function RecommendationPage() {
         </div>
 
         {/* SUITABLE ALTERNATIVES CARD */}
-        <div className="bg-white rounded-2xl p-6 border border-gray-100">
+        <div className="bg-white rounded-card-sm p-6 border border-gray-100">
           <div className="flex items-center gap-3 mb-6 font-medium text-black text-lg">
             <span className="w-7 h-7 bg-sage rounded-full flex items-center justify-center text-white">
               ✓
@@ -191,7 +191,7 @@ export default function RecommendationPage() {
               ? Array.from({ length: 2 }).map((_, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between p-4 bg-neutral-200 rounded-2xl border border-transparent"
+                    className="flex items-center justify-between p-4 bg-neutral-200 rounded-card-sm border border-transparent"
                   >
                     <div className="flex items-center gap-4">
                       <Skeleton className="w-12 h-12 rounded-lg" />
@@ -208,7 +208,7 @@ export default function RecommendationPage() {
                     .map((product: Product, index: number) => (
                       <div
                         key={(product.id || product._id || index).toString()}
-                        className="flex items-center justify-between p-4 bg-neutral-200 rounded-2xl border border-transparent hover:border-gray-200 cursor-pointer group transition"
+                        className="flex items-center justify-between p-4 bg-neutral-200 rounded-card-sm border border-transparent hover:border-gray-200 cursor-pointer group transition"
                       >
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12">
@@ -243,7 +243,7 @@ export default function RecommendationPage() {
         </div>
 
         {/* COMPARISON CARD */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+        <div className="bg-white rounded-card p-8 shadow-sm border border-gray-100">
           <p className="text-[12px] font-normal text-neutral-500 mb-2">
             MEDICATIONS COMPARED
           </p>
@@ -308,7 +308,7 @@ export default function RecommendationPage() {
         </div>
 
         {/* YOUR MEDICATION DETAIL CARD */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col items-center">
+        <div className="bg-white rounded-card p-8 shadow-sm border border-gray-100 flex flex-col items-center">
           <p className="text-[10px] font-bold text-gray-400 uppercase mb-2 w-full text-left">
             Your Medication
           </p>
@@ -356,7 +356,7 @@ export default function RecommendationPage() {
                 <img
                   src={MedicineImg}
                   alt={`Medicine ${i}`}
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-card-sm"
                 />
               </div>
             ))}
@@ -387,7 +387,7 @@ export default function RecommendationPage() {
         </div>
 
         {/* PERSONALIZED PLAN CARD */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+        <div className="bg-white rounded-card p-8 shadow-sm border border-gray-100">
           <h2 className="text-[24px] font-medium text-black mb-8 leading-tight">
             Your personalized plan for sustainable weight loss
           </h2>

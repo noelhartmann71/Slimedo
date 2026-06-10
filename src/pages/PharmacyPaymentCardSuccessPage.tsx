@@ -46,7 +46,7 @@ const PharmacyPaymentCardSuccessPage = () => {
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={() => navigate("/")}
       />
-      <div className="relative bg-white rounded-2xl p-8 w-full max-w-xl shadow-2xl text-center transform animate-in zoom-in-95 duration-300">
+      <div className="relative bg-white rounded-card-sm p-8 w-full max-w-xl shadow-2xl text-center transform animate-in zoom-in-95 duration-300">
         {/* Success Icon */}
         <div className="flex justify-center mb-6">
           <div className="bg-[#CBFBF1] rounded-full w-16 h-16 flex items-center justify-center">
@@ -68,7 +68,7 @@ const PharmacyPaymentCardSuccessPage = () => {
 
         {/* Booking Details Box - only show if confirmedBooking exists */}
         {confirmedBooking && (
-          <div className="bg-gray-50 rounded-2xl p-5 mb-8 border border-gray-100">
+          <div className="bg-gray-50 rounded-card-sm p-5 mb-8 border border-gray-100">
             <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-200/60">
               <div className="bg-white p-2.5 rounded-xl shadow-sm">
                 <CalenderIcon />
@@ -101,7 +101,7 @@ const PharmacyPaymentCardSuccessPage = () => {
 
         {/* Payment confirmation message - show if only sessionId exists */}
         {!confirmedBooking && sessionId && (
-          <div className="bg-neutral-200 rounded-2xl p-5 mb-8 border border-[#D1D9D4]">
+          <div className="bg-neutral-200 rounded-card-sm p-5 mb-8 border border-[#D1D9D4]">
             <p className="text-sm text-deep font-medium mb-2">
               Sitzungs-ID:
             </p>

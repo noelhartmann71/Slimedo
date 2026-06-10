@@ -317,7 +317,7 @@ export default function MedicalQuestionnairePage() {
           )}
           {/* Step 1 intro text - only show on step 1 */}
           {step === 1 && !showComorbidities && (
-            <div className="bg-white rounded-2xl p-8 font-inter">
+            <div className="bg-white rounded-card-sm p-8 font-inter">
               {isLoading ? (
                 <div className="animate-pulse">
                   <div className="h-8 bg-gray-200 rounded-md w-3/4 mb-4"></div>
@@ -360,7 +360,7 @@ export default function MedicalQuestionnairePage() {
           )}
 
           {/* Active step card */}
-          <div className="bg-white rounded-2xl p-8">
+          <div className="bg-white rounded-card-sm p-8">
             {step === 1 && (
               <Step1
                 handleFurther={handleFurther}

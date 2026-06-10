@@ -123,7 +123,7 @@ export default function VerifyIdentityPage() {
       <main className="flex-1 flex flex-col items-center py-8 px-4">
         <div className="w-full max-w-xl flex flex-col gap-4">
           {/* Header Card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8 text-center">
             <h1 className="text-[20px] font-bold text-gray-900 mb-3">
               Verify Your Identity
             </h1>
@@ -134,7 +134,7 @@ export default function VerifyIdentityPage() {
           </div>
 
           {/* Upload Card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col gap-5">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-6 flex flex-col gap-5">
             <div className="bg-neutral-200 rounded-xl p-4 flex items-center gap-4">
               <div className="p-2.5 bg-white rounded-lg">
                 <svg
@@ -167,7 +167,7 @@ export default function VerifyIdentityPage() {
               onDragLeave={handleDrag}
               onDragOver={handleDrag}
               onDrop={handleDrop}
-              className={`relative h-55 rounded-2xl border-2 border-dashed transition-colors flex flex-col items-center justify-center p-6 ${
+              className={`relative h-55 rounded-card-sm border-2 border-dashed transition-colors flex flex-col items-center justify-center p-6 ${
                 dragActive
                   ? "border-deep bg-[#f8faf9]"
                   : "border-neutral-200"
@@ -202,7 +202,7 @@ export default function VerifyIdentityPage() {
           </div>
 
           {/* FAQ Card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col gap-6">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8 flex flex-col gap-6">
             <div>
               <h2 className="text-[16px] font-bold text-gray-900 mb-3">
                 Why do we need this?

@@ -220,7 +220,7 @@ export default function ImportantInformationPage() {
       <main className="flex-1 flex flex-col items-center md:py-8 py-4 px-4 font-inter">
         <div className="w-full max-w-xl flex flex-col gap-3">
           {/* Title card */}
-          <div className="bg-white rounded-2xl p-8 font-inter">
+          <div className="bg-white rounded-card-sm p-8 font-inter">
             <h1 className="text-[24px] font-semibold text-black mb-2">
               Important information
             </h1>
@@ -321,7 +321,7 @@ export default function ImportantInformationPage() {
           <button
             onClick={() => navigate("/auth/account-ready")}
             disabled={agreed !== "yes"}
-            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-2xl py-4 text-[18px] font-medium transition cursor-pointer font-inter"
+            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-card-sm py-4 text-[18px] font-medium transition cursor-pointer font-inter"
           >
             Further
           </button>

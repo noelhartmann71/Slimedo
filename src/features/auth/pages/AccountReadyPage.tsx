@@ -126,7 +126,7 @@ export default function AccountReadyPage() {
       <main className="flex-1 flex flex-col items-center py-8 px-4 font-inter">
         <div className="w-full max-w-xl flex flex-col gap-4">
           {/* Title card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8">
             {isLoading ? (
               <div className="animate-pulse space-y-2">
                 <div className="h-7 bg-gray-100 rounded w-3/4"></div>
@@ -146,7 +146,7 @@ export default function AccountReadyPage() {
           </div>
 
           {/* Consent card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8">
             <div className="mb-5">
               <p className="bg-neutral-200 text-[13px] font-semibold text-gray-900 mb-3 p-3 rounded-lg">
                 Ich bestätige
@@ -183,7 +183,7 @@ export default function AccountReadyPage() {
           </div>
 
           {/* Agreement radio buttons */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8">
             <p className="text-[11.5px] text-gray-500 mb-4 leading-relaxed">
               Ich stimme der telemedizinischen Behandlung und – vorbehaltlich
               der ärztlichen Eignungsprüfung – der Verschreibung des

@@ -25,7 +25,7 @@ const PaymentSuccessPage: React.FC = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center gap-6! px-4 font-sans">
       <div className="w-full max-w-125 flex-col gap-6! items-center">
         {/* Card 1 — Success */}
-        <div className="bg-white rounded-2xl px-6 py-8 text-center shadow-sm">
+        <div className="bg-white rounded-card-sm px-6 py-8 text-center shadow-sm">
           <div className="flex justify-center mb-4">
             <div className="w-15 h-15 rounded-full bg-[#e6f4f1] flex items-center justify-center">
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
@@ -48,7 +48,7 @@ const PaymentSuccessPage: React.FC = () => {
           </p>
         </div>
         {/* Card 2 — What happens next */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm mt-4">
+        <div className="bg-white rounded-card-sm p-6 shadow-sm mt-4">
           <h2 className="text-base font-bold text-gray-900 mb-2">
             Wie geht es weiter?
           </h2>
@@ -84,7 +84,7 @@ const PaymentSuccessPage: React.FC = () => {
           <div className="mt-4">
             <button
               onClick={() => setIsPaymentModalOpen(true)}
-              className="w-full py-4 bg-sage text-white rounded-2xl text-base font-bold hover:bg-[#1B4F48] shadow-md shadow-sage/20 transition-all cursor-pointer"
+              className="w-full py-4 bg-sage text-white rounded-card-sm text-base font-bold hover:bg-[#1B4F48] shadow-md shadow-sage/20 transition-all cursor-pointer"
             >
               Apotheken-Zahlung
             </button>

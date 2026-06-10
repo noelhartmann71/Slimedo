@@ -70,9 +70,9 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Modal Content */}
-      <div className="relative w-full max-w-xl transform overflow-hidden rounded-2xl bg-[#F8F9FA] p-4 shadow-2xl transition-all animate-in zoom-in-95 duration-300">
+      <div className="relative w-full max-w-xl transform overflow-hidden rounded-card-sm bg-[#F8F9FA] p-4 shadow-2xl transition-all animate-in zoom-in-95 duration-300">
         {/* Section 1: Header Card */}
-        <div className="mb-3 overflow-hidden rounded-2xl bg-white p-8 text-center shadow-sm">
+        <div className="mb-3 overflow-hidden rounded-card-sm bg-white p-8 text-center shadow-sm">
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#E9F2F0]">
             <PharmacyPaymentIconSvg />
           </div>
@@ -85,7 +85,7 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
         </div>
 
         {/* Section 2: Info & Amount Card */}
-        <div className="mb-3 rounded-2xl bg-white p-5 shadow-sm">
+        <div className="mb-3 rounded-card-sm bg-white p-5 shadow-sm">
           {/* Payment Info Alert */}
           <div className="mb-5 flex items-start gap-4 rounded-md border border-[#E0F5F1] bg-[#F0FDFA] p-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
@@ -114,7 +114,7 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
         </div>
 
         {/* Section 3: Payment Methods Card */}
-        <div className="rounded-2xl bg-white p-6 shadow-sm">
+        <div className="rounded-card-sm bg-white p-6 shadow-sm">
           <h3 className="mb-5 text-2xl font-medium text-black">
             Zahlungsmethode auswählen
           </h3>
@@ -124,7 +124,7 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
             <button
               onClick={() => payWithCard()}
               disabled={isProcessingCard}
-              className="group flex w-full items-center gap-4 rounded-2xl border border-gray-100 bg-white p-3.5 transition-all hover:border-sage hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+              className="group flex w-full items-center gap-4 rounded-card-sm border border-gray-100 bg-white p-3.5 transition-all hover:border-sage hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9FA] group-hover:bg-[#E9F2F0]">
                 {isProcessingCard ? (
@@ -152,7 +152,7 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
             {/* Pay with Bank */}
             <button
               onClick={() => setIsBankModalOpen(true)}
-              className="group flex w-full items-center gap-4 rounded-2xl border border-gray-100 bg-white p-3.5 transition-all hover:border-sage hover:shadow-md active:scale-[0.98]"
+              className="group flex w-full items-center gap-4 rounded-card-sm border border-gray-100 bg-white p-3.5 transition-all hover:border-sage hover:shadow-md active:scale-[0.98]"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9FA] group-hover:bg-[#E9F2F0]">
                 <SelectPaymentMethodIconSvg />

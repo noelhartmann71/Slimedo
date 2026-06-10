@@ -103,7 +103,7 @@ export default function Testimonials() {
         {/* Content */}
         <div className="flex flex-col lg:flex-row gap-5 2xl:gap-16">
           {/* Text card */}
-          <div className="bg-[#F4F1E780] rounded-2xl p-8 flex flex-col justify-between gap-6 lg:w-[50%] 2xl:w-248.75 shrink-0">
+          <div className="bg-[#F4F1E780] rounded-card-sm p-8 flex flex-col justify-between gap-6 lg:w-[50%] 2xl:w-248.75 shrink-0">
             <div>
               <div className="flex items-end gap-1 mb-1">
                 <span className="font-serif text-6xl font-bold text-[#1d2d2a]">
@@ -127,7 +127,7 @@ export default function Testimonials() {
             {[{ src: t.beforeImg, label: "1 Monat" }].map(({ src, label }) => (
               <div
                 key={label}
-                className="relative flex-1 rounded-2xl overflow-hidden w-[50%] 2xl:w-full h-109.5"
+                className="relative flex-1 rounded-card-sm overflow-hidden w-[50%] 2xl:w-full h-109.5"
               >
                 <img
                   src={src}

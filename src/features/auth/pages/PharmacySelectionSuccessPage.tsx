@@ -76,7 +76,7 @@ export default function PharmacySelectionSuccessPage() {
 
       {/* Main Content */}
       <div className="flex items-center justify-center pt-22.5 sm:pt-25 px-4">
-        <div className="bg-white rounded-2xl p-4 sm:p-8 max-w-xl w-full">
+        <div className="bg-white rounded-card-sm p-4 sm:p-8 max-w-xl w-full">
           {/* Success Icon */}
           <div className="flex justify-center mb-6">
             <div className="bg-[#CBFBF1] rounded-full p-4 w-16 h-16 flex items-center justify-center">
@@ -160,7 +160,7 @@ export default function PharmacySelectionSuccessPage() {
       {/* Book Doctor Consultation Modal */}
       {showBookingModal && (
         <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50 p-8">
-          <div className="bg-white rounded-2xl p-6 w-full max-w-xl">
+          <div className="bg-white rounded-card-sm p-6 w-full max-w-xl">
             {/* Header */}
             <div className="flex justify-between items-start mb-1">
               <h2 className="text-lg sm:text-2xl font-medium text-black">
@@ -260,7 +260,7 @@ export default function PharmacySelectionSuccessPage() {
       {/* Booking Confirmation Modal */}
       {showConfirmationModal && confirmedBooking && (
         <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl p-8 w-full max-w-md">
+          <div className="bg-white rounded-card-sm p-8 w-full max-w-md">
             {/* Success Icon */}
             <div className="flex justify-center mb-6">
               <div className="bg-[#CBFBF1] rounded-full p-4 w-16 h-16 flex items-center justify-center">

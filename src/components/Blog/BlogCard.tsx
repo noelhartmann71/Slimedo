@@ -37,9 +37,9 @@ function TagBadge({ label }: { label: string }) {
 // ── Blog Card ──────────────────────────────────────────────────────────────
 function BlogCardSkeleton() {
   return (
-    <div className="flex flex-col rounded-3xl overflow-hidden bg-white border border-[#F5F7F8] p-4 animate-pulse">
+    <div className="flex flex-col rounded-card overflow-hidden bg-white border border-[#F5F7F8] p-4 animate-pulse">
       {/* Image Skeleton */}
-      <div className="bg-gray-200 aspect-video rounded-2xl w-full"></div>
+      <div className="bg-gray-200 aspect-video rounded-card-sm w-full"></div>
 
       {/* Body Skeleton */}
       <div className="flex flex-col flex-1 pt-6 gap-3">
@@ -76,7 +76,7 @@ function BlogCard({ post }: { post: SimilarPost }) {
       : [];
 
   return (
-    <article className="group flex flex-col rounded-3xl overflow-hidden bg-white border border-[#F5F7F8] p-4">
+    <article className="group flex flex-col rounded-card overflow-hidden bg-white border border-[#F5F7F8] p-4">
       {/* Image */}
       <div className="relative overflow-hidden aspect-video">
         <img
@@ -288,7 +288,7 @@ export default function BlogPage() {
             <input
               type="text"
               placeholder="Artikel suchen..."
-              className="w-full pl-9 pr-4 py-3 text-sm rounded-2xl border border-gray-200 bg-white"
+              className="w-full pl-9 pr-4 py-3 text-sm rounded-card-sm border border-gray-200 bg-white"
             />
           </div>
 
@@ -298,7 +298,7 @@ export default function BlogPage() {
               <button
                 key={tab}
                 onClick={() => handleFilter(tab)}
-                className={`xl:px-4 px-2 xl:py-3 py-1.5 rounded-xl xl:rounded-2xl text-sm xl:text-base font-medium transition-all duration-200 ${
+                className={`xl:px-4 px-2 xl:py-3 py-1.5 rounded-xl xl:rounded-card-sm text-sm xl:text-base font-medium transition-all duration-200 ${
                   activeFilter === tab
                     ? "bg-sage text-white shadow-sm"
                     : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"

@@ -61,7 +61,7 @@ export default function ProfileOverviewPage() {
         {/* Top Cards Grid */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {/* Latest Prescription Card */}
-          <div className="rounded-2xl bg-sage p-6 text-white overflow-hidden relative shadow-lg">
+          <div className="rounded-card-sm bg-sage p-6 text-white overflow-hidden relative shadow-lg">
             {isLoading ? (
               <div className="space-y-4">
                 <Skeleton className="h-4 w-24 bg-white/20" />
@@ -122,7 +122,7 @@ export default function ProfileOverviewPage() {
           </div>
 
           {/* Status Card */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div className="rounded-card-sm border border-neutral-200 bg-white p-6 shadow-sm">
             {isLoading ? (
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
@@ -175,7 +175,7 @@ export default function ProfileOverviewPage() {
           </div>
 
           {/* Total Prescriptions Card */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div className="rounded-card-sm border border-neutral-200 bg-white p-6 shadow-sm">
             {isLoading ? (
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
@@ -223,7 +223,7 @@ export default function ProfileOverviewPage() {
         {/* Action Banners */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {/* Follow-Up Banner */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6">
+          <div className="rounded-card-sm border border-neutral-200 bg-white p-6">
             <div className="mb-2 flex items-center gap-2">
               <svg
                 width="20"
@@ -262,7 +262,7 @@ export default function ProfileOverviewPage() {
           </div>
 
           {/* Need Help Banner */}
-          <div className="rounded-2xl border border-neutral-200 bg-white p-6">
+          <div className="rounded-card-sm border border-neutral-200 bg-white p-6">
             <div className="mb-2 flex items-center gap-2">
               <svg
                 width="20"

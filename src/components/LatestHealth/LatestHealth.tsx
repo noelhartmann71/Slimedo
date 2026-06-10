@@ -56,7 +56,7 @@ function SimilarBlog({ label }: { label: string }) {
 // ── Similar Blog Card ──────────────────────────────────────────────────────
 function SimilarCard({ post }: { post: SimilarPost }) {
   return (
-    <article className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-4">
+    <article className="group flex flex-col rounded-card-sm overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-4">
       <div className="relative overflow-hidden aspect-video">
         <img
           src={post.image}
@@ -101,7 +101,7 @@ function SimilarCard({ post }: { post: SimilarPost }) {
 }
 
 const BlogCardSkeleton = () => (
-  <div className="flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm p-4 h-full">
+  <div className="flex flex-col rounded-card-sm overflow-hidden bg-white border border-gray-100 shadow-sm p-4 h-full">
     <Skeleton className="aspect-video w-full rounded-xl" />
     <div className="flex flex-col gap-4 mt-6 flex-1">
       <div className="flex gap-2">
