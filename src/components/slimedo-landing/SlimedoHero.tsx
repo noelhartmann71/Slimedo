@@ -388,7 +388,7 @@ export default function SlimedoHero() {
         slimedo-anim slimedo-d5
         hero-trust-bar
         col-span-full flex items-center flex-nowrap
-        px-8 py-5 mx-8 mb-8 -mt-16 z-[8] relative
+        px-8 mx-8 mb-8 -mt-16 z-[8] relative
         max-lg:px-6 max-lg:mx-6 max-lg:-mt-12
         max-sm:mx-4 max-sm:px-5 max-sm:pt-9 max-sm:pb-6 max-sm:-mt-14
       ">
@@ -576,15 +576,11 @@ export default function SlimedoHero() {
           transform: translateY(-2px);
         }
 
-        /* Trust badges: card bar matching navbar style */
+        /* Trust badges */
         .hero-trust-bar {
           overflow: hidden;
           flex-wrap: nowrap;
           width: fit-content;
-          background: #fffdf7;
-          border: 1px solid #e1dacb;
-          border-radius: 999px;
-          box-shadow: 0 4px 20px rgba(30,58,46,0.07);
         }
         .hero-trust-bar::before {
           display: none;
@@ -632,8 +628,57 @@ export default function SlimedoHero() {
           color: #3D5C4A;
           transform: translateY(-1px);
         }
+        /* MacBook Pro 16" (~1728px) */
+        @media (min-width: 1601px) and (max-width: 1800px) {
+          .hero-bullet-list { gap: 12px !important; }
+          .hero-copy-col { padding-bottom: 60px !important; }
+          .hero-trust-bar { margin-top: -136px; }
+          .hero-trust-item {
+            font-size: 14px;
+            gap: 10px;
+            white-space: nowrap;
+          }
+          .hero-trust-item--divided {
+            padding-right: 20px;
+            margin-right: 20px;
+          }
+          .hero-trust-item--divided::after {
+            height: 30px;
+          }
+          .hero-trust-icon {
+            width: 42px;
+            height: 42px;
+          }
+          .hero-trust-icon svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        /* MacBook Pro 14" (~1512px) */
+        @media (min-width: 1441px) and (max-width: 1600px) {
+          .hero-trust-bar { margin-top: -136px; }
+          .hero-trust-item {
+            font-size: 13px;
+            gap: 10px;
+            white-space: nowrap;
+          }
+          .hero-trust-item--divided {
+            padding-right: 20px;
+            margin-right: 20px;
+          }
+          .hero-trust-item--divided::after {
+            height: 28px;
+          }
+          .hero-trust-icon {
+            width: 40px;
+            height: 40px;
+          }
+          .hero-trust-icon svg {
+            width: 19px;
+            height: 19px;
+          }
+        }
         @media (max-width: 1440px) {
-          .hero-trust-bar {
           .hero-trust-item {
             gap: clamp(7px, .75vw, 11px);
             font-size: clamp(11px, .98vw, 14px);
@@ -655,7 +700,6 @@ export default function SlimedoHero() {
           }
         }
         @media (max-width: 1024px) {
-          .hero-trust-bar {
           .hero-trust-item {
             gap: 7px;
             font-size: 10.5px;
@@ -743,40 +787,6 @@ export default function SlimedoHero() {
 
         @media (prefers-reduced-motion: reduce) {
           .hero-badge-1, .hero-badge-2 { animation: none; }
-        }
-
-        /* MacBook Pro 16" (~1728px): push badges further right, tighten bullets, constrain trust bar */
-        @media (min-width: 1600px) and (max-width: 1800px) {
-          .hero-bullet-list { gap: 12px !important; }
-          .hero-copy-col {
-            padding-bottom: 60px !important;
-          }
-          .hero-trust-bar {
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 14px;
-            padding-bottom: 14px;
-          }
-          .hero-trust-item {
-            font-size: 9.5px;
-            gap: 6px;
-            white-space: nowrap;
-          }
-          .hero-trust-item--divided {
-            padding-right: 12px;
-            margin-right: 12px;
-          }
-          .hero-trust-item--divided::after {
-            height: 20px;
-          }
-          .hero-trust-icon {
-            width: 26px;
-            height: 26px;
-          }
-          .hero-trust-icon svg {
-            width: 13px;
-            height: 13px;
-          }
         }
       `}</style>
     </section>
