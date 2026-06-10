@@ -6,7 +6,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <div className="min-h-screen flex bg-[#f0f0ec]">
       {/* Sidebar */}
-      <aside className="w-120 min-w-120 bg-[#1d3a35] flex flex-col px-7 py-6 relative">
+      <aside className="w-120 min-w-120 bg-deep flex flex-col px-7 py-6 relative">
         {/* Logo */}
         <div className="flex items-center gap-2 mb-10">
           <svg width="28" height="28" viewBox="0 0 40 40" fill="none">

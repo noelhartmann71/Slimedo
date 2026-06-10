@@ -37,9 +37,9 @@ function TagBadge({ label }: { label: string }) {
 // ── Blog Card ──────────────────────────────────────────────────────────────
 function BlogCardSkeleton() {
   return (
-    <div className="flex flex-col rounded-3xl overflow-hidden bg-white border border-[#F5F7F8] p-4 animate-pulse">
+    <div className="flex flex-col rounded-card overflow-hidden bg-white border border-[#F5F7F8] p-4 animate-pulse">
       {/* Image Skeleton */}
-      <div className="bg-gray-200 aspect-video rounded-2xl w-full"></div>
+      <div className="bg-gray-200 aspect-video rounded-card-sm w-full"></div>
 
       {/* Body Skeleton */}
       <div className="flex flex-col flex-1 pt-6 gap-3">
@@ -76,7 +76,7 @@ function BlogCard({ post }: { post: SimilarPost }) {
       : [];
 
   return (
-    <article className="group flex flex-col rounded-3xl overflow-hidden bg-white border border-[#F5F7F8] p-4">
+    <article className="group flex flex-col rounded-card overflow-hidden bg-white border border-[#F5F7F8] p-4">
       {/* Image */}
       <div className="relative overflow-hidden aspect-video">
         <img
@@ -101,13 +101,13 @@ function BlogCard({ post }: { post: SimilarPost }) {
         </h3>
 
         {/* Description */}
-        <p className="text-sm xl:text-base text-[#6B7280] leading-relaxed line-clamp-2 flex-1">
+        <p className="text-sm xl:text-base text-neutral-500 leading-relaxed line-clamp-2 flex-1">
           {post.description}
         </p>
 
         {/* Read More */}
         <Link to={`/blog/${post.id}`}>
-          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-[#B8C5C2] bg-[#E8ECEB] px-2 xl:px-4 xl:py-3 py-1.5 text-base font-medium text-gray-700 hover:bg-[#29574E] hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
+          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-[#B8C5C2] bg-neutral-200 px-2 xl:px-4 xl:py-3 py-1.5 text-base font-medium text-gray-700 hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
             Weiterlesen
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +186,7 @@ export function Pagination({
               onClick={() => onChange(p)}
               className={`w-10 h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
                 p === current
-                  ? "bg-[#29574E] text-white shadow-md shadow-[#29574E]/20"
+                  ? "bg-sage text-white shadow-md shadow-sage/20"
                   : "border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
               }`}
             >
@@ -288,7 +288,7 @@ export default function BlogPage() {
             <input
               type="text"
               placeholder="Artikel suchen..."
-              className="w-full pl-9 pr-4 py-3 text-sm rounded-2xl border border-gray-200 bg-white"
+              className="w-full pl-9 pr-4 py-3 text-sm rounded-card-sm border border-gray-200 bg-white"
             />
           </div>
 
@@ -298,9 +298,9 @@ export default function BlogPage() {
               <button
                 key={tab}
                 onClick={() => handleFilter(tab)}
-                className={`xl:px-4 px-2 xl:py-3 py-1.5 rounded-xl xl:rounded-2xl text-sm xl:text-base font-medium transition-all duration-200 ${
+                className={`xl:px-4 px-2 xl:py-3 py-1.5 rounded-xl xl:rounded-card-sm text-sm xl:text-base font-medium transition-all duration-200 ${
                   activeFilter === tab
-                    ? "bg-[#29574E] text-white shadow-sm"
+                    ? "bg-sage text-white shadow-sm"
                     : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
                 }`}
               >

@@ -44,7 +44,7 @@ export default function ViewOrderModal({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-xl bg-white rounded-lg p-0 overflow-hidden">
-        <div className="bg-[#4A645D] p-6 text-white">
+        <div className="bg-sage p-6 text-white">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold">
               Order Details
@@ -56,8 +56,8 @@ export default function ViewOrderModal({
         <div className="p-6 space-y-6 max-h-[80vh] overflow-y-auto">
           {/* Patient Details Section */}
           <section className="space-y-4">
-            <h3 className="text-lg font-bold text-[#1B433B] flex items-center gap-2">
-              <span className="h-5 w-1 bg-[#4A645D] rounded-full" />
+            <h3 className="text-lg font-bold text-deep flex items-center gap-2">
+              <span className="h-5 w-1 bg-sage rounded-full" />
               Patient Details
             </h3>
             <div className="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded-xl border border-gray-100">
@@ -108,8 +108,8 @@ export default function ViewOrderModal({
 
           {/* Order Summary Section */}
           <section className="space-y-4">
-            <h3 className="text-lg font-bold text-[#1B433B] flex items-center gap-2">
-              <span className="h-5 w-1 bg-[#4A645D] rounded-full" />
+            <h3 className="text-lg font-bold text-deep flex items-center gap-2">
+              <span className="h-5 w-1 bg-sage rounded-full" />
               Order Summary
             </h3>
             <div className="space-y-3">
@@ -146,10 +146,10 @@ export default function ViewOrderModal({
                   </div>
                 )}
                 <div className="pt-2 border-t flex justify-between items-center">
-                  <span className="text-lg font-bold text-[#1B433B]">
+                  <span className="text-lg font-bold text-deep">
                     Total Due
                   </span>
-                  <span className="text-xl font-black text-[#1B433B]">
+                  <span className="text-xl font-black text-deep">
                     €{latest_order.due_amount}
                   </span>
                 </div>
@@ -180,7 +180,7 @@ export default function ViewOrderModal({
         <div className="p-4 bg-gray-50 border-t flex justify-end">
           <button
             onClick={onClose}
-            className="px-6 py-2 rounded-full bg-[#1B433B] text-white text-sm font-bold hover:bg-[#14322c] transition-colors"
+            className="px-6 py-2 rounded-full bg-deep text-white text-sm font-bold hover:bg-[#14322c] transition-colors"
           >
             Close
           </button>

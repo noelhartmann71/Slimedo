@@ -29,10 +29,10 @@ export function ProfileIdentityHeader({
   if (isLoading) {
     return (
       <div className="flex items-center gap-4">
-        <div className="h-14 w-14 rounded-full bg-[#e5e7eb] animate-pulse" />
+        <div className="h-14 w-14 rounded-full bg-neutral-200 animate-pulse" />
         <div className="min-w-0 flex-1">
-          <div className="h-6 w-40 mb-2 rounded bg-[#e5e7eb] animate-pulse" />
-          <div className="h-4 w-56 rounded bg-[#e5e7eb] animate-pulse" />
+          <div className="h-6 w-40 mb-2 rounded bg-neutral-200 animate-pulse" />
+          <div className="h-4 w-56 rounded bg-neutral-200 animate-pulse" />
         </div>
       </div>
     );
@@ -40,7 +40,7 @@ export function ProfileIdentityHeader({
 
   return (
     <div className="flex items-center gap-4">
-      <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-[#d1d5db] text-[14px] font-semibold text-primary">
+      <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-neutral-300 text-[14px] font-semibold text-primary">
         {user?.first_name?.charAt(0) + user?.last_name?.charAt(0) || initials}
       </div>
       <div className="min-w-0">
@@ -64,7 +64,7 @@ export function ProfileSectionTitle({ title }: { title: string }) {
 }
 
 export function ProfileDivider() {
-  return <div className="h-px w-full bg-[#dce4e8]" />;
+  return <div className="h-px w-full bg-neutral-200" />;
 }
 
 export function ProfileField({
@@ -73,13 +73,13 @@ export function ProfileField({
   multiline = false,
   dropdown = false,
   leading,
-  borderColor = "#dce4e8",
+  borderColor = "#E5E9EB",
   leadingDivider = false,
 }: ProfileFieldProps) {
   return (
     <div className="flex min-w-0 flex-1 flex-col pb-2.75">
       <div className="z-2 -mb-2.75 px-3">
-        <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+        <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
           {label}
         </span>
       </div>
@@ -95,7 +95,7 @@ export function ProfileField({
           {leading}
           {leadingDivider && (
             <span
-              className="h-4 w-px shrink-0 bg-[#d1d5db]"
+              className="h-4 w-px shrink-0 bg-neutral-300"
               aria-hidden="true"
             />
           )}

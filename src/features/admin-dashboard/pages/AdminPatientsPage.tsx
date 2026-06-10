@@ -112,10 +112,10 @@ export default function AdminPatientsPage() {
   return (
     <div>
       {/* Header */}
-      <h1 className="text-2xl font-bold text-[#101928] mb-1">
+      <h1 className="text-2xl font-bold text-neutral-900 mb-1">
         Good Morning, Jorina joru
       </h1>
-      <p className="text-sm text-[#667185]">
+      <p className="text-sm text-neutral-500">
         Welcome back, Dr. Sarah Weber. Here's your practice summary for today.
       </p>
 
@@ -123,45 +123,45 @@ export default function AdminPatientsPage() {
       <div className="mt-6 grid grid-cols-4 gap-4">
         {[
           {
-            icon: <Users className="w-5 h-5 text-[#667185]" />,
+            icon: <Users className="w-5 h-5 text-neutral-500" />,
             value: 3,
             label: "Total Patients",
           },
           {
-            icon: <ShieldCheck className="w-5 h-5 text-[#667185]" />,
+            icon: <ShieldCheck className="w-5 h-5 text-neutral-500" />,
             value: 2,
             label: "Verified Identities",
           },
           {
-            icon: <Briefcase className="w-5 h-5 text-[#667185]" />,
+            icon: <Briefcase className="w-5 h-5 text-neutral-500" />,
             value: 1,
             label: "Active Cases",
           },
           {
-            icon: <Clock className="w-5 h-5 text-[#667185]" />,
+            icon: <Clock className="w-5 h-5 text-neutral-500" />,
             value: 0,
             label: "Pending Verification",
           },
         ].map((stat, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl border border-[#E5E9EB] px-5 py-4"
+            className="bg-white rounded-xl border border-neutral-200 px-5 py-4"
           >
             <div className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center mb-3">
               {stat.icon}
             </div>
-            <p className="text-3xl font-bold text-[#101928]">{stat.value}</p>
-            <p className="text-xs text-[#667185] mt-1">{stat.label}</p>
+            <p className="text-3xl font-bold text-neutral-900">{stat.value}</p>
+            <p className="text-xs text-neutral-500 mt-1">{stat.label}</p>
           </div>
         ))}
       </div>
 
       {/* Legal Notice */}
       <div className="mt-4 bg-[#f4f9f7] border border-[#d4e9e0] rounded-xl px-5 py-4">
-        <p className="text-sm font-semibold text-[#101928] mb-1">
+        <p className="text-sm font-semibold text-neutral-900 mb-1">
           Legal Archiving & Data Protection Notice
         </p>
-        <p className="text-xs text-[#667185] leading-relaxed">
+        <p className="text-xs text-neutral-500 leading-relaxed">
           All patient records are stored in compliance with Ärztekammer
           guidelines, GDPR Article 9, and German medical data retention
           requirements. Records cannot be deleted and are accessible only to
@@ -170,21 +170,21 @@ export default function AdminPatientsPage() {
       </div>
 
       {/* Table Card */}
-      <div className="mt-4 bg-white rounded-xl border border-[#E5E9EB] overflow-hidden">
+      <div className="mt-4 bg-white rounded-xl border border-neutral-200 overflow-hidden">
         {/* Filters */}
-        <div className="flex items-center gap-3 px-5 py-4 border-b border-[#E5E9EB]">
+        <div className="flex items-center gap-3 px-5 py-4 border-b border-neutral-200">
           <div className="relative flex-1 max-w-xs">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#98A2B3]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
             <input
               type="text"
               placeholder="Search by name, ID, or insurance number..."
-              className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E9EB] rounded-lg text-[#667185] placeholder:text-[#98A2B3] focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-200 rounded-lg text-neutral-500 placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
           </div>
-          <button className="flex items-center gap-2 border border-[#E5E9EB] rounded-lg px-3 py-2 text-sm text-[#667185] bg-white hover:bg-gray-50">
+          <button className="flex items-center gap-2 border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-500 bg-white hover:bg-gray-50">
             Case Status <ChevronDown className="w-4 h-4" />
           </button>
-          <button className="flex items-center gap-2 border border-[#E5E9EB] rounded-lg px-3 py-2 text-sm text-[#667185] bg-white hover:bg-gray-50">
+          <button className="flex items-center gap-2 border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-500 bg-white hover:bg-gray-50">
             All Verification <ChevronDown className="w-4 h-4" />
           </button>
         </div>
@@ -192,24 +192,24 @@ export default function AdminPatientsPage() {
         {/* Table */}
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#E5E9EB]">
+            <tr className="border-b border-neutral-200">
               <th className="w-8 px-4 py-3"></th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Patient Information
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Date of Birth
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Case Status
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 ID Verification
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Last Consultation
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Actions
               </th>
             </tr>
@@ -218,7 +218,7 @@ export default function AdminPatientsPage() {
             {patients.map((row, i) => (
               <tr
                 key={i}
-                className="border-b border-[#E5E9EB] last:border-0 hover:bg-gray-50"
+                className="border-b border-neutral-200 last:border-0 hover:bg-gray-50"
               >
                 <td className="px-4 py-4">
                   <input
@@ -228,12 +228,12 @@ export default function AdminPatientsPage() {
                   />
                 </td>
                 <td className="px-4 py-4">
-                  <p className="text-sm font-medium text-[#101928]">
+                  <p className="text-sm font-medium text-neutral-900">
                     {row.name}
                   </p>
-                  <p className="text-xs text-[#98A2B3]">{row.sub}</p>
+                  <p className="text-xs text-neutral-400">{row.sub}</p>
                 </td>
-                <td className="px-4 py-4 text-sm text-[#101928]">{row.dob}</td>
+                <td className="px-4 py-4 text-sm text-neutral-900">{row.dob}</td>
                 <td className="px-4 py-4">
                   <CaseStatusBadge type={row.caseType} label={row.caseStatus} />
                 </td>
@@ -243,11 +243,11 @@ export default function AdminPatientsPage() {
                     label={row.idVerification}
                   />
                 </td>
-                <td className="px-4 py-4 text-sm text-[#101928]">
+                <td className="px-4 py-4 text-sm text-neutral-900">
                   {row.lastConsultation}
                 </td>
                 <td className="px-4 py-4">
-                  <button className="bg-[#29574E] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0f2a2a] transition-colors whitespace-nowrap">
+                  <button className="bg-sage text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0f2a2a] transition-colors whitespace-nowrap">
                     View File
                   </button>
                 </td>
@@ -257,11 +257,11 @@ export default function AdminPatientsPage() {
         </table>
 
         {/* Pagination */}
-        <div className="flex items-center justify-end gap-2 px-5 py-4 border-t border-[#E5E9EB]">
-          <button className="px-4 py-2 text-sm text-[#667185] border border-[#E5E9EB] rounded-lg hover:bg-gray-50">
+        <div className="flex items-center justify-end gap-2 px-5 py-4 border-t border-neutral-200">
+          <button className="px-4 py-2 text-sm text-neutral-500 border border-neutral-200 rounded-lg hover:bg-gray-50">
             Previous
           </button>
-          <button className="px-4 py-2 text-sm text-white bg-[#29574E] rounded-lg hover:bg-[#0f2a2a] transition-colors">
+          <button className="px-4 py-2 text-sm text-white bg-sage rounded-lg hover:bg-[#0f2a2a] transition-colors">
             Next
           </button>
         </div>

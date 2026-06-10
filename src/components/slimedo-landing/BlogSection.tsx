@@ -201,148 +201,58 @@ export default function BlogSection() {
   }, [isLoading, blogData.length, currentStep, cardsPerView]);
 
   return (
-    <section ref={ref} id="blog" style={{ background: '#FAF5EA', padding: 'clamp(60px, 4.88vw, 110px) 0' }}>
-      <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
-        <div
-          className="blog-hdr-resp"
-          style={{
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
-            marginBottom: 48,
-            gap: 24,
-          }}
-        >
+    <section ref={ref} id="blog" className="bg-cream py-[clamp(60px,4.88vw,110px)]">
+      <div className="mx-auto max-w-[1800px] px-10">
+        <div className="blog-hdr-resp mb-12 flex items-end justify-between gap-6">
           <div>
-            <p
-              className="slimedo-anim"
-              style={{
-                fontSize: 12,
-                fontWeight: 500,
-                textTransform: 'uppercase',
-                letterSpacing: '.16em',
-                color: '#3D5C4A',
-                marginBottom: 8,
-                fontFamily: '"Inter", sans-serif',
-              }}
-            >
+            <p className="slimedo-anim mb-2 text-[12px] font-medium tracking-[0.16em] uppercase text-sage">
               Blog
             </p>
-            <h2
-              className="slimedo-anim slimedo-d1 blog-hl-resp"
-              style={{
-                fontFamily: '"Instrument Serif", Georgia, serif',
-                fontSize: 'clamp(38px, 2.94vw, 72px)',
-                fontWeight: 400,
-                letterSpacing: '-.01em',
-                lineHeight: 1.05,
-                color: '#1A1A1A',
-              }}
-            >
+            <h2 className="slimedo-anim slimedo-d1 blog-hl-resp font-instrument text-[clamp(38px,2.94vw,72px)] font-normal leading-[1.05] tracking-[-0.01em] text-ink">
               Aktuelle Gesundheits-Tipps
             </h2>
-            <p
-              className="slimedo-anim slimedo-d2"
-              style={{
-                fontSize: 15,
-                color: '#768064',
-                marginTop: 10,
-                maxWidth: 400,
-                fontFamily: '"Inter", sans-serif',
-              }}
-            >
+            <p className="slimedo-anim slimedo-d2 mt-2.5 max-w-[400px] text-[15px] text-olive">
               Medizinisch fundierte Ratschläge rund um die GLP-1-Therapie.
             </p>
           </div>
           <Link
             to="/blog"
-            className="slimedo-anim"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              background: '#3D5C4A',
-              color: '#FAF5EA',
-              fontSize: 14,
-              fontWeight: 500,
-              padding: '12px 22px',
-              borderRadius: 999,
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-              flexShrink: 0,
-              transition: 'background .2s',
-              fontFamily: '"Inter", sans-serif',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = '#1E3A2E';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = '#3D5C4A';
-            }}
+            className="slimedo-anim inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-sage px-[22px] py-3 text-[14px] font-medium text-cream no-underline transition-colors hover:bg-deep"
+            style={{ fontFamily: '"Inter", sans-serif' }}
           >
             Alle anzeigen →
           </Link>
         </div>
 
         {isLoading ? (
-          <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cardsPerView},minmax(0,1fr))`, gap: CAROUSEL_GAP }}>
+          <div className="grid gap-5" style={{ gridTemplateColumns: `repeat(${cardsPerView},minmax(0,1fr))` }}>
             {Array.from({ length: cardsPerView }).map((_, idx) => (
               <article
                 key={`blog-skeleton-${idx}`}
-                className="slimedo-anim"
-                style={{
-                  background: '#FFFDF7',
-                  borderRadius: 18,
-                  overflow: 'hidden',
-                  border: '1px solid #E5D9BD',
-                }}
+                className="slimedo-anim overflow-hidden rounded-[18px] border border-sand2 bg-surf"
               >
-                <div style={{ aspectRatio: '16/10', background: '#E8E2D1' }} />
-                <div style={{ padding: '20px 22px 24px' }}>
-                  <div style={{ display: 'flex', gap: 6, marginBottom: 12 }}>
-                    <span style={{ display: 'inline-block', width: 72, height: 24, borderRadius: 999, background: '#D9E6D7' }} />
-                    <span style={{ display: 'inline-block', width: 92, height: 24, borderRadius: 999, background: '#D9E6D7' }} />
+                <div className="aspect-[16/10] bg-[#E8E2D1]" />
+                <div className="px-[22px] pt-5 pb-6">
+                  <div className="mb-3 flex gap-1.5">
+                    <span className="inline-block h-6 w-[72px] rounded-full bg-[#D9E6D7]" />
+                    <span className="inline-block h-6 w-[92px] rounded-full bg-[#D9E6D7]" />
                   </div>
-                  <div style={{ width: '100%', height: 18, borderRadius: 6, background: '#E8E2D1', marginBottom: 8 }} />
-                  <div style={{ width: '72%', height: 18, borderRadius: 6, background: '#E8E2D1', marginBottom: 12 }} />
-                  <div style={{ width: '100%', height: 14, borderRadius: 6, background: '#ECE6D7', marginBottom: 6 }} />
-                  <div style={{ width: '82%', height: 14, borderRadius: 6, background: '#ECE6D7', marginBottom: 16 }} />
-                  <div style={{ width: 108, height: 20, borderRadius: 8, background: '#D9E6D7' }} />
+                  <div className="mb-2 h-[18px] w-full rounded-md bg-[#E8E2D1]" />
+                  <div className="mb-3 h-[18px] w-[72%] rounded-md bg-[#E8E2D1]" />
+                  <div className="mb-1.5 h-[14px] w-full rounded-md bg-[#ECE6D7]" />
+                  <div className="mb-4 h-[14px] w-[82%] rounded-md bg-[#ECE6D7]" />
+                  <div className="h-5 w-[108px] rounded-lg bg-[#D9E6D7]" />
                 </div>
               </article>
             ))}
           </div>
         ) : isError ? (
-          <div
-            style={{
-              border: '1px solid #E5D9BD',
-              borderRadius: 18,
-              padding: '24px 28px',
-              background: '#FFFDF7',
-              color: '#768064',
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 14,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 12,
-            }}
-          >
+          <div className="flex flex-col items-center gap-3 rounded-[18px] border border-sand2 bg-surf px-7 py-6 text-[14px] text-olive">
             <span>Artikel konnten nicht geladen werden.</span>
             <button
               type="button"
               onClick={() => refetch()}
-              style={{
-                border: '1px solid #E5D9BD',
-                background: '#F5EEDB',
-                color: '#1A1A1A',
-                borderRadius: 999,
-                padding: '8px 16px',
-                cursor: 'pointer',
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 13,
-                fontWeight: 500,
-              }}
+              className="cursor-pointer rounded-full border border-sand2 bg-sand px-4 py-2 text-[13px] font-medium text-ink"
             >
               Erneut versuchen
             </button>
@@ -399,7 +309,7 @@ export default function BlogSection() {
                 }
               }}
             >
-              <div style={{ display: 'flex', gap: CAROUSEL_GAP, width: 'max-content' }}>
+              <div className="flex w-max gap-5">
                 {blogData.map((post, idx) => {
                   const badges = normalizeLabels(post.category).length
                     ? normalizeLabels(post.category)
@@ -409,125 +319,51 @@ export default function BlogSection() {
                   return (
                     <article
                       key={post.id ?? idx}
-                      className={`slimedo-anim slimedo-d${(idx % 3) + 1}`}
+                      className={`slimedo-anim slimedo-d${(idx % 3) + 1} overflow-hidden rounded-[18px] border border-sand2 bg-surf transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(15,31,26,0.1)]`}
                       data-carousel-card="true"
                       style={{
                         flex: `0 0 ${cardWidthPx || 320}px`,
                         width: cardWidthPx || 320,
-                        background: '#FFFDF7',
-                        borderRadius: 18,
-                        overflow: 'hidden',
-                        border: '1px solid #E5D9BD',
-                        transition: 'transform .2s,box-shadow .2s',
-                      }}
-                      onMouseEnter={(e) => {
-                        const el = e.currentTarget as HTMLElement;
-                        el.style.transform = 'translateY(-4px)';
-                        el.style.boxShadow = '0 8px 32px rgba(15,31,26,.1)';
-                      }}
-                      onMouseLeave={(e) => {
-                        const el = e.currentTarget as HTMLElement;
-                        el.style.transform = 'translateY(0)';
-                        el.style.boxShadow = 'none';
                       }}
                     >
                       <div
-                        style={{
-                          aspectRatio: '16/10',
-                          background: post.image ? undefined : gradient,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          overflow: 'hidden',
-                        }}
+                        className="flex aspect-[16/10] items-center justify-center overflow-hidden"
+                        style={{ background: post.image ? undefined : gradient }}
                       >
                         {post.image ? (
                           <img
                             src={post.image}
                             alt={post.title}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                            className="block h-full w-full object-cover"
                           />
                         ) : (
-                          <span
-                            style={{
-                              fontFamily: '"Manrope", sans-serif',
-                              fontSize: 11,
-                              fontWeight: 600,
-                              textTransform: 'uppercase',
-                              letterSpacing: '.1em',
-                              opacity: 0.4,
-                              color: '#1A1A1A',
-                            }}
-                          >
+                          <span className="font-[Manrope,sans-serif] text-[11px] font-semibold tracking-[0.1em] uppercase text-ink opacity-40">
                             Bild folgt
                           </span>
                         )}
                       </div>
 
-                      <div style={{ padding: '20px 22px 24px' }}>
-                        <div style={{ marginBottom: 12 }}>
+                      <div className="px-[22px] pt-5 pb-6">
+                        <div className="mb-3">
                           {badges.slice(0, 2).map((tag) => (
                             <span
                               key={tag}
-                              style={{
-                                display: 'inline-block',
-                                background: '#CDDDCB',
-                                color: '#1E3A2E',
-                                fontSize: 11,
-                                fontWeight: 500,
-                                padding: '3px 10px',
-                                borderRadius: 999,
-                                marginRight: 5,
-                                marginBottom: 5,
-                                fontFamily: '"Inter", sans-serif',
-                              }}
+                              className="mr-[5px] mb-[5px] inline-block rounded-full bg-mint px-2.5 py-[3px] text-[11px] font-medium text-deep"
                             >
                               {mapLabel(tag)}
                             </span>
                           ))}
                         </div>
-                        <h3
-                          style={{
-                            fontFamily: '"Manrope", sans-serif',
-                            fontSize: 17,
-                            fontWeight: 600,
-                            color: '#1A1A1A',
-                            marginBottom: 8,
-                            lineHeight: 1.3,
-                          }}
-                        >
+                        <h3 className="mb-2 font-[Manrope,sans-serif] text-[17px] font-semibold leading-[1.3] text-ink">
                           {post.title}
                         </h3>
-                        <p
-                          style={{
-                            fontSize: 13.5,
-                            color: '#768064',
-                            lineHeight: 1.5,
-                            marginBottom: 16,
-                            fontFamily: '"Inter", sans-serif',
-                          }}
-                        >
+                        <p className="mb-4 text-[13.5px] leading-[1.5] text-olive">
                           {post.description}
                         </p>
                         <Link
                           to={`/blog/${post.id}`}
-                          style={{
-                            fontSize: 13.5,
-                            fontWeight: 500,
-                            color: '#3D5C4A',
-                            textDecoration: 'none',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: 4,
-                            transition: 'gap .15s',
-                            fontFamily: '"Inter", sans-serif',
-                          }}
-                          onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLElement).style.gap = '8px';
-                          }}
-                          onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLElement).style.gap = '4px';
-                          }}
+                          className="inline-flex items-center gap-1 text-[13.5px] font-medium text-sage no-underline transition-[gap] duration-150 hover:gap-2"
+                          style={{ fontFamily: '"Inter", sans-serif' }}
                         >
                           Weiterlesen →
                         </Link>
@@ -539,37 +375,19 @@ export default function BlogSection() {
             </div>
 
             {totalSteps > 1 && (
-              <div
-                style={{
-                  marginTop: 24,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  gap: 8,
-                  flexWrap: 'wrap',
-                }}
-              >
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
                 <button
                   type="button"
                   onClick={() => scrollToStep(currentStep - 1)}
                   disabled={currentStep === 1}
-                  style={{
-                    width: 36,
-                    height: 36,
-                    borderRadius: 999,
-                    border: '1px solid #E5D9BD',
-                    background: '#FFFDF7',
-                    color: '#6E6A60',
-                    cursor: currentStep === 1 ? 'not-allowed' : 'pointer',
-                    opacity: currentStep === 1 ? 0.45 : 1,
-                  }}
+                  className="h-9 w-9 cursor-pointer rounded-full border border-sand2 bg-surf text-stein disabled:cursor-not-allowed disabled:opacity-[0.45]"
                 >
                   ←
                 </button>
 
                 {pages.map((page, idx) =>
                   page === '...' ? (
-                    <span key={`dots-${idx}`} style={{ color: '#768064', fontFamily: '"Inter", sans-serif' }}>
+                    <span key={`dots-${idx}`} className="text-olive">
                       …
                     </span>
                   ) : (
@@ -577,19 +395,11 @@ export default function BlogSection() {
                       key={page}
                       type="button"
                       onClick={() => scrollToStep(page)}
-                      style={{
-                        minWidth: 36,
-                        height: 36,
-                        padding: '0 10px',
-                        borderRadius: 999,
-                        border: currentStep === page ? '1px solid #3D5C4A' : '1px solid #E5D9BD',
-                        background: currentStep === page ? '#3D5C4A' : '#FFFDF7',
-                        color: currentStep === page ? '#FAF5EA' : '#6E6A60',
-                        cursor: 'pointer',
-                        fontFamily: '"Inter", sans-serif',
-                        fontSize: 13,
-                        fontWeight: 500,
-                      }}
+                      className={`h-9 min-w-9 cursor-pointer rounded-full border px-2.5 text-[13px] font-medium ${
+                        currentStep === page
+                          ? 'border-sage bg-sage text-cream'
+                          : 'border-sand2 bg-surf text-stein'
+                      }`}
                     >
                       {page}
                     </button>
@@ -600,16 +410,7 @@ export default function BlogSection() {
                   type="button"
                   onClick={() => scrollToStep(currentStep + 1)}
                   disabled={currentStep === totalSteps}
-                  style={{
-                    width: 36,
-                    height: 36,
-                    borderRadius: 999,
-                    border: '1px solid #E5D9BD',
-                    background: '#FFFDF7',
-                    color: '#6E6A60',
-                    cursor: currentStep === totalSteps ? 'not-allowed' : 'pointer',
-                    opacity: currentStep === totalSteps ? 0.45 : 1,
-                  }}
+                  className="h-9 w-9 cursor-pointer rounded-full border border-sand2 bg-surf text-stein disabled:cursor-not-allowed disabled:opacity-[0.45]"
                 >
                   →
                 </button>
@@ -617,17 +418,7 @@ export default function BlogSection() {
             )}
           </>
         ) : (
-          <div
-            style={{
-              border: '1px solid #E5D9BD',
-              borderRadius: 18,
-              padding: '24px 28px',
-              background: '#FFFDF7',
-              color: '#768064',
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 14,
-            }}
-          >
+          <div className="rounded-[18px] border border-sand2 bg-surf px-7 py-6 text-[14px] text-olive">
             Keine Artikel verfügbar.
           </div>
         )}

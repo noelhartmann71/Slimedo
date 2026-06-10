@@ -144,10 +144,10 @@ const StatusBadge = ({ type, label }: { type: string; label: string }) => {
 export default function AdminBatchPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold text-[#101928] mb-1">
+      <h1 className="text-2xl font-bold text-neutral-900 mb-1">
         Batch Processing
       </h1>
-      <p className="text-sm text-[#667185]">
+      <p className="text-sm text-neutral-500">
         Select approved prescriptions and send them for digital signature in
         batches
       </p>
@@ -155,26 +155,26 @@ export default function AdminBatchPage() {
       {/* Stats Row */}
       <div className="mt-6 flex items-stretch gap-4">
         {/* Selected Prescriptions */}
-        <div className="bg-[#29574E] rounded-xl p-4.5 min-w-109.5">
+        <div className="bg-sage rounded-xl p-4.5 min-w-109.5">
           <p className="text-sm text-[#F9FAFB]">Selected Prescriptions</p>
           <p className="text-4xl font-bold text-white mt-2">0</p>
         </div>
 
         {/* Total Approved */}
-        <div className="bg-white rounded-xl border border-[#E5E9EB] p-4.5 min-w-109.5">
-          <p className="text-sm text-[#667185]">Total Approved</p>
-          <p className="text-4xl font-bold text-[#101928] mt-2">8</p>
+        <div className="bg-white rounded-xl border border-neutral-200 p-4.5 min-w-109.5">
+          <p className="text-sm text-neutral-500">Total Approved</p>
+          <p className="text-4xl font-bold text-neutral-900 mt-2">8</p>
         </div>
 
         {/* Batch Limit */}
-        <div className="bg-white rounded-xl border border-[#E5E9EB] p-4.5 min-w-109.5">
-          <p className="text-sm text-[#667185]">Batch Limit</p>
-          <p className="text-4xl font-bold text-[#101928] mt-2">50</p>
+        <div className="bg-white rounded-xl border border-neutral-200 p-4.5 min-w-109.5">
+          <p className="text-sm text-neutral-500">Batch Limit</p>
+          <p className="text-4xl font-bold text-neutral-900 mt-2">50</p>
         </div>
 
         {/* Send for Signature button aligned right */}
         <div className="ml-auto flex items-center">
-          <button className="flex items-center gap-2 bg-[#29574E] text-white text-sm font-medium px-5 py-3 rounded-xl hover:bg-[#1a3a3a] transition-colors whitespace-nowrap">
+          <button className="flex items-center gap-2 bg-sage text-white text-sm font-medium px-5 py-3 rounded-xl hover:bg-[#1a3a3a] transition-colors whitespace-nowrap">
             <Send className="w-4 h-4" />
             Send for Signature (0)
           </button>
@@ -185,11 +185,11 @@ export default function AdminBatchPage() {
       <div className="mt-4 bg-[#f0f9f6] border border-[#c8e6de] rounded-xl px-5 py-4">
         <div className="flex items-center gap-2 mb-2">
           <Globe className="w-4 h-4 text-teal-700" />
-          <p className="text-sm font-semibold text-[#101928]">
+          <p className="text-sm font-semibold text-neutral-900">
             How Batch Processing Works
           </p>
         </div>
-        <ul className="text-sm text-[#667185] space-y-1 ml-1">
+        <ul className="text-sm text-neutral-500 space-y-1 ml-1">
           <li>• Select approved prescriptions from the list below</li>
           <li>• You can select up to 50 prescriptions per batch</li>
           <li>• Click "Send for Signature" to process the batch</li>
@@ -200,42 +200,42 @@ export default function AdminBatchPage() {
       </div>
 
       {/* Table */}
-      <div className="mt-6 bg-white rounded-xl border border-[#E5E9EB] overflow-hidden">
+      <div className="mt-6 bg-white rounded-xl border border-neutral-200 overflow-hidden">
         {/* Table Header Row */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E9EB]">
-          <p className="text-base font-semibold text-[#101928]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-200">
+          <p className="text-base font-semibold text-neutral-900">
             Approved Prescriptions
           </p>
-          <button className="text-sm text-[#667185] hover:text-[#101928]">
+          <button className="text-sm text-neutral-500 hover:text-neutral-900">
             Select All
           </button>
         </div>
 
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#E5E9EB] bg-white">
+            <tr className="border-b border-neutral-200 bg-white">
               <th className="px-6 py-3 w-10">
                 <input type="checkbox" className="rounded" />
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-2 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-2 py-3">
                 No
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Request ID
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Patient ID
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Patient Name ↑
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Medication
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Approval Date ↕
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Status ↕
               </th>
             </tr>
@@ -244,16 +244,16 @@ export default function AdminBatchPage() {
             {prescriptions.map((row) => (
               <tr
                 key={row.no}
-                className="border-b border-[#E5E9EB] last:border-0 hover:bg-gray-50"
+                className="border-b border-neutral-200 last:border-0 hover:bg-gray-50"
               >
                 <td className="px-6 py-4">
                   <input type="checkbox" className="rounded" />
                 </td>
-                <td className="px-2 py-4 text-sm text-[#667185]">{row.no}</td>
-                <td className="px-4 py-4 text-sm text-[#101928]">
+                <td className="px-2 py-4 text-sm text-neutral-500">{row.no}</td>
+                <td className="px-4 py-4 text-sm text-neutral-900">
                   {row.requestId}
                 </td>
-                <td className="px-4 py-4 text-sm text-[#101928]">
+                <td className="px-4 py-4 text-sm text-neutral-900">
                   {row.patientId}
                 </td>
                 <td className="px-4 py-4">
@@ -263,13 +263,13 @@ export default function AdminBatchPage() {
                     >
                       {row.initials}
                     </div>
-                    <span className="text-sm text-[#101928]">{row.name}</span>
+                    <span className="text-sm text-neutral-900">{row.name}</span>
                   </div>
                 </td>
-                <td className="px-4 py-4 text-sm text-[#101928]">
+                <td className="px-4 py-4 text-sm text-neutral-900">
                   {row.medication}
                 </td>
-                <td className="px-4 py-4 text-sm text-[#101928]">{row.date}</td>
+                <td className="px-4 py-4 text-sm text-neutral-900">{row.date}</td>
                 <td className="px-4 py-4">
                   <StatusBadge type={row.statusType} label={row.status} />
                 </td>

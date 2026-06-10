@@ -29,7 +29,7 @@ export default function ProfileQuestionnairePage() {
               Latest Questionnaire
             </p>
             <p className="flex items-center gap-2 text-[16px] font-normal leading-6 text-muted-foreground">
-              <CalendarIcon className="h-4 w-4" stroke="#6b7280" />
+              <CalendarIcon className="h-4 w-4" stroke="#6B7280" />
               February 02, 2026
             </p>
           </div>
@@ -37,7 +37,7 @@ export default function ProfileQuestionnairePage() {
             {/* Current Weight Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Current Weight
                 </span>
               </div>
@@ -45,13 +45,13 @@ export default function ProfileQuestionnairePage() {
                 type="number"
                 value={formData.currentWeight}
                 onChange={(e) => handleChange("currentWeight", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
             {/* Target Weight Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Target Weight
                 </span>
               </div>
@@ -59,13 +59,13 @@ export default function ProfileQuestionnairePage() {
                 type="number"
                 value={formData.targetWeight}
                 onChange={(e) => handleChange("targetWeight", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
             {/* Diet Type Preference Textarea */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Diet Type Preference
                 </span>
               </div>
@@ -74,13 +74,13 @@ export default function ProfileQuestionnairePage() {
                 onChange={(e) =>
                   handleChange("dietTypePreference", e.target.value)
                 }
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 py-4 min-h-29 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 py-4 min-h-29 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"
               />
             </div>
             {/* Exercise Frequency Textarea */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Exercise Frequency
                 </span>
               </div>
@@ -89,7 +89,7 @@ export default function ProfileQuestionnairePage() {
                 onChange={(e) =>
                   handleChange("exerciseFrequency", e.target.value)
                 }
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 py-4 min-h-29 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 py-4 min-h-29 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none"
               />
             </div>
           </div>

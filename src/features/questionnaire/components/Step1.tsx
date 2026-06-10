@@ -143,7 +143,7 @@ export const Step1 = ({
                 }}
                 className={`flex-1 py-3 text-[15px] font-medium rounded-md transition ${
                   unitSystem === "metric"
-                    ? "bg-[#E8ECEB] text-[#1d3a35] border border-[#96A9A5]"
+                    ? "bg-neutral-200 text-deep border border-[#96A9A5]"
                     : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                 }`}
               >
@@ -157,7 +157,7 @@ export const Step1 = ({
                 }}
                 className={`flex-1 py-3 text-[15px] font-medium rounded-md transition ${
                   unitSystem === "imperial"
-                    ? "bg-[#E8ECEB] text-[#1d3a35] border border-[#96A9A5]"
+                    ? "bg-neutral-200 text-deep border border-[#96A9A5]"
                     : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                 }`}
               >
@@ -184,7 +184,7 @@ export const Step1 = ({
                 placeholder={
                   unitSystem === "metric" ? "Height (cm)" : "Height (in)"
                 }
-                className="w-full border border-[#96A9A5] focus:border-[#1d3a35] focus:ring-1 focus:ring-[#1d3a35] rounded-md px-3 py-3 text-[14px] text-gray-700 placeholder-gray-400 focus:outline-none transition-all"
+                className="w-full border border-[#96A9A5] focus:border-deep focus:ring-1 focus:ring-deep rounded-md px-3 py-3 text-[14px] text-gray-700 placeholder-gray-400 focus:outline-none transition-all"
               />
               <input
                 type="text"
@@ -197,13 +197,13 @@ export const Step1 = ({
                 placeholder={
                   unitSystem === "metric" ? "Weight (kg)" : "Weight (lbs)"
                 }
-                className="w-full border border- focus:border-[#1d3a35] focus:ring-1 focus:ring-[#1d3a35] rounded-md px-3 py-3 text-[14px] text-gray-700 placeholder-gray-400 focus:outline-none transition-all"
+                className="w-full border border- focus:border-deep focus:ring-1 focus:ring-deep rounded-md px-3 py-3 text-[14px] text-gray-700 placeholder-gray-400 focus:outline-none transition-all"
               />
             </div>
 
             {calculatedBmi !== null && !showComorbidities && (
               <div className="mb-0">
-                <div className="inline-block bg-[#F5EFCF] text-[#1d3a35] rounded-md p-3 text-[13px] font-medium mb-2">
+                <div className="inline-block bg-[#F5EFCF] text-deep rounded-md p-3 text-[13px] font-medium mb-2">
                   Your BMI: {calculatedBmi.toFixed(1)}
                 </div>
                 <div className="bg-[#F5EFCF] text-gray-700 rounded-md p-4 text-[13px] mb-4">
@@ -213,7 +213,7 @@ export const Step1 = ({
                 <button
                   onClick={handleFurther}
                   disabled={!canProceed}
-                  className="w-full bg-[#227C31] hover:bg-[#16302b] disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-3.5 text-[14px] font-medium transition cursor-pointer"
+                  className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-3.5 text-[14px] font-medium transition cursor-pointer"
                 >
                   further
                 </button>

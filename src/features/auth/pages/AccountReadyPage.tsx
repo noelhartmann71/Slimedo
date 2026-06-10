@@ -54,7 +54,7 @@ export default function AccountReadyPage() {
             className="flex items-center gap-1 text-[13px] text-gray-600 hover:text-gray-900 cursor-pointer"
           >
             <BackArrowIconSvg />
-            <span className="text-[#227C31] font-medium text-xs lg:text-base">
+            <span className="text-sage font-medium text-xs lg:text-base">
               Zurück
             </span>
           </button>
@@ -64,7 +64,7 @@ export default function AccountReadyPage() {
             <div className="flex items-center gap-0.5">
               <div
                 onClick={() => navigate("/product/select")}
-                className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-full bg-sage text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
               >
                 <CheckIcon size={14} />
               </div>
@@ -75,7 +75,7 @@ export default function AccountReadyPage() {
             <div className="flex items-center gap-0.5">
               <div
                 onClick={() => navigate("/questionnaire/medical")}
-                className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-full bg-sage text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
               >
                 <CheckIcon size={14} />
               </div>
@@ -84,10 +84,10 @@ export default function AccountReadyPage() {
 
             {/* Step 3 – active */}
             <div className="flex items-center gap-0.5">
-              <div className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[14px] font-bold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-sage text-white text-[14px] font-bold flex items-center justify-center">
                 3
               </div>
-              <span className="text-[16px] font-medium text-[#227C31] ml-1">
+              <span className="text-[16px] font-medium text-sage ml-1">
                 Wichtige Informationen
               </span>
             </div>
@@ -126,7 +126,7 @@ export default function AccountReadyPage() {
       <main className="flex-1 flex flex-col items-center py-8 px-4 font-inter">
         <div className="w-full max-w-xl flex flex-col gap-4">
           {/* Title card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8">
             {isLoading ? (
               <div className="animate-pulse space-y-2">
                 <div className="h-7 bg-gray-100 rounded w-3/4"></div>
@@ -138,7 +138,7 @@ export default function AccountReadyPage() {
                 <h1 className="text-[24px] font-medium text-black mb-2">
                   {telemedicalTreatmentInfo?.question}
                 </h1>
-                <p className="text-[16px] text-[#6B7280] leading-relaxed">
+                <p className="text-[16px] text-neutral-500 leading-relaxed">
                   {telemedicalTreatmentInfo?.description}
                 </p>
               </>
@@ -146,9 +146,9 @@ export default function AccountReadyPage() {
           </div>
 
           {/* Consent card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8">
             <div className="mb-5">
-              <p className="bg-[#E8ECEB] text-[13px] font-semibold text-gray-900 mb-3 p-3 rounded-lg">
+              <p className="bg-neutral-200 text-[13px] font-semibold text-gray-900 mb-3 p-3 rounded-lg">
                 Ich bestätige
               </p>
               <ul className="flex flex-col gap-3">
@@ -183,7 +183,7 @@ export default function AccountReadyPage() {
           </div>
 
           {/* Agreement radio buttons */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8">
             <p className="text-[11.5px] text-gray-500 mb-4 leading-relaxed">
               Ich stimme der telemedizinischen Behandlung und – vorbehaltlich
               der ärztlichen Eignungsprüfung – der Verschreibung des
@@ -220,7 +220,7 @@ export default function AccountReadyPage() {
               <label
                 className={`flex-1 flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-all ${
                   agreed === "yes"
-                    ? "border-[#1d3a35] bg-[#E8ECEB]"
+                    ? "border-deep bg-neutral-200"
                     : "border-gray-200 hover:bg-gray-50 bg-white"
                 }`}
               >
@@ -233,7 +233,7 @@ export default function AccountReadyPage() {
                     setAgreed("yes");
                     localStorage.setItem("treatment_is_agree", "1");
                   }}
-                  className="w-5 h-5 cursor-pointer accent-[#1d3a35]"
+                  className="w-5 h-5 cursor-pointer accent-deep"
                 />
                 <span
                   className={`text-[12px] font-medium ${
@@ -250,7 +250,7 @@ export default function AccountReadyPage() {
           <button
             onClick={() => navigate("/auth/register")}
             disabled={agreed !== "yes"}
-            className="w-full bg-[#227C31] hover:bg-[#16302b] disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-3.5 text-[14px] font-medium transition cursor-pointer"
+            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-3.5 text-[14px] font-medium transition cursor-pointer"
           >
             Weiter
           </button>

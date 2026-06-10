@@ -110,7 +110,7 @@ function ProfileField({
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={inputId} className="text-sm font-medium text-[#4B5563]">
+      <label htmlFor={inputId} className="text-sm font-medium text-neutral-600">
         {label}
       </label>
       <div className="relative">
@@ -122,7 +122,7 @@ function ProfileField({
           placeholder={placeholder}
           autoComplete={autoComplete}
           inputMode={inputMode}
-          className={`h-12 w-full rounded-xl border border-[#DDE3E7] bg-[#FCFCFD] px-4 text-sm font-medium text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#1B433B] focus:ring-2 focus:ring-[#1B433B]/10 ${
+          className={`h-12 w-full rounded-xl border border-[#DDE3E7] bg-[#FCFCFD] px-4 text-sm font-medium text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-deep focus:ring-2 focus:ring-deep/10 ${
             isPasswordField ? "pr-12" : ""
           }`}
         />
@@ -130,7 +130,7 @@ function ProfileField({
           <button
             type="button"
             onClick={() => setIsVisible((current) => !current)}
-            className="absolute inset-y-0 right-3 flex items-center text-[#6B7280] transition-colors hover:text-[#1B433B]"
+            className="absolute inset-y-0 right-3 flex items-center text-neutral-500 transition-colors hover:text-deep"
             aria-label={isVisible ? `Hide ${label}` : `Show ${label}`}
           >
             {isVisible ? (
@@ -267,15 +267,15 @@ export default function PharmacyInformationPage() {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-72 items-center justify-center rounded-3xl border border-[#E5E7EB] bg-white">
-        <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#1B433B] border-t-transparent" />
+      <div className="flex min-h-72 items-center justify-center rounded-card border border-neutral-200 bg-white">
+        <div className="h-10 w-10 animate-spin rounded-full border-2 border-deep border-t-transparent" />
       </div>
     );
   }
 
   if (isError || !pharmacyProfile) {
     return (
-      <div className="rounded-3xl border border-[#F1D7D7] bg-[#FFF8F8] p-6 text-[#B42318] shadow-sm">
+      <div className="rounded-card border border-[#F1D7D7] bg-[#FFF8F8] p-6 text-[#B42318] shadow-sm">
         Failed to load pharmacy profile information.
       </div>
     );
@@ -295,7 +295,7 @@ export default function PharmacyInformationPage() {
 
   return (
     <div className="space-y-6">
-      <section className="overflow-hidden rounded-3xl bg-linear-to-r from-[#12493c] via-[#155446] to-[#1b6b5a] text-white shadow-[0_20px_50px_-24px_rgba(27,67,59,0.7)]">
+      <section className="overflow-hidden rounded-card bg-linear-to-r from-[#12493c] via-[#155446] to-sage text-white shadow-[0_20px_50px_-24px_rgba(27,67,59,0.7)]">
         <div className="flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-white/60">
@@ -311,7 +311,7 @@ export default function PharmacyInformationPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur-sm">
+          <div className="rounded-card-sm border border-white/15 bg-white/10 px-4 py-4 backdrop-blur-sm">
             <p className="text-sm font-medium text-white/85">
               {pharmacyProfile.email}
             </p>
@@ -326,17 +326,17 @@ export default function PharmacyInformationPage() {
       <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
         <form
           onSubmit={handleSubmit}
-          className="rounded-3xl border border-[#E5E7EB] bg-white p-5 shadow-sm md:p-6"
+          className="rounded-card border border-neutral-200 bg-white p-5 shadow-sm md:p-6"
         >
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#6B7280]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral-500">
                 Edit profile
               </p>
-              <h2 className="mt-2 text-2xl font-semibold text-[#111827]">
+              <h2 className="mt-2 text-2xl font-semibold text-neutral-900">
                 Update pharmacy information
               </h2>
-              <p className="mt-1 text-sm text-[#6B7280]">
+              <p className="mt-1 text-sm text-neutral-500">
                 Keep the contact and location details up to date.
               </p>
             </div>
@@ -344,7 +344,7 @@ export default function PharmacyInformationPage() {
             <button
               type="submit"
               disabled={isUpdating}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1B433B] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#14352e] disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-deep px-5 text-sm font-semibold text-white transition-colors hover:bg-[#14352e] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isUpdating ? (
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
@@ -459,7 +459,7 @@ export default function PharmacyInformationPage() {
         </form>
 
         <aside className="space-y-6">
-          <section className="rounded-3xl border border-[#E5E7EB] bg-[#0F5132] p-6 text-white shadow-sm">
+          <section className="rounded-card border border-neutral-200 bg-[#0F5132] p-6 text-white shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
               Current profile
             </p>
@@ -470,7 +470,7 @@ export default function PharmacyInformationPage() {
               {pharmacyProfile.email}
             </p>
 
-            <div className="mt-6 rounded-2xl bg-white/10 px-4 py-2 backdrop-blur-sm">
+            <div className="mt-6 rounded-card-sm bg-white/10 px-4 py-2 backdrop-blur-sm">
               <InfoRow label="Phone" value={pharmacyProfile.phone} />
               <InfoRow label="Category" value={pharmacyProfile.category} />
               <InfoRow label="Type" value={pharmacyProfile.type ?? "N/A"} />

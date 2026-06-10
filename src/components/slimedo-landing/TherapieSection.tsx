@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, type CSSProperties, type ReactNode } from 'react';
 
 const SAGE = '#4F6B5A';
-const SAGE_DEEP = '#3F5848';
 const CLAY = '#C8856B';
 const STONE = '#7A6F62';
 const TEXT = '#2E2620';
@@ -66,6 +65,70 @@ function DualDiagram() {
       <text x="204" y="82" fontSize="11" fill="#8a6f54" fontFamily="Poppins" fontWeight="600">verstärkt</text>
       <text x="218" y="96" fontSize="16" fill="#8a6f54" textAnchor="middle">↑</text>
     </svg>
+  );
+}
+
+// One of the two mechanism cards (GLP-1 / GLP-1+GIP). The accent colour is
+// dynamic per card, so it is passed as a CSS variable (--accent) — Tailwind
+// arbitrary classes can read it via text-[var(--accent)] but cannot be
+// generated from a runtime value directly.
+function TherapieCard({
+  accent,
+  label,
+  titleEm,
+  desc,
+  example,
+  image,
+  imageAlt,
+  diagram,
+  checkIcon,
+  items,
+}: {
+  accent: string;
+  label: string;
+  titleEm: string;
+  desc: string;
+  example: string;
+  image: string;
+  imageAlt: string;
+  diagram: ReactNode;
+  checkIcon: ReactNode;
+  items: string[];
+}) {
+  return (
+    <div
+      className="slimedo-therapie-card relative overflow-hidden rounded-[22px] border border-[#E8DFD0] bg-[#FFFCF6] px-[clamp(18px,1.72vw,28px)] py-[clamp(22px,2vw,33px)] shadow-[0_2px_20px_rgba(46,38,32,0.07)]"
+      style={{ ['--accent']: accent } as CSSProperties}
+    >
+      <img
+        src={image}
+        alt={imageAlt}
+        className="absolute top-2.5 right-2.5 h-[clamp(100px,6vw,145px)] w-[clamp(100px,6vw,145px)] origin-center rotate-[-38deg] object-contain"
+      />
+      <div className="therapie-card-label mb-2 pr-[clamp(84px,6.25vw,125px)] text-[clamp(11px,0.65vw,16px)] font-semibold tracking-[0.14em] uppercase text-[var(--accent)]">
+        {label}
+      </div>
+      <h3 className="therapie-card-title mb-1 pr-[clamp(67px,5vw,100px)] font-[Lora,Georgia,serif] text-[clamp(19px,1.25vw,32px)] font-medium leading-[1.2] text-[#2E2620]">
+        Das <em className="italic text-[var(--accent)]">{titleEm}</em>-Prinzip
+      </h3>
+      <p className="therapie-card-desc mb-4 text-[clamp(13px,0.75vw,18px)] text-[#7A6F62]">
+        {desc}
+        <br />
+        <span className="text-[clamp(10px,0.53vw,14px)] font-semibold text-[var(--accent)]">{example}</span>
+      </p>
+      {diagram}
+      <ul className="m-0 flex list-none flex-col gap-2 p-0">
+        {items.map((text) => (
+          <li
+            key={text}
+            className="therapie-card-item flex items-start gap-[9px] text-[clamp(12px,0.75vw,18px)] leading-[1.45] text-[#2E2620]"
+          >
+            {checkIcon}
+            {text}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -300,17 +363,7 @@ export default function TherapieSection() {
           <div className="therapie-btn-col" style={{ display: 'flex', alignItems: 'flex-end' }}>
             <a
               href="/product/select"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                background: SAGE, color: '#fff',
-                padding: 'clamp(10px, 0.94vw, 15px) clamp(18px, 1.72vw, 28px)',
-                borderRadius: 999, fontSize: 'clamp(13px, 0.7vw, 18px)', fontWeight: 500,
-                cursor: 'pointer', textDecoration: 'none',
-                transition: 'background .2s',
-                boxShadow: '0 4px 18px rgba(79,107,90,0.28)',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.background = SAGE_DEEP)}
-              onMouseLeave={e => (e.currentTarget.style.background = SAGE)}
+              className="inline-flex items-center gap-2 rounded-full bg-[#4F6B5A] px-[clamp(18px,1.72vw,28px)] py-[clamp(10px,0.94vw,15px)] text-[clamp(13px,0.7vw,18px)] font-medium text-white no-underline shadow-[0_4px_18px_rgba(79,107,90,0.28)] transition-colors hover:bg-[#3F5848]"
             >
               Behandlung anfragen
               <svg viewBox="0 0 16 16" fill="none" width={15} height={15}>
@@ -323,114 +376,40 @@ export default function TherapieSection() {
           <div className="therapie-cards-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(14px, 1.25vw, 20px)' }}>
 
             {/* Card: GLP-1 */}
-            <div
-              className="slimedo-therapie-card"
-              style={{
-                background: CREAM,
-                border: `1px solid ${BORDER}`,
-                borderRadius: 22, padding: 'clamp(22px, 2vw, 33px) clamp(18px, 1.72vw, 28px)',
-                position: 'relative', overflow: 'hidden',
-                boxShadow: '0 2px 20px rgba(46,38,32,0.07)',
-              }}
-            >
-              <img
-                src="/images/therapie/injection1t.png"
-                alt="Wegovy Injektionspen"
-                style={{
-                  position: 'absolute', top: 10, right: 10,
-                  width: 'clamp(100px, 6vw, 145px)', height: 'clamp(100px, 6vw, 145px)',
-                  objectFit: 'contain',
-                  transform: 'rotate(-38deg)',
-                  transformOrigin: 'center center',
-                }}
-              />
-              <div className="therapie-card-label" style={{
-                fontSize: 'clamp(11px, 0.65vw, 16px)', fontWeight: 600, letterSpacing: '.14em',
-                textTransform: 'uppercase', marginBottom: 8,
-                paddingRight: 'clamp(84px, 6.25vw, 125px)', color: SAGE,
-              }}>
-                Einfaches Prinzip
-              </div>
-              <h3 className="therapie-card-title" style={{
-                fontFamily: "'Lora', Georgia, serif", fontWeight: 500,
-                fontSize: 'clamp(19px, 1.25vw, 32px)', lineHeight: 1.2, marginBottom: 4,
-                paddingRight: 'clamp(67px, 5vw, 100px)', color: TEXT,
-              }}>
-                Das <em style={{ fontStyle: 'italic', color: SAGE }}>GLP-1</em>-Prinzip
-              </h3>
-              <p className="therapie-card-desc" style={{ fontSize: 'clamp(13px, 0.75vw, 18px)', color: STONE, marginBottom: 16 }}>
-                Wirkt gezielt an einem Rezeptor<br />
-                <span style={{ fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, color: SAGE }}>Bsp. Wegovy®</span>
-              </p>
-              <GlpDiagram />
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, padding: 0, margin: 0 }}>
-                {[
-                  'Verstärkt das natürliche Sättigungsgefühl',
-                  'Verlangsamt die Magenentleerung',
-                  'Kann Heißhunger reduzieren',
-                ].map(text => (
-                  <li key={text} className="therapie-card-item" style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(12px, 0.75vw, 18px)', color: TEXT, lineHeight: 1.45 }}>
-                    <CheckSage />
-                    {text}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <TherapieCard
+              accent={SAGE}
+              label="Einfaches Prinzip"
+              titleEm="GLP-1"
+              desc="Wirkt gezielt an einem Rezeptor"
+              example="Bsp. Wegovy®"
+              image="/images/therapie/injection1t.png"
+              imageAlt="Wegovy Injektionspen"
+              diagram={<GlpDiagram />}
+              checkIcon={<CheckSage />}
+              items={[
+                'Verstärkt das natürliche Sättigungsgefühl',
+                'Verlangsamt die Magenentleerung',
+                'Kann Heißhunger reduzieren',
+              ]}
+            />
 
             {/* Card: GLP-1 + GIP */}
-            <div
-              className="slimedo-therapie-card"
-              style={{
-                background: CREAM,
-                border: `1px solid ${BORDER}`,
-                borderRadius: 22, padding: 'clamp(22px, 2vw, 33px) clamp(18px, 1.72vw, 28px)',
-                position: 'relative', overflow: 'hidden',
-                boxShadow: '0 2px 20px rgba(46,38,32,0.07)',
-              }}
-            >
-              <img
-                src="/images/therapie/injection2t.png"
-                alt="Mounjaro Injektionspen"
-                style={{
-                  position: 'absolute', top: 10, right: 10,
-                  width: 'clamp(100px, 6vw, 145px)', height: 'clamp(100px, 6vw, 145px)',
-                  objectFit: 'contain',
-                  transform: 'rotate(-38deg)',
-                  transformOrigin: 'center center',
-                }}
-              />
-              <div className="therapie-card-label" style={{
-                fontSize: 'clamp(11px, 0.65vw, 16px)', fontWeight: 600, letterSpacing: '.14em',
-                textTransform: 'uppercase', marginBottom: 8,
-                paddingRight: 'clamp(84px, 6.25vw, 125px)', color: CLAY,
-              }}>
-                Duales Prinzip
-              </div>
-              <h3 className="therapie-card-title" style={{
-                fontFamily: "'Lora', Georgia, serif", fontWeight: 500,
-                fontSize: 'clamp(19px, 1.25vw, 32px)', lineHeight: 1.2, marginBottom: 4,
-                paddingRight: 'clamp(67px, 5vw, 100px)', color: TEXT,
-              }}>
-                Das <em style={{ fontStyle: 'italic', color: CLAY }}>GLP-1 + GIP</em>-Prinzip
-              </h3>
-              <p className="therapie-card-desc" style={{ fontSize: 'clamp(13px, 0.75vw, 18px)', color: STONE, marginBottom: 16 }}>
-                Wirkt gleichzeitig an zwei Rezeptoren<br />
-                <span style={{ fontSize: 'clamp(10px, 0.53vw, 14px)', fontWeight: 600, color: CLAY }}>Bsp. Mounjaro®</span>
-              </p>
-              <DualDiagram />
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, padding: 0, margin: 0 }}>
-                {[
-                  'Kombiniert zwei Sättigungssignale',
-                  'Unterstützt den Zucker- & Fettstoffwechsel',
-                  'Kann das Sättigungsgefühl zusätzlich verstärken',
-                ].map(text => (
-                  <li key={text} className="therapie-card-item" style={{ display: 'flex', alignItems: 'flex-start', gap: 9, fontSize: 'clamp(12px, 0.75vw, 18px)', color: TEXT, lineHeight: 1.45 }}>
-                    <CheckClay />
-                    {text}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <TherapieCard
+              accent={CLAY}
+              label="Duales Prinzip"
+              titleEm="GLP-1 + GIP"
+              desc="Wirkt gleichzeitig an zwei Rezeptoren"
+              example="Bsp. Mounjaro®"
+              image="/images/therapie/injection2t.png"
+              imageAlt="Mounjaro Injektionspen"
+              diagram={<DualDiagram />}
+              checkIcon={<CheckClay />}
+              items={[
+                'Kombiniert zwei Sättigungssignale',
+                'Unterstützt den Zucker- & Fettstoffwechsel',
+                'Kann das Sättigungsgefühl zusätzlich verstärken',
+              ]}
+            />
 
           </div>
         </div>

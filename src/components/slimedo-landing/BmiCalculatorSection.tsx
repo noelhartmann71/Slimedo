@@ -15,310 +15,91 @@ export default function BmiCalculatorSection() {
   return (
     <section
       id="potenzial"
-      style={{
-        background: '#F5EEDB',
-        padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(60px, 4.88vw, 110px)',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="relative overflow-hidden bg-sand pt-[clamp(72px,5.88vw,130px)] pb-[clamp(60px,4.88vw,110px)]"
     >
       {/* Honey glow */}
-      <div
-        style={{
-          position: 'absolute',
-          right: '-5%',
-          top: '-10%',
-          width: '50%',
-          height: '60%',
-          background:
-            'radial-gradient(ellipse at center, rgba(237,216,154,0.25) 0%, transparent 60%)',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-      />
+      <div className="pointer-events-none absolute top-[-10%] right-[-5%] z-0 h-[60%] w-[50%] bg-[radial-gradient(ellipse_at_center,rgba(237,216,154,0.25)_0%,transparent_60%)]" />
 
-      <div
-        style={{
-          maxWidth: 1800,
-          margin: '0 auto',
-          padding: '0 40px',
-          position: 'relative',
-          zIndex: 2,
-        }}
-      >
+      <div className="relative z-[2] mx-auto max-w-[1800px] px-10">
         {/* Header */}
-        <header
-          style={{
-            textAlign: 'center',
-            marginBottom: 64,
-            maxWidth: 720,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 12,
-              color: '#3D5C4A',
-              margin: '0 0 16px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.16em',
-              fontWeight: 500,
-            }}
-          >
+        <header className="mx-auto mb-16 max-w-[720px] text-center">
+          <p className="mb-4 text-[12px] font-medium tracking-[0.16em] uppercase text-sage">
             Potenzial
           </p>
-          <h2
-            className="bmi-hl-resp"
-            style={{
-              fontFamily: '"Instrument Serif", Georgia, serif',
-              fontSize: 'clamp(48px, 3.75vw, 100px)',
-              margin: 0,
-              color: '#1A1A1A',
-              lineHeight: 1.02,
-              fontWeight: 400,
-              letterSpacing: '-0.01em',
-            }}
-          >
+          <h2 className="bmi-hl-resp m-0 font-instrument text-[clamp(48px,3.75vw,100px)] font-normal leading-[1.02] tracking-[-0.01em] text-ink">
             Berechne dein{' '}
-            <em style={{ color: '#3D5C4A', fontStyle: 'italic' }}>Potenzial</em>
+            <em className="italic text-sage">Potenzial</em>
           </h2>
-          <p
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 16,
-              color: '#768064',
-              margin: '20px auto 0',
-              maxWidth: 540,
-              lineHeight: 1.55,
-            }}
-          >
+          <p className="mx-auto mt-5 max-w-[540px] text-[16px] leading-[1.55] text-olive">
             Stelle dein Startgewicht ein und sieh, wie viel du laut Studien durchschnittlich
             abnehmen könntest.
           </p>
         </header>
 
         {/* Two-column grid */}
-        <div
-          className="bmi-grid-resp"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1.6fr',
-            gap: 32,
-            alignItems: 'stretch',
-          }}
-        >
+        <div className="bmi-grid-resp grid grid-cols-[1fr_1.6fr] items-stretch gap-8">
           {/* Stat card */}
-          <div
-            className="bmi-stat-card-resp"
-            style={{
-              background: '#FFFDF7',
-              borderRadius: 28,
-              padding: '56px 48px',
-              textAlign: 'center',
-              boxShadow:
-                '0 1px 2px rgba(15,31,26,0.03),0 8px 24px rgba(15,31,26,0.06),0 24px 48px rgba(15,31,26,0.04)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <p
-              className="bmi-stat-label-resp"
-              style={{
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 'clamp(12px, 0.8vw, 16px)',
-                color: '#B0832B',
-                textTransform: 'uppercase',
-                letterSpacing: '0.16em',
-                fontWeight: 500,
-                margin: '0 0 20px',
-              }}
-            >
+          <div className="bmi-stat-card-resp flex flex-col items-center justify-center rounded-[28px] bg-surf px-12 py-14 text-center shadow-[0_1px_2px_rgba(15,31,26,0.03),0_8px_24px_rgba(15,31,26,0.06),0_24px_48px_rgba(15,31,26,0.04)]">
+            <p className="bmi-stat-label-resp mb-5 text-[clamp(12px,0.8vw,16px)] font-medium tracking-[0.16em] uppercase text-honig">
               Klinische Studien
             </p>
-            <p
-              className="bmi-stat-num-resp"
-              style={{
-                fontFamily: '"Instrument Serif", Georgia, serif',
-                fontSize: 'clamp(80px, 7.81vw, 185px)',
-                color: '#1E3A2E',
-                lineHeight: 0.95,
-                letterSpacing: '-0.03em',
-                margin: 0,
-                fontWeight: 400,
-              }}
-            >
+            <p className="bmi-stat-num-resp m-0 font-instrument text-[clamp(80px,7.81vw,185px)] font-normal leading-[0.95] tracking-[-0.03em] text-deep">
               15
-              <span style={{ fontSize: 'clamp(48px, 4.38vw, 105px)', color: '#1E3A2E' }}>-</span>
+              <span className="text-[clamp(48px,4.38vw,105px)] text-deep">-</span>
               20
-              <span style={{ fontSize: 'clamp(48px, 4.38vw, 105px)', color: '#1E3A2E' }}>%</span>
+              <span className="text-[clamp(48px,4.38vw,105px)] text-deep">%</span>
             </p>
             {/* Honey underline */}
-            <span
-              className="bmi-stat-rule-resp"
-              style={{
-                display: 'block',
-                width: 72,
-                height: 3,
-                background: '#EDD89A',
-                borderRadius: 999,
-                margin: '28px auto 0',
-              }}
-            />
-            <div className="bmi-stat-copy-resp" style={{ marginTop: 20 }}>
-              <p
-                className="bmi-stat-copy-title-resp"
-                style={{
-                  fontFamily: '"Manrope", sans-serif',
-                  fontSize: 'clamp(18px, 1.4vw, 28px)',
-                  fontWeight: 600,
-                  color: '#1A1A1A',
-                  margin: '0 0 10px',
-                  lineHeight: 1.25,
-                }}
-              >
+            <span className="bmi-stat-rule-resp mx-auto mt-7 block h-[3px] w-[72px] rounded-full bg-honig2" />
+            <div className="bmi-stat-copy-resp mt-5">
+              <p className="bmi-stat-copy-title-resp mb-2.5 font-[Manrope,sans-serif] text-[clamp(18px,1.4vw,28px)] font-semibold leading-[1.25] text-ink">
                 Durchschnittliche
                 <br />
                 Körpergewichtsreduktion
               </p>
-              <p
-                style={{
-                  fontFamily: '"Inter", sans-serif',
-                  fontSize: 'clamp(14px, 0.9vw, 18px)',
-                  color: '#768064',
-                  margin: 0,
-                  lineHeight: 1.45,
-                }}
-              >
+              <p className="m-0 text-[clamp(14px,0.9vw,18px)] leading-[1.45] text-olive">
                 Nach 12 Monaten Therapie
-                <sup style={{ color: '#B0832B', fontWeight: 600 }}>*</sup>
+                <sup className="font-semibold text-honig">*</sup>
               </p>
             </div>
           </div>
 
           {/* Slider card */}
-          <div
-            className="bmi-slider-card-resp"
-            style={{
-              background: '#FFFDF7',
-              borderRadius: 28,
-              padding: '40px 36px',
-              position: 'relative',
-              overflow: 'hidden',
-              boxShadow:
-                '0 1px 2px rgba(15,31,26,0.03),0 8px 24px rgba(15,31,26,0.06),0 24px 48px rgba(15,31,26,0.04)',
-            }}
-          >
+          <div className="bmi-slider-card-resp relative overflow-hidden rounded-[28px] bg-surf px-9 py-10 shadow-[0_1px_2px_rgba(15,31,26,0.03),0_8px_24px_rgba(15,31,26,0.06),0_24px_48px_rgba(15,31,26,0.04)]">
             <div
-              className="bmi-card-photo-resp"
+              className="bmi-card-photo-resp pointer-events-none absolute top-0 right-0 bottom-0 z-0 w-[clamp(250px,34%,390px)]"
               aria-hidden="true"
-              style={{
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                bottom: 0,
-                width: 'clamp(250px, 34%, 390px)',
-                zIndex: 0,
-                pointerEvents: 'none',
-              }}
             >
               <img
                 src="/images/BmiCalculater/BmiBackground.jpeg"
                 alt=""
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center',
-                  display: 'block',
-                }}
+                className="block h-full w-full object-cover object-center"
               />
               <div
+                className="absolute inset-0"
                 style={{
-                  position: 'absolute',
-                  inset: 0,
                   background:
                     'linear-gradient(90deg, #FFFDF7 0%, rgba(255,253,247,0.78) 18%, rgba(255,253,247,0.12) 52%, rgba(61,92,74,0.10) 100%)',
                 }}
               />
             </div>
 
-            <div
-              className="bmi-card-content-resp"
-              style={{
-                position: 'relative',
-                zIndex: 1,
-                maxWidth: 'calc(66% - 18px)',
-              }}
-            >
-            <p
-              style={{
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 11.5,
-                color: '#3D5C4A',
-                textTransform: 'uppercase',
-                letterSpacing: '0.16em',
-                fontWeight: 500,
-                margin: '0 0 8px',
-              }}
-            >
+            <div className="bmi-card-content-resp relative z-[1] max-w-[calc(66%_-_18px)]">
+            <p className="mb-2 text-[11.5px] font-medium tracking-[0.16em] uppercase text-sage">
               Dein Rechner
             </p>
-            <h3
-              style={{
-                fontFamily: '"Manrope", sans-serif',
-                fontSize: 22,
-                fontWeight: 600,
-                color: '#1A1A1A',
-                margin: '0 0 28px',
-                letterSpacing: '-0.01em',
-              }}
-            >
+            <h3 className="mb-7 font-[Manrope,sans-serif] text-[22px] font-semibold tracking-[-0.01em] text-ink">
               Wie viel könntest du abnehmen?
             </h3>
 
             {/* Weight display */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginBottom: 14,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: '"Inter", sans-serif',
-                  fontSize: 13.5,
-                  color: '#768064',
-                  fontWeight: 500,
-                }}
-              >
+            <div className="mb-3.5 flex items-center justify-between">
+              <span className="text-[13.5px] font-medium text-olive">
                 Mein aktuelles Gewicht
               </span>
-              <span
-                style={{
-                  fontFamily: '"Manrope", sans-serif',
-                  fontSize: 22,
-                  fontWeight: 600,
-                  color: '#1A1A1A',
-                  background: '#F5EEDB',
-                  padding: '6px 18px',
-                  borderRadius: 999,
-                }}
-              >
+              <span className="rounded-full bg-sand px-[18px] py-1.5 font-[Manrope,sans-serif] text-[22px] font-semibold text-ink">
                 {weight}
-                <span
-                  style={{
-                    fontSize: 14,
-                    color: '#768064',
-                    marginLeft: 2,
-                    fontWeight: 400,
-                  }}
-                >
+                <span className="ml-0.5 text-[14px] font-normal text-olive">
                   {' '}
                   kg
                 </span>
@@ -326,40 +107,14 @@ export default function BmiCalculatorSection() {
             </div>
 
             {/* Slider track */}
-            <div
-              style={{
-                position: 'relative',
-                height: 8,
-                background: '#E5D9BD',
-                borderRadius: 999,
-                margin: '24px 0 16px',
-                cursor: 'pointer',
-              }}
-            >
+            <div className="relative mt-6 mb-4 h-2 cursor-pointer rounded-full bg-sand2">
               <div
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  top: 0,
-                  height: '100%',
-                  width: `${sliderPct}%`,
-                  background: '#1E3A2E',
-                  borderRadius: 999,
-                }}
+                className="absolute top-0 left-0 h-full rounded-full bg-deep"
+                style={{ width: `${sliderPct}%` }}
               />
               <div
-                style={{
-                  position: 'absolute',
-                  left: `${sliderPct}%`,
-                  top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  width: 24,
-                  height: 24,
-                  background: '#1E3A2E',
-                  border: '4px solid #FFFDF7',
-                  borderRadius: '50%',
-                  boxShadow: '0 2px 8px rgba(30,58,46,0.3)',
-                }}
+                className="absolute top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-surf bg-deep shadow-[0_2px_8px_rgba(30,58,46,0.3)]"
+                style={{ left: `${sliderPct}%` }}
               />
               <input
                 type="range"
@@ -367,70 +122,25 @@ export default function BmiCalculatorSection() {
                 max={MAX_KG}
                 value={weight}
                 onChange={(e) => setWeight(Number(e.target.value))}
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  width: '100%',
-                  height: '100%',
-                  opacity: 0,
-                  cursor: 'pointer',
-                  margin: 0,
-                }}
+                className="absolute inset-0 m-0 h-full w-full cursor-pointer opacity-0"
                 aria-label="Gewicht in kg"
               />
             </div>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 11.5,
-                color: '#768064',
-                marginBottom: 32,
-              }}
-            >
+            <div className="mb-8 flex justify-between text-[11.5px] text-olive">
               <span>{MIN_KG} kg</span>
               <span>{MAX_KG} kg</span>
             </div>
 
             {/* Divider */}
-            <div
-              style={{
-                height: 1,
-                background: '#E5D9BD',
-                margin: '0 0 28px',
-              }}
-            />
+            <div className="mb-7 h-px bg-sand2" />
 
-            <div
-              className="bmi-result-layout-resp"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '170px minmax(0, 1fr)',
-                gap: 22,
-                alignItems: 'end',
-              }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                  justifyContent: 'center',
-                  alignSelf: 'stretch',
-                }}
-              >
+            <div className="bmi-result-layout-resp grid grid-cols-[170px_minmax(0,1fr)] items-end gap-[22px]">
+              <div className="flex items-end justify-center self-stretch">
                 <img
-                  className="bmi-slider-image-resp"
+                  className="bmi-slider-image-resp pointer-events-none h-auto w-[155px] max-w-full select-none"
                   src="/images/BmiCalculater/women-bmi.png"
                   alt=""
                   aria-hidden="true"
-                  style={{
-                    width: 155,
-                    maxWidth: '100%',
-                    height: 'auto',
-                    pointerEvents: 'none',
-                    userSelect: 'none',
-                  }}
                 />
               </div>
 
@@ -439,107 +149,34 @@ export default function BmiCalculatorSection() {
                 <img
                   src="/images/BmiCalculater/BmiBackground.jpeg"
                   alt=""
-                  className="bmi-bg-photo-mobile"
-                  style={{ pointerEvents: 'none', userSelect: 'none' }}
+                  className="bmi-bg-photo-mobile pointer-events-none select-none"
                 />
               </div>
 
               <div className="bmi-result-text-resp">
             {/* Result */}
-            <span
-              style={{
-                display: 'inline-block',
-                background: '#CDDDCB',
-                color: '#1E3A2E',
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 11.5,
-                fontWeight: 500,
-                padding: '5px 12px',
-                borderRadius: 999,
-                marginBottom: 14,
-                letterSpacing: '0.01em',
-              }}
-            >
+            <span className="mb-3.5 inline-block rounded-full bg-mint px-3 py-[5px] text-[11.5px] font-medium tracking-[0.01em] text-deep">
               Mögliche Abnahme
             </span>
-            <p
-              style={{
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 13.5,
-                color: '#768064',
-                margin: '0 0 12px',
-              }}
-            >
+            <p className="mb-3 text-[13.5px] text-olive">
               Nach 12 Monaten Therapie:
             </p>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: 12,
-                marginBottom: 6,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: '"Instrument Serif", Georgia, serif',
-                  fontStyle: 'italic',
-                  fontSize: 'clamp(36px, 3.44vw, 80px)',
-                  color: '#3D5C4A',
-                  lineHeight: 1,
-                  letterSpacing: '-0.02em',
-                  fontWeight: 400,
-                }}
-              >
+            <div className="mb-1.5 flex items-baseline gap-3">
+              <span className="font-instrument text-[clamp(36px,3.44vw,80px)] font-normal italic leading-none tracking-[-0.02em] text-sage">
                 -{lossLow} bis -{lossHigh}
               </span>
-              <span
-                style={{
-                  fontFamily: '"Manrope", sans-serif',
-                  fontSize: 20,
-                  color: '#1A1A1A',
-                  fontWeight: 600,
-                }}
-              >
+              <span className="font-[Manrope,sans-serif] text-[20px] font-semibold text-ink">
                 kg
               </span>
             </div>
-            <p
-              style={{
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 12.5,
-                color: '#768064',
-                margin: '0 0 28px',
-                lineHeight: 1.4,
-              }}
-            >
+            <p className="mb-7 text-[12.5px] leading-[1.4] text-olive">
               Basierend auf 15-20 % durchschnittlicher Reduktion in klinischen Studien.
             </p>
 
             <a
               href="/product/select"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 10,
-                background: '#3D5C4A',
-                color: '#FAF5EA',
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 15,
-                fontWeight: 500,
-                padding: '16px 28px',
-                borderRadius: 999,
-                border: 'none',
-                cursor: 'pointer',
-                textDecoration: 'none',
-                transition: 'background 0.2s',
-              }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.background = '#1E3A2E')
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.background = '#3D5C4A')
-              }
+              className="inline-flex items-center gap-2.5 rounded-full bg-sage px-7 py-4 text-[15px] font-medium text-cream no-underline transition-colors hover:bg-deep"
+              style={{ fontFamily: '"Inter", sans-serif' }}
             >
               Behandlung starten <span style={{ fontSize: 16 }}>→</span>
             </a>
@@ -550,20 +187,8 @@ export default function BmiCalculatorSection() {
         </div>
 
         {/* Disclaimer */}
-        <p
-          style={{
-            textAlign: 'center',
-            marginTop: 48,
-            fontFamily: '"Inter", sans-serif',
-            fontSize: 11.5,
-            color: '#6E6A60',
-            maxWidth: 640,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            lineHeight: 1.5,
-          }}
-        >
-          <sup style={{ color: '#B0832B', fontWeight: 600 }}>*</sup>
+        <p className="mx-auto mt-12 max-w-[640px] text-center text-[11.5px] leading-[1.5] text-stein">
+          <sup className="font-semibold text-honig">*</sup>
           Berechnungen basieren auf den Ergebnissen klinischer Studien (STEP- und
           SURMOUNT-Programme). Individuelle Ergebnisse können abweichen. Eine medikamentöse
             Therapie ersetzt keine ärztliche Beratung.

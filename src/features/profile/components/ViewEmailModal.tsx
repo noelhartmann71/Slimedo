@@ -43,7 +43,7 @@ export default function ViewEmailModal({
           <X className="h-5 w-5" />
         </button>
 
-        <h2 className="mb-4 text-xl font-semibold text-[#111827]">
+        <h2 className="mb-4 text-xl font-semibold text-neutral-900">
           View Email
         </h2>
 
@@ -56,26 +56,26 @@ export default function ViewEmailModal({
         ) : email ? (
           <div className="space-y-4">
             <div>
-              <h3 className="text-sm font-medium text-[#374151]">Subject</h3>
-              <p className="text-[#111827]">{email.subject}</p>
+              <h3 className="text-sm font-medium text-neutral-700">Subject</h3>
+              <p className="text-neutral-900">{email.subject}</p>
             </div>
 
             <div>
-              <h3 className="text-sm font-medium text-[#374151]">Message</h3>
-              <div className="prose max-w-none text-[#111827]">
+              <h3 className="text-sm font-medium text-neutral-700">Message</h3>
+              <div className="prose max-w-none text-neutral-900">
                 {email.body}
               </div>
             </div>
 
             <div>
-              <h3 className="text-sm font-medium text-[#374151]">Status</h3>
-              <span className="inline-block rounded-full bg-[#F3F4F6] px-3 py-1 text-sm font-semibold text-[#374151]">
+              <h3 className="text-sm font-medium text-neutral-700">Status</h3>
+              <span className="inline-block rounded-full bg-[#F3F4F6] px-3 py-1 text-sm font-semibold text-neutral-700">
                 {email.status}
               </span>
             </div>
           </div>
         ) : (
-          <div className="text-sm text-[#6B7280]">No emails found.</div>
+          <div className="text-sm text-neutral-500">No emails found.</div>
         )}
       </div>
     </div>

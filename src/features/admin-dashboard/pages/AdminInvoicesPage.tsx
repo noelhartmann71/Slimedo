@@ -116,31 +116,31 @@ const StatusBadge = ({ type, label }: { type: string; label: string }) => {
 export default function AdminInvoicesPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold text-[#101928] mb-1">
+      <h1 className="text-2xl font-bold text-neutral-900 mb-1">
         Batch Processing
       </h1>
-      <p className="text-sm text-[#667185]">
+      <p className="text-sm text-neutral-500">
         Select approved prescriptions and send them for digital signature in
         batches
       </p>
 
       {/* Stats Row */}
       <div className="mt-6 flex items-stretch gap-4">
-        <div className="bg-[#29574E] rounded-xl px-6 py-4 w-full">
+        <div className="bg-sage rounded-xl px-6 py-4 w-full">
           <p className="text-xs text-gray-300">Total Revenue</p>
           <p className="text-3xl font-bold text-white mt-2">€14,140,00</p>
         </div>
-        <div className="bg-white rounded-xl border border-[#E5E9EB] px-6 py-4 w-full">
-          <p className="text-xs text-[#667185]">Paid</p>
-          <p className="text-3xl font-bold text-[#101928] mt-2">€12,040,00</p>
+        <div className="bg-white rounded-xl border border-neutral-200 px-6 py-4 w-full">
+          <p className="text-xs text-neutral-500">Paid</p>
+          <p className="text-3xl font-bold text-neutral-900 mt-2">€12,040,00</p>
         </div>
-        <div className="bg-white rounded-xl border border-[#E5E9EB] px-6 py-4 w-full">
-          <p className="text-xs text-[#667185]">Pending</p>
-          <p className="text-3xl font-bold text-[#101928] mt-2">€2,100,00</p>
+        <div className="bg-white rounded-xl border border-neutral-200 px-6 py-4 w-full">
+          <p className="text-xs text-neutral-500">Pending</p>
+          <p className="text-3xl font-bold text-neutral-900 mt-2">€2,100,00</p>
         </div>
-        <div className="bg-white rounded-xl border border-[#E5E9EB] px-6 py-4 w-full">
-          <p className="text-xs text-[#667185]">Total Invoices</p>
-          <p className="text-3xl font-bold text-[#101928] mt-2">6</p>
+        <div className="bg-white rounded-xl border border-neutral-200 px-6 py-4 w-full">
+          <p className="text-xs text-neutral-500">Total Invoices</p>
+          <p className="text-3xl font-bold text-neutral-900 mt-2">6</p>
         </div>
       </div>
 
@@ -148,12 +148,12 @@ export default function AdminInvoicesPage() {
       <div className="mt-6 flex items-center justify-between gap-3">
         {/* Left Filters */}
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 border border-[#E5E9EB] rounded-lg px-3 py-2 text-sm text-[#667185] bg-white hover:bg-gray-50">
+          <button className="flex items-center gap-2 border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-500 bg-white hover:bg-gray-50">
             <Calendar className="w-4 h-4" />
             All Months
             <ChevronDown className="w-4 h-4" />
           </button>
-          <button className="flex items-center gap-2 border border-[#E5E9EB] rounded-lg px-3 py-2 text-sm text-[#667185] bg-white hover:bg-gray-50">
+          <button className="flex items-center gap-2 border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-500 bg-white hover:bg-gray-50">
             <Filter className="w-4 h-4" />
             All Statuses
             <ChevronDown className="w-4 h-4" />
@@ -162,11 +162,11 @@ export default function AdminInvoicesPage() {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 bg-[#29574E] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0f2a2a] transition-colors whitespace-nowrap">
+          <button className="flex items-center gap-2 bg-sage text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0f2a2a] transition-colors whitespace-nowrap">
             <Download className="w-4 h-4" />
             Download Monthly Summary
           </button>
-          <button className="flex items-center gap-2 border border-[#E5E9EB] bg-[#29574E] text-sm text-white font-medium px-4 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">
+          <button className="flex items-center gap-2 border border-neutral-200 bg-sage text-sm text-white font-medium px-4 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">
             Monthly
             <ChevronDown className="w-4 h-4" />
           </button>
@@ -174,29 +174,29 @@ export default function AdminInvoicesPage() {
       </div>
 
       {/* Table */}
-      <div className="mt-4 bg-white rounded-xl border border-[#E5E9EB] overflow-hidden">
+      <div className="mt-4 bg-white rounded-xl border border-neutral-200 overflow-hidden">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#E5E9EB]">
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+            <tr className="border-b border-neutral-200">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 No
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Invoice Number
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Date
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Prescriptions
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Amount
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 Actions
               </th>
-              <th className="text-left text-xs font-medium text-[#667185] px-4 py-3">
+              <th className="text-left text-xs font-medium text-neutral-500 px-4 py-3">
                 <span className="flex items-center gap-1">
                   Actions <ChevronDown className="w-3 h-3" />
                 </span>
@@ -207,17 +207,17 @@ export default function AdminInvoicesPage() {
             {invoices.map((row) => (
               <tr
                 key={row.no}
-                className="border-b border-[#E5E9EB] last:border-0 hover:bg-gray-50"
+                className="border-b border-neutral-200 last:border-0 hover:bg-gray-50"
               >
-                <td className="px-4 py-4 text-sm text-[#667185]">{row.no}</td>
-                <td className="px-4 py-4 text-sm text-[#101928]">
+                <td className="px-4 py-4 text-sm text-neutral-500">{row.no}</td>
+                <td className="px-4 py-4 text-sm text-neutral-900">
                   {row.invoiceNumber}
                 </td>
-                <td className="px-4 py-4 text-sm text-[#101928]">{row.date}</td>
-                <td className="px-4 py-4 text-sm text-[#101928]">
+                <td className="px-4 py-4 text-sm text-neutral-900">{row.date}</td>
+                <td className="px-4 py-4 text-sm text-neutral-900">
                   {row.prescriptions}
                 </td>
-                <td className="px-4 py-4 text-sm text-[#101928]">
+                <td className="px-4 py-4 text-sm text-neutral-900">
                   {row.amount}
                 </td>
                 <td className="px-4 py-4">
@@ -225,11 +225,11 @@ export default function AdminInvoicesPage() {
                 </td>
                 <td className="px-4 py-4">
                   <div className="flex items-center gap-3">
-                    <button className="flex items-center gap-1 text-sm text-[#101928] font-medium hover:text-teal-700 transition-colors">
-                      <FileText className="w-4 h-4 text-[#667185]" />
+                    <button className="flex items-center gap-1 text-sm text-neutral-900 font-medium hover:text-teal-700 transition-colors">
+                      <FileText className="w-4 h-4 text-neutral-500" />
                       DOWNLOAD
                     </button>
-                    <button className="text-[#667185] hover:text-[#101928] transition-colors">
+                    <button className="text-neutral-500 hover:text-neutral-900 transition-colors">
                       <Download className="w-4 h-4" />
                     </button>
                   </div>

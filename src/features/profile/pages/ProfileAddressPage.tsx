@@ -43,7 +43,7 @@ export default function ProfileAddressPage() {
             {/* Street Name Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Street name
                 </span>
               </div>
@@ -51,14 +51,14 @@ export default function ProfileAddressPage() {
                 type="text"
                 value={formData.streetName}
                 onChange={(e) => handleChange("streetName", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
 
             {/* House Number Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   House number
                 </span>
               </div>
@@ -66,14 +66,14 @@ export default function ProfileAddressPage() {
                 type="text"
                 value={formData.houseNumber}
                 onChange={(e) => handleChange("houseNumber", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
 
             {/* Additional Address Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Additional address (optional)
                 </span>
               </div>
@@ -83,14 +83,14 @@ export default function ProfileAddressPage() {
                 onChange={(e) =>
                   handleChange("additionalAddress", e.target.value)
                 }
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
 
             {/* City Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   City
                 </span>
               </div>
@@ -98,14 +98,14 @@ export default function ProfileAddressPage() {
                 type="text"
                 value={formData.city}
                 onChange={(e) => handleChange("city", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
 
             {/* Postal Code Input */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Postal code
                 </span>
               </div>
@@ -113,21 +113,21 @@ export default function ProfileAddressPage() {
                 type="text"
                 value={formData.postalCode}
                 onChange={(e) => handleChange("postalCode", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-[#acb5bb] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground placeholder-neutral-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
 
             {/* Country Select */}
             <div className="flex min-w-0 flex-1 flex-col pb-2.75">
               <div className="z-2 -mb-2.75 px-3">
-                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-[#acb5bb]">
+                <span className="inline-flex h-5.25 items-center justify-center rounded-full bg-white px-1.75 text-[12px] font-normal leading-5 text-neutral-400">
                   Country
                 </span>
               </div>
               <select
                 value={formData.country}
                 onChange={(e) => handleChange("country", e.target.value)}
-                className="z-1 -mb-2.75 rounded-[10px] border border-[#dce4e8] bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none cursor-pointer"
+                className="z-1 -mb-2.75 rounded-[10px] border border-neutral-200 bg-white px-5 h-14 text-[16px] font-medium leading-6 text-accent-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none cursor-pointer"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231a1c1e' d='M1 1l5 5 5-5'/%3E%3C/svg%3E")`,
                   backgroundRepeat: "no-repeat",

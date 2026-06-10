@@ -28,12 +28,12 @@ function toArray(value?: string[] | string): string[] {
 function TagBadge({ label }: { label: string }) {
   const colorMap: Record<string, string> = {
     Telemedizin: "bg-teal-50 text-white",
-    "Patientenaufklärung": "bg-[#29574E] text-white",
+    "Patientenaufklärung": "bg-sage text-white",
     Wellness: "bg-green-50 text-white",
     "Psychische Gesundheit": "bg-purple-50 text-white",
-    "Tipps & Ratgeber": "bg-[#29574E] text-gray-600",
+    "Tipps & Ratgeber": "bg-sage text-gray-600",
   };
-  const cls = colorMap[label] ?? "bg-[#29574E]";
+  const cls = colorMap[label] ?? "bg-sage";
   return (
     <span
       className={`inline-block rounded-[999px] px-2 lg:px-4 lg:py-3 py-1.5 text-sm lg:text-base font-medium text-white ${cls}`}
@@ -46,16 +46,16 @@ function TagBadge({ label }: { label: string }) {
 // This is the similar blog
 function SimilarBlog({ label }: { label: string }) {
   const colorMap: Record<string, string> = {
-    Telemedizin: "bg-[#E8ECEB] text-[#29574E]",
-    "Patientenaufklärung": "bg-[#E8ECEB] text-[#29574E]",
-    Wellness: "bg-[#E8ECEB] text-[#29574E]",
-    "Psychische Gesundheit": "bg-[#E8ECEB] text-[#29574E]",
-    "Tipps & Ratgeber": "bg-[#E8ECEB] text-[#29574E]",
+    Telemedizin: "bg-neutral-200 text-sage",
+    "Patientenaufklärung": "bg-neutral-200 text-sage",
+    Wellness: "bg-neutral-200 text-sage",
+    "Psychische Gesundheit": "bg-neutral-200 text-sage",
+    "Tipps & Ratgeber": "bg-neutral-200 text-sage",
   };
-  const cls = colorMap[label] ?? "bg-[#E8ECEB]";
+  const cls = colorMap[label] ?? "bg-neutral-200";
   return (
     <span
-      className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-[#29574E] ${cls}`}
+      className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-sage ${cls}`}
     >
       {label}
     </span>
@@ -65,7 +65,7 @@ function SimilarBlog({ label }: { label: string }) {
 // ── Similar Blog Card ──────────────────────────────────────────────────────
 function SimilarCard({ post }: { post: SimilarPost }) {
   return (
-    <article className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-4">
+    <article className="group flex flex-col rounded-card-sm overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-4">
       <div className="relative overflow-hidden aspect-video">
         <img
           src={post.image}
@@ -82,11 +82,11 @@ function SimilarCard({ post }: { post: SimilarPost }) {
         <h3 className="text-xl font-medium text-black leading-snug line-clamp-2">
           {post.title}
         </h3>
-        <p className="text-base text-[#6B7280] leading-relaxed line-clamp-2 flex-1">
+        <p className="text-base text-neutral-500 leading-relaxed line-clamp-2 flex-1">
           {post.description}
         </p>
         <Link to={`/blog/${post.id}`} className="self-start">
-          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-[#E8ECEB] px-4 py-3 text-base font-medium text-[#29574E] hover:bg-[#29574E] hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
+          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-neutral-200 px-4 py-3 text-base font-medium text-sage hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
             Weiterlesen
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +146,7 @@ function BlogDetailSkeleton() {
         </div>
 
         {/* Hero Image Skeleton */}
-        <div className="rounded-2xl bg-gray-200 h-62.5 md:h-133 mb-7"></div>
+        <div className="rounded-card-sm bg-gray-200 h-62.5 md:h-133 mb-7"></div>
 
         {/* Article Body Skeleton */}
         <div className="space-y-4">
@@ -200,7 +200,7 @@ export default function BlogDetail() {
     <div className="min-h-screen bg-white font-inter">
       <div className="mx-5 lg:mx-10 xl:mx-15 2xl:mx-87.5 py-10 2xl:py-20">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-base text-[#808897] mb-6">
+        <nav className="flex items-center gap-1.5 text-base text-neutral-500 mb-6">
           <Link to="/blog" className="hover:text-teal-600 transition-colors">
             Blog
           </Link>
@@ -233,7 +233,7 @@ export default function BlogDetail() {
             />
             <div>
               <p className="text-sm font-medium text-black">{AUTHOR.name}</p>
-              <p className="text-xs text-[#6B7280]">{AUTHOR.role}</p>
+              <p className="text-xs text-neutral-500">{AUTHOR.role}</p>
             </div>
           </div>
 
@@ -289,7 +289,7 @@ export default function BlogDetail() {
             {toArray(blogDetailsData.category).map((cat: string) => (
               <span
                 key={cat}
-                className="text-xs text-[#6B7280] bg-gray-100 px-3 py-2 rounded-lg"
+                className="text-xs text-neutral-500 bg-gray-100 px-3 py-2 rounded-lg"
               >
                 {cat}
               </span>
@@ -298,7 +298,7 @@ export default function BlogDetail() {
         </div>
 
         {/* Hero Image */}
-        <div className="rounded-2xl overflow-hidden mb-7">
+        <div className="rounded-card-sm overflow-hidden mb-7">
           <img
             src={blogDetailsData.image || BlogDetailsImg}
             alt={blogDetailsData.title}
@@ -307,7 +307,7 @@ export default function BlogDetail() {
         </div>
 
         {/* Article Body */}
-        <div className="text-[#6B7280] text-base leading-relaxed space-y-5">
+        <div className="text-neutral-500 text-base leading-relaxed space-y-5">
           <p>{blogDetailsData.description}</p>
         </div>
 
@@ -321,7 +321,7 @@ export default function BlogDetail() {
               ? [...Array(3)].map((_, i) => (
                   <div
                     key={i}
-                    className="h-80 bg-gray-100 rounded-2xl animate-pulse"
+                    className="h-80 bg-gray-100 rounded-card-sm animate-pulse"
                   ></div>
                 ))
               : blogData

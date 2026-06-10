@@ -29,11 +29,11 @@ interface BlogData {
 // This is the similar blog
 function SimilarBlog({ label }: { label: string }) {
   const colorMap: Record<string, string> = {
-    Telemedicine: "bg-[#E8ECEB] text-[#29574E]",
-    "Patient Education": "bg-[#E8ECEB] text-[#29574E]",
-    Wellness: "bg-[#E8ECEB] text-[#29574E]",
-    "Mental Health": "bg-[#E8ECEB] text-[#29574E]",
-    "Tips & Guide": "bg-[#E8ECEB] text-[#29574E]",
+    Telemedicine: "bg-neutral-200 text-sage",
+    "Patient Education": "bg-neutral-200 text-sage",
+    Wellness: "bg-neutral-200 text-sage",
+    "Mental Health": "bg-neutral-200 text-sage",
+    "Tips & Guide": "bg-neutral-200 text-sage",
   };
   const labelMap: Record<string, string> = {
     Telemedicine: "Telemedizin",
@@ -43,10 +43,10 @@ function SimilarBlog({ label }: { label: string }) {
     "Tips & Guide": "Tipps & Leitfäden",
   };
   const displayLabel = labelMap[label] ?? label;
-  const cls = colorMap[label] ?? "bg-[#E8ECEB]";
+  const cls = colorMap[label] ?? "bg-neutral-200";
   return (
     <span
-      className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-[#29574E] ${cls}`}
+      className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-sage ${cls}`}
     >
       {displayLabel}
     </span>
@@ -56,7 +56,7 @@ function SimilarBlog({ label }: { label: string }) {
 // ── Similar Blog Card ──────────────────────────────────────────────────────
 function SimilarCard({ post }: { post: SimilarPost }) {
   return (
-    <article className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-4">
+    <article className="group flex flex-col rounded-card-sm overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-4">
       <div className="relative overflow-hidden aspect-video">
         <img
           src={post.image}
@@ -75,11 +75,11 @@ function SimilarCard({ post }: { post: SimilarPost }) {
         <h3 className="text-xl font-medium text-black leading-snug line-clamp-2">
           {post.title}
         </h3>
-        <p className="text-base text-[#6B7280] leading-relaxed line-clamp-2 flex-1">
+        <p className="text-base text-neutral-500 leading-relaxed line-clamp-2 flex-1">
           {post.description}
         </p>
         <Link to={`/blog/${post.id}`} className="self-start">
-          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-[#227C31] px-4 py-1.5 md:py-3 text-sm md:text-base font-medium text-white hover:bg-[#227C31] hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
+          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-sage px-4 py-1.5 md:py-3 text-sm md:text-base font-medium text-white hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
             Weiterlesen
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +101,7 @@ function SimilarCard({ post }: { post: SimilarPost }) {
 }
 
 const BlogCardSkeleton = () => (
-  <div className="flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm p-4 h-full">
+  <div className="flex flex-col rounded-card-sm overflow-hidden bg-white border border-gray-100 shadow-sm p-4 h-full">
     <Skeleton className="aspect-video w-full rounded-xl" />
     <div className="flex flex-col gap-4 mt-6 flex-1">
       <div className="flex gap-2">
@@ -141,16 +141,16 @@ const LatestHealth = () => {
     <div className="mx-5 lg:mx-10 xl:mx-15 2xl:mx-50">
       {/* Similar Blog Section */}
       <div className="mt-7 lg:mt-14">
-        <span className="inline-block font-inter px-4 py-3 bg-[#1d3a35]/10 text-[#064045] text-sm font-medium rounded-full mb-4">
+        <span className="inline-block font-inter px-4 py-3 bg-deep/10 text-[#064045] text-sm font-medium rounded-full mb-4">
           Blogs
         </span>
         {/*  */}
         <div className="flex flex-col gap-5 sm:gap-0 md:flex-row justify-between items-center mb-5 md:mb-0">
           <div>
-            <h2 className="text-3xl lg:text-[46px] font-serif font-semibold text-[#227C31] mb-4">
+            <h2 className="text-3xl lg:text-[46px] font-serif font-semibold text-sage mb-4">
               Neueste Gesundheitserkenntnisse
             </h2>
-            <h2 className="text-base font-inter font-normal text-[#6B7280] md:mb-7">
+            <h2 className="text-base font-inter font-normal text-neutral-500 md:mb-7">
               Expertenrat, Gesundheitstipps und Branchen-News von unserem Team aus <br /> zugelassenen Ärzten
             </h2>
           </div>
@@ -158,7 +158,7 @@ const LatestHealth = () => {
           <Link to={"/"}>
             <button className="flex items-center gap-3 bg-[#0f4a4a] text-[#FFF] px-2 md:px-4 md:py-3 py-1.5 md:rounded-full rounded-4xl text-sm font-medium">
               <span>Alle ansehen</span>
-              <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#E8ECEB] text-[#0f4a4a] text-lg font-bold">
+              <span className="flex items-center justify-center w-7 h-7 rounded-full bg-neutral-200 text-[#0f4a4a] text-lg font-bold">
                 ›
               </span>
             </button>
