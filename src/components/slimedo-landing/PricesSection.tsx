@@ -619,6 +619,73 @@ export default function PricesSection() {
 
           .ps-corner-tag { z-index: 10 !important; }
 
+          .ps-card-video {
+            display: grid !important;
+            grid-template-columns: minmax(164px, .6fr) minmax(118px, .4fr);
+            grid-template-rows: auto auto auto auto;
+            column-gap: clamp(14px, 4vw, 22px);
+            row-gap: 7px;
+            align-items: center;
+            min-height: 184px;
+            padding: 24px 20px !important;
+          }
+          .ps-card-video .ps-badge,
+          .ps-card-video .ps-card-label,
+          .ps-card-video .ps-card-title {
+            grid-column: 1;
+          }
+          .ps-card-video .ps-price-block {
+            display: contents;
+          }
+          .ps-card-video .ps-badge {
+            grid-row: 1;
+            width: max-content;
+            margin-bottom: 10px;
+          }
+          .ps-card-video .ps-card-label {
+            grid-row: 2;
+            height: auto;
+            margin-bottom: 4px;
+          }
+          .ps-card-video .ps-card-title {
+            grid-row: 3;
+            height: auto;
+            margin-bottom: 8px;
+            line-height: 1.18;
+            white-space: nowrap;
+          }
+          .ps-card-video .ps-price {
+            grid-column: 1;
+            grid-row: 4;
+          }
+          .ps-card-video .ps-price-sub {
+            grid-column: 2;
+            grid-row: 3;
+            align-self: start;
+            margin: 2px 0 0;
+            font-size: clamp(.76rem, 2.85vw, .86rem);
+            line-height: 1.25;
+          }
+          .ps-card-video .ps-features {
+            grid-column: 2;
+            grid-row: 4;
+            align-self: start;
+            justify-content: flex-end;
+            flex: none;
+            padding-top: 8px;
+          }
+          .ps-card-video .ps-feature {
+            align-items: center;
+            gap: 9px;
+            min-height: auto;
+            font-size: clamp(.82rem, 3.35vw, .95rem);
+            line-height: 1.28;
+          }
+          .ps-card-video .ps-check {
+            width: 28px;
+            height: 28px;
+          }
+
           /* Mobile syringe overlay inside rezept price-area */
           .ps-price-area-rezept {
             position: relative !important;
@@ -645,6 +712,22 @@ export default function PricesSection() {
             font-size: 0.65rem !important;
             gap: 7px !important;
             border-radius: 10px !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .ps-card-video {
+            grid-template-columns: minmax(156px, .58fr) minmax(112px, .42fr);
+            column-gap: 12px;
+            padding: 22px 18px !important;
+          }
+          .ps-card-video .ps-card-title {
+            font-size: .9rem;
+          }
+          .ps-card-video .ps-price-sub {
+            font-size: .74rem;
+          }
+          .ps-card-video .ps-feature {
+            font-size: .78rem;
           }
         }
       `}</style>
