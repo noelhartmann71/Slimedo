@@ -141,7 +141,7 @@ export default function AnwendungSection() {
                             key={i}
                             className={`slimedo-anim slimedo-d${i + 1} anw-card-resp`}
                             style={{
-                                aspectRatio: '3/4',
+                                height: 'clamp(480px, 40vw, 720px)',
                                 background: card.gradient,
                                 border: '1px solid rgba(61,92,74,0.22)',
                                 borderRadius: 24,
@@ -236,13 +236,13 @@ export default function AnwendungSection() {
 
         /* MacBook 14" (~1280–1520px) */
         @media (min-width: 1280px) and (max-width: 1520px) {
-          .anw-card-resp { max-height: 540px !important; }
+          .anw-card-resp { height: 510px !important; }
           .anw-grid-resp { gap: 4px !important; }
         }
 
         /* MacBook 16" (~1600–1800px) */
         @media (min-width: 1600px) and (max-width: 1800px) {
-          .anw-card-resp { max-height: 620px !important; }
+          .anw-card-resp { height: 580px !important; }
           .anw-grid-resp { gap: 6px !important; }
         }
       `}</style>
