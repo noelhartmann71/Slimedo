@@ -73,7 +73,7 @@ export default function VerifyIdentityPage() {
           <div className="flex items-center gap-0.5 ml-1">
             {/* Step 1 – completed */}
             <div className="flex items-center gap-0.5">
-              <div className="w-4.5 h-4.5 rounded-full bg-[#1d3a35] text-white text-[10px] font-bold flex items-center justify-center">
+              <div className="w-4.5 h-4.5 rounded-full bg-deep text-white text-[10px] font-bold flex items-center justify-center">
                 <CheckIcon size={8} />
               </div>
               <span className="text-[11px] text-gray-400 mx-1.5">›</span>
@@ -81,7 +81,7 @@ export default function VerifyIdentityPage() {
 
             {/* Step 2 – active */}
             <div className="flex items-center gap-0.5">
-              <div className="w-4.5 h-4.5 rounded-full bg-[#1d3a35] text-white text-[10px] font-bold flex items-center justify-center">
+              <div className="w-4.5 h-4.5 rounded-full bg-deep text-white text-[10px] font-bold flex items-center justify-center">
                 4
               </div>
               <span className="text-[12px] font-medium text-gray-800 ml-1">
@@ -123,7 +123,7 @@ export default function VerifyIdentityPage() {
       <main className="flex-1 flex flex-col items-center py-8 px-4">
         <div className="w-full max-w-xl flex flex-col gap-4">
           {/* Header Card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8 text-center">
             <h1 className="text-[20px] font-bold text-gray-900 mb-3">
               Verify Your Identity
             </h1>
@@ -134,15 +134,15 @@ export default function VerifyIdentityPage() {
           </div>
 
           {/* Upload Card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col gap-5">
-            <div className="bg-[#E8ECEB] rounded-xl p-4 flex items-center gap-4">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-6 flex flex-col gap-5">
+            <div className="bg-neutral-200 rounded-xl p-4 flex items-center gap-4">
               <div className="p-2.5 bg-white rounded-lg">
                 <svg
                   width="20"
                   height="20"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#1d3a35"
+                  stroke="#1E3A2E"
                   strokeWidth="2"
                 >
                   <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -167,10 +167,10 @@ export default function VerifyIdentityPage() {
               onDragLeave={handleDrag}
               onDragOver={handleDrag}
               onDrop={handleDrop}
-              className={`relative h-55 rounded-2xl border-2 border-dashed transition-colors flex flex-col items-center justify-center p-6 ${
+              className={`relative h-55 rounded-card-sm border-2 border-dashed transition-colors flex flex-col items-center justify-center p-6 ${
                 dragActive
-                  ? "border-[#1d3a35] bg-[#f8faf9]"
-                  : "border-[#E5E7EB]"
+                  ? "border-deep bg-[#f8faf9]"
+                  : "border-neutral-200"
               }`}
             >
               <div className="w-12 h-12 rounded-full bg-[#f8faf9] border border-gray-100 flex items-center justify-center mb-4">
@@ -179,7 +179,7 @@ export default function VerifyIdentityPage() {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#1d3a35"
+                  stroke="#1E3A2E"
                   strokeWidth="2"
                 >
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -202,7 +202,7 @@ export default function VerifyIdentityPage() {
           </div>
 
           {/* FAQ Card */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col gap-6">
+          <div className="bg-white rounded-card-sm border border-gray-200 p-8 flex flex-col gap-6">
             <div>
               <h2 className="text-[16px] font-bold text-gray-900 mb-3">
                 Why do we need this?
@@ -223,7 +223,7 @@ export default function VerifyIdentityPage() {
               </button>
               <button
                 onClick={() => navigate("/auth/recommendation")}
-                className="flex-1 px-6 py-3.5 bg-[#1d3a35] text-white rounded-xl text-[14px] font-semibold hover:bg-[#16302b] transition cursor-pointer"
+                className="flex-1 px-6 py-3.5 bg-deep text-white rounded-xl text-[14px] font-semibold hover:bg-primary-hover transition cursor-pointer"
               >
                 Import
               </button>

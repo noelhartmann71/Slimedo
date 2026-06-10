@@ -262,83 +262,22 @@ export default function WarumWirSection() {
   return (
     <section
       ref={sectionRef}
-      className="warum-section-resp"
-      style={{
-        background: '#1E3A2E',
-        padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(78px, 6.38vw, 143px)',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="warum-section-resp relative overflow-hidden bg-deep pt-[clamp(72px,5.88vw,130px)] pb-[clamp(78px,6.38vw,143px)]"
     >
       {/* Section background radial glow (bottom-right) */}
-      <div
-        style={{
-          position: 'absolute',
-          right: '-5%',
-          bottom: '-10%',
-          width: '50%',
-          height: '60%',
-          background:
-            'radial-gradient(ellipse at center, rgba(61,92,74,0.35) 0%, transparent 65%)',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-      />
+      <div className="pointer-events-none absolute right-[-5%] bottom-[-10%] z-0 h-[60%] w-[50%] bg-[radial-gradient(ellipse_at_center,rgba(61,92,74,0.35)_0%,transparent_65%)]" />
 
-      <div
-        style={{
-          maxWidth: 1800,
-          margin: '0 auto',
-          padding: '0 40px',
-          position: 'relative',
-          zIndex: 2,
-        }}
-      >
+      <div className="relative z-[2] mx-auto max-w-[1800px] px-10">
         {/* ── Header ── */}
-        <header
-          className="warum-header-resp"
-          style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 2 }}
-        >
-          <p
-            className="slimedo-anim"
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 12,
-              fontWeight: 500,
-              color: '#CDDDCB',
-              textTransform: 'uppercase',
-              letterSpacing: '0.16em',
-              marginBottom: 16,
-            }}
-          >
+        <header className="warum-header-resp relative z-[2] mb-[52px] text-center">
+          <p className="slimedo-anim mb-4 text-[12px] font-medium tracking-[0.16em] uppercase text-mint">
             Warum wir
           </p>
-          <h2
-            className="slimedo-anim slimedo-d1 warum-hl-resp"
-            style={{
-              fontFamily: '"Instrument Serif", Georgia, serif',
-              fontSize: 'clamp(48px, 3.75vw, 100px)',
-              color: '#FAF5EA',
-              lineHeight: 1.02,
-              fontWeight: 400,
-              letterSpacing: '-0.01em',
-              marginBottom: 20,
-            }}
-          >
+          <h2 className="slimedo-anim slimedo-d1 warum-hl-resp mb-5 font-instrument text-[clamp(48px,3.75vw,100px)] font-normal leading-[1.02] tracking-[-0.01em] text-cream">
             Warum du bei{' '}
-            <em style={{ color: '#CDDDCB', fontStyle: 'italic' }}>Slimedo</em> richtig bist
+            <em className="italic text-mint">Slimedo</em> richtig bist
           </h2>
-          <p
-            className="slimedo-anim slimedo-d2"
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 16,
-              color: 'rgba(205,221,203,0.65)',
-              maxWidth: 580,
-              margin: '0 auto',
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="slimedo-anim slimedo-d2 mx-auto max-w-[580px] text-[16px] leading-[1.6] text-[rgba(205,221,203,0.65)]">
             Viele Menschen suchen online nach einem seriösen Anbieter für ihre GLP-1-Therapie —
             entscheidend ist dabei eine 100% sichere und gesetzeskonforme Betreuung.
           </p>
@@ -745,50 +684,14 @@ export default function WarumWirSection() {
         </div>
 
         {/* ── CTA ── */}
-        <div
-          className="slimedo-anim slimedo-d3"
-          style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}
-        >
-          <p
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 13,
-              color: 'rgba(205,221,203,0.5)',
-              marginBottom: 20,
-            }}
-          >
+        <div className="slimedo-anim slimedo-d3 relative z-[2] text-center">
+          <p className="mb-5 text-[13px] text-[rgba(205,221,203,0.5)]">
             Überzeug dich selbst — starte jetzt deinen ärztlich begleiteten Weg.
           </p>
           <a
             href="/product/select"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 10,
-              background: '#3D5C4A',
-              color: '#FAF5EA',
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 15,
-              fontWeight: 500,
-              padding: '18px 40px',
-              borderRadius: 999,
-              border: 'none',
-              cursor: 'pointer',
-              textDecoration: 'none',
-              letterSpacing: '0.01em',
-              boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
-              transition: 'background 0.2s, transform 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.background = '#1E3A2E';
-              el.style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.background = '#3D5C4A';
-              el.style.transform = 'translateY(0)';
-            }}
+            className="inline-flex items-center gap-2.5 rounded-full bg-sage px-10 py-[18px] text-[15px] font-medium tracking-[0.01em] text-cream no-underline shadow-cta transition-[background-color,transform] duration-200 hover:-translate-y-px hover:bg-deep"
+            style={{ fontFamily: '"Inter", sans-serif' }}
           >
             Rezeptanfrage machen
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

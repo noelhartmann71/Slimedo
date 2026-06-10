@@ -33,7 +33,7 @@ const PharmacySoldPerMonthPage = () => {
 
   return (
     <div className="p-2 sm:p-4 md:p-6 lg:p-8">
-      <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+      <div className="overflow-hidden rounded-card-sm border border-gray-200 bg-white">
         <div className="p-6">
           <h2 className="text-xl font-semibold text-gray-800">
             Sold per month

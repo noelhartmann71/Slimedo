@@ -179,7 +179,7 @@ const BookConsultationModal: React.FC<BookConsultationModalProps> = ({
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={onClose}
           />
-          <div className="relative w-full max-w-xl transform overflow-hidden rounded-3xl bg-white p-8 shadow-2xl animate-in zoom-in-95 duration-300">
+          <div className="relative w-full max-w-xl transform overflow-hidden rounded-card bg-white p-8 shadow-2xl animate-in zoom-in-95 duration-300">
             {/* Close Button */}
             <button
               onClick={onClose}
@@ -225,7 +225,7 @@ const BookConsultationModal: React.FC<BookConsultationModalProps> = ({
                         <button
                           key={i}
                           onClick={() => handleDateSelect(i)}
-                          className={`group relative flex flex-col items-center justify-center rounded-2xl border p-4 transition-all duration-200 cursor-pointer ${
+                          className={`group relative flex flex-col items-center justify-center rounded-card-sm border p-4 transition-all duration-200 cursor-pointer ${
                             selectedDate === i
                               ? "border-primary bg-primary/5 ring-1 ring-primary shadow-sm"
                               : "border-gray-100 bg-white hover:border-primary/50 hover:bg-gray-50"
@@ -281,14 +281,14 @@ const BookConsultationModal: React.FC<BookConsultationModalProps> = ({
             <div className="flex gap-3 pt-4 border-t border-gray-100">
               <button
                 onClick={onClose}
-                className="flex-1 py-4 px-6 rounded-2xl text-[15px] font-bold text-gray-500 bg-gray-50 hover:bg-gray-100 transition-all cursor-pointer"
+                className="flex-1 py-4 px-6 rounded-card-sm text-[15px] font-bold text-gray-500 bg-gray-50 hover:bg-gray-100 transition-all cursor-pointer"
               >
                 Vielleicht später
               </button>
               <button
                 onClick={handleConfirmBooking}
                 disabled={selectedDate === -1 || selectedTime === -1 || loading}
-                className={`flex-1 py-4 px-6 rounded-2xl text-[15px] font-bold shadow-lg transition-all cursor-pointer ${
+                className={`flex-1 py-4 px-6 rounded-card-sm text-[15px] font-bold shadow-lg transition-all cursor-pointer ${
                   selectedDate !== -1 && selectedTime !== -1 && !loading
                     ? "bg-primary text-white hover:bg-primary/90 shadow-primary/20"
                     : "bg-gray-200 text-gray-400 cursor-not-allowed shadow-none"

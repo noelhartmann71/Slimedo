@@ -679,60 +679,23 @@ export default function PrivacySection() {
 
   return (
     <section
-      className="priv-section"
+      className="priv-section relative overflow-hidden bg-[linear-gradient(145deg,#1E3A2E_0%,#234035_38%,#3D6B50_66%,#FAF5EA_100%)] py-[clamp(72px,6vw,130px)]"
       ref={sectionRef}
       id="datenschutz"
-      style={{
-        background: 'linear-gradient(145deg,#1E3A2E 0%,#234035 38%,#3D6B50 66%,#FAF5EA 100%)',
-        padding: 'clamp(72px, 6vw, 130px) 0',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
     >
-      <div className="priv-inner" style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
-        <header className="priv-header" style={{ marginBottom: 56, textAlign: 'center' }}>
-          <p
-            className="slimedo-anim"
-            style={{
-              fontSize: 12,
-              fontWeight: 500,
-              textTransform: 'uppercase',
-              letterSpacing: '.16em',
-              color: '#CDDDCB',
-              marginBottom: 14,
-              fontFamily: '"Inter", sans-serif',
-            }}
-          >
+      <div className="priv-inner mx-auto max-w-[1800px] px-10">
+        <header className="priv-header mb-14 text-center">
+          <p className="slimedo-anim mb-3.5 text-[12px] font-medium tracking-[0.16em] uppercase text-mint">
             Datenschutz &amp; Diskretion
           </p>
-          <h2
-            className="slimedo-anim slimedo-d1 priv-hl-resp"
-            style={{
-              fontFamily: '"Instrument Serif", Georgia, serif',
-              fontSize: 'clamp(48px, 3.75vw, 100px)',
-              lineHeight: 1.02,
-              fontWeight: 400,
-              letterSpacing: '-.01em',
-              color: '#FAF5EA',
-              marginBottom: 16,
-            }}
-          >
+          <h2 className="slimedo-anim slimedo-d1 priv-hl-resp mb-4 font-instrument text-[clamp(48px,3.75vw,100px)] font-normal leading-[1.02] tracking-[-0.01em] text-cream">
             Deine Gesundheit
             <br />
-            bleibt <em style={{ color: '#CDDDCB', fontStyle: 'italic' }}>deine Sache.</em>
+            bleibt <em className="italic text-mint">deine Sache.</em>
           </h2>
-          <p
-            className="slimedo-anim slimedo-d2 priv-sub-resp"
-            style={{
-              fontSize: 16,
-              color: 'rgba(205,221,203,.65)',
-              maxWidth: 560,
-              margin: '0 auto',
-              fontFamily: '"Inter", sans-serif',
-            }}
-          >
-            <strong style={{ color: 'rgba(205,221,203,.9)', fontWeight: 500 }}>Vertraulich.</strong> Ärztlich geschützt.{' '}
-            <strong style={{ color: 'rgba(205,221,203,.9)', fontWeight: 500 }}>Niemals weitergegeben.</strong>
+          <p className="slimedo-anim slimedo-d2 priv-sub-resp mx-auto max-w-[560px] text-[16px] text-[rgba(205,221,203,0.65)]">
+            <strong className="font-medium text-[rgba(205,221,203,0.9)]">Vertraulich.</strong> Ärztlich geschützt.{' '}
+            <strong className="font-medium text-[rgba(205,221,203,0.9)]">Niemals weitergegeben.</strong>
           </p>
         </header>
 

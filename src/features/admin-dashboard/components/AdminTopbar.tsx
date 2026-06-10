@@ -3,16 +3,16 @@ import DashboardIconLogo from "../../../../public/images/logo/dashboard-navbar-i
 
 export default function AdminTopbar() {
   return (
-    <header className="h-20 bg-white border-b border-[#E5E9EB] flex items-center justify-between px-10 sticky top-0 z-10 w-full">
+    <header className="h-20 bg-white border-b border-neutral-200 flex items-center justify-between px-10 sticky top-0 z-10 w-full">
       <div className="flex-1 max-w-md relative">
         <Search
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-[#98A2B3]"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400"
           size={18}
         />
         <input
           type="text"
           placeholder="Search anything here"
-          className="w-full h-11 bg-[#F9FAFB] rounded-lg border border-[#F0F2F5] pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#101928]/5"
+          className="w-full h-11 bg-[#F9FAFB] rounded-lg border border-[#F0F2F5] pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900/5"
         />
       </div>
 
@@ -23,10 +23,10 @@ export default function AdminTopbar() {
             alt="Alexandro"
             className="w-8 h-8 rounded-full"
           />
-          <span className="text-sm font-semibold text-[#101928]">
+          <span className="text-sm font-semibold text-neutral-900">
             Alexandro
           </span>
-          <ChevronDown size={14} className="text-[#667185]" />
+          <ChevronDown size={14} className="text-neutral-500" />
         </div>
       </div>
     </header>

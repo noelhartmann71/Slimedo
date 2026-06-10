@@ -48,7 +48,7 @@ export default function Testimonials() {
         {/* Header */}
         <div className="flex items-start justify-between mb-8">
           <div>
-            <h2 className="font-serif text-3xl lg:text-[46px] font-semibold text-[#227C31] mb-2">
+            <h2 className="font-serif text-3xl lg:text-[46px] font-semibold text-sage mb-2">
               Slimedo verändert Leben
             </h2>
             <div className="flex flex-col gap-2">
@@ -61,10 +61,10 @@ export default function Testimonials() {
               </div>
               {/* THis is the trustpilot rating */}
               <div className="flex flex-row gap-2 items-center">
-                <span className="text-base text-[#19301E] font-medium">
+                <span className="text-base text-deep font-medium">
                   4,7 auf Trustpilot
                 </span>
-                <span className="text-xs text-[#19301E]">
+                <span className="text-xs text-deep">
                   10353 Bewertungen
                 </span>
               </div>
@@ -103,7 +103,7 @@ export default function Testimonials() {
         {/* Content */}
         <div className="flex flex-col lg:flex-row gap-5 2xl:gap-16">
           {/* Text card */}
-          <div className="bg-[#F4F1E780] rounded-2xl p-8 flex flex-col justify-between gap-6 lg:w-[50%] 2xl:w-248.75 shrink-0">
+          <div className="bg-[#F4F1E780] rounded-card-sm p-8 flex flex-col justify-between gap-6 lg:w-[50%] 2xl:w-248.75 shrink-0">
             <div>
               <div className="flex items-end gap-1 mb-1">
                 <span className="font-serif text-6xl font-bold text-[#1d2d2a]">
@@ -116,7 +116,7 @@ export default function Testimonials() {
               <p className="text-lg text-[#092530] font-normal mb-4">
                 {t.period}
               </p>
-              <p className="text-lg md:text-2xl text-[#374151] leading-relaxed italic mt-10 xl:mt-27.75">
+              <p className="text-lg md:text-2xl text-neutral-700 leading-relaxed italic mt-10 xl:mt-27.75">
                 {t.quote}
               </p>
             </div>
@@ -127,7 +127,7 @@ export default function Testimonials() {
             {[{ src: t.beforeImg, label: "1 Monat" }].map(({ src, label }) => (
               <div
                 key={label}
-                className="relative flex-1 rounded-2xl overflow-hidden w-[50%] 2xl:w-full h-109.5"
+                className="relative flex-1 rounded-card-sm overflow-hidden w-[50%] 2xl:w-full h-109.5"
               >
                 <img
                   src={src}

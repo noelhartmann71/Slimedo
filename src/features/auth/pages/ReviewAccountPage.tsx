@@ -112,10 +112,10 @@ export default function ReviewAccountPage() {
   return (
     <div className="bg-[#f7f8f6] min-h-screen flex font-inter">
       {/* Header */}
-      <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-3 sm:px-6 py-4 flex items-center justify-between z-50">
+      <div className="fixed top-0 left-0 right-0 bg-white border-b border-neutral-200 px-3 sm:px-6 py-4 flex items-center justify-between z-50">
         <button
           onClick={() => navigate(-1)}
-          className="text-[#1B433B] text-xs sm:text-base font-medium cursor-pointer"
+          className="text-deep text-xs sm:text-base font-medium cursor-pointer"
         >
           <div className="flex items-center gap-3">
             <MedizinischerFragebogenIcon />
@@ -135,9 +135,9 @@ export default function ReviewAccountPage() {
       <div className="flex-1 flex flex-col md:flex-row items-start justify-center pt-22.5 md:pt-20 lg:pt-25 px-4 sm:px-8 gap-7 lg:gap-14">
         {/* Left side - Review form */}
         <div className="w-full max-w-xl">
-          <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
+          <div className="bg-white rounded-card-sm p-6 lg:p-8 shadow-sm">
             {/* Patient data section */}
-            <div className="mb-8 pb-8 border-b border-[#e5e7eb]">
+            <div className="mb-8 pb-8 border-b border-neutral-200">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-medium text-black">Patient data</h2>
                 <button className="text-[14px] text-primary font-semibold hover:underline cursor-pointer">
@@ -146,7 +146,7 @@ export default function ReviewAccountPage() {
               </div>
               <div className="text-[14px] text-muted-foreground flex flex-row justify-between">
                 <div className="flex flex-col justify-between gap-3">
-                  <p className="text-[#6B7280]">
+                  <p className="text-neutral-500">
                     {formData.firstName} {formData.lastName}
                   </p>
                   <p>{formData.birthday}</p>
@@ -177,7 +177,7 @@ export default function ReviewAccountPage() {
                       value={formData.streetName}
                       onChange={handleInputChange}
                       placeholder="Rajshahi"
-                      className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                      className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                     />
                   </div>
                   <div className="flex-1">
@@ -190,7 +190,7 @@ export default function ReviewAccountPage() {
                       value={formData.houseNumber}
                       onChange={handleInputChange}
                       placeholder="e.g. 101"
-                      className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                      className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                     />
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function ReviewAccountPage() {
                     value={formData.additionalAddress}
                     onChange={handleInputChange}
                     placeholder="Apartment 4B"
-                    className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                    className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                   />
                 </div>
 
@@ -222,7 +222,7 @@ export default function ReviewAccountPage() {
                       value={formData.city}
                       onChange={handleInputChange}
                       placeholder="Natore"
-                      className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                      className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                     />
                   </div>
                   <div className="flex-1">
@@ -235,7 +235,7 @@ export default function ReviewAccountPage() {
                       value={formData.postalCode}
                       onChange={handleInputChange}
                       placeholder="1011"
-                      className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white"
+                      className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white"
                     />
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export default function ReviewAccountPage() {
                     <Popover.Trigger asChild>
                       <button
                         type="button"
-                        className="w-full px-5 py-4 border border-[#e5e7eb] rounded-md text-[16px] text-[#4b5563] focus:outline-none focus:border-primary bg-white hover:border-[#d1d5db] flex items-center justify-between transition-colors"
+                        className="w-full px-5 py-4 border border-neutral-200 rounded-md text-[16px] text-neutral-600 focus:outline-none focus:border-primary bg-white hover:border-neutral-300 flex items-center justify-between transition-colors"
                       >
                         <span>{formData.country}</span>
                         <svg
@@ -267,7 +267,7 @@ export default function ReviewAccountPage() {
                         </svg>
                       </button>
                     </Popover.Trigger>
-                    <Popover.Content className="w-(--radix-popover-trigger-width) rounded-md border border-[#e5e7eb] bg-white shadow-md p-1 z-50">
+                    <Popover.Content className="w-(--radix-popover-trigger-width) rounded-md border border-neutral-200 bg-white shadow-md p-1 z-50">
                       <div className="flex flex-col">
                         {countries.map((country) => (
                           <button
@@ -283,7 +283,7 @@ export default function ReviewAccountPage() {
                             className={`px-4 py-2 text-left text-[16px] rounded transition-colors ${
                               formData.country === country
                                 ? "bg-primary text-white"
-                                : "text-[#4b5563] hover:bg-[#f3f4f6]"
+                                : "text-neutral-600 hover:bg-[#f3f4f6]"
                             }`}
                           >
                             {country}
@@ -297,7 +297,7 @@ export default function ReviewAccountPage() {
                 <button
                   type="submit"
                   disabled={updateProfileMutation.isPending}
-                  className="w-full bg-[#227C31] text-white rounded-lg py-4 text-[16px] font-medium transition cursor-pointer mt-6"
+                  className="w-full bg-sage text-white rounded-lg py-4 text-[16px] font-medium transition cursor-pointer mt-6"
                 >
                   {updateProfileMutation.isPending
                     ? "Updating..."
@@ -310,7 +310,7 @@ export default function ReviewAccountPage() {
 
         {/* Right side - Order overview */}
         <div className="w-full max-w-xl">
-          <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
+          <div className="bg-white rounded-card-sm p-6 lg:p-8 shadow-sm">
             {/* Header - always visible */}
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-medium text-[#000000]">
@@ -318,7 +318,7 @@ export default function ReviewAccountPage() {
               </h2>
               <button
                 onClick={() => setShowDetails(!showDetails)}
-                className="text-base text-[#227C31] font-semibold hover:underline cursor-pointer"
+                className="text-base text-sage font-semibold hover:underline cursor-pointer"
               >
                 {showDetails ? "Hide details" : "Show details"}
               </button>
@@ -330,25 +330,25 @@ export default function ReviewAccountPage() {
                 {/* Product */}
                 <div className="mb-6">
                   <div className="flex justify-between items-center">
-                    <p className="text-[14px] text-[#6B7280] mb-2">
+                    <p className="text-[14px] text-neutral-500 mb-2">
                       {sessionStorage.getItem("product_name") || "Product Name"}
                     </p>
-                    <span className="text-[16px] font-medium text-[#227C31]">
+                    <span className="text-[16px] font-medium text-sage">
                       €{localStorage.getItem("medication_price") || "0.00"}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <p className="text-[14px] text-[#6B7280] mb-2">
+                    <p className="text-[14px] text-neutral-500 mb-2">
                       Shipping costs
                     </p>
-                    <span className="text-base text-[#227C31] font-semibold">
+                    <span className="text-base text-sage font-semibold">
                       Pending
                     </span>
                   </div>
                 </div>
 
                 {/* Info box */}
-                <div className="bg-[#E8ECEB] rounded-lg p-4 mb-6 flex gap-3">
+                <div className="bg-neutral-200 rounded-lg p-4 mb-6 flex gap-3">
                   <WarnIcon />
                   <p className="text-[14px] text-muted-foreground">
                     The pharmacy will contact you within a few hours with
@@ -357,11 +357,11 @@ export default function ReviewAccountPage() {
                 </div>
 
                 {/* Prescription Fee */}
-                <div className="mb-6 pb-6 border-b border-[#e5e7eb] flex justify-between items-center">
+                <div className="mb-6 pb-6 border-b border-neutral-200 flex justify-between items-center">
                   <p className="text-[14px] text-muted-foreground">
                     Prescription Fee
                   </p>
-                  <span className="text-[16px] font-medium text-[#227C31]">
+                  <span className="text-[16px] font-medium text-sage">
                     €{settings?.prescription_fee || "0.00"}
                   </span>
                 </div>
@@ -371,23 +371,23 @@ export default function ReviewAccountPage() {
             {/* In total - always visible */}
             <div className="mb-6 pb-6">
               <div className="flex justify-between items-center">
-                <p className="text-lg font-medium text-[#227C31] mb-2">
+                <p className="text-lg font-medium text-sage mb-2">
                   In total
                 </p>
-                <p className="text-[20px] font-semibold text-[#227C31] mb-4">
+                <p className="text-[20px] font-semibold text-sage mb-4">
                   €{totalPrice.toFixed(2)}
                 </p>
               </div>
               <div className="space-y-2 text-[14px] text-muted-foreground">
                 <div className="flex justify-between">
                   <span>Due now</span>
-                  <span className="text-[#227C31] font-medium">
+                  <span className="text-sage font-medium">
                     €{settings?.prescription_fee || "0.00"}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Payment at the pharmacy</span>
-                  <span className="text-[#227C31] font-medium">
+                  <span className="text-sage font-medium">
                     €{medicationPrice.toFixed(2)}
                   </span>
                 </div>
@@ -396,7 +396,7 @@ export default function ReviewAccountPage() {
 
             {/* Payment methods - always visible */}
             <div className="bg-[#F3F4F6] p-4 rounded-lg">
-              <p className="text-base text-[#6B7280] mb-3 border-b border-[#e5e7eb] pb-3">
+              <p className="text-base text-neutral-500 mb-3 border-b border-neutral-200 pb-3">
                 Payment methods
               </p>
               <div className="flex items-center gap-1.5">

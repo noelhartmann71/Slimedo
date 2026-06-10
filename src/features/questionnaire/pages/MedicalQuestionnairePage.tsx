@@ -43,12 +43,12 @@ function CompletedRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-4 py-4">
       <div className="flex items-center gap-2">
-        <span className="w-6 h-6 rounded-full bg-[#227C31] flex items-center justify-center shrink-0">
+        <span className="w-6 h-6 rounded-full bg-sage flex items-center justify-center shrink-0">
           <CheckIcon size={14} />
         </span>
         <span className="text-[16px] font-medium text-black">{label}</span>
       </div>
-      <span className="text-[16px] text-[#9CA3AF]">{value}</span>
+      <span className="text-[16px] text-neutral-400">{value}</span>
     </div>
   );
 }
@@ -223,7 +223,7 @@ export default function MedicalQuestionnairePage() {
             >
               <polyline points="15 18 9 12 15 6" />
             </svg>
-            <span className="text-[#29574E] font-medium text-xs lg:text-base">
+            <span className="text-sage font-medium text-xs lg:text-base">
               Back
             </span>
           </button>
@@ -233,7 +233,7 @@ export default function MedicalQuestionnairePage() {
             <div className="flex items-center gap-0.5">
               <div
                 onClick={() => navigate("/product/select")}
-                className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#227C31] text-white text-[12px] md:text-[14px] font-bold flex items-center justify-center cursor-pointer"
+                className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-sage text-white text-[12px] md:text-[14px] font-bold flex items-center justify-center cursor-pointer"
               >
                 <CheckIcon className="w-3 h-3 md:w-4 md:h-4" />
               </div>
@@ -250,11 +250,11 @@ export default function MedicalQuestionnairePage() {
                     setStep(2);
                   }
                 }}
-                className={`w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#227C31] text-white text-[12px] md:text-[14px] font-bold flex items-center justify-center ${step > 2 ? "cursor-pointer" : ""}`}
+                className={`w-6 h-6 md:w-8 md:h-8 rounded-full bg-sage text-white text-[12px] md:text-[14px] font-bold flex items-center justify-center ${step > 2 ? "cursor-pointer" : ""}`}
               >
                 {step > 2 ? <CheckIcon className="w-3 h-3 md:w-4 md:h-4" /> : 2}
               </div>
-              <span className="text-[14px] lg:text-[16px] font-medium text-[#29574E] ml-1">
+              <span className="text-[14px] lg:text-[16px] font-medium text-sage ml-1">
                 Medical questionnaire
               </span>
               <span className="text-[10px] md:text-[11px] text-gray-400 mx-1 md:mx-1.5">
@@ -270,7 +270,7 @@ export default function MedicalQuestionnairePage() {
                     setStep(3);
                   }
                 }}
-                className={`w-6 h-6 md:w-8 md:h-8 rounded-full text-[12px] md:text-[14px] font-bold flex items-center justify-center ${step >= 3 ? "bg-[#227C31] text-white" : "bg-gray-200 text-gray-500"} ${step > 3 ? "cursor-pointer" : ""}`}
+                className={`w-6 h-6 md:w-8 md:h-8 rounded-full text-[12px] md:text-[14px] font-bold flex items-center justify-center ${step >= 3 ? "bg-sage text-white" : "bg-gray-200 text-gray-500"} ${step > 3 ? "cursor-pointer" : ""}`}
               >
                 {step > 3 ? <CheckIcon className="w-3 h-3 md:w-4 md:h-4" /> : 3}
               </div>
@@ -317,7 +317,7 @@ export default function MedicalQuestionnairePage() {
           )}
           {/* Step 1 intro text - only show on step 1 */}
           {step === 1 && !showComorbidities && (
-            <div className="bg-white rounded-2xl p-8 font-inter">
+            <div className="bg-white rounded-card-sm p-8 font-inter">
               {isLoading ? (
                 <div className="animate-pulse">
                   <div className="h-8 bg-gray-200 rounded-md w-3/4 mb-4"></div>
@@ -330,7 +330,7 @@ export default function MedicalQuestionnairePage() {
                   <h1 className="text-[24px] font-semibold text-black mb-2">
                     {questionaryData?.question || "Medical questionnaire"}
                   </h1>
-                  <p className="text-[16px] text-[#6B7280] leading-relaxed">
+                  <p className="text-[16px] text-neutral-500 leading-relaxed">
                     {questionaryData?.description ||
                       "Please fill out your medical information truthfully. It will only be accessible to the relevant doctors. Your data is safe, protected, and will not be shared with any third parties."}
                   </p>
@@ -360,7 +360,7 @@ export default function MedicalQuestionnairePage() {
           )}
 
           {/* Active step card */}
-          <div className="bg-white rounded-2xl p-8">
+          <div className="bg-white rounded-card-sm p-8">
             {step === 1 && (
               <Step1
                 handleFurther={handleFurther}
@@ -424,7 +424,7 @@ export default function MedicalQuestionnairePage() {
             <button
               onClick={handleFurther}
               disabled={!canProceed}
-              className="w-full bg-[#227C31] hover:bg-[#16302b] disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-4 text-[18px] font-medium transition cursor-pointer"
+              className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-4 text-[18px] font-medium transition cursor-pointer"
             >
               Further
             </button>

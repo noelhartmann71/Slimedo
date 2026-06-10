@@ -387,8 +387,8 @@ export default function PharmacyOverviewPage() {
     {
       label: "Total Cases",
       value: overviewData?.total_cases ?? 0,
-      cardClass: "border-[#DBE7E4] bg-[#F7FBFA]",
-      valueClass: "text-[#1B433B]",
+      cardClass: "border-neutral-200 bg-[#F7FBFA]",
+      valueClass: "text-deep",
     },
     {
       label: "Open Cases",
@@ -426,7 +426,7 @@ export default function PharmacyOverviewPage() {
     return (
       <div className="space-y-8 animate-pulse">
         {/* Header Skeleton */}
-        <div className="rounded-2xl border border-gray-100 bg-gray-50/50 p-6">
+        <div className="rounded-card-sm border border-gray-100 bg-gray-50/50 p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="space-y-3">
               <div className="h-4 w-32 rounded bg-gray-200" />
@@ -442,7 +442,7 @@ export default function PharmacyOverviewPage() {
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <div
               key={i}
-              className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm space-y-3"
+              className="rounded-card-sm border border-gray-100 bg-white p-5 shadow-sm space-y-3"
             >
               <div className="h-4 w-24 rounded bg-gray-100" />
               <div className="h-10 w-16 rounded bg-gray-100" />
@@ -456,7 +456,7 @@ export default function PharmacyOverviewPage() {
             <div className="h-7 w-32 rounded bg-gray-200" />
             <div className="h-4 w-64 rounded bg-gray-200" />
           </div>
-          <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white">
+          <div className="overflow-hidden rounded-card-sm border border-gray-100 bg-white">
             <div className="h-12 border-b border-gray-50 bg-gray-50/50" />
             <div className="p-5 space-y-4">
               {[1, 2, 3, 4, 5].map((row) => (
@@ -509,20 +509,20 @@ export default function PharmacyOverviewPage() {
   return (
     <div className="space-y-8">
       {/* ── Pharmacy header banner ── unchanged ─────────────────────────────── */}
-      <div className="rounded-2xl border border-[#DBE7E4] bg-linear-to-r from-[#F5FAF8] to-[#EFF6F4] p-5 md:p-6">
+      <div className="rounded-card-sm border border-neutral-200 bg-linear-to-r from-[#F5FAF8] to-[#EFF6F4] p-5 md:p-6">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="text-sm font-medium text-[#5B6C66]">
+            <p className="text-sm font-medium text-sage">
               Dashboard Status
             </p>
             <h2 className="mt-1 text-[24px] font-semibold text-[#162D28]">
               {data.message}
             </h2>
-            <p className="mt-2 text-sm text-[#5B6C66]">
+            <p className="mt-2 text-sm text-sage">
               Pharmacy: {pharmacyData.name} ({pharmacyData.type})
             </p>
           </div>
-          <div className="rounded-xl border border-[#DBE7E4] bg-white px-4 py-3 text-sm text-[#3D4C48]">
+          <div className="rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-[#3D4C48]">
             <p>
               Address: {pharmacyData.street}, {pharmacyData.house},{" "}
               {pharmacyData.city}, {pharmacyData.postal}, {pharmacyData.country}
@@ -543,9 +543,9 @@ export default function PharmacyOverviewPage() {
         {metricCards.map((card) => (
           <div
             key={card.label}
-            className={`rounded-2xl border p-5 shadow-sm ${card.cardClass}`}
+            className={`rounded-card-sm border p-5 shadow-sm ${card.cardClass}`}
           >
-            <p className="text-sm font-medium text-[#5B6C66]">{card.label}</p>
+            <p className="text-sm font-medium text-sage">{card.label}</p>
             <p className={`mt-3 text-3xl font-bold ${card.valueClass}`}>
               {card.value}
             </p>
@@ -559,7 +559,7 @@ export default function PharmacyOverviewPage() {
         <div className="flex flex-row justify-between gap-1 items-center">
           <div>
             <h2 className="text-[22px] font-bold text-black">Orders</h2>
-            <p className="text-sm font-normal text-[#6C7278]">
+            <p className="text-sm font-normal text-neutral-500">
               View all pharmacy orders from the dashboard API response.
             </p>
           </div>
@@ -569,7 +569,7 @@ export default function PharmacyOverviewPage() {
               href={exportLinksData?.csv_filtered}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#DBE7E4] bg-white px-4 text-[13px] font-medium text-[#1B433B] transition-all hover:border-[#4A8E83] hover:bg-gray-50"
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-neutral-200 bg-white px-4 text-[13px] font-medium text-deep transition-all hover:border-sage hover:bg-gray-50"
             >
               <FileSpreadsheet className="h-4 w-4" />
               Export Filtered
@@ -577,7 +577,7 @@ export default function PharmacyOverviewPage() {
             <button
               onClick={() => exportOrders()}
               disabled={isExporting}
-              className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#DBE7E4] bg-[#2D6B61] px-4 text-[13px] font-medium text-white transition-all hover:bg-[#1B4F48] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-neutral-200 bg-sage px-4 text-[13px] font-medium text-white transition-all hover:bg-[#1B4F48] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isExporting ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -589,7 +589,7 @@ export default function PharmacyOverviewPage() {
           </div>
         </div>
         {/* ── Filters Section ────────────────────────────────────────────────── */}
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+        <div className="rounded-card-sm border border-gray-200 bg-white p-5 shadow-sm">
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <h3 className="flex items-center gap-2 text-sm font-semibold text-gray-700">
@@ -598,7 +598,7 @@ export default function PharmacyOverviewPage() {
               </h3>
               <button
                 onClick={clearFilters}
-                className="text-xs font-medium text-[#1B433B] hover:text-[#2D6B61] flex items-center gap-1"
+                className="text-xs font-medium text-deep hover:text-sage flex items-center gap-1"
               >
                 <X className="h-3 w-3" />
                 Clear All
@@ -620,7 +620,7 @@ export default function PharmacyOverviewPage() {
                     onChange={(e) =>
                       handleFilterChange("search", e.target.value)
                     }
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2 pl-8 pr-3 text-xs outline-none transition-all placeholder:text-gray-400 focus:border-[#4A8E83] focus:bg-white focus:ring-1 focus:ring-[#4A8E83]"
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2 pl-8 pr-3 text-xs outline-none transition-all placeholder:text-gray-400 focus:border-sage focus:bg-white focus:ring-1 focus:ring-sage"
                   />
                 </div>
               </div>
@@ -636,7 +636,7 @@ export default function PharmacyOverviewPage() {
                     onChange={(e) =>
                       handleFilterChange("order_status", e.target.value)
                     }
-                    className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 py-2 pl-3 pr-8 text-xs outline-none transition-all focus:border-[#4A8E83] focus:bg-white focus:ring-1 focus:ring-[#4A8E83]"
+                    className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 py-2 pl-3 pr-8 text-xs outline-none transition-all focus:border-sage focus:bg-white focus:ring-1 focus:ring-sage"
                   >
                     <option value="">All Statuses</option>
                     {filterOptions?.order_status?.map((s: string) => (
@@ -660,7 +660,7 @@ export default function PharmacyOverviewPage() {
                     onChange={(e) =>
                       handleFilterChange("payment_status", e.target.value)
                     }
-                    className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 py-2 pl-3 pr-8 text-xs outline-none transition-all focus:border-[#4A8E83] focus:bg-white focus:ring-1 focus:ring-[#4A8E83]"
+                    className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 py-2 pl-3 pr-8 text-xs outline-none transition-all focus:border-sage focus:bg-white focus:ring-1 focus:ring-sage"
                   >
                     <option value="">All Payments</option>
                     {filterOptions?.payment_status?.map((s: string) => (
@@ -684,7 +684,7 @@ export default function PharmacyOverviewPage() {
                     onChange={(e) =>
                       handleFilterChange("fulfillment_type", e.target.value)
                     }
-                    className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 py-2 pl-3 pr-8 text-xs outline-none transition-all focus:border-[#4A8E83] focus:bg-white focus:ring-1 focus:ring-[#4A8E83]"
+                    className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 py-2 pl-3 pr-8 text-xs outline-none transition-all focus:border-sage focus:bg-white focus:ring-1 focus:ring-sage"
                   >
                     <option value="">All Types</option>
                     {filterOptions?.fulfillment_type?.map((s: string) => (
@@ -710,7 +710,7 @@ export default function PharmacyOverviewPage() {
                     onChange={(e) =>
                       handleFilterChange("date_from", e.target.value)
                     }
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2 pl-8 pr-3 text-xs outline-none transition-all focus:border-[#4A8E83] focus:bg-white focus:ring-1 focus:ring-[#4A8E83]"
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2 pl-8 pr-3 text-xs outline-none transition-all focus:border-sage focus:bg-white focus:ring-1 focus:ring-sage"
                   />
                 </div>
               </div>
@@ -728,14 +728,14 @@ export default function PharmacyOverviewPage() {
                     onChange={(e) =>
                       handleFilterChange("date_to", e.target.value)
                     }
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2 pl-8 pr-3 text-xs outline-none transition-all focus:border-[#4A8E83] focus:bg-white focus:ring-1 focus:ring-[#4A8E83]"
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2 pl-8 pr-3 text-xs outline-none transition-all focus:border-sage focus:bg-white focus:ring-1 focus:ring-sage"
                   />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+        <div className="overflow-hidden rounded-card-sm border border-gray-200 bg-white shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-left">
               {/* ── Head ── */}
@@ -914,7 +914,7 @@ export default function PharmacyOverviewPage() {
                                     [order.id]: false,
                                   }));
                                 }}
-                                className="w-full rounded-lg px-2.5 py-1.5 text-left text-[11px] font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-[#1B433B]"
+                                className="w-full rounded-lg px-2.5 py-1.5 text-left text-[11px] font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-deep"
                               >
                                 {s}
                               </button>
@@ -934,7 +934,7 @@ export default function PharmacyOverviewPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Download Prescription"
-                            className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#C8DDD9] bg-[#F0F8F6] text-[#2D6B61] transition-all hover:border-[#4A8E83] hover:bg-[#E4F3F0]"
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#C8DDD9] bg-[#F0F8F6] text-sage transition-all hover:border-sage hover:bg-[#E4F3F0]"
                           >
                             <Download className="h-4 w-4" />
                           </a>
@@ -1113,7 +1113,7 @@ export default function PharmacyOverviewPage() {
                     onClick={() => setCurrentPage(item as number)}
                     className={`flex h-8 w-8 items-center justify-center rounded-lg border text-[12px] font-medium shadow-sm transition-all ${
                       item === currentPage
-                        ? "border-[#2D6B61] bg-[#2D6B61] text-white"
+                        ? "border-sage bg-sage text-white"
                         : "border-gray-200 bg-white text-gray-500 hover:border-gray-300 hover:bg-gray-50"
                     }`}
                   >

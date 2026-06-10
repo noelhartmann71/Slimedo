@@ -83,10 +83,10 @@ const CreatePatient = () => {
   const isFormValid = form.formState.isValid;
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-[#E2E8F0] md:h-screen p-6 font-inter">
-      <div className="w-full bg-white rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row border border-white h-full">
+    <div className="flex flex-col md:flex-row min-h-screen bg-neutral-200 md:h-screen p-6 font-inter">
+      <div className="w-full bg-white rounded-card shadow-dropdown overflow-hidden flex flex-col md:flex-row border border-white h-full">
         {/* Sidebar Section */}
-        <div className="w-full md:w-120 bg-[#227C31] p-7 flex flex-col items-center justify-between text-white sticky top-0 h-full">
+        <div className="w-full md:w-120 bg-sage p-7 flex flex-col items-center justify-between text-white sticky top-0 h-full">
           <div>
             {/* Logo */}
             <div className="flex items-center gap-3 mb-12">
@@ -144,8 +144,8 @@ const CreatePatient = () => {
               </div>
 
               {/* Speech Bubble - Absolutely positioned */}
-              <div className="absolute left-[82%] top-8 z-20">
-                <div className="bg-[#F4F1E7] text-[#0B1C19] text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(238,66,215,0.3)] whitespace-nowrap">
+              <div className="absolute left-1/2 md:left-[82%] top-8 z-20">
+                <div className="bg-[#F4F1E7] text-dark text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(30,58,46,0.25)] whitespace-nowrap">
                   Schön dich zu sehen!
                 </div>
               </div>
@@ -155,12 +155,12 @@ const CreatePatient = () => {
         {/* Main Content Section */}
         <div className="flex-1 flex flex-col items-center relative pt-12 overflow-y-auto">
           <div className="flex-1 flex items-center justify-center w-full pb-8">
-            <div className="w-full max-w-200 bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#E2E8F0]">
+            <div className="w-full max-w-200 bg-white rounded-card p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-200">
               <div className="mb-10 text-left">
-                <h2 className="text-2xl font-medium text-[#020817] mb-2">
+                <h2 className="text-2xl font-medium text-ink mb-2">
                   Patientenkonto erstellen
                 </h2>
-                <p className="text-[#64748B] text-base font-normal">
+                <p className="text-neutral-500 text-base font-normal">
                   Geben Sie Ihre persönlichen Daten ein, um ein neues
                   Patientenkonto zu erstellen.
                 </p>
@@ -177,15 +177,15 @@ const CreatePatient = () => {
                       name="first_name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-[#020817]">
+                          <FormLabel className="text-sm font-medium text-ink">
                             Vorname
                           </FormLabel>
                           <FormControl>
                             <div className="relative">
-                              <CircleUserRound className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                              <CircleUserRound className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                               <Input
                                 placeholder="Vorname eingeben"
-                                className="pl-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
+                                className="pl-12! h-14! rounded-xl! border-neutral-200! focus:border-sage! focus-visible:ring-0! text-base placeholder:text-neutral-400 bg-white!"
                                 {...field}
                               />
                             </div>
@@ -199,15 +199,15 @@ const CreatePatient = () => {
                       name="last_name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-[#020817]">
+                          <FormLabel className="text-sm font-medium text-ink">
                             Nachname
                           </FormLabel>
                           <FormControl>
                             <div className="relative">
-                              <CircleUserRound className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                              <CircleUserRound className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                               <Input
                                 placeholder="Nachname eingeben"
-                                className="pl-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! bg-white! focus-visible:ring-0! text-base placeholder:text-[#94A3B8]"
+                                className="pl-12! h-14! rounded-xl! border-neutral-200! focus:border-sage! bg-white! focus-visible:ring-0! text-base placeholder:text-neutral-400"
                                 {...field}
                               />
                             </div>
@@ -224,13 +224,13 @@ const CreatePatient = () => {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-[#020817]">
+                          <FormLabel className="text-sm font-medium text-ink">
                             E-Mail
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder="E-Mail eingeben"
-                              className="h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base bg-white! placeholder:text-[#94A3B8]"
+                              className="h-14! rounded-xl! border-neutral-200! focus:border-sage! focus-visible:ring-0! text-base bg-white! placeholder:text-neutral-400"
                               {...field}
                             />
                           </FormControl>
@@ -239,7 +239,7 @@ const CreatePatient = () => {
                       )}
                     />
                     <div className="space-y-2 text-left">
-                      <FormLabel className="text-sm font-medium text-[#020817]">
+                      <FormLabel className="text-sm font-medium text-ink">
                         Telefonnummer
                       </FormLabel>
                       <div className="flex gap-3">
@@ -254,7 +254,7 @@ const CreatePatient = () => {
                                     <Button
                                       variant="outline"
                                       role="combobox"
-                                      className="flex! items-center! justify-between! gap-2! px-4! border! border-[#E2E8F0]! rounded-xl! h-14! bg-white! cursor-pointer! min-w-32! w-auto! focus:ring-0! focus:ring-offset-0! focus:border-[#01478F]! shadow-none! hover:bg-white! hover:border-[#01478F]! "
+                                      className="flex! items-center! justify-between! gap-2! px-4! border! border-neutral-200! rounded-xl! h-14! bg-white! cursor-pointer! min-w-32! w-auto! focus:ring-0! focus:ring-offset-0! focus:border-sage! shadow-none! hover:bg-white! hover:border-sage! "
                                     >
                                       <div className="flex items-center gap-2">
                                         {(() => {
@@ -274,19 +274,19 @@ const CreatePatient = () => {
                                                 height={30}
                                                 className="rounded-full w-5 h-5 object-cover"
                                               />
-                                              <span className="text-base font-medium text-[#020817]">
+                                              <span className="text-base font-medium text-ink">
                                                 {country?.code || "+1"}
                                               </span>
                                             </>
                                           );
                                         })()}
                                       </div>
-                                      <ChevronDown className="h-4 w-4 opacity-50 shrink-0 text-[#64748B]" />
+                                      <ChevronDown className="h-4 w-4 opacity-50 shrink-0 text-neutral-500" />
                                     </Button>
                                   </FormControl>
                                 </PopoverTrigger>
                                 <PopoverContent
-                                  className="w-75 p-0 bg-white! border-[#E2E8F0]! rounded-xl! shadow-xl!"
+                                  className="w-75 p-0 bg-white! border-neutral-200! rounded-xl! shadow-xl!"
                                   align="start"
                                 >
                                   <Command>
@@ -325,12 +325,12 @@ const CreatePatient = () => {
                                               <span className="text-sm font-medium flex-1">
                                                 {c.name}
                                               </span>
-                                              <span className="text-sm text-[#64748B]">
+                                              <span className="text-sm text-neutral-500">
                                                 {c.code}
                                               </span>
                                               <Check
                                                 className={cn(
-                                                  "ml-auto h-4 w-4 text-[#01478F]",
+                                                  "ml-auto h-4 w-4 text-sage",
                                                   field.value === c.iso
                                                     ? "opacity-100"
                                                     : "opacity-0",
@@ -356,7 +356,7 @@ const CreatePatient = () => {
                               <FormControl>
                                 <Input
                                   placeholder="Telefonnummer eingeben"
-                                  className="h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base placeholder:text-[#CBD5E1] bg-white!"
+                                  className="h-14! rounded-xl! border-neutral-200! focus:border-sage! focus-visible:ring-0! text-base placeholder:text-neutral-300 bg-white!"
                                   {...field}
                                 />
                               </FormControl>
@@ -374,22 +374,22 @@ const CreatePatient = () => {
                       name="password"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-[#020817]">
+                          <FormLabel className="text-sm font-medium text-ink">
                             Passwort
                           </FormLabel>
                           <FormControl>
                             <div className="relative">
-                              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                               <Input
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Passwort eingeben"
-                                className="pl-12! pr-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
+                                className="pl-12! pr-12! h-14! rounded-xl! border-neutral-200! focus:border-sage! focus-visible:ring-0! text-base placeholder:text-neutral-400 bg-white!"
                                 {...field}
                               />
                               <button
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#01478F]"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-sage"
                               >
                                 {showPassword ? (
                                   <EyeOff className="w-5 h-5" />
@@ -408,16 +408,16 @@ const CreatePatient = () => {
                       name="password_confirmation"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-medium text-[#020817]">
+                          <FormLabel className="text-sm font-medium text-ink">
                             Passwort bestätigen
                           </FormLabel>
                           <FormControl>
                             <div className="relative">
-                              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+                              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                               <Input
                                 type={showConfirmPassword ? "text" : "password"}
                                 placeholder="Passwort bestätigen"
-                                className="pl-12! pr-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
+                                className="pl-12! pr-12! h-14! rounded-xl! border-neutral-200! focus:border-sage! focus-visible:ring-0! text-base placeholder:text-neutral-400 bg-white!"
                                 {...field}
                               />
                               <button
@@ -425,7 +425,7 @@ const CreatePatient = () => {
                                 onClick={() =>
                                   setShowConfirmPassword(!showConfirmPassword)
                                 }
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#01478F]"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-sage"
                               >
                                 {showConfirmPassword ? (
                                   <EyeOff className="w-5 h-5" />
@@ -444,10 +444,10 @@ const CreatePatient = () => {
                   <button
                     type="submit"
                     disabled={mutation.isPending}
-                    className={`w-full h-15 font-bold text-base rounded-2xl shadow-none transition-all duration-300 mt-4 flex items-center justify-center ${
+                    className={`w-full h-15 font-bold text-base rounded-card-sm shadow-none transition-all duration-300 mt-4 flex items-center justify-center ${
                       isFormValid && !mutation.isPending
-                        ? "bg-[#29574E] text-white hover:bg-[#1B433B] cursor-pointer"
-                        : "bg-[#F8FAFC] text-[#CBD5E1] border border-[#F1F5F9] cursor-not-allowed"
+                        ? "cursor-pointer"
+                        : "bg-neutral-50 text-neutral-300 border border-neutral-100 cursor-not-allowed"
                     }`}
                   >
                     {mutation.isPending ? (
@@ -458,11 +458,11 @@ const CreatePatient = () => {
                   </button>
 
                   <div className="text-center mt-6">
-                    <p className="text-base text-[#64748B] font-medium">
+                    <p className="text-base text-neutral-500 font-medium">
                       Haben Sie bereits ein Konto?{" "}
                       <Link
                         to="/auth/login"
-                        className="text-[#01478F] font-bold hover:underline ml-1"
+                        className="text-sage font-bold hover:underline ml-1"
                       >
                         Anmelden
                       </Link>
@@ -475,7 +475,7 @@ const CreatePatient = () => {
 
           {/* Footer */}
           <div className="w-full border-t border-slate-200/60 mt-auto">
-            <p className="text-[#94A3B8] text-base px-7 py-6 text-center md:text-left">
+            <p className="text-neutral-400 text-base px-7 py-6 text-center md:text-left">
               © 2026 Slimedo Online-Rezepte. Alle Rechte vorbehalten.
             </p>
           </div>

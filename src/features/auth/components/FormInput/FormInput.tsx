@@ -27,7 +27,7 @@ export default function FormInput({
         )}
         <input
           type={inputType}
-          className={`w-full border border-gray-200 rounded-lg bg-white text-[13.5px] text-gray-800 placeholder-gray-400 py-2.25 pr-9 outline-none focus:border-[#1d3a35] focus:ring-1 focus:ring-[#1d3a35] transition ${icon ? "pl-9" : "pl-3"}`}
+          className={`w-full border border-gray-200 rounded-lg bg-white text-[13.5px] text-gray-800 placeholder-gray-400 py-2.25 pr-9 outline-none focus:border-deep focus:ring-1 focus:ring-deep transition ${icon ? "pl-9" : "pl-3"}`}
           {...rest}
         />
         {isPassword && (

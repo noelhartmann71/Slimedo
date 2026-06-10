@@ -122,33 +122,33 @@ const ActionButton = ({ type, label }: { type: string; label: string }) => {
 export default function AdminRequestsPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold text-[#101928] mb-1">
+      <h1 className="text-2xl font-bold text-neutral-900 mb-1">
         Incoming Prescription Requests
       </h1>
-      <p className="text-sm text-[#667185]">
+      <p className="text-sm text-neutral-500">
         Review and process prescription requests from patients
       </p>
 
-      <div className="mt-8 bg-white rounded-xl border border-[#E5E9EB] overflow-hidden">
+      <div className="mt-8 bg-white rounded-xl border border-neutral-200 overflow-hidden">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#E5E9EB]">
-              <th className="text-left text-sm font-medium text-[#667185] px-6 py-4">
+            <tr className="border-b border-neutral-200">
+              <th className="text-left text-sm font-medium text-neutral-500 px-6 py-4">
                 Patient ID
               </th>
-              <th className="text-left text-sm font-medium text-[#667185] px-6 py-4">
+              <th className="text-left text-sm font-medium text-neutral-500 px-6 py-4">
                 Call Request
               </th>
-              <th className="text-left text-sm font-medium text-[#667185] px-6 py-4">
+              <th className="text-left text-sm font-medium text-neutral-500 px-6 py-4">
                 Requested Medication
               </th>
-              <th className="text-left text-sm font-medium text-[#667185] px-6 py-4">
+              <th className="text-left text-sm font-medium text-neutral-500 px-6 py-4">
                 Date
               </th>
-              <th className="text-left text-sm font-medium text-[#667185] px-6 py-4">
+              <th className="text-left text-sm font-medium text-neutral-500 px-6 py-4">
                 Availability
               </th>
-              <th className="text-left text-sm font-medium text-[#667185] px-6 py-4">
+              <th className="text-left text-sm font-medium text-neutral-500 px-6 py-4">
                 Eligibility Result
               </th>
             </tr>
@@ -157,30 +157,30 @@ export default function AdminRequestsPage() {
             {prescriptionRequests.map((row) => (
               <tr
                 key={row.id}
-                className={`border-b border-[#E5E9EB] last:border-0 ${
+                className={`border-b border-neutral-200 last:border-0 ${
                   row.highlight ? "bg-red-50" : ""
                 }`}
               >
                 {/* Patient ID */}
-                <td className="px-6 py-5 text-sm font-medium text-[#101928]">
+                <td className="px-6 py-5 text-sm font-medium text-neutral-900">
                   {row.id}
                 </td>
 
                 {/* Call Request */}
                 <td className="px-6 py-5">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-[#667185]" />
+                    <Calendar className="w-4 h-4 text-neutral-500" />
                     <div className="flex items-center gap-1">
                       <div>
-                        <span className="text-sm text-[#101928]">
+                        <span className="text-sm text-neutral-900">
                           {row.callDay}
                         </span>
                         <br />
-                        <span className="text-sm text-[#101928]">
+                        <span className="text-sm text-neutral-900">
                           {row.callTime}
                         </span>
                       </div>
-                      <span className="ml-2 text-xs text-[#667185]">
+                      <span className="ml-2 text-xs text-neutral-500">
                         {row.callDate}
                       </span>
                     </div>
@@ -188,12 +188,12 @@ export default function AdminRequestsPage() {
                 </td>
 
                 {/* Requested Medication */}
-                <td className="px-6 py-5 text-sm text-[#101928]">
+                <td className="px-6 py-5 text-sm text-neutral-900">
                   {row.medication}
                 </td>
 
                 {/* Date */}
-                <td className="px-6 py-5 text-sm text-[#101928]">{row.date}</td>
+                <td className="px-6 py-5 text-sm text-neutral-900">{row.date}</td>
 
                 {/* Availability */}
                 <td className="px-6 py-5 text-sm">
@@ -214,25 +214,25 @@ export default function AdminRequestsPage() {
 
         {/* Pagination */}
         <div className="flex items-center gap-1 px-6 py-4">
-          <button className="w-8 h-8 flex items-center justify-center rounded-md border border-[#E5E9EB] text-[#667185] hover:bg-gray-50">
+          <button className="w-8 h-8 flex items-center justify-center rounded-md border border-neutral-200 text-neutral-500 hover:bg-gray-50">
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button className="w-8 h-8 flex items-center justify-center rounded-md bg-[#1a3a3a] text-white text-sm font-medium">
             1
           </button>
-          <button className="w-8 h-8 flex items-center justify-center rounded-md text-sm text-[#667185] hover:bg-gray-50">
+          <button className="w-8 h-8 flex items-center justify-center rounded-md text-sm text-neutral-500 hover:bg-gray-50">
             2
           </button>
-          <span className="w-8 h-8 flex items-center justify-center text-sm text-[#667185]">
+          <span className="w-8 h-8 flex items-center justify-center text-sm text-neutral-500">
             ...
           </span>
-          <button className="w-8 h-8 flex items-center justify-center rounded-md text-sm text-[#667185] hover:bg-gray-50">
+          <button className="w-8 h-8 flex items-center justify-center rounded-md text-sm text-neutral-500 hover:bg-gray-50">
             10
           </button>
-          <button className="w-8 h-8 flex items-center justify-center rounded-md text-sm text-[#667185] hover:bg-gray-50">
+          <button className="w-8 h-8 flex items-center justify-center rounded-md text-sm text-neutral-500 hover:bg-gray-50">
             11
           </button>
-          <button className="w-8 h-8 flex items-center justify-center rounded-md border border-[#E5E9EB] text-[#667185] hover:bg-gray-50">
+          <button className="w-8 h-8 flex items-center justify-center rounded-md border border-neutral-200 text-neutral-500 hover:bg-gray-50">
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>

@@ -160,10 +160,10 @@ export default function FAQ() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 lg:mb-12">
-          <span className="inline-block px-4 py-1.5 bg-[#e4e8e7] text-[#1d3a35] text-sm font-medium rounded-full mb-5 tracking-wide">
+          <span className="inline-block px-4 py-1.5 bg-[#e4e8e7] text-deep text-sm font-medium rounded-full mb-5 tracking-wide">
             FAQ
           </span>
-          <h2 className="font-serif text-3xl lg:text-5xl font-bold text-[#227C31] mb-3 tracking-tight">
+          <h2 className="font-serif text-3xl lg:text-5xl font-bold text-sage mb-3 tracking-tight">
             Häufig gestellte Fragen
           </h2>
           <p className="text-base text-[#5a6e6b]">
@@ -197,7 +197,7 @@ export default function FAQ() {
               setShowAll(false);
               setOpenId(null);
             }}
-            className="w-full pl-10 pr-4 py-3 bg-white border border-[#e0e4e3] rounded-xl text-sm text-[#1a2e2b] placeholder-[#9aaca9] outline-none focus:border-[#1d3a35] transition-colors"
+            className="w-full pl-10 pr-4 py-3 bg-white border border-[#e0e4e3] rounded-xl text-sm text-[#1a2e2b] placeholder-[#9aaca9] outline-none focus:border-deep transition-colors"
           />
         </div>
 
@@ -215,8 +215,8 @@ export default function FAQ() {
                 }}
                 className={`px-4 py-3 rounded-lg text-base font-medium border transition-all cursor-pointer ${
                   isActive
-                    ? "bg-[#227C31] text-white border-[#1d3a35]"
-                    : "bg-white text-[#227C31] border-[#d8dedd] hover:border-[#1d3a35] hover:text-[#1d3a35]"
+                    ? "bg-sage text-white border-deep"
+                    : "bg-white text-sage border-[#d8dedd] hover:border-deep hover:text-deep"
                 }`}
               >
                 {cat.label}
@@ -231,8 +231,8 @@ export default function FAQ() {
             Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="py-5 border-b border-[#e4e8e7]">
                 <div className="flex items-center justify-between gap-4">
-                  <Skeleton className="h-8 w-3/4 bg-[#1a3330]/10" />
-                  <Skeleton className="h-6 w-6 rounded-full bg-[#1a3330]/10" />
+                  <Skeleton className="h-8 w-3/4 bg-deep/10" />
+                  <Skeleton className="h-6 w-6 rounded-full bg-deep/10" />
                 </div>
               </div>
             ))
@@ -250,7 +250,7 @@ export default function FAQ() {
                   }
                 >
                   <span
-                    className={`text-base lg:text-2xl font-serif text-[#111827] ${
+                    className={`text-base lg:text-2xl font-serif text-neutral-900 ${
                       openId === faq.id ? "font-semibold" : "font-normal"
                     }`}
                   >
@@ -265,7 +265,7 @@ export default function FAQ() {
                       fill="none"
                       className="shrink-0"
                     >
-                      <circle cx="12" cy="12" r="11" fill="#1d3a35" />
+                      <circle cx="12" cy="12" r="11" fill="#1E3A2E" />
                       <path
                         d="M8 12h8"
                         stroke="#fff"
@@ -315,7 +315,7 @@ export default function FAQ() {
           <div className="flex justify-center mt-8">
             <button
               onClick={() => setShowAll(true)}
-              className="flex items-center gap-2 px-7 py-3 bg-[#227C31] text-white text-sm font-medium rounded-full hover:bg-[#162e29] transition-colors cursor-pointer border-none"
+              className="flex items-center gap-2 px-7 py-3 bg-sage text-white text-sm font-medium rounded-full hover:bg-[#162e29] transition-colors cursor-pointer border-none"
             >
               Mehr anzeigen
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
