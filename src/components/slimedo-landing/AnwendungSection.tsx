@@ -455,8 +455,13 @@ export default function AnwendungSection() {
           .anw-carousel-controls {
             align-items: center;
             display: flex;
-            justify-content: space-between;
+            gap: 16px;
+            justify-content: center;
             margin-top: 8px;
+          }
+          .anw-carousel-button {
+            height: 40px;
+            width: 40px;
           }
           .anw-hl-resp { font-size: 32px !important; }
         }
