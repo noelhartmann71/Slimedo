@@ -48,7 +48,7 @@ export default function Testimonials() {
         {/* Header */}
         <div className="flex items-start justify-between mb-8">
           <div>
-            <h2 className="font-serif text-3xl lg:text-[46px] font-semibold text-[#227C31] mb-2">
+            <h2 className="font-serif text-3xl lg:text-[46px] font-semibold text-sage mb-2">
               Slimedo verändert Leben
             </h2>
             <div className="flex flex-col gap-2">
@@ -61,10 +61,10 @@ export default function Testimonials() {
               </div>
               {/* THis is the trustpilot rating */}
               <div className="flex flex-row gap-2 items-center">
-                <span className="text-base text-[#19301E] font-medium">
+                <span className="text-base text-deep font-medium">
                   4,7 auf Trustpilot
                 </span>
-                <span className="text-xs text-[#19301E]">
+                <span className="text-xs text-deep">
                   10353 Bewertungen
                 </span>
               </div>

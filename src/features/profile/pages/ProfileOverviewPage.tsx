@@ -61,7 +61,7 @@ export default function ProfileOverviewPage() {
         {/* Top Cards Grid */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {/* Latest Prescription Card */}
-          <div className="rounded-2xl bg-[#4A645D] p-6 text-white overflow-hidden relative shadow-lg">
+          <div className="rounded-2xl bg-sage p-6 text-white overflow-hidden relative shadow-lg">
             {isLoading ? (
               <div className="space-y-4">
                 <Skeleton className="h-4 w-24 bg-white/20" />
@@ -230,7 +230,7 @@ export default function ProfileOverviewPage() {
                 height="20"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#1B433B"
+                stroke="#1E3A2E"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -255,7 +255,7 @@ export default function ProfileOverviewPage() {
                 setEmailModalKey((current) => current + 1);
                 setIsEmailModalOpen(true);
               }}
-              className="w-full rounded-xl bg-[#4A645D] py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#3d524c] cursor-pointer"
+              className="w-full rounded-xl bg-sage py-3.5 text-sm font-semibold text-white transition-colors hover:bg-sage cursor-pointer"
             >
               Request Follow-Up Prescription
             </button>
@@ -269,7 +269,7 @@ export default function ProfileOverviewPage() {
                 height="20"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#1B433B"
+                stroke="#1E3A2E"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -288,7 +288,7 @@ export default function ProfileOverviewPage() {
             <div className="flex gap-4">
               <button
                 onClick={() => setIsBookConsultOpen(true)}
-                className="flex-1 rounded-xl bg-[#4A645D] py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#3d524c] cursor-pointer"
+                className="flex-1 rounded-xl bg-sage py-3.5 text-sm font-semibold text-white transition-colors hover:bg-sage cursor-pointer"
               >
                 Book Consultation
               </button>
@@ -393,7 +393,7 @@ export default function ProfileOverviewPage() {
                       >
                         <button
                           disabled={loadingOrderId === prescription.id}
-                          className="flex items-center justify-center gap-2 rounded-full bg-[#4A645D] px-6 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#3d524c] disabled:opacity-70 disabled:cursor-not-allowed min-w-20 mx-auto cursor-pointer"
+                          className="flex items-center justify-center gap-2 rounded-full bg-sage px-6 py-2 text-xs font-semibold text-white transition-colors hover:bg-sage disabled:opacity-70 disabled:cursor-not-allowed min-w-20 mx-auto cursor-pointer"
                         >
                           {loadingOrderId === prescription.id ? (
                             <svg

@@ -95,7 +95,7 @@ function CompletedRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between bg-white border border-gray-200 rounded-md px-5 py-4">
       <div className="flex items-center gap-2">
-        <span className="w-5 h-5 rounded-full bg-[#227C31] flex items-center justify-center shrink-0">
+        <span className="w-5 h-5 rounded-full bg-sage flex items-center justify-center shrink-0">
           <CheckIcon size={9} />
         </span>
         <span className="text-[16px] font-medium text-black">{label}</span>
@@ -195,7 +195,7 @@ export default function ProductSelectionPage() {
             className="flex items-center gap-1 text-[13px] text-gray-600 hover:text-gray-900 cursor-pointer"
           >
             <BackArrowIconSvg />
-            <span className="text-[#227C31] font-inter text-xs md:text-base">
+            <span className="text-sage font-inter text-xs md:text-base">
               Zurück
             </span>
           </button>
@@ -205,14 +205,14 @@ export default function ProductSelectionPage() {
                 onClick={() => setStep(1)}
                 className={`w-8 h-8 rounded-full text-[14px] font-bold flex items-center justify-center transition-colors ${
                   step >= 1
-                    ? "bg-[#227C31] text-white"
+                    ? "bg-sage text-white"
                     : "bg-gray-200 text-gray-500"
                 } ${step > 1 ? "cursor-pointer" : ""}`}
               >
                 {step > 1 ? <CheckIcon size={14} /> : 1}
               </div>
               <span
-                className={`text-xs md:text-[16px] font-medium ml-1 text-[#227C31]`}
+                className={`text-xs md:text-[16px] font-medium ml-1 text-sage`}
               >
                 Produktauswahl
               </span>
@@ -354,7 +354,7 @@ export default function ProductSelectionPage() {
                                   <span className="text-[16px] font-medium text-[#4B5563]">
                                     {product.name}
                                   </span>
-                                  <button className="flex items-center gap-0.5 text-[14px] text-[#227C31] hover:text-gray-600 mt-4 cursor-pointer">
+                                  <button className="flex items-center gap-0.5 text-[14px] text-sage hover:text-gray-600 mt-4 cursor-pointer">
                                     Mehr erfahren <ChevronRight />
                                   </button>
                                 </div>
@@ -363,7 +363,7 @@ export default function ProductSelectionPage() {
                                     ab €{product.price}
                                   </span>
                                   {sel && (
-                                    <span className="w-4.5 h-4.5 rounded bg-[#227C31] flex items-center justify-center shrink-0">
+                                    <span className="w-4.5 h-4.5 rounded bg-sage flex items-center justify-center shrink-0">
                                       <CheckIcon size={9} />
                                     </span>
                                   )}
@@ -400,7 +400,7 @@ export default function ProductSelectionPage() {
                                   <span className="text-[16px] font-medium text-[#4B5563]">
                                     {product.name}
                                   </span>
-                                  <button className="flex items-center gap-0.5 text-[14px] text-[#193D36] hover:text-gray-600 mt-4 cursor-pointer">
+                                  <button className="flex items-center gap-0.5 text-[14px] text-deep hover:text-gray-600 mt-4 cursor-pointer">
                                     Mehr erfahren <ChevronRight />
                                   </button>
                                 </div>
@@ -409,7 +409,7 @@ export default function ProductSelectionPage() {
                                     ab {product.price}
                                   </span>
                                   {sel && (
-                                    <span className="w-4.5 h-4.5 rounded bg-[#1d3a35] flex items-center justify-center shrink-0">
+                                    <span className="w-4.5 h-4.5 rounded bg-deep flex items-center justify-center shrink-0">
                                       <CheckIcon size={9} />
                                     </span>
                                   )}
@@ -475,7 +475,7 @@ export default function ProductSelectionPage() {
                                 {d.price}
                               </span>
                               {sel && (
-                                <span className="w-4 h-4 rounded bg-[#227C31] flex items-center justify-center shrink-0">
+                                <span className="w-4 h-4 rounded bg-sage flex items-center justify-center shrink-0">
                                   <CheckIcon size={8} />
                                 </span>
                               )}
@@ -492,13 +492,13 @@ export default function ProductSelectionPage() {
                     <span
                       className={`mt-0.5 w-5 h-5 rounded border shrink-0 flex items-center justify-center transition-colors ${
                         confirmed
-                          ? "bg-[#227C31] border-[#227C31]"
+                          ? "bg-sage border-sage"
                           : "border-gray-300 bg-white"
                       }`}
                     >
                       {confirmed && <CheckIcon size={14} />}
                     </span>
-                    <span className="text-[14px] text-[#227C31] leading-relaxed font-inter">
+                    <span className="text-[14px] text-sage leading-relaxed font-inter">
                       Ich bestätige, dass ich dieses Medikament bereits angewendet, die erforderliche Dosissteigerung durchgeführt und von einem Arzt Informationen über die Anwendung und mögliche Nebenwirkungen erhalten habe.
                     </span>
                   </label>
@@ -511,7 +511,7 @@ export default function ProductSelectionPage() {
           <button
             onClick={goForward}
             disabled={!canProceed}
-            className="w-full bg-[#227C31] hover:bg-[#16302b] disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-2xl p-4 text-[18px] font-medium transition cursor-pointer"
+            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-2xl p-4 text-[18px] font-medium transition cursor-pointer"
           >
             Weiter
           </button>

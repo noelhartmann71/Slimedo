@@ -150,7 +150,7 @@ export default function ImportantInformationPage() {
             className="flex items-center gap-1 text-[13px] text-gray-600 hover:text-gray-900 cursor-pointer"
           >
             <BackArrowIconSvg />
-            <span className="text-[#227C31] text-base">Back</span>
+            <span className="text-sage text-base">Back</span>
           </button>
 
           <div className="flex items-center gap-0.5 ml-1">
@@ -158,7 +158,7 @@ export default function ImportantInformationPage() {
             <div className="flex items-center gap-0.5">
               <div
                 onClick={() => navigate("/product/select")}
-                className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-full bg-sage text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
               >
                 <CheckIcon size={14} />
               </div>
@@ -169,7 +169,7 @@ export default function ImportantInformationPage() {
             <div className="flex items-center gap-0.5">
               <div
                 onClick={() => navigate("/questionnaire/medical")}
-                className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-full bg-sage text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
               >
                 <CheckIcon size={14} />
               </div>
@@ -178,10 +178,10 @@ export default function ImportantInformationPage() {
 
             {/* Step 3 – active */}
             <div className="flex items-center gap-0.5">
-              <div className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[10px] font-bold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-sage text-white text-[10px] font-bold flex items-center justify-center">
                 3
               </div>
-              <span className="text-[16px] font-medium text-[#227C31] ml-1">
+              <span className="text-[16px] font-medium text-sage ml-1">
                 Important information
               </span>
             </div>
@@ -303,8 +303,8 @@ export default function ImportantInformationPage() {
                 }}
                 className={`flex-1 py-4 rounded-md border text-[16px] font-medium cursor-pointer transition-colors ${
                   agreed === "yes"
-                    ? "bg-[#227C31] text-white"
-                    : "bg-[#227C31] text-white hover:bg-[#16302b]"
+                    ? "bg-sage text-white"
+                    : "bg-sage text-white hover:bg-primary-hover"
                 }`}
               >
                 Yes
@@ -321,7 +321,7 @@ export default function ImportantInformationPage() {
           <button
             onClick={() => navigate("/auth/account-ready")}
             disabled={agreed !== "yes"}
-            className="w-full bg-[#227C31] hover:bg-[#16302b] disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-2xl py-4 text-[18px] font-medium transition cursor-pointer font-inter"
+            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-2xl py-4 text-[18px] font-medium transition cursor-pointer font-inter"
           >
             Further
           </button>

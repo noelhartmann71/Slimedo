@@ -82,7 +82,7 @@ export const Step2 = ({
               onClick={() => setHasAllergies("No")}
               className={`flex-1 py-3 text-[15px] font-medium transition-all duration-200 ${
                 hasAllergies === "No"
-                  ? "bg-[#227C31] text-white border border-gray-200 rounded-md"
+                  ? "bg-sage text-white border border-gray-200 rounded-md"
                   : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 rounded-md"
               }`}
             >
@@ -92,7 +92,7 @@ export const Step2 = ({
               onClick={() => setHasAllergies("Yes")}
               className={`flex-1 py-3 text-[15px] font-medium transition-all duration-200 ${
                 hasAllergies === "Yes"
-                  ? "bg-[#227C31] text-white border border-gray-200 rounded-md"
+                  ? "bg-sage text-white border border-gray-200 rounded-md"
                   : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 rounded-md"
               }`}
             >

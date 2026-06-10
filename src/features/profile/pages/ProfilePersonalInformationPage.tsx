@@ -177,7 +177,7 @@ export default function ProfilePersonalInformationPage() {
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={isUploading}
-                className="h-12 w-37 rounded-[10px] bg-primary text-[16px] font-medium leading-6 text-white transition-colors hover:bg-[#163730] disabled:opacity-70"
+                className="h-12 w-37 rounded-[10px] bg-primary text-[16px] font-medium leading-6 text-white transition-colors hover:bg-deep disabled:opacity-70"
               >
                 {isUploading ? "Uploading..." : "Upload new"}
               </button>
@@ -410,7 +410,7 @@ export default function ProfilePersonalInformationPage() {
                 type="button"
                 onClick={handleUpdate}
                 disabled={isUpdating}
-                className="h-12 w-48 rounded-[10px] bg-primary text-[16px] font-medium leading-6 text-white transition-all hover:bg-[#163730] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="h-12 w-48 rounded-[10px] bg-primary text-[16px] font-medium leading-6 text-white transition-all hover:bg-deep disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isUpdating ? (
                   <>

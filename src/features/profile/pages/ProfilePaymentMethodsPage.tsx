@@ -15,7 +15,7 @@ export default function ProfilePaymentMethodsPage() {
           </p>
           <button
             type="button"
-            className="inline-flex h-12.5 items-center gap-2 rounded-[10px] bg-primary px-6 text-[16px] font-medium leading-6 text-white transition-colors hover:bg-[#227C31]"
+            className="inline-flex h-12.5 items-center gap-2 rounded-[10px] bg-primary px-6 text-[16px] font-medium leading-6 text-white transition-colors hover:bg-sage"
           >
             <PlusIcon className="h-4.5 w-4.5" />
             Add New Card

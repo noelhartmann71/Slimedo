@@ -247,7 +247,7 @@ export default function AdminPatientsPage() {
                   {row.lastConsultation}
                 </td>
                 <td className="px-4 py-4">
-                  <button className="bg-[#29574E] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0f2a2a] transition-colors whitespace-nowrap">
+                  <button className="bg-sage text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0f2a2a] transition-colors whitespace-nowrap">
                     View File
                   </button>
                 </td>
@@ -261,7 +261,7 @@ export default function AdminPatientsPage() {
           <button className="px-4 py-2 text-sm text-[#667185] border border-[#E5E9EB] rounded-lg hover:bg-gray-50">
             Previous
           </button>
-          <button className="px-4 py-2 text-sm text-white bg-[#29574E] rounded-lg hover:bg-[#0f2a2a] transition-colors">
+          <button className="px-4 py-2 text-sm text-white bg-sage rounded-lg hover:bg-[#0f2a2a] transition-colors">
             Next
           </button>
         </div>

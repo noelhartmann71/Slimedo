@@ -31,7 +31,7 @@ const PaymentSuccessPage: React.FC = () => {
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
                 <path
                   d="M5 13.5l5.5 5.5 10.5-11"
-                  stroke="#2d6a5f"
+                  stroke="#3D5C4A"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -84,7 +84,7 @@ const PaymentSuccessPage: React.FC = () => {
           <div className="mt-4">
             <button
               onClick={() => setIsPaymentModalOpen(true)}
-              className="w-full py-4 bg-[#2D6B61] text-white rounded-2xl text-base font-bold hover:bg-[#1B4F48] shadow-md shadow-[#2D6B61]/20 transition-all cursor-pointer"
+              className="w-full py-4 bg-sage text-white rounded-2xl text-base font-bold hover:bg-[#1B4F48] shadow-md shadow-sage/20 transition-all cursor-pointer"
             >
               Apotheken-Zahlung
             </button>

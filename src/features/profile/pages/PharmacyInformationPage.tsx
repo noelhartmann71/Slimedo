@@ -122,7 +122,7 @@ function ProfileField({
           placeholder={placeholder}
           autoComplete={autoComplete}
           inputMode={inputMode}
-          className={`h-12 w-full rounded-xl border border-[#DDE3E7] bg-[#FCFCFD] px-4 text-sm font-medium text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#1B433B] focus:ring-2 focus:ring-[#1B433B]/10 ${
+          className={`h-12 w-full rounded-xl border border-[#DDE3E7] bg-[#FCFCFD] px-4 text-sm font-medium text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-deep focus:ring-2 focus:ring-deep/10 ${
             isPasswordField ? "pr-12" : ""
           }`}
         />
@@ -130,7 +130,7 @@ function ProfileField({
           <button
             type="button"
             onClick={() => setIsVisible((current) => !current)}
-            className="absolute inset-y-0 right-3 flex items-center text-[#6B7280] transition-colors hover:text-[#1B433B]"
+            className="absolute inset-y-0 right-3 flex items-center text-[#6B7280] transition-colors hover:text-deep"
             aria-label={isVisible ? `Hide ${label}` : `Show ${label}`}
           >
             {isVisible ? (
@@ -268,7 +268,7 @@ export default function PharmacyInformationPage() {
   if (isLoading) {
     return (
       <div className="flex min-h-72 items-center justify-center rounded-3xl border border-[#E5E7EB] bg-white">
-        <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#1B433B] border-t-transparent" />
+        <div className="h-10 w-10 animate-spin rounded-full border-2 border-deep border-t-transparent" />
       </div>
     );
   }
@@ -295,7 +295,7 @@ export default function PharmacyInformationPage() {
 
   return (
     <div className="space-y-6">
-      <section className="overflow-hidden rounded-3xl bg-linear-to-r from-[#12493c] via-[#155446] to-[#1b6b5a] text-white shadow-[0_20px_50px_-24px_rgba(27,67,59,0.7)]">
+      <section className="overflow-hidden rounded-3xl bg-linear-to-r from-[#12493c] via-[#155446] to-sage text-white shadow-[0_20px_50px_-24px_rgba(27,67,59,0.7)]">
         <div className="flex flex-col gap-6 p-6 md:p-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-white/60">
@@ -344,7 +344,7 @@ export default function PharmacyInformationPage() {
             <button
               type="submit"
               disabled={isUpdating}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1B433B] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#14352e] disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-deep px-5 text-sm font-semibold text-white transition-colors hover:bg-[#14352e] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isUpdating ? (
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />

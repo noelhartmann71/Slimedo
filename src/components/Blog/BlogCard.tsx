@@ -107,7 +107,7 @@ function BlogCard({ post }: { post: SimilarPost }) {
 
         {/* Read More */}
         <Link to={`/blog/${post.id}`}>
-          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-[#B8C5C2] bg-[#E8ECEB] px-2 xl:px-4 xl:py-3 py-1.5 text-base font-medium text-gray-700 hover:bg-[#29574E] hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
+          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-[#B8C5C2] bg-[#E8ECEB] px-2 xl:px-4 xl:py-3 py-1.5 text-base font-medium text-gray-700 hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
             Weiterlesen
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +186,7 @@ export function Pagination({
               onClick={() => onChange(p)}
               className={`w-10 h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
                 p === current
-                  ? "bg-[#29574E] text-white shadow-md shadow-[#29574E]/20"
+                  ? "bg-sage text-white shadow-md shadow-sage/20"
                   : "border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
               }`}
             >
@@ -300,7 +300,7 @@ export default function BlogPage() {
                 onClick={() => handleFilter(tab)}
                 className={`xl:px-4 px-2 xl:py-3 py-1.5 rounded-xl xl:rounded-2xl text-sm xl:text-base font-medium transition-all duration-200 ${
                   activeFilter === tab
-                    ? "bg-[#29574E] text-white shadow-sm"
+                    ? "bg-sage text-white shadow-sm"
                     : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
                 }`}
               >

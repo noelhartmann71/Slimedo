@@ -92,13 +92,13 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
               <PharmacyInformationIconSvg />
             </div>
             <div className="space-y-1.5">
-              <h3 className="text-base font-medium text-[#227C31]">
+              <h3 className="text-base font-medium text-sage">
                 Zahlungsinformationen
               </h3>
               <p className="text-[14px] leading-normal text-[#4B5563]">
                 Diese Zahlung geht direkt an Ihre ausgewählte Apotheke.
               </p>
-              <p className="text-[14px] leading-normal text-[#227C31]">
+              <p className="text-[14px] leading-normal text-sage">
                 Die Zahlung ist absolut sicher und geschützt
               </p>
             </div>
@@ -124,11 +124,11 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
             <button
               onClick={() => payWithCard()}
               disabled={isProcessingCard}
-              className="group flex w-full items-center gap-4 rounded-2xl border border-gray-100 bg-white p-3.5 transition-all hover:border-[#2D6B61] hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+              className="group flex w-full items-center gap-4 rounded-2xl border border-gray-100 bg-white p-3.5 transition-all hover:border-sage hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9FA] group-hover:bg-[#E9F2F0]">
                 {isProcessingCard ? (
-                  <Loader2 className="h-6 w-6 animate-spin text-[#2D6B61]" />
+                  <Loader2 className="h-6 w-6 animate-spin text-sage" />
                 ) : (
                   <SelectPaymentMethodIconSvg />
                 )}
@@ -152,7 +152,7 @@ const PharmacyPaymentModal: React.FC<PharmacyPaymentModalProps> = ({
             {/* Pay with Bank */}
             <button
               onClick={() => setIsBankModalOpen(true)}
-              className="group flex w-full items-center gap-4 rounded-2xl border border-gray-100 bg-white p-3.5 transition-all hover:border-[#2D6B61] hover:shadow-md active:scale-[0.98]"
+              className="group flex w-full items-center gap-4 rounded-2xl border border-gray-100 bg-white p-3.5 transition-all hover:border-sage hover:shadow-md active:scale-[0.98]"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9FA] group-hover:bg-[#E9F2F0]">
                 <SelectPaymentMethodIconSvg />

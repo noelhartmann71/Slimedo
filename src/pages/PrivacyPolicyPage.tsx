@@ -75,7 +75,7 @@ function PolicyCard({ section }: { section: PolicySection }) {
       <ul className="mt-4 space-y-3 text-sm leading-6 text-[#374151]">
         {section.points.map((point) => (
           <li key={point} className="flex gap-3">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1B433B]" />
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-deep" />
             <span>{point}</span>
           </li>
         ))}
@@ -100,7 +100,7 @@ export default function PrivacyPolicyPage() {
     <div className="relative min-h-screen overflow-hidden bg-[#F4F7F5] text-[#0F172A]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(27,107,90,0.14),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(20,79,66,0.1),transparent_24%)]" />
       <div className="relative mx-auto w-full max-w-7xl px-4 py-10 md:px-6 md:py-14 lg:px-8">
-        <section className="overflow-hidden rounded-4xl bg-linear-to-br from-[#0D3B31] via-[#144C3F] to-[#1B6B5A] p-8 text-white shadow-[0_25px_70px_-30px_rgba(27,67,59,0.75)] md:p-10">
+        <section className="overflow-hidden rounded-4xl bg-linear-to-br from-[#0D3B31] via-[#144C3F] to-sage p-8 text-white shadow-[0_25px_70px_-30px_rgba(27,67,59,0.75)] md:p-10">
           <div className="max-w-3xl">
             <p className="text-xs uppercase tracking-[0.3em] text-white/60">
               Datenschutzbestimmungen
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 to="/"
-                className="inline-flex h-11 items-center justify-center rounded-xl bg-white px-5 text-sm font-semibold text-[#114538] transition-colors hover:bg-white/90"
+                className="inline-flex h-11 items-center justify-center rounded-xl bg-white px-5 text-sm font-semibold text-deep transition-colors hover:bg-white/90"
               >
                 Zur Startseite
               </Link>

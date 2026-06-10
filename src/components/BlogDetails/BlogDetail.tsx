@@ -28,12 +28,12 @@ function toArray(value?: string[] | string): string[] {
 function TagBadge({ label }: { label: string }) {
   const colorMap: Record<string, string> = {
     Telemedizin: "bg-teal-50 text-white",
-    "Patientenaufklärung": "bg-[#29574E] text-white",
+    "Patientenaufklärung": "bg-sage text-white",
     Wellness: "bg-green-50 text-white",
     "Psychische Gesundheit": "bg-purple-50 text-white",
-    "Tipps & Ratgeber": "bg-[#29574E] text-gray-600",
+    "Tipps & Ratgeber": "bg-sage text-gray-600",
   };
-  const cls = colorMap[label] ?? "bg-[#29574E]";
+  const cls = colorMap[label] ?? "bg-sage";
   return (
     <span
       className={`inline-block rounded-[999px] px-2 lg:px-4 lg:py-3 py-1.5 text-sm lg:text-base font-medium text-white ${cls}`}
@@ -46,16 +46,16 @@ function TagBadge({ label }: { label: string }) {
 // This is the similar blog
 function SimilarBlog({ label }: { label: string }) {
   const colorMap: Record<string, string> = {
-    Telemedizin: "bg-[#E8ECEB] text-[#29574E]",
-    "Patientenaufklärung": "bg-[#E8ECEB] text-[#29574E]",
-    Wellness: "bg-[#E8ECEB] text-[#29574E]",
-    "Psychische Gesundheit": "bg-[#E8ECEB] text-[#29574E]",
-    "Tipps & Ratgeber": "bg-[#E8ECEB] text-[#29574E]",
+    Telemedizin: "bg-[#E8ECEB] text-sage",
+    "Patientenaufklärung": "bg-[#E8ECEB] text-sage",
+    Wellness: "bg-[#E8ECEB] text-sage",
+    "Psychische Gesundheit": "bg-[#E8ECEB] text-sage",
+    "Tipps & Ratgeber": "bg-[#E8ECEB] text-sage",
   };
   const cls = colorMap[label] ?? "bg-[#E8ECEB]";
   return (
     <span
-      className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-[#29574E] ${cls}`}
+      className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-sage ${cls}`}
     >
       {label}
     </span>
@@ -86,7 +86,7 @@ function SimilarCard({ post }: { post: SimilarPost }) {
           {post.description}
         </p>
         <Link to={`/blog/${post.id}`} className="self-start">
-          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-[#E8ECEB] px-4 py-3 text-base font-medium text-[#29574E] hover:bg-[#29574E] hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
+          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-[#E8ECEB] px-4 py-3 text-base font-medium text-sage hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
             Weiterlesen
             <svg
               xmlns="http://www.w3.org/2000/svg"

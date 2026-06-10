@@ -45,7 +45,7 @@ function SideIcon({
   kind: PharmacyNavItem["key"];
   active: boolean;
 }) {
-  const stroke = active ? "#1B433B" : "#6B7280";
+  const stroke = active ? "#1E3A2E" : "#6B7280";
 
   if (kind === "overview") {
     return (

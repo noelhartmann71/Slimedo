@@ -109,7 +109,7 @@ const BookingConfirmationModal: React.FC<BookingConfirmationModalProps> = ({
               "Bitte halten Sie Ihren Fragebogen bereit",
             ].map((item, idx) => (
               <div key={idx} className="flex items-start gap-3">
-                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#2D6B61] shrink-0" />
+                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-sage shrink-0" />
                 <p className="text-sm text-gray-600 leading-tight">{item}</p>
               </div>
             ))}
@@ -126,7 +126,7 @@ const BookingConfirmationModal: React.FC<BookingConfirmationModalProps> = ({
           </button>
           <button
             onClick={() => navigate("/patient/profile/overview")}
-            className="flex-1 h-12 rounded-xl bg-[#2d6a5f] text-white text-sm font-semibold hover:bg-[#235248] transition-colors cursor-pointer"
+            className="flex-1 h-12 rounded-xl bg-sage text-white text-sm font-semibold hover:bg-sage transition-colors cursor-pointer"
           >
             Profile Dashboard
           </button>

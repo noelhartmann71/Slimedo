@@ -134,11 +134,11 @@ export default function PharmacyOrderListPage() {
                 </td>
                 <td className="px-5 py-4 text-center">
                   <div className="flex items-center justify-center gap-2.5">
-                    <button className="h-8 min-w-14 rounded-full bg-[#4A645D] px-4 text-[11px] font-medium text-white transition-colors hover:bg-[#3D524C]">
+                    <button className="h-8 min-w-14 rounded-full bg-sage px-4 text-[11px] font-medium text-white transition-colors hover:bg-sage">
                       View
                     </button>
                     <button
-                      className="text-[#6B7280] transition-colors hover:text-[#1B433B]"
+                      className="text-[#6B7280] transition-colors hover:text-deep"
                       aria-label="Download order"
                     >
                       <svg

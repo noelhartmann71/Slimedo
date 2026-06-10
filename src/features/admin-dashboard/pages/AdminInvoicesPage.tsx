@@ -126,7 +126,7 @@ export default function AdminInvoicesPage() {
 
       {/* Stats Row */}
       <div className="mt-6 flex items-stretch gap-4">
-        <div className="bg-[#29574E] rounded-xl px-6 py-4 w-full">
+        <div className="bg-sage rounded-xl px-6 py-4 w-full">
           <p className="text-xs text-gray-300">Total Revenue</p>
           <p className="text-3xl font-bold text-white mt-2">€14,140,00</p>
         </div>
@@ -162,11 +162,11 @@ export default function AdminInvoicesPage() {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 bg-[#29574E] text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0f2a2a] transition-colors whitespace-nowrap">
+          <button className="flex items-center gap-2 bg-sage text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-[#0f2a2a] transition-colors whitespace-nowrap">
             <Download className="w-4 h-4" />
             Download Monthly Summary
           </button>
-          <button className="flex items-center gap-2 border border-[#E5E9EB] bg-[#29574E] text-sm text-white font-medium px-4 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">
+          <button className="flex items-center gap-2 border border-[#E5E9EB] bg-sage text-sm text-white font-medium px-4 py-2 rounded-lg hover:bg-gray-50 whitespace-nowrap">
             Monthly
             <ChevronDown className="w-4 h-4" />
           </button>

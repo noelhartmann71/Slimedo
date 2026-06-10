@@ -94,7 +94,7 @@ export default function ComorbiditiesStep({
             }}
             className={`flex-1 py-3 text-[15px] font-medium transition-all duration-200 ${
               hasComorbidities === "no"
-                ? "bg-[#227C31] text-white border border-gray-200 rounded-md"
+                ? "bg-sage text-white border border-gray-200 rounded-md"
                 : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 rounded-md"
             }`}
           >
@@ -106,7 +106,7 @@ export default function ComorbiditiesStep({
             }}
             className={`flex-1 py-3 text-[15px] font-medium border-l border-gray-200 transition-all duration-200 ${
               hasComorbidities === "yes"
-                ? "bg-[#227C31] text-white border border-gray-200 rounded-md"
+                ? "bg-sage text-white border border-gray-200 rounded-md"
                 : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 rounded-md"
             }`}
           >
@@ -165,7 +165,7 @@ export default function ComorbiditiesStep({
                         <span
                           className={`w-4.5 h-4.5 rounded border shrink-0 flex items-center justify-center transition-colors ${
                             checked
-                              ? "bg-[#227C31] border-[#227C31]"
+                              ? "bg-sage border-sage"
                               : "border-gray-300 bg-white"
                           }`}
                         >
@@ -203,7 +203,7 @@ export default function ComorbiditiesStep({
           <button
             onClick={handleFurther}
             disabled={!canProceed}
-            className="w-full bg-[#227C31] hover:bg-[#16302b] disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-3.5 text-[14px] font-medium transition cursor-pointer"
+            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-3.5 text-[14px] font-medium transition cursor-pointer"
           >
             further
           </button>

@@ -29,11 +29,11 @@ interface BlogData {
 // This is the similar blog
 function SimilarBlog({ label }: { label: string }) {
   const colorMap: Record<string, string> = {
-    Telemedicine: "bg-[#E8ECEB] text-[#29574E]",
-    "Patient Education": "bg-[#E8ECEB] text-[#29574E]",
-    Wellness: "bg-[#E8ECEB] text-[#29574E]",
-    "Mental Health": "bg-[#E8ECEB] text-[#29574E]",
-    "Tips & Guide": "bg-[#E8ECEB] text-[#29574E]",
+    Telemedicine: "bg-[#E8ECEB] text-sage",
+    "Patient Education": "bg-[#E8ECEB] text-sage",
+    Wellness: "bg-[#E8ECEB] text-sage",
+    "Mental Health": "bg-[#E8ECEB] text-sage",
+    "Tips & Guide": "bg-[#E8ECEB] text-sage",
   };
   const labelMap: Record<string, string> = {
     Telemedicine: "Telemedizin",
@@ -46,7 +46,7 @@ function SimilarBlog({ label }: { label: string }) {
   const cls = colorMap[label] ?? "bg-[#E8ECEB]";
   return (
     <span
-      className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-[#29574E] ${cls}`}
+      className={`inline-block rounded-[999px] px-3 py-1.5 text-sm font-medium text-sage ${cls}`}
     >
       {displayLabel}
     </span>
@@ -79,7 +79,7 @@ function SimilarCard({ post }: { post: SimilarPost }) {
           {post.description}
         </p>
         <Link to={`/blog/${post.id}`} className="self-start">
-          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-[#227C31] px-4 py-1.5 md:py-3 text-sm md:text-base font-medium text-white hover:bg-[#227C31] hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
+          <button className="mt-1 self-start inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-sage px-4 py-1.5 md:py-3 text-sm md:text-base font-medium text-white hover:bg-sage hover:text-white hover:border-teal-600 transition-all duration-200 cursor-pointer">
             Weiterlesen
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -141,13 +141,13 @@ const LatestHealth = () => {
     <div className="mx-5 lg:mx-10 xl:mx-15 2xl:mx-50">
       {/* Similar Blog Section */}
       <div className="mt-7 lg:mt-14">
-        <span className="inline-block font-inter px-4 py-3 bg-[#1d3a35]/10 text-[#064045] text-sm font-medium rounded-full mb-4">
+        <span className="inline-block font-inter px-4 py-3 bg-deep/10 text-[#064045] text-sm font-medium rounded-full mb-4">
           Blogs
         </span>
         {/*  */}
         <div className="flex flex-col gap-5 sm:gap-0 md:flex-row justify-between items-center mb-5 md:mb-0">
           <div>
-            <h2 className="text-3xl lg:text-[46px] font-serif font-semibold text-[#227C31] mb-4">
+            <h2 className="text-3xl lg:text-[46px] font-serif font-semibold text-sage mb-4">
               Neueste Gesundheitserkenntnisse
             </h2>
             <h2 className="text-base font-inter font-normal text-[#6B7280] md:mb-7">

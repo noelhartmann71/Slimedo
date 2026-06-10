@@ -155,7 +155,7 @@ export default function AdminBatchPage() {
       {/* Stats Row */}
       <div className="mt-6 flex items-stretch gap-4">
         {/* Selected Prescriptions */}
-        <div className="bg-[#29574E] rounded-xl p-4.5 min-w-109.5">
+        <div className="bg-sage rounded-xl p-4.5 min-w-109.5">
           <p className="text-sm text-[#F9FAFB]">Selected Prescriptions</p>
           <p className="text-4xl font-bold text-white mt-2">0</p>
         </div>
@@ -174,7 +174,7 @@ export default function AdminBatchPage() {
 
         {/* Send for Signature button aligned right */}
         <div className="ml-auto flex items-center">
-          <button className="flex items-center gap-2 bg-[#29574E] text-white text-sm font-medium px-5 py-3 rounded-xl hover:bg-[#1a3a3a] transition-colors whitespace-nowrap">
+          <button className="flex items-center gap-2 bg-sage text-white text-sm font-medium px-5 py-3 rounded-xl hover:bg-[#1a3a3a] transition-colors whitespace-nowrap">
             <Send className="w-4 h-4" />
             Send for Signature (0)
           </button>

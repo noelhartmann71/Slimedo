@@ -83,8 +83,8 @@ export const Step3 = ({
           }}
           className={`flex-1 py-3 rounded-xl text-[13px] font-medium cursor-pointer transition-colors ${
             exclusion === "yes"
-              ? "bg-[#227C31] text-white"
-              : "bg-[#227C31]/80 text-white hover:bg-[#227C31]"
+              ? "bg-sage text-white"
+              : "bg-sage/80 text-white hover:bg-sage"
           }`}
         >
           Yes, that's correct.

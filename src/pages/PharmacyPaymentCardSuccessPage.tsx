@@ -102,7 +102,7 @@ const PharmacyPaymentCardSuccessPage = () => {
         {/* Payment confirmation message - show if only sessionId exists */}
         {!confirmedBooking && sessionId && (
           <div className="bg-[#E8ECEB] rounded-2xl p-5 mb-8 border border-[#D1D9D4]">
-            <p className="text-sm text-[#1B433B] font-medium mb-2">
+            <p className="text-sm text-deep font-medium mb-2">
               Sitzungs-ID:
             </p>
             <p className="text-xs text-[#6B7280] font-mono break-all">
@@ -122,13 +122,13 @@ const PharmacyPaymentCardSuccessPage = () => {
           </button>
           {/* <button
             onClick={() => navigate("/patient/profile/overview")}
-            className="flex-1 h-12 rounded-xl bg-[#2d6a5f] text-white text-sm font-semibold hover:bg-[#235248] transition-colors cursor-pointer"
+            className="flex-1 h-12 rounded-xl bg-sage text-white text-sm font-semibold hover:bg-sage transition-colors cursor-pointer"
           >
             Profil-Dashboard
           </button> */}
           {/* <button
             onClick={() => setIsModalOpen(true)}
-            className="flex-1 h-12 rounded-xl bg-[#2d6a5f] text-white text-sm font-semibold hover:bg-[#235248] transition-colors cursor-pointer"
+            className="flex-1 h-12 rounded-xl bg-sage text-white text-sm font-semibold hover:bg-sage transition-colors cursor-pointer"
           >
             Arztkonsultation buchen
           </button> */}

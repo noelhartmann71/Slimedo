@@ -141,7 +141,7 @@ const AdminOverviewPage = () => {
           <button className="h-11 px-5 border border-[#E5E9EB] rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-gray-50 bg-white text-[#101928]">
             Today <ChevronDown size={16} />
           </button>
-          <button className="h-11 px-5 bg-[#29574E] text-white rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-[#101928]">
+          <button className="h-11 px-5 bg-sage text-white rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-[#101928]">
             <Share size={16} /> Export
           </button>
         </div>
@@ -153,7 +153,7 @@ const AdminOverviewPage = () => {
           <div
             key={idx}
             className={`p-5 rounded-xl border border-[#E5E9EB] shadow-sm flex flex-col justify-between min-h-40 ${
-              idx === 0 ? "bg-[#29574E] text-white" : "bg-white text-[#101928]"
+              idx === 0 ? "bg-sage text-white" : "bg-white text-[#101928]"
             }`}
           >
             <div className="flex items-start gap-2">
@@ -214,7 +214,7 @@ const AdminOverviewPage = () => {
                 {rev.label}
               </span>
             </div>
-            <div className="text-3xl font-bold text-[#29574E]">
+            <div className="text-3xl font-bold text-sage">
               {rev.amount}
             </div>
             <div className="text-[12px] text-[#667185] mt-1">{rev.subtext}</div>
@@ -306,7 +306,7 @@ const AdminOverviewPage = () => {
                       className={`h-9 px-24.5 rounded-[100px] text-[14px] font-semibold transition-colors ${
                         row.statusType === "BLOCKED"
                           ? "bg-[#EF4444] text-white hover:bg-[#D92D20]"
-                          : "bg-[#29574E] text-white hover:bg-[#101928]"
+                          : "bg-sage text-white hover:bg-[#101928]"
                       }`}
                     >
                       {row.statusType === "BLOCKED" ? "BLOCKED" : "Review"}

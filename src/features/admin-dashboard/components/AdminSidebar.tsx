@@ -43,7 +43,7 @@ export default function AdminSidebar() {
             className="h-8.5 w-7 object-cover"
           />
           <div>
-            <h1 className="text-lg font-inter font-bold text-[#193D36]">
+            <h1 className="text-lg font-inter font-bold text-deep">
               Slimedo
             </h1>
           </div>
@@ -63,7 +63,7 @@ export default function AdminSidebar() {
                 flex items-center gap-3 px-5 py-3 text-sm font-medium transition-colors
                 ${
                   isActive
-                    ? "bg-[#E8ECEB] text-[#29574E] border-r-4 border-[#29574E] rounded-r-none"
+                    ? "bg-[#E8ECEB] text-sage border-r-4 border-sage rounded-r-none"
                     : "text-[#667185] hover:bg-[#E8ECEB]"
                 }
               `}
