@@ -34,7 +34,7 @@ $env:BASE_URL='http://localhost:5173'
 node scripts/visual-baseline.mjs current   # erfasst desktop+mobile, fullpage + 9 Section-Anker
 node scripts/visual-diff.mjs               # vergleicht visual-baseline ↔ visual-current, schreibt magenta *.diff.png
 ```
-- **Baseline** (`visual-baseline/`) = Pre-Migration-Stand. **Nicht** neu aufnehmen, sonst geht die Referenz verloren. (gitignored, lokal vorhanden; bei Verlust: vor der jeweiligen Änderung `git stash` + `node scripts/visual-baseline.mjs baseline` + `git stash pop`.)
+- **Baseline** (`visual-baseline/`, gitignored, lokal 20 PNGs vorhanden) = Referenz-Stand der Landing. Da jede Migration als 0-Diff verifiziert wurde, ist die **aktuelle committete Landing visuell identisch** zum Original. **Bei Verlust einfach neu aufnehmen** vom aktuellen Stand: `node scripts/visual-baseline.mjs baseline` (das ist sicher — die Landing ist verifiziert unverändert). Künftige Änderungen müssen dann 0-Diff gegen diese Baseline bleiben.
 - Capture friert Animationen ein; Diff hat AA-/Cluster-Filter (Rauschen gefiltert).
 - **Bekanntes Rauschen (ignorieren):** dekorative Kurve in `how-it-works` (Desktop) + Testimonials-Karussell in `bewertungen` (Mobile). Beide schwanken zwischen Läufen.
 - Section-Anker für Capture: `how-it-works-section, therapie, preise, wirk, potenzial, anwendung, bewertungen, blog, faq`. Sektionen **ohne** diese id (WarumWir, Privacy=`datenschutz`, Cta=`start`, Lifestyle) nur via **Fullpage**-Diff prüfbar.
