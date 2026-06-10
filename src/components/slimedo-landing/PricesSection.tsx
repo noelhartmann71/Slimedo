@@ -158,6 +158,7 @@ export default function PricesSection() {
               </div>
               <ul className="ps-features">
                 <li className="ps-feature"><span className="ps-check"><CheckIcon /></span>Persönliches Arztgespräch</li>
+                <li className="ps-feature ps-feature-mobile-only"><span className="ps-check"><CheckIcon /></span>per Onlinetermin</li>
               </ul>
             </div>
           </div>
@@ -476,6 +477,9 @@ export default function PricesSection() {
           transform: translateY(14px);
           min-height: 22px;
         }
+        .ps-feature-mobile-only {
+          display: none;
+        }
         .ps-feature.ps-feat-vis {
           animation: ps-item-pop 0.75s cubic-bezier(0.32, 0.72, 0, 1) forwards;
         }
@@ -632,7 +636,6 @@ export default function PricesSection() {
             min-height: 184px;
             padding: 24px 20px !important;
           }
-          .ps-card-video .ps-badge,
           .ps-card-video .ps-card-label,
           .ps-card-video .ps-card-title {
             grid-column: 1;
@@ -641,17 +644,19 @@ export default function PricesSection() {
             display: contents;
           }
           .ps-card-video .ps-badge {
+            grid-column: 2;
             grid-row: 1;
+            justify-self: end;
             width: max-content;
-            margin-bottom: 10px;
+            margin-bottom: 0;
           }
           .ps-card-video .ps-card-label {
-            grid-row: 2;
+            grid-row: 1;
             height: auto;
             margin-bottom: 4px;
           }
           .ps-card-video .ps-card-title {
-            grid-row: 3;
+            grid-row: 2;
             height: auto;
             margin-bottom: 8px;
             line-height: 1.18;
@@ -659,23 +664,27 @@ export default function PricesSection() {
           }
           .ps-card-video .ps-price {
             grid-column: 1;
-            grid-row: 4;
+            grid-row: 3;
           }
           .ps-card-video .ps-price-sub {
-            grid-column: 2;
-            grid-row: 3;
+            grid-column: 1;
+            grid-row: 4;
             align-self: start;
-            margin: 2px 0 0;
+            margin: 0;
             font-size: clamp(.76rem, 2.85vw, .86rem);
             line-height: 1.25;
           }
           .ps-card-video .ps-features {
             grid-column: 2;
-            grid-row: 4;
-            align-self: start;
-            justify-content: flex-end;
+            grid-row: 2 / 5;
+            align-self: center;
+            justify-content: center;
             flex: none;
-            padding-top: 8px;
+            gap: 10px;
+            padding-top: 0;
+          }
+          .ps-card-video .ps-feature-mobile-only {
+            display: flex;
           }
           .ps-card-video .ps-feature {
             align-items: center;
