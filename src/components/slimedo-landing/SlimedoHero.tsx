@@ -327,7 +327,7 @@ export default function SlimedoHero() {
           hero-badge-1
           absolute left-[37%] min-[1600px]:left-[50%] max-2xl:left-[48%] max-xl:left-[45%] max-lg:left-[41%] top-[30%] z-[5]
           flex items-center gap-4
-          bg-white rounded-2xl p-4 pr-6 min-w-[240px]
+          bg-white rounded-3xl p-4 pr-6 min-w-[240px]
           shadow-[0_8px_32px_rgba(0,0,0,.11),_0_1px_4px_rgba(0,0,0,.04)]
           max-md:hidden
         "
@@ -335,7 +335,7 @@ export default function SlimedoHero() {
       >
         <span className="
           inline-flex items-center justify-center shrink-0
-          w-[60px] h-[60px] rounded-xl bg-[#F5F3EE]
+          w-[60px] h-[60px] rounded-2xl bg-[#F5F3EE]
         ">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
             <rect x="4" y="2" width="14" height="18" rx="2" stroke="#3D5C4A" strokeWidth="1.5" />
@@ -346,6 +346,16 @@ export default function SlimedoHero() {
           <p className="m-0 p-0 text-[14px] text-[#888888] leading-[1.3]">Rezeptgebühr</p>
           <p className="m-0 p-0 text-[23px] font-bold text-ink leading-[1.2] tracking-[-0.02em]">29 €</p>
         </div>
+        <svg
+          aria-hidden="true"
+          className="absolute pointer-events-none"
+          style={{ top: '-32px', right: '-24px' }}
+          width="72" height="48" viewBox="0 0 72 48" fill="none"
+        >
+          <line x1="50" y1="23" x2="54" y2="11" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="54" y1="26" x2="64" y2="16" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="57" y1="30" x2="69" y2="26" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+        </svg>
       </div>
 
       {/* ── Floating badge 2 — Medikament (lower, further left) ── */}
@@ -355,7 +365,7 @@ export default function SlimedoHero() {
           hero-badge-2
           absolute left-[27%] min-[1600px]:left-[40%] max-2xl:left-[40%] max-xl:left-[39%] max-lg:left-[35%] top-[54%] z-[5]
           flex items-center gap-4
-          bg-white rounded-2xl p-4 pr-6 min-w-[240px]
+          bg-white rounded-3xl p-4 pr-6 min-w-[240px]
           shadow-[0_8px_32px_rgba(0,0,0,.11),_0_1px_4px_rgba(0,0,0,.04)]
           max-md:hidden
         "
@@ -363,7 +373,7 @@ export default function SlimedoHero() {
       >
         <span className="
           inline-flex items-center justify-center shrink-0 overflow-hidden
-          w-[60px] h-[60px] rounded-xl bg-[#F5F3EE]
+          w-[60px] h-[60px] rounded-2xl bg-[#F5F3EE]
         ">
           <img
             src="/images/therapie/injection2t.png"
@@ -375,6 +385,16 @@ export default function SlimedoHero() {
           <p className="m-0 p-0 text-[14px] text-[#888888] leading-[1.3]">Medikament</p>
           <p className="m-0 p-0 text-[23px] font-bold text-ink leading-[1.2] tracking-[-0.02em]">ab 171,96 €</p>
         </div>
+        <svg
+          aria-hidden="true"
+          className="absolute pointer-events-none"
+          style={{ top: '-32px', right: '-24px' }}
+          width="72" height="48" viewBox="0 0 72 48" fill="none"
+        >
+          <line x1="50" y1="23" x2="54" y2="11" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="54" y1="26" x2="64" y2="16" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="57" y1="30" x2="69" y2="26" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+        </svg>
       </div>
 
       {/* Bottom fade into next section */}
