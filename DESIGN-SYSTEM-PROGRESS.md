@@ -32,6 +32,7 @@
 | 3. Auth-Greens | Alle `auth/pages`: #227C31→sage, #29574E→sage, #1B433B/#1D3A35/#1E4039/#1A3330→deep, #16302B→primary-hover, #0B1C19→dark, #01478F-Links→sage, SVG-stroke #1d3a35→#1E3A2E. Sidebars jetzt sage, Links sage statt blau (screenshot-verifiziert: login, account-ready). | ✓ |
 | 4. Greens (Rest) | 40 Non-Landing-Dateien (profile, admin, questionnaire, product, svg-container-Modals, auth-components, Blog/FAQ/Testimonials/WeightCalculator-Komponenten, standalone Pages): §2a→deep, §2b→sage, #16302B→primary-hover, #0B1C19→dark. Bracket `[#hex]`→Token-Utility, Roh-Hex (inline/SVG)→Token-Hex. **Success-Greens (#22C55E/#16A34A/#10B981) bewusst behalten.** (verifiziert: product/select) | ✓ |
 | 5. Slate→Neutral | 59 Non-Landing-Dateien: #6B7280/#64748B/#667185/…→neutral-500, #4B5563→600, #374151→700, #101928/#111827→900, #ACB5BB/#94A3B8/#9CA3AF→400, #D1D5DB/#CBD5E1→300, #E5E7EB/#E2E8F0/#E8ECEB/#DCE4E8→200, #020817→ink. **Helle BG-Grays (F-Serie) + shared `ui/*` bewusst ausgelassen** (Card-Flächen-Shift + Landing-Risiko); Status/Brand-Farben behalten. (verifiziert: /privacy, /auth/login) | ✓ |
+| 6. Mobile | Audit @390px über alle erreichbaren migrierten Routen (auth/product/privacy/terms/blog): **kein horizontaler Overflow** (`scrollW==clientW`) — die reinen Farb-Edits haben kein Layout angefasst. Fix: Deko-Sprechblase „Schön dich zu sehen!" (`absolute left-[82%]`) ragte auf schmalen Auth-Panels raus → responsive `left-1/2 md:left-[82%]` auf allen 8 Auth-Sidebars (Desktop unverändert). Tooling: `capture-route.mjs` hat jetzt optionales Viewport-Width-Arg; neu `scripts/overflow-check.mjs`. | ✓ |
 
 ¹ **Deviation vom Inventory §6:** `AuthButton` wurde *nicht* auf `ui/button.tsx` umgestellt — die Pill-Form + fixe Höhe von `ui/button` passt nicht zu Full-Width-`rounded-lg`-Form-Submits. Stattdessen nur die Farben auf Brand-Tokens gemappt (gleiches Brand-Ergebnis, bessere Form-UX). Gilt analog für die Auth-Submit-`<Button>`s: Shape-Klassen (w-full/h-14/rounded-2xl) bleiben, nur Farb-Override entfernt → brand `default`-Variante greift.
 
@@ -87,11 +88,11 @@ Pro Section: lesen → statische Inline-Styles → Tokens/Utilities (dynamische 
 
 ### Phase 5 — Rest der Website (der große Konsistenz-Hebel)
 Reihenfolge: **Footer → Buttons → Farben/Grüns → Cards → Mobile.**
-✅ **Footer, Buttons, Grüns (auth + non-landing), Slate→Neutral sind erledigt** (siehe Erledigt-Block oben).
+✅ **Footer, Buttons, Grüns (auth + non-landing), Slate→Neutral, Mobile sind erledigt** (siehe Erledigt-Block oben).
 
 **Noch offen in Phase 5:**
-- **Cards** — ad-hoc-Radien (`rounded-[40px]`, `rounded-2xl`, `rounded-xl`…) + bespoke Shadows (`shadow-[0_32px_64px_-12px_…]` etc.) auf `--radius-card/-sm` + `--shadow-card/-dropdown` vereinheitlichen. Noch **nicht** angefasst (heterogene Werte, kein 0-Diff-Zwang, aber pro Fläche Vorher/Nachher sinnvoll). Hotspots: Auth-Cards (`rounded-[40px]`), Profile/Admin-Cards.
-- **Mobile** — responsive Checkliste über die migrierten Bereiche (auth/profile/admin) durchgehen; Breakpoints/Container-Padding gegen Landing-Pattern (`mx-5 / lg:mx-10 / xl:mx-15`) prüfen.
+- **Cards** — ad-hoc-Radien (`rounded-[40px]`, `rounded-2xl`, `rounded-xl`…) + bespoke Shadows (`shadow-[0_32px_64px_-12px_…]` etc.) auf `--radius-card/-sm` + `--shadow-card/-dropdown` vereinheitlichen. Noch **nicht** angefasst (heterogene Werte, kein 0-Diff-Zwang, aber pro Fläche Vorher/Nachher sinnvoll). Hotspots: Auth-Cards (`rounded-[40px]`), Profile/Admin-Cards. **Letztes offenes Phase-5-Item.**
+- **Mobile-Rest (nur falls Session möglich):** profile/admin sind auth-gated → nicht per `capture-route.mjs` prüfbar; bei vorhandener Test-Session @390px gegen-checken (Overflow-Tool: `node scripts/overflow-check.mjs <route…>`).
 - **Bewusst ausgelassen (optional nachziehen):**
   - Helle BG-Grays **F-Serie** (`#F3F4F6` = bereits `--color-accent/-muted`-Tokenwert, `#F8FAF9`, `#FAFBFC`, `#F1F5F9`, `#EDF2F7`…) → ggf. `neutral-50/100` oder `surf/cream`. Übersprungen, um Card-Flächen-Shift zu vermeiden.
   - Shared `ui/*` (input, card, calendar-Rest, skeleton) → werden auch von der Landing genutzt; bei Änderung **Landing-Full-Diff** prüfen.
