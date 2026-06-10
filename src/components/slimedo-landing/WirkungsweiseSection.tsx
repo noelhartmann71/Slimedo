@@ -97,11 +97,11 @@ export default function WirkungsweiseSection() {
       <header
         style={{
           textAlign: 'center',
-          marginBottom: 56,
+          marginBottom: 42,
           position: 'relative',
           zIndex: 2,
           maxWidth: 1800,
-          margin: '0 auto 56px',
+          margin: '0 auto 42px',
         }}
       >
         <p

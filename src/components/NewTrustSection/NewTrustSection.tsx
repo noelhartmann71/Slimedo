@@ -132,7 +132,7 @@ const NewTrustSection = () => {
       <section
         id="how-it-works-section"
         ref={sectionRef}
-        className="w-full overflow-hidden relative bg-[#EEF4EE] lg:bg-center lg:bg-cover lg:bg-no-repeat lg:bg-surface-green lg:px-0 max-[640px]:bg-[linear-gradient(180deg,#F0EDDF_0%,#EEF4EE_45%,#F5F5F0_100%)] max-[640px]:max-w-360 max-[640px]:mx-auto max-[640px]:pb-6 max-[640px]:rounded-[15px] pt-14 md:pt-20 pb-36 px-4 rounded-xl"
+        className="w-full overflow-hidden relative bg-[#EEF4EE] lg:bg-center lg:bg-cover lg:bg-no-repeat lg:bg-surface-green lg:px-0 max-[640px]:bg-[linear-gradient(180deg,#F0EDDF_0%,#EEF4EE_45%,#F5F5F0_100%)] max-[640px]:max-w-360 max-[640px]:mx-auto max-[640px]:pb-6 max-[640px]:rounded-[15px] pt-14 md:pt-20 pb-36 px-4 rounded-xl scroll-mt-24"
       >
         <div className="hidden lg:block">
           <div className="w-full h-full pointer-events-none absolute left-0 top-0">
