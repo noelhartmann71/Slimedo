@@ -111,6 +111,7 @@ export default function BmiCalculatorSection() {
         >
           {/* Stat card */}
           <div
+            className="bmi-stat-card-resp"
             style={{
               background: '#FFFDF7',
               borderRadius: 28,
@@ -125,6 +126,7 @@ export default function BmiCalculatorSection() {
             }}
           >
             <p
+              className="bmi-stat-label-resp"
               style={{
                 fontFamily: '"Inter", sans-serif',
                 fontSize: 'clamp(12px, 0.8vw, 16px)',
@@ -156,6 +158,7 @@ export default function BmiCalculatorSection() {
             </p>
             {/* Honey underline */}
             <span
+              className="bmi-stat-rule-resp"
               style={{
                 display: 'block',
                 width: 72,
@@ -165,8 +168,9 @@ export default function BmiCalculatorSection() {
                 margin: '28px auto 0',
               }}
             />
-            <div style={{ marginTop: 20 }}>
+            <div className="bmi-stat-copy-resp" style={{ marginTop: 20 }}>
               <p
+                className="bmi-stat-copy-title-resp"
                 style={{
                   fontFamily: '"Manrope", sans-serif',
                   fontSize: 'clamp(18px, 1.4vw, 28px)',
@@ -577,6 +581,62 @@ export default function BmiCalculatorSection() {
         @media (max-width: 640px) {
           .bmi-hl-resp { font-size: 32px !important; }
           .bmi-stat-num-resp { font-size: 52px !important; }
+          .bmi-stat-card-resp {
+            width: auto !important;
+            max-width: none !important;
+            box-sizing: border-box !important;
+            margin: 0 !important;
+            padding: 24px 18px !important;
+            display: grid !important;
+            grid-template-columns: minmax(94px, .36fr) 3px minmax(0, .64fr);
+            column-gap: 10px;
+            row-gap: 8px;
+            align-items: center !important;
+            text-align: left !important;
+            position: relative;
+          }
+          .bmi-stat-label-resp {
+            grid-column: 1;
+            grid-row: 1;
+            margin: 0 0 4px !important;
+            font-size: 9px !important;
+            letter-spacing: .1em !important;
+          }
+          .bmi-stat-num-resp {
+            grid-column: 1;
+            grid-row: 2;
+            font-size: 43px !important;
+            margin: 0 !important;
+            white-space: nowrap;
+          }
+          .bmi-stat-num-resp span {
+            font-size: 27px !important;
+          }
+          .bmi-stat-rule-resp {
+            grid-column: 2;
+            grid-row: 1 / 4;
+            align-self: center;
+            justify-self: center;
+            width: 3px !important;
+            height: 46px !important;
+            min-height: 0;
+            margin: 0 !important;
+          }
+          .bmi-stat-copy-resp {
+            grid-column: 3;
+            grid-row: 1 / 4;
+            margin: 0 !important;
+            align-self: center;
+          }
+          .bmi-stat-copy-title-resp {
+            font-size: clamp(13px, 3.45vw, 15px) !important;
+            line-height: 1.22 !important;
+            margin-bottom: 6px !important;
+          }
+          .bmi-stat-copy-resp p:last-child {
+            font-size: clamp(11px, 3vw, 13px) !important;
+            line-height: 1.32 !important;
+          }
           .bmi-slider-card-resp { padding: 32px 24px !important; }
           .bmi-card-photo-resp { display: none !important; }
           .bmi-card-content-resp { max-width: none !important; }
