@@ -58,12 +58,12 @@ const trustItems = [
   },
 ];
 
-// Floating price/medication card overlaid on the hero video.
+// Floating information card overlaid on the hero video.
 // `ref` is forwarded so the hero can measure the cards and draw the connector.
 const FloatingStatCard = forwardRef<
   HTMLDivElement,
-  { className?: string; icon: ReactNode; label: string; value: string }
->(({ className, icon, label, value }, ref) => (
+  { className?: string; icon: ReactNode; label: string; stepNumber: number; value: ReactNode }
+>(({ className, icon, label, stepNumber, value }, ref) => (
   <div
     ref={ref}
     aria-hidden="true"
@@ -72,7 +72,10 @@ const FloatingStatCard = forwardRef<
       className,
     )}
   >
-    <span className="inline-flex h-[60px] w-[60px] shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#F5F3EE]">
+    <span className="hero-badge-icon relative inline-flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-2xl bg-[#F5F3EE]">
+      <span className="hero-badge-step absolute -left-3 -top-3 z-[2] inline-flex h-8 w-8 items-center justify-center rounded-full bg-deep text-[15px] font-bold leading-none text-cream shadow-[0_6px_16px_rgba(30,58,46,.24)]">
+        {stepNumber}
+      </span>
       {icon}
     </span>
     <div>
@@ -101,13 +104,12 @@ export default function SlimedoHero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const badge1Ref = useRef<HTMLDivElement | null>(null);
   const badge2Ref = useRef<HTMLDivElement | null>(null);
+  const badge3Ref = useRef<HTMLDivElement | null>(null);
   const [isMobileHero, setIsMobileHero] = useState(
     () => typeof window !== 'undefined' && window.matchMedia(mobileHeroMediaQuery).matches,
   );
   const [shouldLoadHeroVideo, setShouldLoadHeroVideo] = useState(false);
-  const [connector, setConnector] = useState<{
-    path: string;
-  } | null>(null);
+  const [connectorPaths, setConnectorPaths] = useState<string[] | null>(null);
 
   useEffect(() => {
     const media = window.matchMedia(mobileHeroMediaQuery);
@@ -124,22 +126,34 @@ export default function SlimedoHero() {
   useEffect(() => {
     const calc = () => {
       const section = containerRef.current;
-      const b1 = badge1Ref.current;
-      const b2 = badge2Ref.current;
-      if (!section || !b1 || !b2) return;
-      if (window.getComputedStyle(b1).display === 'none') { setConnector(null); return; }
+      const badges = [badge1Ref.current, badge2Ref.current, badge3Ref.current];
+      if (!section || !badges.every(Boolean)) return;
+
+      const [b1, b2, b3] = badges as HTMLDivElement[];
+      if (badges.some((badge) => window.getComputedStyle(badge as HTMLDivElement).display === 'none')) {
+        setConnectorPaths(null);
+        return;
+      }
+
       const sr = section.getBoundingClientRect();
       const r1 = b1.getBoundingClientRect();
       const r2 = b2.getBoundingClientRect();
-      const sx = r1.left + r1.width / 2 - sr.left;
-      const sy = r1.bottom - sr.top;
-      const ex = r2.left + r2.width / 2 - sr.left;
-      const ey = r2.top - sr.top;
-      const dx = ex - sx;
-      const dy = ey - sy;
-      setConnector({
-        path: `M ${sx} ${sy} C ${sx + dx * 0.15} ${sy + dy * 0.45}, ${sx + dx * 0.85} ${sy + dy * 0.55}, ${ex} ${ey}`,
-      });
+      const r3 = b3.getBoundingClientRect();
+      const buildConnectorPath = (from: DOMRect, to: DOMRect) => {
+        const sx = from.left + from.width / 2 - sr.left;
+        const sy = from.bottom - sr.top;
+        const ex = to.left + to.width / 2 - sr.left;
+        const ey = to.top - sr.top;
+        const dx = ex - sx;
+        const dy = ey - sy;
+
+        return `M ${sx} ${sy} C ${sx + dx * 0.15} ${sy + dy * 0.45}, ${sx + dx * 0.85} ${sy + dy * 0.55}, ${ex} ${ey}`;
+      };
+
+      setConnectorPaths([
+        buildConnectorPath(r1, r2),
+        buildConnectorPath(r2, r3),
+      ]);
     };
     calc();
     window.addEventListener('resize', calc);
@@ -209,8 +223,8 @@ export default function SlimedoHero() {
       <div className="
         hero-copy-col
         flex flex-col justify-center relative z-[2]
-        pl-20 pr-14 py-[120px]
-        max-lg:pl-12 max-lg:pr-10 max-lg:py-[80px]
+        pl-20 pr-14 pt-[88px] pb-[152px]
+        max-lg:pl-12 max-lg:pr-10 max-lg:pt-[60px] max-lg:pb-[100px]
         max-sm:pl-5 max-sm:pr-5 max-sm:pt-9 max-sm:pb-7 max-sm:justify-between
       ">
 
@@ -237,7 +251,7 @@ export default function SlimedoHero() {
           mb-12
           max-sm:text-[38px] max-sm:mb-3.5 max-sm:max-w-[80%]
         ">
-          Mit der <em className="text-sage italic">Abnehmspritze</em><br />
+          Mit der <em className="font-['Playfair_Display',serif] font-bold italic tracking-[-0.035em] text-sage">Abnehmspritze</em><br />
           zu einem gesünderen<br />
           Körpergefühl
         </h1>
@@ -245,10 +259,9 @@ export default function SlimedoHero() {
         {/* Bullet list */}
         <ul className="
           hero-bullet-list
-          slimedo-anim slimedo-d3
-          list-none p-0 m-0 mb-14
+          list-none p-0 m-0 ml-7 mb-14
           flex flex-col gap-[22px]
-          max-sm:gap-[9px] max-sm:mb-4 max-sm:max-w-[60%]
+          max-sm:ml-0 max-sm:gap-[9px] max-sm:mb-4 max-sm:max-w-[60%]
         ">
           {bullets.map((text) => (
             <li
@@ -349,13 +362,22 @@ export default function SlimedoHero() {
       </div>
 
       {/* ── Dynamic connector SVG — path calculated from actual badge positions ── */}
-      {connector && !isMobileHero && (
+      {connectorPaths && !isMobileHero && (
         <svg
           className="absolute inset-0 w-full h-full z-[4] pointer-events-none overflow-visible"
           aria-hidden="true"
           fill="none"
         >
-          <path d={connector.path} stroke="#C8BC9E" strokeWidth="1.5" strokeDasharray="4 5" strokeLinecap="round"/>
+          {connectorPaths.map((path) => (
+            <path
+              key={path}
+              d={path}
+              stroke="#C8BC9E"
+              strokeWidth="1.5"
+              strokeDasharray="4 5"
+              strokeLinecap="round"
+            />
+          ))}
         </svg>
       )}
 
@@ -364,6 +386,7 @@ export default function SlimedoHero() {
         ref={badge1Ref}
         className="hero-badge-1 left-[37%] top-[30%] min-[1600px]:left-[50%] max-2xl:left-[48%] max-xl:left-[45%] max-lg:left-[41%] max-md:hidden max-sm:flex"
         label="Rezeptgebühr"
+        stepNumber={1}
         value="29 €"
         icon={
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
@@ -376,15 +399,60 @@ export default function SlimedoHero() {
       {/* ── Floating badge 2 — Medikament (lower, further left) ── */}
       <FloatingStatCard
         ref={badge2Ref}
-        className="hero-badge-2 left-[27%] top-[54%] min-[1600px]:left-[40%] max-2xl:left-[40%] max-xl:left-[39%] max-lg:left-[35%] max-md:hidden"
+        className="hero-badge-2 left-[27%] top-[54%] min-w-[286px] gap-5 p-6 pr-8 min-[1600px]:left-[40%] max-2xl:left-[40%] max-xl:left-[39%] max-lg:left-[35%] max-md:hidden"
         label="Medikament"
+        stepNumber={2}
         value="ab 171,96 €"
         icon={
           <img
             src="/images/therapie/injection2t.png"
             alt=""
-            className="w-9 h-9 object-contain"
+            className="h-12 w-12 object-contain"
           />
+        }
+      />
+
+      {/* ── Floating badge 3 — Lieferung (below medication) ── */}
+      <FloatingStatCard
+        ref={badge3Ref}
+        className="hero-badge-3 left-[30%] top-[70%] min-[1600px]:left-[44%] max-2xl:left-[44%] max-xl:left-[40%] max-lg:left-[35%] max-md:hidden"
+        label="Lieferung"
+        stepNumber={3}
+        value={(
+          <>
+            per Express
+            <br />
+            nach Hause
+          </>
+        )}
+        icon={
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <path
+              d="M4.8 9.2 15 4.6l10.2 4.6L15 14 4.8 9.2Z"
+              stroke="#3D5C4A"
+              strokeWidth="1.8"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M4.8 9.2v11.3L15 25.4V14L4.8 9.2Z"
+              stroke="#3D5C4A"
+              strokeWidth="1.8"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M25.2 9.2v11.3L15 25.4V14l10.2-4.8Z"
+              stroke="#3D5C4A"
+              strokeWidth="1.8"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10.1 11.7v4.6l3 1.4v-4.6"
+              stroke="#3D5C4A"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         }
       />
 
@@ -528,7 +596,8 @@ export default function SlimedoHero() {
               linear-gradient(to bottom, transparent 0%, black 13%, black 74%, transparent 100%);
             -webkit-mask-composite: source-in;
           }
-          .hero-badge-2 {
+          .hero-badge-2,
+          .hero-badge-3 {
             display: none !important;
           }
           .hero-badge-1 {
@@ -554,6 +623,9 @@ export default function SlimedoHero() {
             width: 29px !important;
             height: 29px !important;
             border-radius: 999px !important;
+          }
+          .hero-badge-step {
+            display: none !important;
           }
           .hero-badge-1 svg {
             width: 14px !important;
@@ -585,6 +657,36 @@ export default function SlimedoHero() {
         .hero-cta:hover {
           box-shadow: 0 8px 28px rgba(30,58,46,.32), 0 1px 0 rgba(255,255,255,.06) inset;
           transform: translateY(-2px);
+        }
+
+        /* Hero bullet entrance */
+        @keyframes hero-bullet-slide-in {
+          0% {
+            opacity: 0;
+            transform: translateX(-34px);
+          }
+          70% {
+            opacity: 1;
+            transform: translateX(4px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .hero-bullet-item {
+          opacity: 0;
+          transform: translateX(-34px);
+          animation: hero-bullet-slide-in .95s cubic-bezier(.22,1,.36,1) both;
+        }
+        .hero-bullet-item:nth-child(1) {
+          animation-delay: .46s;
+        }
+        .hero-bullet-item:nth-child(2) {
+          animation-delay: .68s;
+        }
+        .hero-bullet-item:nth-child(3) {
+          animation-delay: .9s;
         }
 
         /* Trust badges */
@@ -642,7 +744,10 @@ export default function SlimedoHero() {
         /* MacBook Pro 16" (~1728px) */
         @media (min-width: 1601px) and (max-width: 1800px) {
           .hero-bullet-list { gap: 12px !important; }
-          .hero-copy-col { padding-bottom: 60px !important; }
+          .hero-copy-col {
+            padding-top: 88px !important;
+            padding-bottom: 152px !important;
+          }
           .hero-trust-bar { margin-top: -136px; }
           .hero-trust-item {
             font-size: 14px;
@@ -793,11 +898,27 @@ export default function SlimedoHero() {
           0%, 100% { transform: translateY(-4px); }
           50%       { transform: translateY(-13px); }
         }
+        @keyframes hero-float-c {
+          0%, 100% { transform: translateY(2px); }
+          50%       { transform: translateY(-8px); }
+        }
+        .hero-badge-3 p:last-child {
+          font-size: 19px;
+          font-weight: 650;
+          line-height: 1.18;
+          letter-spacing: -0.015em;
+        }
         .hero-badge-1 { animation: hero-float-a 5.5s ease-in-out 0.4s infinite; }
         .hero-badge-2 { animation: hero-float-b 6.5s ease-in-out 1.1s infinite; }
+        .hero-badge-3 { animation: hero-float-c 7s ease-in-out 0.7s infinite; }
 
         @media (prefers-reduced-motion: reduce) {
-          .hero-badge-1, .hero-badge-2 { animation: none; }
+          .hero-badge-1, .hero-badge-2, .hero-badge-3 { animation: none; }
+          .hero-bullet-item {
+            opacity: 1;
+            transform: none;
+            animation: none;
+          }
         }
       `}</style>
     </section>
