@@ -88,7 +88,7 @@ export default function LifestyleSection() {
         {collageItems.map((item, i) => (
           <div
             key={i}
-            className={`slimedo-anim slimedo-d${i + 1}`}
+            className={`slimedo-anim slimedo-d${i + 1} ${i === 2 ? 'lifestyle-mobile-hidden' : ''}`}
             style={{
               height: 'clamp(480px, 82vh, 960px)',
               borderRadius: '18px 18px 0 0',
@@ -136,6 +136,9 @@ export default function LifestyleSection() {
           }
           .collage-grid-resp > div {
             height: clamp(320px, 70vh, 600px) !important;
+          }
+          .lifestyle-mobile-hidden {
+            display: none !important;
           }
           .lifestyle-hl-resp { font-size: 30px !important; }
         }

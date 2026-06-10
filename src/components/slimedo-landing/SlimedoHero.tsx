@@ -349,12 +349,13 @@ export default function SlimedoHero() {
         <svg
           aria-hidden="true"
           className="absolute pointer-events-none"
-          style={{ top: '-32px', right: '-24px' }}
+          style={{ top: '-32px', right: '-24px', overflow: 'visible' }}
           width="72" height="48" viewBox="0 0 72 48" fill="none"
+          overflow="visible"
         >
-          <line x1="50" y1="23" x2="54" y2="11" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-          <line x1="54" y1="26" x2="64" y2="16" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-          <line x1="57" y1="30" x2="69" y2="26" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="54" y1="13" x2="58" y2="1"  stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="61" y1="19" x2="71" y2="9"  stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="67" y1="26" x2="79" y2="22" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
         </svg>
       </div>
 
@@ -388,12 +389,13 @@ export default function SlimedoHero() {
         <svg
           aria-hidden="true"
           className="absolute pointer-events-none"
-          style={{ top: '-32px', right: '-24px' }}
+          style={{ top: '-32px', right: '-24px', overflow: 'visible' }}
           width="72" height="48" viewBox="0 0 72 48" fill="none"
+          overflow="visible"
         >
-          <line x1="50" y1="23" x2="54" y2="11" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-          <line x1="54" y1="26" x2="64" y2="16" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-          <line x1="57" y1="30" x2="69" y2="26" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="54" y1="13" x2="58" y2="1"  stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="61" y1="19" x2="71" y2="9"  stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          <line x1="67" y1="26" x2="79" y2="22" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
         </svg>
       </div>
 
