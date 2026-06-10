@@ -422,9 +422,11 @@ export default function AnwendungSection() {
             margin-left: -18px;
             margin-right: -18px;
             overflow-x: auto;
+            overflow-y: hidden;
             padding: 20px 18px 12px;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
+            touch-action: pan-x;
           }
           .anw-card-resp {
             height: clamp(300px, 82vw, 360px) !important;
