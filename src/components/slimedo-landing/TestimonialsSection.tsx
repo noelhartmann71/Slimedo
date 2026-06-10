@@ -191,11 +191,12 @@ export default function TestimonialsSection() {
             <p
               className="testimonials-quote-resp"
               style={{
-                fontFamily: '"Instrument Serif", Georgia, serif',
+                fontFamily: '"Lora", Georgia, serif',
                 fontSize: 'clamp(26px, 1.72vw, 38px)',
-                fontStyle: 'italic',
+                fontStyle: 'normal',
+                fontWeight: 500,
                 color: '#2E2620',
-                lineHeight: 1.22,
+                lineHeight: 1.32,
                 marginBottom: 12,
               }}
             >
