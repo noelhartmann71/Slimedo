@@ -271,8 +271,8 @@ export default function SlimedoHero() {
       {/* ── Right column — video on desktop, poster image on mobile ── */}
       <div className="
         hero-video-col relative overflow-hidden
-        max-sm:absolute max-sm:right-0 max-sm:top-0 max-sm:bottom-0
-        max-sm:w-[70%] max-sm:h-full max-sm:z-[1]
+        max-sm:absolute max-sm:right-0
+        max-sm:w-[70%] max-sm:z-[1]
       ">
         {isMobileHero ? (
           <img
@@ -329,7 +329,7 @@ export default function SlimedoHero() {
           flex items-center gap-4
           bg-white rounded-3xl p-4 pr-6 min-w-[240px]
           shadow-[0_8px_32px_rgba(0,0,0,.11),_0_1px_4px_rgba(0,0,0,.04)]
-          max-md:hidden
+          max-md:hidden max-sm:flex
         "
         aria-hidden="true"
       >
@@ -474,12 +474,12 @@ export default function SlimedoHero() {
             max-width: 57% !important;
             font-size: clamp(37px, 8.6vw, 43px) !important;
             line-height: 1.12 !important;
-            margin-bottom: clamp(58px, 13vw, 68px) !important;
+            margin-bottom: clamp(20px, 4.5vw, 28px) !important;
           }
           .hero-bullet-list {
             max-width: 64% !important;
             gap: 13px !important;
-            margin-bottom: clamp(50px, 11vw, 60px) !important;
+            margin-bottom: clamp(20px, 4.5vw, 28px) !important;
           }
           .hero-bullet-item {
             gap: 9px !important;
@@ -503,7 +503,7 @@ export default function SlimedoHero() {
             padding: 0 24px !important;
           }
           .hero-video-col {
-            top: 70px !important;
+            top: 80px !important;
             right: -34px !important;
             bottom: auto !important;
             width: 82% !important;
@@ -526,7 +526,7 @@ export default function SlimedoHero() {
           .hero-video {
             left: auto !important;
             right: 0 !important;
-            top: 42px !important;
+            top: 0 !important;
             width: 80% !important;
             height: 80% !important;
             object-position: 54% top !important;
@@ -539,10 +539,14 @@ export default function SlimedoHero() {
               linear-gradient(to bottom, transparent 0%, black 13%, black 74%, transparent 100%);
             -webkit-mask-composite: source-in;
           }
-          .hero-badge-1,
           .hero-badge-2 {
+            display: none !important;
+          }
+          .hero-badge-1 {
             display: flex !important;
             animation: none !important;
+            top: 382px !important;
+            right: 55px !important;
             left: auto !important;
             min-width: 0 !important;
             z-index: 6 !important;
@@ -551,10 +555,6 @@ export default function SlimedoHero() {
             border-radius: 999px !important;
             padding: 5px 10px 5px 5px !important;
             box-shadow: 0 7px 20px rgba(0,0,0,.11), 0 1px 3px rgba(0,0,0,.04) !important;
-          }
-          .hero-badge-1 {
-            top: clamp(318px, 69vw, 350px) !important;
-            right: clamp(10px, 2.7vw, 15px) !important;
           }
           .hero-badge-2 {
             top: clamp(382px, 81vw, 414px) !important;

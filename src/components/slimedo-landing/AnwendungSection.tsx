@@ -104,6 +104,7 @@ export default function AnwendungSection() {
         <section
             ref={ref}
             id="anwendung"
+            className="anw-section"
             style={{
                 background: 'radial-gradient(ellipse at 15% 20%, rgba(205,221,203,0.45) 0%, transparent 55%), radial-gradient(ellipse at 85% 80%, rgba(237,216,154,0.3) 0%, transparent 55%), #FAF5EA',
                 padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(78px, 6.38vw, 143px)',
@@ -241,6 +242,7 @@ export default function AnwendungSection() {
 
                             {/* Label overlay */}
                             <div
+                                className="anw-card-label"
                                 style={{
                                     position: 'absolute',
                                     left: 0,
@@ -408,21 +410,35 @@ export default function AnwendungSection() {
           .anw-hl-resp { font-size: 48px !important; }
         }
         @media (max-width: 640px) {
+          .anw-section {
+            background: #FAF5EA !important;
+          }
           .anw-grid-resp {
             gap: 27px !important;
             grid-template-columns: 88% 88% 88% !important;
             margin-left: -18px;
             margin-right: -18px;
             overflow-x: auto;
-            padding: 20px 18px;
+            padding: 20px 18px 12px;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
           }
           .anw-card-resp {
             height: clamp(300px, 82vw, 360px) !important;
+            border: 0 !important;
+            box-shadow: none !important;
             min-height: 0;
             scroll-snap-align: center;
             width: 100%;
+          }
+          .anw-card-label {
+            background: linear-gradient(180deg, rgba(250,245,234,0) 0%, rgba(250,245,234,0.88) 76%, rgba(250,245,234,0.98) 100%) !important;
+          }
+          .anw-card-label h3 {
+            color: #1A1A1A !important;
+          }
+          .anw-card-label p {
+            color: #5D6751 !important;
           }
           .anw-carousel-controls {
             align-items: center;
