@@ -18,8 +18,9 @@
   --font-instrument: "Instrument Serif", Georgia, serif;
   --font-manrope: "Manrope", system-ui, sans-serif;
 
-  --color-primary: #1b433b;
-  --color-primary-foreground: #ffffff;
+  --color-primary: #1E3A2E;            /* = deep · Slimedo brand primary (was #1b433b) */
+  --color-primary-hover: #16302B;      /* darker hover for primary surfaces */
+  --color-primary-foreground: #ffffff; /* button text handled in Button component (Phase 3) */
   --color-accent: #f3f4f6;
   --color-accent-foreground: #1a1c1e;
   --color-muted: #f3f4f6;
@@ -42,6 +43,38 @@
   --color-ink:         #1A1A1A;
   --color-stein:       #6E6A60;
   --color-olive:       #768064;
+
+  /* ── Semantic neutrals (consolidates the slate/gray sprawl) ── */
+  --color-neutral-50:  #F8FAF9;
+  --color-neutral-100: #F1F5F4;
+  --color-neutral-200: #E5E9EB;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-400: #ACB5BB;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-900: #101928;
+
+  /* ── Status tokens (functional — NOT brand-mapped) ── */
+  --color-success:        #16A34A;
+  --color-success-subtle: #DCFCE7;
+  --color-error:          #D92D20;
+  --color-error-subtle:   #FEF3F2;
+  --color-warning:        #F59E0B;
+  --color-warning-subtle: #FFFAEB;
+  --color-info:           #1D62EC;
+  --color-info-subtle:    #EFF6FF;
+
+  /* ── Radii ── */
+  --radius-field:   8px;
+  --radius-card-sm: 16px;
+  --radius-card:    24px;
+  --radius-pill:    999px;
+
+  /* ── Shadows (green-tinted, extracted from landing) ── */
+  --shadow-card:     0 18px 44px rgba(30, 58, 46, 0.18);
+  --shadow-dropdown: 0 22px 55px rgba(30, 58, 46, 0.24);
+  --shadow-cta:      0 4px 24px rgba(0, 0, 0, 0.30);
 }
 
 /* ── Slimedo Keyframes ── */
