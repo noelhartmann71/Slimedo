@@ -15,7 +15,13 @@ export default function BmiCalculatorSection() {
   return (
     <section
       id="potenzial"
-      className="relative overflow-hidden bg-sand pt-[clamp(72px,5.88vw,130px)] pb-[clamp(60px,4.88vw,110px)]"
+      className="bmi-section-resp"
+      style={{
+        background: '#F5EEDB',
+        padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(60px, 4.88vw, 110px)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
     >
       {/* Honey glow */}
       <div className="pointer-events-none absolute top-[-10%] right-[-5%] z-0 h-[60%] w-[50%] bg-[radial-gradient(ellipse_at_center,rgba(237,216,154,0.25)_0%,transparent_60%)]" />
@@ -204,6 +210,7 @@ export default function BmiCalculatorSection() {
         .bmi-bg-photo-mobile-cell { display: none; }
 
         @media (max-width: 640px) {
+          .bmi-section-resp { padding: 44px 0 !important; }
           .bmi-hl-resp { font-size: 32px !important; }
           .bmi-stat-num-resp { font-size: 52px !important; }
           .bmi-stat-card-resp {

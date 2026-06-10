@@ -45,6 +45,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="bewertungen"
+      className="testi-section-resp"
       style={{
         background: '#FFFDF7',
         padding: 'clamp(54px, 4.38vw, 110px) 0',
@@ -328,6 +329,7 @@ export default function TestimonialsSection() {
           }
         }
         @media (max-width: 640px) {
+          .testi-section-resp { padding: 40px 0 !important; }
           .testimonials-images-resp {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
           }

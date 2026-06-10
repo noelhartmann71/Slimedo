@@ -201,9 +201,18 @@ export default function BlogSection() {
   }, [isLoading, blogData.length, currentStep, cardsPerView]);
 
   return (
-    <section ref={ref} id="blog" className="bg-cream py-[clamp(60px,4.88vw,110px)]">
-      <div className="mx-auto max-w-[1800px] px-10">
-        <div className="blog-hdr-resp mb-12 flex items-end justify-between gap-6">
+    <section ref={ref} id="blog" className="blog-section-resp" style={{ background: '#FAF5EA', padding: 'clamp(60px, 4.88vw, 110px) 0' }}>
+      <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
+        <div
+          className="blog-hdr-resp"
+          style={{
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
+            marginBottom: 48,
+            gap: 24,
+          }}
+        >
           <div>
             <p className="slimedo-anim mb-2 text-[12px] font-medium tracking-[0.16em] uppercase text-sage">
               Blog
@@ -429,7 +438,8 @@ export default function BlogSection() {
           display: none;
         }
         @media (max-width: 640px) {
-          .blog-hdr-resp { flex-direction: column !important; align-items: flex-start !important; }
+          .blog-section-resp { padding: 40px 0 !important; }
+          .blog-hdr-resp { flex-direction: column !important; align-items: flex-start !important; margin-bottom: 28px !important; }
           .blog-hl-resp { font-size: 28px !important; }
         }
       `}</style>

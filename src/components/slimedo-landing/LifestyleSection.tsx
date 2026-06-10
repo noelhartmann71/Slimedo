@@ -4,10 +4,20 @@ const collageItems = [
   {
     img: '/images/slimedo/slimedo-img.png',
     gradient: 'linear-gradient(160deg,#E8E0CE,#D5C9AF)',
+    badge: {
+      title: 'Mehr als nur ein Rezept.',
+      sub: 'Ärztlich geprüft. Diskret versendet.',
+      side: 'left' as const,
+    },
   },
   {
     img: '/images/slimedo/slimedo-img-two.png',
     gradient: 'linear-gradient(160deg,#C5D5C0,#A8BFA0)',
+    badge: {
+      title: 'Gewichtsverlust ist nur der Anfang.',
+      sub: 'Ein besseres Körpergefühl ist das Ziel.',
+      side: 'right' as const,
+    },
   },
   {
     img: '/images/slimedo/slimedo-img-three.png',
@@ -41,6 +51,7 @@ export default function LifestyleSection() {
     <section
       ref={ref}
       id="slimedo"
+      className="lifestyle-section-resp"
       style={{ background: '#F5EEDB', padding: 'clamp(54px, 4.38vw, 100px) 0 clamp(42px, 3.5vw, 80px)', overflow: 'hidden' }}
     >
       <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
@@ -110,6 +121,12 @@ export default function LifestyleSection() {
                 (e.target as HTMLImageElement).style.display = 'none';
               }}
             />
+            {'badge' in item && item.badge && (
+              <div className={`lifestyle-badge lifestyle-badge--${item.badge.side}`}>
+                <p className="lifestyle-badge-title">{item.badge.title}</p>
+                <p className="lifestyle-badge-sub">{item.badge.sub}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -128,7 +145,11 @@ export default function LifestyleSection() {
         </p>
       </div>
       <style>{`
+        .lifestyle-badge { display: none; }
+
         @media (max-width: 640px) {
+          .lifestyle-section-resp { padding: 36px 0 28px !important; }
+          .lifestyle-hl-resp { margin-bottom: 24px !important; font-size: 30px !important; }
           .collage-grid-resp {
             grid-template-columns: 1fr !important;
             padding: 0 12px !important;
@@ -140,7 +161,36 @@ export default function LifestyleSection() {
           .lifestyle-mobile-hidden {
             display: none !important;
           }
-          .lifestyle-hl-resp { font-size: 30px !important; }
+          .lifestyle-badge {
+            display: block;
+            position: absolute;
+            bottom: 18px;
+            background: rgba(255, 255, 255, 0.86);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 10px 14px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
+            max-width: 210px;
+          }
+          .lifestyle-badge--left  { left: 14px; }
+          .lifestyle-badge--right { right: 14px; }
+          .lifestyle-badge-title {
+            font-family: "Inter", sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1A1A1A;
+            line-height: 1.3;
+            margin: 0 0 3px;
+          }
+          .lifestyle-badge-sub {
+            font-family: "Inter", sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            color: #6E6A60;
+            line-height: 1.3;
+            margin: 0;
+          }
         }
       `}</style>
     </section>

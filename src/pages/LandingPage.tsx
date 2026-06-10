@@ -99,8 +99,25 @@ const bridgeStyles: Record<BridgeVariant, CSSProperties> = {
   },
 };
 
+const bridgeMobileClass: Record<BridgeVariant, string> = {
+  'cream-to-dark': 'bridge-lg',
+  'dark-to-surf': 'bridge-lg',
+  'surf-to-dark': 'bridge-lg',
+  'sand-to-dark': 'bridge-md',
+  'sand-to-cream': 'bridge-sm',
+  'cream-to-sand': 'bridge-sm',
+  'mint-to-cream': 'bridge-sm',
+  'dark-to-sand': 'bridge-sm',
+  'cream-to-surf': 'bridge-sm',
+  'surf-to-dark-footer': 'bridge-sm',
+  'sand-to-linen': 'bridge-sm',
+  'linen-to-cream': 'bridge-sm',
+  'sand-to-offwhite': 'bridge-sm',
+  'offwhite-to-sand': 'bridge-sm',
+};
+
 function Bridge({ variant }: { variant: BridgeVariant }) {
-  return <div aria-hidden="true" style={bridgeStyles[variant]} />;
+  return <div aria-hidden="true" className={bridgeMobileClass[variant]} style={bridgeStyles[variant]} />;
 }
 
 // ── Landing Page ──────────────────────────────────────────────
@@ -120,6 +137,14 @@ export default function LandingPage() {
 
       {/* ── Navigation ─────────────────────── */}
       <SlimedoNavbar />
+
+      <style>{`
+        @media (max-width: 640px) {
+          .bridge-sm { height: 20px !important; }
+          .bridge-md { height: 28px !important; }
+          .bridge-lg { height: 36px !important; }
+        }
+      `}</style>
 
       <main>
         {/* ── Hero ───────────────────────────── */}

@@ -115,6 +115,7 @@ export default function AnwendungSection() {
             <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
                 {/* Header */}
                 <header
+                    className="anw-header-resp"
                     style={{
                         marginBottom: 56,
                         position: 'relative',
@@ -412,7 +413,9 @@ export default function AnwendungSection() {
         @media (max-width: 640px) {
           .anw-section {
             background: #FAF5EA !important;
+            padding: 40px 0 44px !important;
           }
+          .anw-header-resp { margin-bottom: 28px !important; }
           .anw-grid-resp {
             gap: 27px !important;
             grid-template-columns: 88% 88% 88% !important;
