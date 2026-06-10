@@ -223,7 +223,7 @@ const NewTrustSection = () => {
                 >
                   1
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:h-80 max-[640px]:justify-between h-105">
+                <div className="flex flex-col overflow-hidden max-[640px]:h-88 max-[640px]:justify-between h-116">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2 select-none"
@@ -277,7 +277,7 @@ const NewTrustSection = () => {
                 >
                   2
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:h-80 max-[640px]:justify-between h-105">
+                <div className="flex flex-col overflow-hidden max-[640px]:h-88 max-[640px]:justify-between h-116">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2"
@@ -300,7 +300,7 @@ const NewTrustSection = () => {
                       <img
                         alt=""
                         src={StepTwoImg}
-                        className="object-contain max-[640px]:max-h-40 max-h-75 max-w-full"
+                        className="object-contain max-[640px]:max-h-96 max-[640px]:w-full max-h-75 max-w-full"
                         style={{
                           transform: hoveredCard === 1 ? "scale(1.1)" : "scale(1)",
                           transition: CARD_TRANSITION,
@@ -332,7 +332,7 @@ const NewTrustSection = () => {
                 >
                   3
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:h-80 max-[640px]:justify-between h-105">
+                <div className="flex flex-col overflow-hidden max-[640px]:h-88 max-[640px]:justify-between h-116">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2"
@@ -368,46 +368,6 @@ const NewTrustSection = () => {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="flex flex-col items-center mt-10 gap-3">
-            <a
-              href="/product/select"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 10,
-                background: "linear-gradient(160deg,#4A6E58 0%,#3D5C4A 55%,#324E3F 100%)",
-                color: "#FAF5EA",
-                fontFamily: FONT_INTER,
-                fontSize: 15,
-                fontWeight: 500,
-                padding: "16px 36px",
-                borderRadius: 14,
-                textDecoration: "none",
-                boxShadow: "0 4px 16px rgba(30,58,46,.22)",
-                transition: "box-shadow .25s,transform .2s",
-                letterSpacing: "0.005em",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.boxShadow = "0 8px 28px rgba(30,58,46,.32)";
-                el.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.boxShadow = "0 4px 16px rgba(30,58,46,.22)";
-                el.style.transform = "translateY(0)";
-              }}
-            >
-              Rezeptanfrage starten
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
-                <path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-            <p style={{ fontFamily: FONT_INTER, fontSize: 13, color: "#6E6A60" }}>
-              Dauert nur 2–3 Minuten
-            </p>
           </div>
 
           <div className="items-center max-[640px]:flex hidden justify-between mt-2">
@@ -472,6 +432,46 @@ const NewTrustSection = () => {
                 />
               </svg>
             </button>
+          </div>
+
+          <div className="flex flex-col items-center mt-10 gap-3">
+            <a
+              href="/product/select"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                background: "linear-gradient(160deg,#4A6E58 0%,#3D5C4A 55%,#324E3F 100%)",
+                color: "#FAF5EA",
+                fontFamily: FONT_INTER,
+                fontSize: 15,
+                fontWeight: 500,
+                padding: "16px 36px",
+                borderRadius: 14,
+                textDecoration: "none",
+                boxShadow: "0 4px 16px rgba(30,58,46,.22)",
+                transition: "box-shadow .25s,transform .2s",
+                letterSpacing: "0.005em",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.boxShadow = "0 8px 28px rgba(30,58,46,.32)";
+                el.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.boxShadow = "0 4px 16px rgba(30,58,46,.22)";
+                el.style.transform = "translateY(0)";
+              }}
+            >
+              Rezeptanfrage starten
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+            <p style={{ fontFamily: FONT_INTER, fontSize: 13, color: "#6E6A60" }}>
+              Dauert nur 2–3 Minuten
+            </p>
           </div>
         </div>
       </section>
