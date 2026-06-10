@@ -341,11 +341,11 @@ export default function AnwendungSection() {
 
         .anw-carousel-button {
           align-items: center;
-          background: #fff;
-          border: 0;
+          background: #F7F0E2;
+          border: 1px solid rgba(61,92,74,0.14);
           border-radius: 999px;
-          box-shadow: 0px 12px 18px 0px rgba(206,208,216,0.7), 0px -12px 16px 0px rgba(255,255,255,0.82);
-          color: #1A1A1A;
+          box-shadow: none;
+          color: #1E3A2E;
           cursor: pointer;
           display: inline-flex;
           height: 56px;
@@ -425,14 +425,23 @@ export default function AnwendungSection() {
           }
           .anw-card-resp {
             height: clamp(300px, 82vw, 360px) !important;
-            border: 0 !important;
+            border: 1px solid rgba(61,92,74,0.12) !important;
             box-shadow: none !important;
             min-height: 0;
             scroll-snap-align: center;
             width: 100%;
           }
+          .anw-card-resp::after {
+            border: 1px solid rgba(61,92,74,0.16);
+            border-radius: inherit;
+            content: "";
+            inset: 0;
+            pointer-events: none;
+            position: absolute;
+            z-index: 4;
+          }
           .anw-card-label {
-            background: linear-gradient(180deg, rgba(250,245,234,0) 0%, rgba(250,245,234,0.88) 76%, rgba(250,245,234,0.98) 100%) !important;
+            background: linear-gradient(180deg, rgba(250,245,234,0) 0%, rgba(250,245,234,0.78) 72%, rgba(250,245,234,0.9) 100%) !important;
           }
           .anw-card-label h3 {
             color: #1A1A1A !important;
