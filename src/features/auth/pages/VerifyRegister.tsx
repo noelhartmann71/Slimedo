@@ -206,8 +206,8 @@ export default function VerifyRegister() {
                 disabled={!isComplete || mutation.isPending}
                 className={`w-full h-14 font-bold text-base rounded-2xl shadow-none transition-all duration-300 ${
                   isComplete && !mutation.isPending
-                    ? "bg-[#29574E] text-white hover:bg-[#1B433B] cursor-pointer"
-                    : "bg-[#F8FAFC] text-[#CBD5E1] border border-[#F1F5F9] cursor-not-allowed"
+                    ? "cursor-pointer"
+                    : "bg-neutral-50 text-neutral-300 border border-neutral-100 cursor-not-allowed"
                 }`}
               >
                 {mutation.isPending ? (
@@ -245,7 +245,7 @@ export default function VerifyRegister() {
                 <Button
                   variant="outline"
                   type="button"
-                  className="w-14 h-14 p-0 rounded-xl border-[#E2E8F0] hover:bg-slate-50 flex items-center justify-center shadow-sm bg-white!"
+                  className="w-14 h-14 p-0 rounded-xl border-neutral-200 hover:bg-neutral-50 flex items-center justify-center shadow-sm bg-white!"
                 >
                   <GoogleIcon />
                 </Button>

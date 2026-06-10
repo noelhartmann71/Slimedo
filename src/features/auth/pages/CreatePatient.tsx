@@ -446,8 +446,8 @@ const CreatePatient = () => {
                     disabled={mutation.isPending}
                     className={`w-full h-15 font-bold text-base rounded-2xl shadow-none transition-all duration-300 mt-4 flex items-center justify-center ${
                       isFormValid && !mutation.isPending
-                        ? "bg-[#29574E] text-white hover:bg-[#1B433B] cursor-pointer"
-                        : "bg-[#F8FAFC] text-[#CBD5E1] border border-[#F1F5F9] cursor-not-allowed"
+                        ? "cursor-pointer"
+                        : "bg-neutral-50 text-neutral-300 border border-neutral-100 cursor-not-allowed"
                     }`}
                   >
                     {mutation.isPending ? (

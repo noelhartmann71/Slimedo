@@ -227,8 +227,8 @@ const PharmacyDashboardLogin = () => {
                     disabled={loginMutation.isPending}
                     className={`w-full mt-6 h-14 font-bold text-base rounded-2xl shadow-none transition-all duration-300 ${
                       isFormFilled
-                        ? "bg-[#29574E]! text-white! hover:bg-[#003569] cursor-pointer"
-                        : "bg-[#F8FAFC] text-[#CBD5E1] border border-[#F1F5F9] cursor-not-allowed"
+                        ? "cursor-pointer"
+                        : "bg-neutral-50 text-neutral-300 border border-neutral-100 cursor-not-allowed"
                     }`}
                   >
                     {loginMutation.isPending ? "Anmeldung..." : "Anmelden"}

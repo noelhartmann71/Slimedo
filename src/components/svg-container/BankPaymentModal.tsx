@@ -181,7 +181,7 @@ export default function BankPaymentModal({
             <Button
               type="submit"
               disabled={isPending}
-              className="w-full bg-[#2D6B61]! hover:bg-[#1B4F48]! text-white! cursor-pointer"
+              className="w-full cursor-pointer"
             >
               {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Banküberweisung bestätigen
