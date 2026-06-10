@@ -1018,7 +1018,7 @@ export default function PrivacySection() {
 
         @media (max-width: 639px) {
           .priv-section {
-            padding: 80px 0 92px !important;
+            padding: 44px 0 52px !important;
           }
 
           .priv-inner {
@@ -1027,7 +1027,7 @@ export default function PrivacySection() {
 
           .priv-header {
             text-align: center;
-            margin-bottom: 44px !important;
+            margin-bottom: 28px !important;
           }
 
           .priv-hl-resp {

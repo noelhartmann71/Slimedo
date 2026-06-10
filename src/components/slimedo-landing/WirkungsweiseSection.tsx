@@ -69,6 +69,7 @@ export default function WirkungsweiseSection() {
     <section
       ref={ref}
       id="wirk"
+      className="wirk-section-resp"
       style={{
         background: '#FAF5EA',
         padding: 'clamp(72px, 5.88vw, 130px) 40px clamp(78px, 6.38vw, 143px)',
@@ -251,6 +252,7 @@ export default function WirkungsweiseSection() {
           .wirk-hl-resp { font-size: 48px !important; }
         }
         @media (max-width: 640px) {
+          .wirk-section-resp { padding: 44px 16px !important; }
           .wirk-grid-resp { grid-template-columns: 1fr !important; gap: 10px !important; }
           .wirk-hl-resp { font-size: 34px !important; }
           .wirk-card-resp {

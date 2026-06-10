@@ -810,6 +810,8 @@ export default function WarumWirSection() {
           .warum-hl-resp { font-size: 48px !important; }
         }
         @media (max-width: 640px) {
+          .warum-section-resp { padding: 44px 0 !important; }
+          .warum-header-resp { margin-bottom: 28px !important; }
           .warum-grid-resp { grid-template-columns: 1fr !important; gap: 12px !important; }
           .warum-hl-resp  { font-size: 30px !important; }
         }

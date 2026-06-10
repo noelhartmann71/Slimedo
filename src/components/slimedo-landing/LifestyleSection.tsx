@@ -41,6 +41,7 @@ export default function LifestyleSection() {
     <section
       ref={ref}
       id="slimedo"
+      className="lifestyle-section-resp"
       style={{ background: '#F5EEDB', padding: 'clamp(54px, 4.38vw, 100px) 0 clamp(42px, 3.5vw, 80px)', overflow: 'hidden' }}
     >
       <div style={{ maxWidth: 1800, margin: '0 auto', padding: '0 40px' }}>
@@ -129,6 +130,8 @@ export default function LifestyleSection() {
       </div>
       <style>{`
         @media (max-width: 640px) {
+          .lifestyle-section-resp { padding: 36px 0 28px !important; }
+          .lifestyle-hl-resp { margin-bottom: 24px !important; }
           .collage-grid-resp {
             grid-template-columns: 1fr !important;
             padding: 0 12px !important;

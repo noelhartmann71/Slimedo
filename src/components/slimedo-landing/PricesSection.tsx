@@ -601,6 +601,9 @@ export default function PricesSection() {
         }
         .ps-mobile-stage { display: none; }
 
+        @media (max-width: 640px) {
+          .ps-section { padding: 44px 0 !important; }
+        }
         @media (max-width: 560px) {
           .ps-section { overflow: visible !important; }
           .ps-wrap { padding: 0 16px !important; }

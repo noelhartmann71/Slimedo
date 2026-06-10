@@ -134,6 +134,7 @@ export default function FaqSection() {
     <section
       ref={ref}
       id="faq"
+      className="faq-section-resp"
       style={{ background: '#FFFDF7', padding: 'clamp(48px, 5vw, 100px) 0' }}
     >
       {/* Header */}
@@ -448,6 +449,7 @@ export default function FaqSection() {
       </div>
       <style>{`
         @media (max-width: 640px) {
+          .faq-section-resp { padding: 36px 0 !important; }
           .faq-hl-resp { font-size: 32px !important; }
         }
       `}</style>

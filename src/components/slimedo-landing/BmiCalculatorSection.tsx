@@ -15,6 +15,7 @@ export default function BmiCalculatorSection() {
   return (
     <section
       id="potenzial"
+      className="bmi-section-resp"
       style={{
         background: '#F5EEDB',
         padding: 'clamp(72px, 5.88vw, 130px) 0 clamp(60px, 4.88vw, 110px)',
@@ -579,6 +580,7 @@ export default function BmiCalculatorSection() {
         .bmi-bg-photo-mobile-cell { display: none; }
 
         @media (max-width: 640px) {
+          .bmi-section-resp { padding: 44px 0 !important; }
           .bmi-hl-resp { font-size: 32px !important; }
           .bmi-stat-num-resp { font-size: 52px !important; }
           .bmi-stat-card-resp {
