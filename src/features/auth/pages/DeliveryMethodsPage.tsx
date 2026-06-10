@@ -40,7 +40,7 @@ export default function DeliveryMethodsPage() {
     <div className="bg-[#f7f8f6] min-h-screen flex font-inter">
       {/* Header */}
       <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-3 sm:px-6 py-4 flex items-center justify-between z-50">
-        <button className="text-[#1B433B] text-base font-medium">
+        <button className="text-deep text-base font-medium">
           <div className="flex items-center gap-3">
             <MedizinischerFragebogenIcon />
             Medizinischer Fragebogen
@@ -163,7 +163,7 @@ export default function DeliveryMethodsPage() {
               {/* Order button */}
               <button
                 onClick={handleSubmit}
-                className="w-full bg-primary hover:bg-[#16302b] text-white rounded-lg py-4 text-[16px] font-medium transition cursor-pointer"
+                className="w-full bg-primary hover:bg-primary-hover text-white rounded-lg py-4 text-[16px] font-medium transition cursor-pointer"
               >
                 Bestellen und bezahlen €19,00
               </button>
@@ -177,7 +177,7 @@ export default function DeliveryMethodsPage() {
               <h2 className="text-2xl font-medium text-[#000000]">
                 Bestellübersicht
               </h2>
-              <button className="text-base text-[#1B433B] font-semibold hover:underline cursor-pointer">
+              <button className="text-base text-deep font-semibold hover:underline cursor-pointer">
                 Details ausblenden
               </button>
             </div>
@@ -195,7 +195,7 @@ export default function DeliveryMethodsPage() {
                 <p className="text-[14px] text-[#6B7280] mb-2">
                   Versandkosten
                 </p>
-                <span className="text-base text-[#1B433B] font-semibold">
+                <span className="text-base text-deep font-semibold">
                   Ausstehend
                 </span>
               </div>

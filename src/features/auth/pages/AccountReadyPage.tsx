@@ -54,7 +54,7 @@ export default function AccountReadyPage() {
             className="flex items-center gap-1 text-[13px] text-gray-600 hover:text-gray-900 cursor-pointer"
           >
             <BackArrowIconSvg />
-            <span className="text-[#227C31] font-medium text-xs lg:text-base">
+            <span className="text-sage font-medium text-xs lg:text-base">
               Zurück
             </span>
           </button>
@@ -64,7 +64,7 @@ export default function AccountReadyPage() {
             <div className="flex items-center gap-0.5">
               <div
                 onClick={() => navigate("/product/select")}
-                className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-full bg-sage text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
               >
                 <CheckIcon size={14} />
               </div>
@@ -75,7 +75,7 @@ export default function AccountReadyPage() {
             <div className="flex items-center gap-0.5">
               <div
                 onClick={() => navigate("/questionnaire/medical")}
-                className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 rounded-full bg-sage text-white text-[10px] font-bold flex items-center justify-center cursor-pointer"
               >
                 <CheckIcon size={14} />
               </div>
@@ -84,10 +84,10 @@ export default function AccountReadyPage() {
 
             {/* Step 3 – active */}
             <div className="flex items-center gap-0.5">
-              <div className="w-8 h-8 rounded-full bg-[#227C31] text-white text-[14px] font-bold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-sage text-white text-[14px] font-bold flex items-center justify-center">
                 3
               </div>
-              <span className="text-[16px] font-medium text-[#227C31] ml-1">
+              <span className="text-[16px] font-medium text-sage ml-1">
                 Wichtige Informationen
               </span>
             </div>
@@ -220,7 +220,7 @@ export default function AccountReadyPage() {
               <label
                 className={`flex-1 flex items-center gap-3 p-3 border rounded-lg cursor-pointer transition-all ${
                   agreed === "yes"
-                    ? "border-[#1d3a35] bg-[#E8ECEB]"
+                    ? "border-deep bg-[#E8ECEB]"
                     : "border-gray-200 hover:bg-gray-50 bg-white"
                 }`}
               >
@@ -233,7 +233,7 @@ export default function AccountReadyPage() {
                     setAgreed("yes");
                     localStorage.setItem("treatment_is_agree", "1");
                   }}
-                  className="w-5 h-5 cursor-pointer accent-[#1d3a35]"
+                  className="w-5 h-5 cursor-pointer accent-deep"
                 />
                 <span
                   className={`text-[12px] font-medium ${
@@ -250,7 +250,7 @@ export default function AccountReadyPage() {
           <button
             onClick={() => navigate("/auth/register")}
             disabled={agreed !== "yes"}
-            className="w-full bg-[#227C31] hover:bg-[#16302b] disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-3.5 text-[14px] font-medium transition cursor-pointer"
+            className="w-full bg-sage hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl py-3.5 text-[14px] font-medium transition cursor-pointer"
           >
             Weiter
           </button>

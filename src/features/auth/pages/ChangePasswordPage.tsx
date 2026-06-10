@@ -95,7 +95,7 @@ const ChangePasswordPage = () => {
     <div className="flex flex-col md:flex-row min-h-screen bg-[#E2E8F0] md:h-screen p-6 font-inter">
       <div className="w-full bg-white rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row border border-white">
         {/* Sidebar Section */}
-        <div className="w-full md:w-120 bg-[#227C31] p-7 flex flex-col items-center justify-between text-white sticky top-0">
+        <div className="w-full md:w-120 bg-sage p-7 flex flex-col items-center justify-between text-white sticky top-0">
           <div>
             {/* Logo */}
             <div className="flex items-center gap-3 mb-12">
@@ -194,7 +194,7 @@ const ChangePasswordPage = () => {
                             <Input
                               type={showPassword ? "text" : "password"}
                               placeholder="Passwort eingeben"
-                              className="pl-12 pr-12 h-14 rounded-xl border-[#E2E8F0] focus:border-[#01478F] focus-visible:ring-0 text-base placeholder:text-[#94A3B8] bg-white!"
+                              className="pl-12 pr-12 h-14 rounded-xl border-[#E2E8F0] focus:border-sage focus-visible:ring-0 text-base placeholder:text-[#94A3B8] bg-white!"
                               {...field}
                             />
                             <button
@@ -229,7 +229,7 @@ const ChangePasswordPage = () => {
                             <Input
                               type={showConfirmPassword ? "text" : "password"}
                               placeholder="Passwort bestätigen"
-                              className="pl-12 pr-12 h-14 rounded-xl border-[#E2E8F0] focus:border-[#01478F] focus-visible:ring-0 text-base placeholder:text-[#94A3B8] bg-white!"
+                              className="pl-12 pr-12 h-14 rounded-xl border-[#E2E8F0] focus:border-sage focus-visible:ring-0 text-base placeholder:text-[#94A3B8] bg-white!"
                               {...field}
                             />
                             <button
@@ -255,7 +255,7 @@ const ChangePasswordPage = () => {
                   <div className="flex items-end justify-end">
                     <Link
                       to="/auth/forgot-password"
-                      className="text-xs font-medium text-[#01478F] hover:underline select-none"
+                      className="text-xs font-medium text-sage hover:underline select-none"
                     >
                       Passwort vergessen?
                     </Link>
@@ -303,7 +303,7 @@ const ChangePasswordPage = () => {
                   Sie haben noch kein Konto?{" "}
                   <Link
                     to="/auth/create-patient"
-                    className="text-[#01478F] font-bold hover:underline ml-1"
+                    className="text-sage font-bold hover:underline ml-1"
                   >
                     Konto erstellen
                   </Link>

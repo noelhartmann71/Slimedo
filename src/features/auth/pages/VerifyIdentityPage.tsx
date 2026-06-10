@@ -73,7 +73,7 @@ export default function VerifyIdentityPage() {
           <div className="flex items-center gap-0.5 ml-1">
             {/* Step 1 – completed */}
             <div className="flex items-center gap-0.5">
-              <div className="w-4.5 h-4.5 rounded-full bg-[#1d3a35] text-white text-[10px] font-bold flex items-center justify-center">
+              <div className="w-4.5 h-4.5 rounded-full bg-deep text-white text-[10px] font-bold flex items-center justify-center">
                 <CheckIcon size={8} />
               </div>
               <span className="text-[11px] text-gray-400 mx-1.5">›</span>
@@ -81,7 +81,7 @@ export default function VerifyIdentityPage() {
 
             {/* Step 2 – active */}
             <div className="flex items-center gap-0.5">
-              <div className="w-4.5 h-4.5 rounded-full bg-[#1d3a35] text-white text-[10px] font-bold flex items-center justify-center">
+              <div className="w-4.5 h-4.5 rounded-full bg-deep text-white text-[10px] font-bold flex items-center justify-center">
                 4
               </div>
               <span className="text-[12px] font-medium text-gray-800 ml-1">
@@ -142,7 +142,7 @@ export default function VerifyIdentityPage() {
                   height="20"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#1d3a35"
+                  stroke="#1E3A2E"
                   strokeWidth="2"
                 >
                   <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -169,7 +169,7 @@ export default function VerifyIdentityPage() {
               onDrop={handleDrop}
               className={`relative h-55 rounded-2xl border-2 border-dashed transition-colors flex flex-col items-center justify-center p-6 ${
                 dragActive
-                  ? "border-[#1d3a35] bg-[#f8faf9]"
+                  ? "border-deep bg-[#f8faf9]"
                   : "border-[#E5E7EB]"
               }`}
             >
@@ -179,7 +179,7 @@ export default function VerifyIdentityPage() {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#1d3a35"
+                  stroke="#1E3A2E"
                   strokeWidth="2"
                 >
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -223,7 +223,7 @@ export default function VerifyIdentityPage() {
               </button>
               <button
                 onClick={() => navigate("/auth/recommendation")}
-                className="flex-1 px-6 py-3.5 bg-[#1d3a35] text-white rounded-xl text-[14px] font-semibold hover:bg-[#16302b] transition cursor-pointer"
+                className="flex-1 px-6 py-3.5 bg-deep text-white rounded-xl text-[14px] font-semibold hover:bg-primary-hover transition cursor-pointer"
               >
                 Import
               </button>

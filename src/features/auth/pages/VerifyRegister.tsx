@@ -108,7 +108,7 @@ export default function VerifyRegister() {
     <div className="flex flex-col md:flex-row min-h-screen bg-[#E2E8F0] md:h-screen p-6 font-inter">
       <div className="w-full bg-white rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row border border-white">
         {/* Sidebar Section */}
-        <div className="w-full md:w-120 bg-[#1B433B] p-7 flex flex-col items-center justify-between text-white sticky top-0">
+        <div className="w-full md:w-120 bg-deep p-7 flex flex-col items-center justify-between text-white sticky top-0">
           <div>
             {/* Logo */}
             <div className="flex items-center gap-3 mb-12">
@@ -186,8 +186,8 @@ export default function VerifyRegister() {
                     onChange={(e) => handleChange(i, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(i, e)}
                     className={`w-full h-14 text-center text-lg font-semibold border rounded-xl outline-none transition
-                      ${d ? "border-[#1B433B] bg-white ring-1 ring-[#1B433B]" : "border-[#E2E8F0] bg-white"}
-                      focus:border-[#1B433B] focus:ring-1 focus:ring-[#1B433B]`}
+                      ${d ? "border-deep bg-white ring-1 ring-deep" : "border-[#E2E8F0] bg-white"}
+                      focus:border-deep focus:ring-1 focus:ring-deep`}
                   />
                 ))}
               </div>
@@ -218,7 +218,7 @@ export default function VerifyRegister() {
               </Button>
 
               <button
-                className="w-full text-center text-sm text-[#64748B] hover:text-[#1B433B] font-medium py-4 cursor-pointer bg-transparent border-none mt-2 transition-colors"
+                className="w-full text-center text-sm text-[#64748B] hover:text-deep font-medium py-4 cursor-pointer bg-transparent border-none mt-2 transition-colors"
                 onClick={() => {
                   setTimer(TIMER_START);
                   setDigits(Array(CODE_LENGTH).fill(""));
@@ -256,7 +256,7 @@ export default function VerifyRegister() {
                   Need to fix it?{" "}
                   <Link
                     to="/auth/create-patient"
-                    className="text-[#1B433B] font-bold hover:underline ml-1"
+                    className="text-deep font-bold hover:underline ml-1"
                   >
                     Update Email
                   </Link>

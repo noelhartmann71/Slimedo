@@ -86,7 +86,7 @@ const CreatePatient = () => {
     <div className="flex flex-col md:flex-row min-h-screen bg-[#E2E8F0] md:h-screen p-6 font-inter">
       <div className="w-full bg-white rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row border border-white h-full">
         {/* Sidebar Section */}
-        <div className="w-full md:w-120 bg-[#227C31] p-7 flex flex-col items-center justify-between text-white sticky top-0 h-full">
+        <div className="w-full md:w-120 bg-sage p-7 flex flex-col items-center justify-between text-white sticky top-0 h-full">
           <div>
             {/* Logo */}
             <div className="flex items-center gap-3 mb-12">
@@ -145,7 +145,7 @@ const CreatePatient = () => {
 
               {/* Speech Bubble - Absolutely positioned */}
               <div className="absolute left-[82%] top-8 z-20">
-                <div className="bg-[#F4F1E7] text-[#0B1C19] text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(238,66,215,0.3)] whitespace-nowrap">
+                <div className="bg-[#F4F1E7] text-dark text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(238,66,215,0.3)] whitespace-nowrap">
                   Schön dich zu sehen!
                 </div>
               </div>
@@ -185,7 +185,7 @@ const CreatePatient = () => {
                               <CircleUserRound className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
                               <Input
                                 placeholder="Vorname eingeben"
-                                className="pl-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
+                                className="pl-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-sage! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
                                 {...field}
                               />
                             </div>
@@ -207,7 +207,7 @@ const CreatePatient = () => {
                               <CircleUserRound className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
                               <Input
                                 placeholder="Nachname eingeben"
-                                className="pl-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! bg-white! focus-visible:ring-0! text-base placeholder:text-[#94A3B8]"
+                                className="pl-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-sage! bg-white! focus-visible:ring-0! text-base placeholder:text-[#94A3B8]"
                                 {...field}
                               />
                             </div>
@@ -230,7 +230,7 @@ const CreatePatient = () => {
                           <FormControl>
                             <Input
                               placeholder="E-Mail eingeben"
-                              className="h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base bg-white! placeholder:text-[#94A3B8]"
+                              className="h-14! rounded-xl! border-[#E2E8F0]! focus:border-sage! focus-visible:ring-0! text-base bg-white! placeholder:text-[#94A3B8]"
                               {...field}
                             />
                           </FormControl>
@@ -254,7 +254,7 @@ const CreatePatient = () => {
                                     <Button
                                       variant="outline"
                                       role="combobox"
-                                      className="flex! items-center! justify-between! gap-2! px-4! border! border-[#E2E8F0]! rounded-xl! h-14! bg-white! cursor-pointer! min-w-32! w-auto! focus:ring-0! focus:ring-offset-0! focus:border-[#01478F]! shadow-none! hover:bg-white! hover:border-[#01478F]! "
+                                      className="flex! items-center! justify-between! gap-2! px-4! border! border-[#E2E8F0]! rounded-xl! h-14! bg-white! cursor-pointer! min-w-32! w-auto! focus:ring-0! focus:ring-offset-0! focus:border-sage! shadow-none! hover:bg-white! hover:border-sage! "
                                     >
                                       <div className="flex items-center gap-2">
                                         {(() => {
@@ -330,7 +330,7 @@ const CreatePatient = () => {
                                               </span>
                                               <Check
                                                 className={cn(
-                                                  "ml-auto h-4 w-4 text-[#01478F]",
+                                                  "ml-auto h-4 w-4 text-sage",
                                                   field.value === c.iso
                                                     ? "opacity-100"
                                                     : "opacity-0",
@@ -356,7 +356,7 @@ const CreatePatient = () => {
                               <FormControl>
                                 <Input
                                   placeholder="Telefonnummer eingeben"
-                                  className="h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base placeholder:text-[#CBD5E1] bg-white!"
+                                  className="h-14! rounded-xl! border-[#E2E8F0]! focus:border-sage! focus-visible:ring-0! text-base placeholder:text-[#CBD5E1] bg-white!"
                                   {...field}
                                 />
                               </FormControl>
@@ -383,13 +383,13 @@ const CreatePatient = () => {
                               <Input
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Passwort eingeben"
-                                className="pl-12! pr-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
+                                className="pl-12! pr-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-sage! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
                                 {...field}
                               />
                               <button
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#01478F]"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-sage"
                               >
                                 {showPassword ? (
                                   <EyeOff className="w-5 h-5" />
@@ -417,7 +417,7 @@ const CreatePatient = () => {
                               <Input
                                 type={showConfirmPassword ? "text" : "password"}
                                 placeholder="Passwort bestätigen"
-                                className="pl-12! pr-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-[#01478F]! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
+                                className="pl-12! pr-12! h-14! rounded-xl! border-[#E2E8F0]! focus:border-sage! focus-visible:ring-0! text-base placeholder:text-[#94A3B8] bg-white!"
                                 {...field}
                               />
                               <button
@@ -425,7 +425,7 @@ const CreatePatient = () => {
                                 onClick={() =>
                                   setShowConfirmPassword(!showConfirmPassword)
                                 }
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#01478F]"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-sage"
                               >
                                 {showConfirmPassword ? (
                                   <EyeOff className="w-5 h-5" />
@@ -462,7 +462,7 @@ const CreatePatient = () => {
                       Haben Sie bereits ein Konto?{" "}
                       <Link
                         to="/auth/login"
-                        className="text-[#01478F] font-bold hover:underline ml-1"
+                        className="text-sage font-bold hover:underline ml-1"
                       >
                         Anmelden
                       </Link>

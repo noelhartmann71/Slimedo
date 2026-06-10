@@ -121,7 +121,7 @@ export default function RecommendationPage() {
                   key={i}
                   className="flex items-center gap-3 text-base text-[#6B7280]"
                 >
-                  <span className="w-1.5 h-1.5 bg-[#1D3A35] rounded-full shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-deep rounded-full shrink-0" />
                   {text}
                 </li>
               ))}
@@ -168,7 +168,7 @@ export default function RecommendationPage() {
 
             <button
               onClick={() => navigate("/auth/register")}
-              className="w-full bg-[#29574E] text-white rounded-xl py-4 font-medium text-[15px] mt-6 hover:bg-[#16302b] transition shadow-lg"
+              className="w-full bg-sage text-white rounded-xl py-4 font-medium text-[15px] mt-6 hover:bg-primary-hover transition shadow-lg"
             >
               To checkout
             </button>
@@ -181,7 +181,7 @@ export default function RecommendationPage() {
         {/* SUITABLE ALTERNATIVES CARD */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
           <div className="flex items-center gap-3 mb-6 font-medium text-black text-lg">
-            <span className="w-7 h-7 bg-[#29574E] rounded-full flex items-center justify-center text-white">
+            <span className="w-7 h-7 bg-sage rounded-full flex items-center justify-center text-white">
               ✓
             </span>
             You are also suitable for
@@ -222,7 +222,7 @@ export default function RecommendationPage() {
                                   product.dosage[0].quantity}
                               </p>
                               {index === 0 && (
-                                <span className="px-2 py-1 bg-[#29574E] text-white text-[9px] font-medium rounded-xl">
+                                <span className="px-2 py-1 bg-sage text-white text-[9px] font-medium rounded-xl">
                                   Best price
                                 </span>
                               )}
@@ -433,7 +433,7 @@ export default function RecommendationPage() {
           </div>
           <button
             onClick={() => navigate("/auth/register")}
-            className="w-full bg-[#1D3A35] text-white rounded-xl py-4 font-bold text-[15px] mt-8 hover:bg-[#16302b] transition shadow-lg"
+            className="w-full bg-deep text-white rounded-xl py-4 font-bold text-[15px] mt-8 hover:bg-primary-hover transition shadow-lg"
           >
             To checkout
           </button>

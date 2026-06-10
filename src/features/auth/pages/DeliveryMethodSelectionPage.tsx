@@ -236,7 +236,7 @@ export default function DeliveryMethodSelectionPage() {
       <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-6 py-4 flex items-center justify-between z-50">
         <button
           onClick={() => navigate(-1)}
-          className="text-[#1B433B] text-xs sm:text-base font-medium cursor-pointer"
+          className="text-deep text-xs sm:text-base font-medium cursor-pointer"
         >
           <div className="flex items-center gap-3">
             <MedizinischerFragebogenIcon />
@@ -327,7 +327,7 @@ export default function DeliveryMethodSelectionPage() {
                     <div
                       className={`flex h-3 w-3 items-center justify-center rounded-full border ${
                         selectedMethod === "partner"
-                          ? "border-[#29574E] bg-[#227C31]"
+                          ? "border-sage bg-sage"
                           : "border-gray-300 bg-white"
                       }`}
                     >
@@ -339,13 +339,13 @@ export default function DeliveryMethodSelectionPage() {
                   {/* This is the partner pharmacy option */}
                   <div className="flex flex-1 flex-col">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3 text-[#227C31]">
+                      <div className="flex items-center gap-3 text-sage">
                         <HandshakeIconSvg />
                         <span className="text-base font-medium tracking-tight">
                           Partnerapotheke
                         </span>
                       </div>
-                      <span className="rounded-full bg-[#227C31] px-4 py-2 text-xs font-medium text-white shadow-sm">
+                      <span className="rounded-full bg-sage px-4 py-2 text-xs font-medium text-white shadow-sm">
                         Empfohlen
                       </span>
                     </div>
@@ -358,21 +358,21 @@ export default function DeliveryMethodSelectionPage() {
                         {pharmacyData?.partner?.city ||
                           "Plauener Str. 163-165, 13053 Berlin"}
                       </p>
-                      <div className="flex items-center gap-2 pt-2 text-[#227C31]">
+                      <div className="flex items-center gap-2 pt-2 text-sage">
                         <Check size={18} strokeWidth={2.5} />
-                        <span className="text-[12px] font-medium text-[#227C31]">
+                        <span className="text-[12px] font-medium text-sage">
                           Schnelle & sichere Übermittlung
                         </span>
                       </div>
-                      <div className="flex items-center gap-2 pt-2 text-[#227C31]">
+                      <div className="flex items-center gap-2 pt-2 text-sage">
                         <Check size={18} strokeWidth={2.5} />
-                        <span className="text-[12px] font-medium text-[#227C31]">
+                        <span className="text-[12px] font-medium text-sage">
                           Versand oder Abholung
                         </span>
                       </div>
-                      <div className="flex items-center gap-2 pt-2 text-[#227C31]">
+                      <div className="flex items-center gap-2 pt-2 text-sage">
                         <Check size={18} strokeWidth={2.5} />
-                        <span className="text-[12px] font-medium text-[#227C31]">
+                        <span className="text-[12px] font-medium text-sage">
                           Lieferung in 48 Stunden (Mo.-Fr.)
                         </span>
                       </div>
@@ -392,7 +392,7 @@ export default function DeliveryMethodSelectionPage() {
                       }}
                       className={`rounded-lg border px-3 py-4 text-left text-[12px] font-medium transition ${
                         partnerDeliveryMode === "shipping"
-                          ? "border-[#29574E] bg-[#E8ECEB] text-[#29574E]"
+                          ? "border-sage bg-[#E8ECEB] text-sage"
                           : "border-gray-200 bg-white text-[#4B5563] hover:border-[#B8C5C2]"
                       }`}
                     >
@@ -406,7 +406,7 @@ export default function DeliveryMethodSelectionPage() {
                       }}
                       className={`rounded-lg border px-3 py-4 text-left text-[12px] font-medium transition ${
                         partnerDeliveryMode === "pickup"
-                          ? "border-[#29574E] bg-[#E8ECEB] text-[#29574E]"
+                          ? "border-sage bg-[#E8ECEB] text-sage"
                           : "border-gray-200 bg-white text-[#4B5563] hover:border-[#B8C5C2]"
                       }`}
                     >
@@ -429,7 +429,7 @@ export default function DeliveryMethodSelectionPage() {
                       <div
                         className={`flex h-3 w-3 items-center justify-center rounded-full border ${
                           selectedMethod === "other"
-                            ? "border-[#29574E] bg-[#29574E]"
+                            ? "border-sage bg-sage"
                             : "border-gray-300 bg-white"
                         }`}
                       >
@@ -440,7 +440,7 @@ export default function DeliveryMethodSelectionPage() {
                     </div>
                     <div className="flex flex-1 flex-col sm:flex-row sm:items-start sm:justify-between">
                       <div className="space-y-1">
-                        <span className="font-medium text-base text-[#29574E]">
+                        <span className="font-medium text-base text-sage">
                           Andere Apotheke
                         </span>
                         {selectedMethod !== "other" && (
@@ -466,7 +466,7 @@ export default function DeliveryMethodSelectionPage() {
                             placeholder="z.B. Stadt Apotheke Berlin"
                             value={pharmacyName}
                             onChange={(e) => setPharmacyName(e.target.value)}
-                            className="w-full rounded-lg border border-gray-200 bg-white/50 p-3 text-sm focus:border-[#29574E] focus:outline-none focus:ring-1 focus:ring-[#29574E]/20"
+                            className="w-full rounded-lg border border-gray-200 bg-white/50 p-3 text-sm focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage/20"
                           />
                         </div>
 
@@ -479,7 +479,7 @@ export default function DeliveryMethodSelectionPage() {
                             placeholder="apotheke@beispiel.de"
                             value={pharmacyEmail}
                             onChange={(e) => setPharmacyEmail(e.target.value)}
-                            className="w-full rounded-lg border border-gray-200 bg-white/50 p-3 text-sm focus:border-[#29574E] focus:outline-none focus:ring-1 focus:ring-[#29574E]/20"
+                            className="w-full rounded-lg border border-gray-200 bg-white/50 p-3 text-sm focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage/20"
                           />
                         </div>
                       </div>
@@ -487,7 +487,7 @@ export default function DeliveryMethodSelectionPage() {
                       <button
                         type="button"
                         onClick={() => setShowPharmacyModal(true)}
-                        className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#29574E]/30 bg-white/50 py-3 text-sm font-medium text-[#29574E] transition hover:bg-white"
+                        className="flex w-full items-center justify-center gap-2 rounded-lg border border-sage/30 bg-white/50 py-3 text-sm font-medium text-sage transition hover:bg-white"
                       >
                         <Search size={16} />
                         Finde Apotheken in der Nähe
@@ -501,7 +501,7 @@ export default function DeliveryMethodSelectionPage() {
                             onChange={(e) =>
                               setConsentTransfer(e.target.checked)
                             }
-                            className="mt-1 h-4 w-4 rounded border-gray-300 text-[#29574E] focus:ring-[#29574E]"
+                            className="mt-1 h-4 w-4 rounded border-gray-300 text-sage focus:ring-sage"
                           />
                           <p className="text-[11px] leading-relaxed text-[#6B7280]">
                             Ich willige ein, dass mein Rezept an die von mir
@@ -515,7 +515,7 @@ export default function DeliveryMethodSelectionPage() {
                             onChange={(e) =>
                               setConsentEmailVerified(e.target.checked)
                             }
-                            className="mt-1 h-4 w-4 rounded border-gray-300 text-[#29574E] focus:ring-[#29574E]"
+                            className="mt-1 h-4 w-4 rounded border-gray-300 text-sage focus:ring-sage"
                           />
                           <p className="text-[11px] leading-relaxed text-[#6B7280]">
                             Ich bestätige, dass ich die E-Mail-Adresse der
@@ -541,7 +541,7 @@ export default function DeliveryMethodSelectionPage() {
                       <div
                         className={`flex h-3 w-3 items-center justify-center rounded-full border ${
                           selectedMethod === "free"
-                            ? "border-[#29574E] bg-[#29574E]"
+                            ? "border-sage bg-sage"
                             : "border-gray-300 bg-white"
                         }`}
                       >
@@ -552,7 +552,7 @@ export default function DeliveryMethodSelectionPage() {
                     </div>
                     <div className="flex flex-1 flex-col sm:flex-row sm:items-start sm:justify-between">
                       <div className="space-y-1">
-                        <span className="font-medium text-base text-[#29574E]">
+                        <span className="font-medium text-base text-sage">
                           Freie Einlösung
                         </span>
                         <p className="text-sm text-[#4B5563]">
@@ -600,7 +600,7 @@ export default function DeliveryMethodSelectionPage() {
                     id="consent"
                     checked={agreed}
                     onChange={(e) => setAgreed(e.target.checked)}
-                    className="mt-1 h-4 w-4 rounded border-gray-300 text-[#29574E] focus:ring-[#29574E] cursor-pointer"
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-sage focus:ring-sage cursor-pointer"
                   />
                   <label
                     htmlFor="consent"
@@ -640,7 +640,7 @@ export default function DeliveryMethodSelectionPage() {
                         pharmacyEmail &&
                         consentTransfer &&
                         consentEmailVerified))
-                      ? "bg-[#227C31] hover:bg-[#16302b] cursor-pointer"
+                      ? "bg-sage hover:bg-primary-hover cursor-pointer"
                       : "bg-gray-300 cursor-not-allowed"
                   }`}
                 >
@@ -657,7 +657,7 @@ export default function DeliveryMethodSelectionPage() {
                 <button
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className={`w-full mt-8 rounded-lg py-4 text-[16px] font-medium transition text-white bg-[#227C31] flex items-center justify-center gap-2 ${
+                  className={`w-full mt-8 rounded-lg py-4 text-[16px] font-medium transition text-white bg-sage flex items-center justify-center gap-2 ${
                     isSubmitting
                       ? "cursor-not-allowed opacity-80"
                       : "cursor-pointer"
@@ -687,7 +687,7 @@ export default function DeliveryMethodSelectionPage() {
               </h2>
               <button
                 onClick={() => setShowDetails(!showDetails)}
-                className="text-base text-[#227C31] font-semibold hover:underline cursor-pointer"
+                className="text-base text-sage font-semibold hover:underline cursor-pointer"
               >
                 {showDetails ? "Details ausblenden" : "Details anzeigen"}
               </button>
@@ -702,13 +702,13 @@ export default function DeliveryMethodSelectionPage() {
                     <p className="text-[14px] text-[#6B7280]">
                       {sessionStorage.getItem("product_name") || "Product Name"}
                     </p>
-                    <span className="text-[16px] font-medium text-[#227C31]">
+                    <span className="text-[16px] font-medium text-sage">
                       €{localStorage.getItem("medication_price") || "0.00"}
                     </span>
                   </div>
                   <div className="flex justify-between items-center mb-2">
                     <p className="text-[14px] text-[#6B7280]">Versandkosten</p>
-                    <span className="text-base text-[#227C31] font-semibold">
+                    <span className="text-base text-sage font-semibold">
                       {partnerDeliveryMode === "shipping" &&
                       selectedMethod === "partner"
                         ? `€${settings?.shipping_fee || "0.00"}`
@@ -726,7 +726,7 @@ export default function DeliveryMethodSelectionPage() {
                           onChange={(e) => setCouponCode(e.target.value)}
                           placeholder="Code eingeben"
                           disabled={couponApplied}
-                          className={`text-base text-[#1B433B] font-semibold border rounded px-2 py-1 focus:outline-none focus:border-primary ${
+                          className={`text-base text-deep font-semibold border rounded px-2 py-1 focus:outline-none focus:border-primary ${
                             couponApplied
                               ? "bg-gray-100 cursor-not-allowed"
                               : "border border-[#e5e7eb]"
@@ -743,7 +743,7 @@ export default function DeliveryMethodSelectionPage() {
                               ? "bg-gray-200 text-gray-500 cursor-not-allowed"
                               : couponApplied
                                 ? "bg-green-600 text-white"
-                                : "bg-[#227C31] text-white hover:bg-[#16302b]"
+                                : "bg-sage text-white hover:bg-primary-hover"
                           }`}
                         >
                           {couponLoading ? (
@@ -790,7 +790,7 @@ export default function DeliveryMethodSelectionPage() {
               <p className="text-[14px] text-muted-foreground">
                 Prescription Fee
               </p>
-              <span className="text-[16px] font-medium text-[#227C31]">
+              <span className="text-[16px] font-medium text-sage">
                 €{settings?.prescription_fee || "0.00"}
               </span>
             </div>
@@ -799,7 +799,7 @@ export default function DeliveryMethodSelectionPage() {
             {discountAmount > 0 && (
               <div className="mb-4 pb-4 border-b border-[#e5e7eb] flex justify-between items-center">
                 <p className="text-[14px] text-muted-foreground">Discount</p>
-                <span className="text-[16px] font-medium text-[#227C31]">
+                <span className="text-[16px] font-medium text-sage">
                   €{discountAmount.toFixed(2)}
                 </span>
               </div>
@@ -808,23 +808,23 @@ export default function DeliveryMethodSelectionPage() {
             {/* In total - always visible */}
             <div className="mb-6 pb-6">
               <div className="flex justify-between items-center">
-                <p className="text-lg font-medium text-[#227C31] mb-2">
+                <p className="text-lg font-medium text-sage mb-2">
                   In total
                 </p>
-                <p className="text-[20px] font-semibold text-[#227C31] mb-4">
+                <p className="text-[20px] font-semibold text-sage mb-4">
                   €{totalPrice.toFixed(2)}
                 </p>
               </div>
               <div className="space-y-2 text-[14px] text-muted-foreground">
                 <div className="flex justify-between">
                   <span>Due now</span>
-                  <span className="text-[#227C31] font-medium">
+                  <span className="text-sage font-medium">
                     €{Math.max(0, prescriptionFee - discountAmount).toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Payment at the pharmacy</span>
-                  <span className="text-[#227C31] font-medium">
+                  <span className="text-sage font-medium">
                     €{(medicationPrice + shippingFee).toFixed(2)}
                   </span>
                 </div>
@@ -860,7 +860,7 @@ export default function DeliveryMethodSelectionPage() {
             {/* Header */}
             <div className="mb-6 flex items-start justify-between">
               <div>
-                <h2 className="text-2xl font-semibold text-[#1a3330]">
+                <h2 className="text-2xl font-semibold text-deep">
                   Finde Apotheken in der Nähe
                 </h2>
                 <p className="mt-1 text-[15px] text-[#718096]">
@@ -895,7 +895,7 @@ export default function DeliveryMethodSelectionPage() {
                       className="rounded"
                     />
                   </div>
-                  <div className="h-3 w-3 rounded-full border-2 border-white bg-[#29574E]"></div>
+                  <div className="h-3 w-3 rounded-full border-2 border-white bg-sage"></div>
                 </div>
               </div>
 
@@ -908,12 +908,12 @@ export default function DeliveryMethodSelectionPage() {
                       onClick={() => setActivePharmacyId(pharmacy.place_id)}
                       className={`rounded-xl border-2 p-4 transition-all cursor-pointer ${
                         activePharmacyId === pharmacy.place_id
-                          ? "border-[#29574E] bg-[#E8F3F1]/30 ring-2 ring-[#29574E]/5"
+                          ? "border-sage bg-[#E8F3F1]/30 ring-2 ring-sage/5"
                           : "border-gray-100 bg-white hover:bg-gray-50"
                       }`}
                     >
                       <div className="flex justify-between">
-                        <h3 className="font-bold text-[#1a3330] leading-tight">
+                        <h3 className="font-bold text-deep leading-tight">
                           {pharmacy.name}
                         </h3>
                       </div>
@@ -1006,8 +1006,8 @@ export default function DeliveryMethodSelectionPage() {
                 }}
                 className={`w-full rounded-xl py-4 text-[16px] font-semibold text-white transition-all active:scale-[0.98] flex items-center justify-center gap-2 ${
                   isCreatingPharmacy
-                    ? "bg-[#29574E]/70 cursor-not-allowed"
-                    : "bg-[#29574E] hover:bg-[#1e4039]"
+                    ? "bg-sage/70 cursor-not-allowed"
+                    : "bg-sage hover:bg-deep"
                 }`}
               >
                 {isCreatingPharmacy ? (

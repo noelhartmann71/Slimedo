@@ -153,7 +153,7 @@ export default function RegisterDetailsPage() {
                   )}
                 </div>
                 <input
-                  className="h-12 flex-1 px-4 border border-gray-200 rounded-lg text-[14px] text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1d3a35]/10 focus:border-[#1d3a35] transition-all"
+                  className="h-12 flex-1 px-4 border border-gray-200 rounded-lg text-[14px] text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-deep/10 focus:border-deep transition-all"
                   type="tel"
                   placeholder="Geben Sie Ihre Telefonnummer ein"
                   value={form.phone}
@@ -189,7 +189,7 @@ export default function RegisterDetailsPage() {
             Haben Sie bereits ein Konto?{" "}
             <Link
               to="/auth/login"
-              className="text-[#1d3a35] font-semibold hover:underline"
+              className="text-deep font-semibold hover:underline"
             >
               Anmelden
             </Link>

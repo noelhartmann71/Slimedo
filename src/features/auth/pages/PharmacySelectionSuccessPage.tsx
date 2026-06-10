@@ -59,7 +59,7 @@ export default function PharmacySelectionSuccessPage() {
     <div className="bg-[#f7f8f6] min-h-screen font-inter">
       {/* Header */}
       <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-3 sm:px-6 py-4 flex items-center justify-between z-50">
-        <button className="text-[#1B433B] text-base font-medium">
+        <button className="text-deep text-base font-medium">
           <div className="flex items-center gap-0 sm:gap-3">
             <MedizinischerFragebogenIcon />
             Medizinischer Fragebogen
@@ -149,7 +149,7 @@ export default function PharmacySelectionSuccessPage() {
             </button>
             <button
               onClick={() => setShowBookingModal(true)}
-              className="flex-1 bg-[#1B433B] hover:bg-[#16302b] text-white rounded-lg py-3 text-[18px] font-medium transition cursor-pointer"
+              className="flex-1 bg-deep hover:bg-primary-hover text-white rounded-lg py-3 text-[18px] font-medium transition cursor-pointer"
             >
               Book Doctor Consultation
             </button>
@@ -198,7 +198,7 @@ export default function PharmacySelectionSuccessPage() {
                       <CalenderIcon />
                     </div>
                     <div>
-                      <span className="block text-base font-semibold text-[#1B433B]">
+                      <span className="block text-base font-semibold text-deep">
                         {d.day}
                       </span>
                       <span className="block text-sm text-[#4B5563] mt-0.5">
@@ -225,7 +225,7 @@ export default function PharmacySelectionSuccessPage() {
                 >
                   <div className="flex gap-3 items-center">
                     <ClockIcon />
-                    <span className="text-base font-medium text-[#1B433B]">
+                    <span className="text-base font-medium text-deep">
                       {t}
                     </span>
                   </div>
@@ -246,7 +246,7 @@ export default function PharmacySelectionSuccessPage() {
                 disabled={selectedDate === -1 || selectedTime === -1}
                 className={`flex-1 py-4 px-5 rounded-md text-base font-medium transition-colors ${
                   selectedDate !== -1 && selectedTime !== -1
-                    ? "bg-primary text-[#FFFFFF] hover:bg-[#16302b]"
+                    ? "bg-primary text-[#FFFFFF] hover:bg-primary-hover"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
               >
@@ -352,7 +352,7 @@ export default function PharmacySelectionSuccessPage() {
                   setShowConfirmationModal(false);
                   navigate("/dashboard");
                 }}
-                className="flex-1 bg-primary hover:bg-[#16302b] text-white rounded-lg py-3 text-[14px] font-medium transition cursor-pointer"
+                className="flex-1 bg-primary hover:bg-primary-hover text-white rounded-lg py-3 text-[14px] font-medium transition cursor-pointer"
               >
                 Dashboard
               </button>

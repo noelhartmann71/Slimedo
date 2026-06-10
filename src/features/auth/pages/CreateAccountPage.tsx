@@ -146,7 +146,7 @@ export default function CreateAccountPage() {
       <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-3 sm:px-6 py-5 flex items-center justify-between z-50">
         <button
           onClick={() => navigate(-1)}
-          className="text-[#1B433B] text-xs sm:text-base font-medium cursor-pointer"
+          className="text-deep text-xs sm:text-base font-medium cursor-pointer"
         >
           <div className="flex items-center gap-0 sm:gap-3">
             <MedizinischerFragebogenIcon />
@@ -209,7 +209,7 @@ export default function CreateAccountPage() {
                     <button
                       type="submit"
                       disabled={resendOtpMutation.isPending}
-                      className="w-full bg-[#227C31] text-white rounded-lg py-3 lg:py-4 text-[16px] font-medium transition cursor-pointer mt-4"
+                      className="w-full bg-sage text-white rounded-lg py-3 lg:py-4 text-[16px] font-medium transition cursor-pointer mt-4"
                     >
                       {resendOtpMutation.isPending
                         ? "Senden..."
@@ -295,7 +295,7 @@ export default function CreateAccountPage() {
                     <button
                       type="submit"
                       disabled={verifyOtpMutation.isPending}
-                      className="w-full bg-[#227C31] text-white rounded-lg py-3 lg:py-4 text-[16px] font-medium transition cursor-pointer mt-4"
+                      className="w-full bg-sage text-white rounded-lg py-3 lg:py-4 text-[16px] font-medium transition cursor-pointer mt-4"
                     >
                       {verifyOtpMutation.isPending
                         ? "Verifizieren..."
@@ -437,7 +437,7 @@ export default function CreateAccountPage() {
                     <button
                       type="submit"
                       disabled={registerMutation.isPending}
-                      className="w-full bg-[#227C31] text-white rounded-lg py-3 lg:py-4 text-[16px] font-medium transition cursor-pointer mt-4"
+                      className="w-full bg-sage text-white rounded-lg py-3 lg:py-4 text-[16px] font-medium transition cursor-pointer mt-4"
                     >
                       {registerMutation.isPending
                         ? "Konto wird erstellt..."
@@ -473,7 +473,7 @@ export default function CreateAccountPage() {
               {/* ── Toggle button ── */}
               <button
                 onClick={() => setShowDetails((prev) => !prev)}
-                className="text-base text-[#227C31] font-semibold hover:underline cursor-pointer"
+                className="text-base text-sage font-semibold hover:underline cursor-pointer"
               >
                 {showDetails ? "Details ausblenden" : "Details anzeigen"}
               </button>
@@ -488,7 +488,7 @@ export default function CreateAccountPage() {
                     <p className="text-[14px] text-[#6B7280] mb-2">
                       {sessionStorage.getItem("product_name") || "Produktname"}
                     </p>
-                    <span className="text-[16px] font-medium text-[#227C31]">
+                    <span className="text-[16px] font-medium text-sage">
                       €{localStorage.getItem("medication_price") || "0.00"}
                     </span>
                   </div>
@@ -496,7 +496,7 @@ export default function CreateAccountPage() {
                     <p className="text-[14px] text-[#6B7280] mb-2">
                       Versandkosten
                     </p>
-                    <span className="text-base text-[#227C31] font-semibold">
+                    <span className="text-base text-sage font-semibold">
                       Ausstehend
                     </span>
                   </div>
@@ -516,7 +516,7 @@ export default function CreateAccountPage() {
                   <p className="text-[14px] text-muted-foreground">
                     Rezeptgebühr
                   </p>
-                  <span className="text-[16px] font-medium text-[#227C31]">
+                  <span className="text-[16px] font-medium text-sage">
                     €{settings?.prescription_fee || "0.00"}
                   </span>
                 </div>
@@ -526,23 +526,23 @@ export default function CreateAccountPage() {
             {/* Total — always visible */}
             <div className="mb-6 pb-6">
               <div className="flex justify-between items-center">
-                <p className="text-lg font-medium text-[#227C31] mb-2">
+                <p className="text-lg font-medium text-sage mb-2">
                   Insgesamt
                 </p>
-                <p className="text-[20px] font-semibold text-[#227C31] mb-4">
+                <p className="text-[20px] font-semibold text-sage mb-4">
                   €{totalPrice.toFixed(2)}
                 </p>
               </div>
               <div className="space-y-2 text-[14px] text-muted-foreground">
                 <div className="flex justify-between">
                   <span>Jetzt fällig</span>
-                  <span className="text-[#227C31] font-medium">
+                  <span className="text-sage font-medium">
                     €{settings?.prescription_fee || "0.00"}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Zahlung in der Apotheke</span>
-                  <span className="text-[#227C31] font-medium">
+                  <span className="text-sage font-medium">
                     €{localStorage.getItem("medication_price") || "0.00"}
                   </span>
                 </div>
@@ -571,7 +571,7 @@ export default function CreateAccountPage() {
             {user && (
               <button
                 onClick={() => navigate("/auth/review")}
-                className="w-full bg-[#227C31] text-white rounded-lg py-3 lg:py-4 text-[16px] font-medium transition cursor-pointer mt-6"
+                className="w-full bg-sage text-white rounded-lg py-3 lg:py-4 text-[16px] font-medium transition cursor-pointer mt-6"
               >
                 Jetzt kaufen
               </button>

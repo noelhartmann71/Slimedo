@@ -75,7 +75,7 @@ export default function CreateRegister() {
     <div className="flex flex-col md:flex-row min-h-screen bg-[#E2E8F0] md:h-screen p-6 font-inter">
       <div className="w-full bg-white rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col md:flex-row border border-white">
         {/* Sidebar Section */}
-        <div className="w-full md:w-120 bg-[#227C31] p-7 flex flex-col items-center justify-between text-white sticky top-0">
+        <div className="w-full md:w-120 bg-sage p-7 flex flex-col items-center justify-between text-white sticky top-0">
           <div>
             {/* Logo */}
             <div className="flex items-center gap-3 mb-12">
@@ -134,7 +134,7 @@ export default function CreateRegister() {
 
               {/* Speech Bubble - Absolutely positioned */}
               <div className="absolute left-[82%] top-8 z-20">
-                <div className="bg-[#F4F1E7] text-[#0B1C19] text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(238,66,215,0.3)] whitespace-nowrap">
+                <div className="bg-[#F4F1E7] text-dark text-[16px] font-semibold px-4 py-2.5 rounded-tl-[95px] rounded-tr-[100px] rounded-br-[100px] rounded-bl-0 shadow-[0_8px_15px_-3px_rgba(238,66,215,0.3)] whitespace-nowrap">
                   Schön dich zu sehen!
                 </div>
               </div>
@@ -173,7 +173,7 @@ export default function CreateRegister() {
                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
                             <Input
                               placeholder="E-Mail-Adresse eingeben"
-                              className="pl-12 h-14 rounded-xl border-[#E2E8F0] focus:border-[#01478F] focus-visible:ring-0 text-base placeholder:text-[#94A3B8] bg-white!"
+                              className="pl-12 h-14 rounded-xl border-[#E2E8F0] focus:border-sage focus-visible:ring-0 text-base placeholder:text-[#94A3B8] bg-white!"
                               {...field}
                             />
                           </div>
@@ -227,7 +227,7 @@ export default function CreateRegister() {
                   Haben Sie noch kein Konto?{" "}
                   <Link
                     to="/auth/create-patient"
-                    className="text-[#01478F] font-bold hover:underline ml-1"
+                    className="text-sage font-bold hover:underline ml-1"
                   >
                     Konto erstellen
                   </Link>

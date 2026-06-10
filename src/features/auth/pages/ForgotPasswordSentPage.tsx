@@ -3,7 +3,7 @@ import AuthLayout from '../components/AuthLayout/AuthLayout';
 import AuthButton from '../components/AuthButton/AuthButton';
 
 const MailIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d3a35" strokeWidth="1.5">
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E3A2E" strokeWidth="1.5">
     <rect x="2" y="4" width="20" height="16" rx="2"/>
     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
   </svg>
@@ -28,7 +28,7 @@ export default function ForgotPasswordSentPage() {
         <AuthButton onClick={() => navigate('/auth/change-password')}>Passwort zurücksetzen</AuthButton>
         <button
           onClick={() => navigate('/auth/login')}
-          className="text-[12.5px] text-[#1d3a35] font-medium hover:underline cursor-pointer bg-transparent border-none"
+          className="text-[12.5px] text-deep font-medium hover:underline cursor-pointer bg-transparent border-none"
         >
           Zurück zum Login
         </button>

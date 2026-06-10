@@ -115,7 +115,7 @@ export default function ReviewAccountPage() {
       <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#e5e7eb] px-3 sm:px-6 py-4 flex items-center justify-between z-50">
         <button
           onClick={() => navigate(-1)}
-          className="text-[#1B433B] text-xs sm:text-base font-medium cursor-pointer"
+          className="text-deep text-xs sm:text-base font-medium cursor-pointer"
         >
           <div className="flex items-center gap-3">
             <MedizinischerFragebogenIcon />
@@ -297,7 +297,7 @@ export default function ReviewAccountPage() {
                 <button
                   type="submit"
                   disabled={updateProfileMutation.isPending}
-                  className="w-full bg-[#227C31] text-white rounded-lg py-4 text-[16px] font-medium transition cursor-pointer mt-6"
+                  className="w-full bg-sage text-white rounded-lg py-4 text-[16px] font-medium transition cursor-pointer mt-6"
                 >
                   {updateProfileMutation.isPending
                     ? "Updating..."
@@ -318,7 +318,7 @@ export default function ReviewAccountPage() {
               </h2>
               <button
                 onClick={() => setShowDetails(!showDetails)}
-                className="text-base text-[#227C31] font-semibold hover:underline cursor-pointer"
+                className="text-base text-sage font-semibold hover:underline cursor-pointer"
               >
                 {showDetails ? "Hide details" : "Show details"}
               </button>
@@ -333,7 +333,7 @@ export default function ReviewAccountPage() {
                     <p className="text-[14px] text-[#6B7280] mb-2">
                       {sessionStorage.getItem("product_name") || "Product Name"}
                     </p>
-                    <span className="text-[16px] font-medium text-[#227C31]">
+                    <span className="text-[16px] font-medium text-sage">
                       €{localStorage.getItem("medication_price") || "0.00"}
                     </span>
                   </div>
@@ -341,7 +341,7 @@ export default function ReviewAccountPage() {
                     <p className="text-[14px] text-[#6B7280] mb-2">
                       Shipping costs
                     </p>
-                    <span className="text-base text-[#227C31] font-semibold">
+                    <span className="text-base text-sage font-semibold">
                       Pending
                     </span>
                   </div>
@@ -361,7 +361,7 @@ export default function ReviewAccountPage() {
                   <p className="text-[14px] text-muted-foreground">
                     Prescription Fee
                   </p>
-                  <span className="text-[16px] font-medium text-[#227C31]">
+                  <span className="text-[16px] font-medium text-sage">
                     €{settings?.prescription_fee || "0.00"}
                   </span>
                 </div>
@@ -371,23 +371,23 @@ export default function ReviewAccountPage() {
             {/* In total - always visible */}
             <div className="mb-6 pb-6">
               <div className="flex justify-between items-center">
-                <p className="text-lg font-medium text-[#227C31] mb-2">
+                <p className="text-lg font-medium text-sage mb-2">
                   In total
                 </p>
-                <p className="text-[20px] font-semibold text-[#227C31] mb-4">
+                <p className="text-[20px] font-semibold text-sage mb-4">
                   €{totalPrice.toFixed(2)}
                 </p>
               </div>
               <div className="space-y-2 text-[14px] text-muted-foreground">
                 <div className="flex justify-between">
                   <span>Due now</span>
-                  <span className="text-[#227C31] font-medium">
+                  <span className="text-sage font-medium">
                     €{settings?.prescription_fee || "0.00"}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Payment at the pharmacy</span>
-                  <span className="text-[#227C31] font-medium">
+                  <span className="text-sage font-medium">
                     €{medicationPrice.toFixed(2)}
                   </span>
                 </div>
