@@ -426,7 +426,7 @@ export default function AnwendungSection() {
             padding: 20px 18px 12px;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
-            touch-action: pan-x;
+            touch-action: pan-x pan-y;
           }
           .anw-card-resp {
             height: clamp(300px, 82vw, 360px) !important;
