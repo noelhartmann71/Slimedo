@@ -322,7 +322,7 @@ const NewTrustSection = () => {
                     </p>
                   </div>
                   <div className="relative z-10 flex justify-center flex-1 items-end min-h-0 pt-3">
-                    <div className="h-full w-full flex justify-center max-[640px]:scale-115 max-[640px]:origin-bottom">
+                    <div className="h-full w-full flex justify-center max-[640px]:scale-110 max-[640px]:origin-bottom">
                       <img
                         alt=""
                         src={StepTwoImg}

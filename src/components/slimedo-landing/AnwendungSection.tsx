@@ -10,7 +10,7 @@ const imageCards = [
   },
     {img: '/images/how-it-work/badge6.2-t.png',
         title: 'Injektion',
-        subtitle: 'In das Bauchfett',
+        subtitle: 'Z.b ins Bauchfett/ Oberschenkel',
         gradient: 'linear-gradient(180deg, #E8E0CE 0%, #D5C9AF 100%)',
         backgroundSize: 'cover, cover',
     },

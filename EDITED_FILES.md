@@ -6,7 +6,7 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 
 ## Dateien
 
-- `src/components/NewTrustSection/NewTrustSection.tsx` - Trust-Kartenbilder, mobile Card-Texte, mobilen Badge-Clip-Bereich, mobiles Long-Asset, mobile Bildgröße/Position/Rundung und Wellen-Hintergrund der drei Trust-Cards: polygon-basierten clipPath durch absolut positioniertes SVG mit Bézier-Kurven und linearGradient ersetzt.
+- `src/components/NewTrustSection/NewTrustSection.tsx` - Trust-Kartenbilder, mobile Card-Texte, mobilen Badge-Clip-Bereich, mobiles Long-Asset, mobile Bildgröße/Position/Rundung und Wellen-Hintergrund der drei Trust-Cards: polygon-basierten clipPath durch absolut positioniertes SVG mit Bézier-Kurven und linearGradient ersetzt; Bild der zweiten Card auf Mobile von scale-115 auf scale-100 verkleinert.
 - `AGENTS.md` - ChatGPT/Codex-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `CLAUDE.md` - Claude-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `EDITED_FILES.md` - Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste umgestellt.
