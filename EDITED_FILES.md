@@ -12,3 +12,4 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 - `src/components/slimedo-landing/LifestyleSection.tsx` - Mobile Lifestyle-Badges ohne weiße Cards direkt auf dem Bild dargestellt.
 - `src/components/slimedo-landing/SlimedoHero.tsx` - Mobile Hero-Bildposition, Mobile-Badges und Hero-Typografie angepasst.
 - `src/components/slimedo-landing/AnwendungSection.tsx` - Mobile Carousel-Buttons verkleinert und zentriert, vertikales Scrollen des Carousels gesperrt, horizontales Wischen wiederhergestellt.
+- `src/components/slimedo-landing/TestimonialsSection.tsx` - Zitat-Text verkleinert, Card-Abstand reduziert, kg-Zahl verkleinert.
