@@ -193,7 +193,7 @@ export default function LifestyleSection() {
             font-weight: 700;
             line-height: 1;
             letter-spacing: -0.12em;
-            transform: translate(2px, 7px);
+            transform: translate(-4px, 16px);
           }
           .lifestyle-badge-title {
             font-family: "Instrument Serif", Georgia, serif;
