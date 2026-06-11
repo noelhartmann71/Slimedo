@@ -15,3 +15,4 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 - `src/components/slimedo-landing/AnwendungSection.tsx` - Mobile Carousel-Buttons verkleinert und zentriert, vertikales Scrollen des Carousels gesperrt, horizontales Wischen wiederhergestellt.
 - `src/components/slimedo-landing/TestimonialsSection.tsx` - Zitat-Text verkleinert, Card-Abstand reduziert, kg-Zahl verkleinert.
 - `src/components/slimedo-landing/BmiCalculatorSection.tsx` - Gap zwischen Überschrift und Card verringert.
+- `src/components/slimedo-landing/TherapieSection.tsx` - Beispieltexte `Bsp. Wegovy®` und `Bsp. Mounjaro®` in den Therapiekarten responsiv weiter vergrößert.

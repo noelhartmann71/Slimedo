@@ -114,7 +114,7 @@ function TherapieCard({
       <p className="therapie-card-desc mb-4 text-[clamp(13px,0.75vw,18px)] text-[#7A6F62]">
         {desc}
         <br />
-        <span className="text-[clamp(10px,0.53vw,14px)] font-semibold text-[var(--accent)]">{example}</span>
+        <span className="therapie-card-example text-[clamp(14px,0.95vw,18px)] font-semibold text-[var(--accent)]">{example}</span>
       </p>
       {diagram}
       <ul className="m-0 flex list-none flex-col gap-2 p-0">
