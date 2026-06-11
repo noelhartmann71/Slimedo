@@ -329,9 +329,9 @@ export default function SlimedoHero() {
             value="ab 171,96 €"
             icon={
               <img
-                src="/images/therapie/injection2t.png"
+                src="/images/hero/injectionPackageHero.png"
                 alt=""
-                className="h-8 w-8 object-contain"
+                className="h-7 w-7 object-contain"
               />
             }
           />
@@ -455,7 +455,7 @@ export default function SlimedoHero() {
         value="ab 171,96 €"
         icon={
           <img
-            src="/images/therapie/injection2t.png"
+            src="/images/hero/injection2Hero.png"
             alt=""
             className="h-12 w-12 object-contain"
           />
