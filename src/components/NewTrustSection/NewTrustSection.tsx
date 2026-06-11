@@ -1,6 +1,7 @@
 ﻿import { useCallback, useEffect, useRef, useState } from "react";
 
 import StepOneImg from "../../../public/images/how-it-work/badge5.2.png";
+import StepOneMobileImg from "../../../public/images/how-it-work/badge5.2long.png";
 import StepTwoImg from "../../../public/images/how-it-work/badge5.png";
 import StepThreeImg from "../../../public/images/how-it-work/badge5.1.png";
 import { useQuery } from "@tanstack/react-query";
@@ -223,7 +224,7 @@ const NewTrustSection = () => {
                 >
                   1
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:-mx-4 max-[640px]:h-88 max-[640px]:justify-between max-[640px]:px-4 h-116">
+                <div className="flex flex-col overflow-hidden max-[640px]:-mx-4 max-[640px]:h-88 max-[640px]:justify-between max-[640px]:rounded-b-[27.967px] max-[640px]:px-4 h-116">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2 select-none"
@@ -242,18 +243,21 @@ const NewTrustSection = () => {
                     </p>
                   </div>
                   <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
-                    <div className="h-full w-full flex items-end justify-center max-[640px]:translate-y-0 max-[640px]:translate-x-20 lg:h-80 lg:w-[78%] lg:translate-x-8">
-                      <img
-                        alt=""
-                        src={StepOneImg}
-                        className="h-full w-full object-contain max-[640px]:max-h-60"
-                        style={{
-                          transform: hoveredCard === 0 ? "scale(1.1)" : "scale(1)",
-                          transition: CARD_TRANSITION,
-                        }}
-                        loading="lazy"
-                        decoding="async"
-                      />
+                    <div className="h-full w-full flex items-end justify-center max-[640px]:translate-y-20 max-[640px]:translate-x-18 lg:h-80 lg:w-[78%] lg:translate-x-8">
+                      <picture className="contents">
+                        <source media="(max-width: 640px)" srcSet={StepOneMobileImg} />
+                        <img
+                          alt=""
+                          src={StepOneImg}
+                          className="h-full w-full object-contain max-[640px]:h-80 max-[640px]:max-h-none max-[640px]:w-auto"
+                          style={{
+                            transform: hoveredCard === 0 ? "scale(1.1)" : "scale(1)",
+                            transition: CARD_TRANSITION,
+                          }}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
                   </div>
                 </div>
@@ -351,11 +355,11 @@ const NewTrustSection = () => {
                     </p>
                   </div>
                   <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
-                    <div className="h-full w-full">
+                    <div className="h-full w-full max-[640px]:translate-y-3">
                       <img
                         alt=""
                         src={StepThreeImg}
-                        className="h-full w-full object-contain max-[640px]:max-h-40"
+                        className="h-full w-full object-contain max-[640px]:max-h-52"
                         style={{
                           transform: hoveredCard === 2 ? "scale(1.1)" : "scale(1)",
                           transition: CARD_TRANSITION,
