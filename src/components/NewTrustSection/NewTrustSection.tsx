@@ -204,7 +204,7 @@ const NewTrustSection = () => {
           <div
             id="how-it-works-carousel"
             ref={carouselRef}
-            className="grid relative grid-cols-3 max-[640px]:-mx-4 max-[640px]:[-ms-overflow-style:none] max-[640px]:scroll-smooth max-[640px]:[scroll-snap-type:x_mandatory] max-[640px]:[scrollbar-width:none] max-[640px]:gap-6.75 max-[640px]:grid-cols-[80%_80%_80%] max-[640px]:overflow-x-auto max-[640px]:px-4.5 max-[640px]:py-5 max-w-300 mx-auto [&::-webkit-scrollbar]:hidden"
+            className="grid relative grid-cols-3 max-[640px]:-mx-4 max-[640px]:[-ms-overflow-style:none] max-[640px]:scroll-smooth max-[640px]:[scroll-snap-type:x_mandatory] max-[640px]:[scrollbar-width:none] max-[640px]:gap-6.75 max-[640px]:grid-cols-[80%_80%_80%] max-[640px]:overflow-x-auto max-[640px]:px-4.5 max-[640px]:pb-5 max-[640px]:pt-9 max-w-300 mx-auto [&::-webkit-scrollbar]:hidden"
           >
             <div
               className="self-end cursor-pointer group lg:z-12 lg:rotate-[-11deg] origin-top-right"
