@@ -6,8 +6,8 @@ const collageItems = [
     img: '/images/slimedo/slimedo-img.png',
     gradient: 'linear-gradient(160deg,#E8E0CE,#D5C9AF)',
     badge: {
-      title: '„Mehr als nur ein Rezept.',
-      sub: 'Ärztlich geprüft. Diskret versendet.„',
+      title: 'Mehr als nur ein Rezept.',
+      sub: 'Ärztlich geprüft. Diskret versendet.',
       side: 'top-right' as const,
     },
   },
@@ -15,9 +15,9 @@ const collageItems = [
     img: '/images/slimedo/slimedo-img-two.png',
     gradient: 'linear-gradient(160deg,#C5D5C0,#A8BFA0)',
     badge: {
-      title: '„Gewichtsverlust ist nur der Anfang.',
-      sub: 'Ein besseres Körpergefühl ist das Ziel.„',
-      side: 'top-right' as const,
+      title: 'Gewichtsverlust ist nur der Anfang.',
+      sub: 'Ein besseres Körpergefühl ist das Ziel.',
+      side: 'bottom-left' as const,
     },
   },
   {
@@ -108,8 +108,16 @@ export default function LifestyleSection() {
             />
             {'badge' in item && item.badge && (
               <div className={`lifestyle-badge lifestyle-badge--${item.badge.side}`}>
+                <span className="lifestyle-quote-mark">&ldquo;</span>
                 <p className="lifestyle-badge-title">{item.badge.title}</p>
-                <p className="lifestyle-badge-sub">{item.badge.sub}</p>
+                <div className="lifestyle-badge-divider" />
+                <div className="lifestyle-badge-pill">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill={item.badge.side === 'bottom-left' ? 'rgba(255,255,255,0.9)' : '#3D5C4A'} />
+                    <path d="M4.5 8.5l2.5 2 4.5-5" stroke={item.badge.side === 'bottom-left' ? '#1A1A1A' : 'white'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span>{item.badge.sub}</span>
+                </div>
               </div>
             )}
           </div>
@@ -147,33 +155,71 @@ export default function LifestyleSection() {
             display: none !important;
           }
           .lifestyle-badge {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             position: absolute;
-            max-width: calc(100% - 28px);
-            text-shadow: 0 1px 12px rgba(255, 253, 247, 0.42);
           }
           .lifestyle-badge--top-right {
-            top: 14px;
-            right: 14px;
-            text-align: right;
+            top: 22px;
+            right: 24px;
+            max-width: 260px;
+          }
+          .lifestyle-badge--bottom-left {
+            bottom: 24px;
+            left: 24px;
+            max-width: 260px;
+          }
+          .lifestyle-quote-mark {
+            font-family: "Instrument Serif", Georgia, serif;
+            font-size: 44px;
+            line-height: 1;
+            color: #1A1A1A;
+            margin: 0 0 4px;
+            display: block;
           }
           .lifestyle-badge-title {
-            font-family: "Inter", sans-serif;
-            font-size: 15px;
-            font-weight: 600;
+            font-family: "Instrument Serif", Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
             color: #1A1A1A;
-            line-height: 1.3;
-            margin: 0 0 3px;
-            white-space: nowrap;
+            line-height: 1.12;
+            margin: 0 0 14px;
+            white-space: normal;
           }
-          .lifestyle-badge-sub {
+          .lifestyle-badge-divider {
+            width: 24px;
+            height: 1.5px;
+            background: #1A1A1A;
+            margin-bottom: 14px;
+            flex-shrink: 0;
+          }
+          .lifestyle-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(240, 236, 226, 0.88);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 100px;
+            padding: 6px 14px 6px 8px;
             font-family: "Inter", sans-serif;
-            font-size: 13px;
-            font-weight: 400;
+            font-size: 12px;
+            font-weight: 500;
             color: #1A1A1A;
-            line-height: 1.3;
-            margin: 0;
-            white-space: nowrap;
+          }
+          .lifestyle-badge--bottom-left .lifestyle-quote-mark {
+            color: #FFFFFF;
+          }
+          .lifestyle-badge--bottom-left .lifestyle-badge-title {
+            color: #FFFFFF;
+          }
+          .lifestyle-badge--bottom-left .lifestyle-badge-divider {
+            background: rgba(255, 255, 255, 0.7);
+          }
+          .lifestyle-badge--bottom-left .lifestyle-badge-pill {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
           }
         }
       `}</style>
