@@ -223,7 +223,7 @@ const NewTrustSection = () => {
                 >
                   1
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:h-88 max-[640px]:justify-between h-116">
+                <div className="flex flex-col overflow-hidden max-[640px]:-mx-4 max-[640px]:h-88 max-[640px]:justify-between max-[640px]:px-4 h-116">
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2 select-none"
@@ -235,14 +235,14 @@ const NewTrustSection = () => {
                       </span>
                     </h3>
                     <p
-                        className="font-normal text-[#6E6A60] text-[16px]"
-                        style={{fontFamily: FONT_INTER, lineHeight: 1.6}}
+                      className="font-normal text-[#6E6A60] text-[15px] sm:text-[16px]"
+                      style={{ fontFamily: FONT_INTER, lineHeight: 1.45 }}
                     >
-                      Starte die Online-Konsultation und <br/> beantworte die medizinischen Fragen.
+                      Starte die Online-Konsultation und beantworte die medizinischen Fragen.
                     </p>
                   </div>
                   <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
-                    <div className="h-full w-full flex items-end justify-center max-[640px]:translate-y-0 lg:h-80 lg:w-[78%] lg:translate-x-8">
+                    <div className="h-full w-full flex items-end justify-center max-[640px]:translate-y-0 max-[640px]:translate-x-20 lg:h-80 lg:w-[78%] lg:translate-x-8">
                       <img
                         alt=""
                         src={StepOneImg}
@@ -289,14 +289,14 @@ const NewTrustSection = () => {
                       </span>
                     </h3>
                     <p
-                      className="font-normal text-[#6E6A60] text-[16px]"
-                      style={{ fontFamily: FONT_INTER, lineHeight: 1.6 }}
+                      className="font-normal text-[#6E6A60] text-[15px] sm:text-[16px]"
+                      style={{ fontFamily: FONT_INTER, lineHeight: 1.45 }}
                     >
-                      Approbierte Ärzte prüfen deine Angaben und stellen bei Bedarf ein Rezept für das Abnehm- Medikament aus.
+                      Approbierte Ärzte prüfen deine Angaben und stellen bei Bedarf ein Rezept für das Abnehm-Medikament aus.
                     </p>
                   </div>
                   <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
-                    <div className="h-full w-full flex justify-center">
+                    <div className="h-full w-full flex justify-center max-[640px]:scale-115 max-[640px]:origin-bottom">
                       <img
                         alt=""
                         src={StepTwoImg}
@@ -344,8 +344,8 @@ const NewTrustSection = () => {
                       </span>
                     </h3>
                     <p
-                      className="font-normal text-[#6E6A60] text-[16px]"
-                      style={{ fontFamily: FONT_INTER, lineHeight: 1.6 }}
+                      className="font-normal text-[#6E6A60] text-[15px] sm:text-[16px]"
+                      style={{ fontFamily: FONT_INTER, lineHeight: 1.45 }}
                     >
                       Diskreter Versand deiner Medikamente direkt zu dir nach Hause.
                     </p>

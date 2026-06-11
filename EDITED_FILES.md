@@ -6,7 +6,7 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 
 ## Dateien
 
-- `src/components/NewTrustSection/NewTrustSection.tsx` - Bildbox der ersten Trust-Karte in der Desktop-Ansicht in Größe und Position angepasst.
+- `src/components/NewTrustSection/NewTrustSection.tsx` - Trust-Kartenbilder und mobile Card-Texte in Größe, Position und Umbruch angepasst.
 - `AGENTS.md` - ChatGPT/Codex-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `CLAUDE.md` - Claude-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `EDITED_FILES.md` - Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste umgestellt.
