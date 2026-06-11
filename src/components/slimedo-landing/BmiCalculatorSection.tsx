@@ -28,7 +28,7 @@ export default function BmiCalculatorSection() {
 
       <div className="relative z-[2] mx-auto max-w-[1800px] px-10">
         {/* Header */}
-        <header className="mx-auto mb-16 max-w-[720px] text-center">
+        <header className="mx-auto mb-8 max-w-[720px] text-center">
           <p className="mb-4 text-[12px] font-medium tracking-[0.16em] uppercase text-sage">
             Potenzial
           </p>
