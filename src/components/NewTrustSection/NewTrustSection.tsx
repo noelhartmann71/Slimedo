@@ -12,6 +12,26 @@ const CARD_TRANSITION = "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
 const FONT_INTER = '"Inter", sans-serif';
 const FONT_INSTRUMENT_SERIF = '"Instrument Serif", Georgia, serif';
 const FONT_MANROPE = '"Manrope", sans-serif';
+const TrustCardWave = ({ gradId }: { gradId: string }) => (
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 100 100"
+    preserveAspectRatio="none"
+    className="pointer-events-none absolute inset-0 w-full h-full z-0"
+  >
+    <defs>
+      <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="rgba(238,244,238,0)" />
+        <stop offset="38%" stopColor="rgba(238,244,238,0.78)" />
+        <stop offset="100%" stopColor="#E9F1EA" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M 0 72 C 12 70, 22 65, 34 62 C 46 59, 50 67, 62 68 C 72 69, 78 59, 88 55 C 94 53, 97 53, 100 54 L 100 100 L 0 100 Z"
+      fill={`url(#${gradId})`}
+    />
+  </svg>
+);
 
 type CouponData = {
   code?: string;
@@ -224,7 +244,8 @@ const NewTrustSection = () => {
                 >
                   1
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:-mx-4 max-[640px]:h-88 max-[640px]:justify-between max-[640px]:rounded-b-[27.967px] max-[640px]:px-4 h-116">
+                <div className="relative flex flex-col overflow-hidden lg:-mx-7.5 lg:rounded-b-3xl lg:px-7.5 max-[640px]:-mx-4 max-[640px]:h-88 max-[640px]:justify-between max-[640px]:rounded-b-[27.967px] max-[640px]:px-4 h-116">
+                  <TrustCardWave gradId="twg-1" />
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2 select-none"
@@ -242,7 +263,7 @@ const NewTrustSection = () => {
                       Starte die Online-Konsultation und beantworte die medizinischen Fragen.
                     </p>
                   </div>
-                  <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
+                  <div className="relative z-10 flex justify-center flex-1 items-end min-h-0 pt-3">
                     <div className="h-full w-full flex items-end justify-center max-[640px]:translate-y-20 max-[640px]:translate-x-18 lg:h-80 lg:w-[78%] lg:translate-x-8">
                       <picture className="contents">
                         <source media="(max-width: 640px)" srcSet={StepOneMobileImg} />
@@ -281,7 +302,8 @@ const NewTrustSection = () => {
                 >
                   2
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:h-88 max-[640px]:justify-between h-116">
+                <div className="relative flex flex-col overflow-hidden lg:-mx-6.25 lg:rounded-b-3xl lg:px-6.25 max-[640px]:-mx-4 max-[640px]:h-88 max-[640px]:justify-between max-[640px]:rounded-b-[27.967px] max-[640px]:px-4 h-116">
+                  <TrustCardWave gradId="twg-2" />
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2"
@@ -299,7 +321,7 @@ const NewTrustSection = () => {
                       Approbierte Ärzte prüfen deine Angaben und stellen bei Bedarf ein Rezept für das Abnehm-Medikament aus.
                     </p>
                   </div>
-                  <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
+                  <div className="relative z-10 flex justify-center flex-1 items-end min-h-0 pt-3">
                     <div className="h-full w-full flex justify-center max-[640px]:scale-115 max-[640px]:origin-bottom">
                       <img
                         alt=""
@@ -336,7 +358,8 @@ const NewTrustSection = () => {
                 >
                   3
                 </div>
-                <div className="flex flex-col overflow-hidden max-[640px]:h-88 max-[640px]:justify-between h-116">
+                <div className="relative flex flex-col overflow-hidden lg:-mx-7.5 lg:rounded-b-3xl lg:px-7.5 max-[640px]:-mx-4 max-[640px]:h-88 max-[640px]:justify-between max-[640px]:rounded-b-[27.967px] max-[640px]:px-4 h-116">
+                  <TrustCardWave gradId="twg-3" />
                   <div className="mb-2 relative shrink-0 max-[640px]:mb-4 text-center z-10">
                     <h3
                       className="text-[20px] font-semibold text-[#1A1A1A] leading-snug mb-0.75 sm:mb-2"
@@ -354,7 +377,7 @@ const NewTrustSection = () => {
                       Diskreter Versand deiner Medikamente direkt zu dir nach Hause.
                     </p>
                   </div>
-                  <div className="flex justify-center flex-1 items-end min-h-0 pt-3">
+                  <div className="relative z-10 flex justify-center flex-1 items-end min-h-0 pt-3">
                     <div className="h-full w-full max-[640px]:translate-y-3">
                       <img
                         alt=""
