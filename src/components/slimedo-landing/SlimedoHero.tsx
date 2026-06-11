@@ -612,7 +612,7 @@ export default function SlimedoHero() {
             padding: 0 24px !important;
           }
           .hero-video-col {
-            top: 0 !important;
+            top: 45px !important;
             right: -34px !important;
             bottom: auto !important;
             width: 82% !important;
@@ -635,17 +635,17 @@ export default function SlimedoHero() {
           .hero-video {
             left: auto !important;
             right: 0 !important;
-            top: -14px !important;
+            top: -4px !important;
             width: 80% !important;
-            height: calc(80% + 14px) !important;
+            height: calc(80% + 4px) !important;
             object-position: 54% top !important;
             mask-image:
               linear-gradient(to right, transparent 0%, black 26%, black 100%),
-              linear-gradient(to bottom, black 0%, black 74%, transparent 100%);
+              linear-gradient(to bottom, transparent 0%, black 12%, black 74%, transparent 100%);
             mask-composite: intersect;
             -webkit-mask-image:
               linear-gradient(to right, transparent 0%, black 26%, black 100%),
-              linear-gradient(to bottom, black 0%, black 74%, transparent 100%);
+              linear-gradient(to bottom, transparent 0%, black 12%, black 74%, transparent 100%);
             -webkit-mask-composite: source-in;
           }
           .hero-badge-1,
