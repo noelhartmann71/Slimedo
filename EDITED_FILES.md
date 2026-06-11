@@ -2,22 +2,11 @@
 
 Ab dem 11.06.2026 müssen alle Dateien, die im Projekt bearbeitet, erstellt oder gelöscht werden, hier vermerkt werden.
 
-## Format
+Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut geändert wird, wird der bestehende Eintrag bei Bedarf aktualisiert.
 
-```text
-- YYYY-MM-DD HH:mm - <kurze Beschreibung>
-  Dateien:
-  - <relativer/pfad/zur/datei>
-```
+## Dateien
 
-## Protokoll
-
-- 2026-06-11 08:23 - Claude- und ChatGPT/Codex-Instructions zum Bearbeitungsprotokoll ergänzt
-  Dateien:
-  - AGENTS.md
-  - CLAUDE.md
-  - EDITED_FILES.md
-
-- 2026-06-11 00:00 - Bearbeitungsprotokoll angelegt
-  Dateien:
-  - EDITED_FILES.md
+- `AGENTS.md` - ChatGPT/Codex-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
+- `CLAUDE.md` - Claude-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
+- `EDITED_FILES.md` - Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste umgestellt.
+- `src/components/slimedo-landing/SlimedoHero.tsx` - Mobile Hero-Bildposition, Mobile-Badges und Hero-Typografie angepasst.

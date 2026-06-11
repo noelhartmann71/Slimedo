@@ -269,12 +269,12 @@ export default function SlimedoHero() {
         <h1 className="
           hero-title
           slimedo-anim slimedo-d2
-          font-instrument font-normal text-ink leading-[1.07] tracking-[.005em]
+          font-['Lora',Georgia,serif] font-medium text-ink leading-[1.07] tracking-[-0.025em]
           text-[clamp(46px,4vw,88px)]
           mb-12
           max-sm:text-[38px] max-sm:mb-3.5 max-sm:max-w-[80%]
         ">
-          Mit der <em className="font-['Playfair_Display',serif] font-bold italic tracking-[-0.035em] text-sage">Abnehmspritze</em><br />
+          Mit der <em className="font-semibold italic tracking-[-0.03em] text-sage">Abnehmspritze</em><br />
           zu einem gesünderen<br />
           Körpergefühl
         </h1>
@@ -612,7 +612,7 @@ export default function SlimedoHero() {
             padding: 0 24px !important;
           }
           .hero-video-col {
-            top: 80px !important;
+            top: 0 !important;
             right: -34px !important;
             bottom: auto !important;
             width: 82% !important;
@@ -635,17 +635,17 @@ export default function SlimedoHero() {
           .hero-video {
             left: auto !important;
             right: 0 !important;
-            top: 0 !important;
+            top: -14px !important;
             width: 80% !important;
-            height: 80% !important;
+            height: calc(80% + 14px) !important;
             object-position: 54% top !important;
             mask-image:
               linear-gradient(to right, transparent 0%, black 26%, black 100%),
-              linear-gradient(to bottom, transparent 0%, black 13%, black 74%, transparent 100%);
+              linear-gradient(to bottom, black 0%, black 74%, transparent 100%);
             mask-composite: intersect;
             -webkit-mask-image:
               linear-gradient(to right, transparent 0%, black 26%, black 100%),
-              linear-gradient(to bottom, transparent 0%, black 13%, black 74%, transparent 100%);
+              linear-gradient(to bottom, black 0%, black 74%, transparent 100%);
             -webkit-mask-composite: source-in;
           }
           .hero-badge-1,
@@ -656,34 +656,34 @@ export default function SlimedoHero() {
           .hero-mobile-badges {
             display: flex !important;
             flex-direction: row;
-            gap: 10px;
-            width: calc(100vw - 32px);
-            max-width: calc(100vw - 32px);
-            margin: 0 0 14px -13px;
+            gap: 8px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 0 12px;
             position: relative;
             z-index: 8;
           }
           .hero-mobile-badge-card {
-            min-height: 82px;
+            min-height: 72px;
             flex: 1 1 0;
             min-width: 0;
             position: relative;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             border: 1px solid rgba(255,255,255,.74);
-            border-radius: 22px;
+            border-radius: 18px;
             background: rgba(255,255,255,.9);
-            padding: 10px 9px;
+            padding: 8px 7px;
             box-shadow: 0 12px 30px rgba(30,58,46,.14), 0 1px 4px rgba(0,0,0,.04);
             backdrop-filter: blur(10px);
           }
           .hero-mobile-badge-step {
             position: absolute;
-            top: 7px;
-            left: 7px;
-            width: 22px;
-            height: 22px;
+            top: 6px;
+            left: 6px;
+            width: 20px;
+            height: 20px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -691,20 +691,20 @@ export default function SlimedoHero() {
             border-radius: 999px;
             background: #1E3A2E;
             color: #FAF5EA;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 800;
             line-height: 1;
             box-shadow: 0 6px 16px rgba(30,58,46,.22);
           }
           .hero-mobile-badge-icon {
-            width: 38px;
-            height: 38px;
-            margin-left: 16px;
+            width: 34px;
+            height: 34px;
+            margin-left: 14px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex: 0 0 auto;
-            border-radius: 16px;
+            border-radius: 14px;
             background: #F5F3EE;
           }
         }

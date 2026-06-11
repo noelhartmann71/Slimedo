@@ -3,5 +3,5 @@
 ## Bearbeitungsprotokoll
 
 - Bei jeder Datei, die erstellt, bearbeitet oder gelöscht wird, muss `EDITED_FILES.md` im selben Arbeitsschritt gepflegt werden.
-- Der Eintrag muss die betroffenen relativen Dateipfade und eine kurze Beschreibung der Änderung enthalten.
-- Wenn mehrere Dateien in einem Schritt geändert werden, müssen alle Dateien im selben Protokolleintrag stehen.
+- Jede betroffene Datei darf in `EDITED_FILES.md` nur einmal enthalten sein.
+- Wenn eine bereits gelistete Datei erneut geändert wird, den bestehenden Eintrag bei Bedarf aktualisieren, aber keinen zweiten Dateieintrag anlegen.
