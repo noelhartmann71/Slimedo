@@ -9,4 +9,6 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 - `AGENTS.md` - ChatGPT/Codex-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `CLAUDE.md` - Claude-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `EDITED_FILES.md` - Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste umgestellt.
+- `src/components/slimedo-landing/LifestyleSection.tsx` - Mobile Lifestyle-Badges ohne weiße Cards direkt auf dem Bild dargestellt.
 - `src/components/slimedo-landing/SlimedoHero.tsx` - Mobile Hero-Bildposition, Mobile-Badges und Hero-Typografie angepasst.
+- `src/components/slimedo-landing/AnwendungSection.tsx` - Mobile Carousel-Buttons verkleinert und zentriert, vertikales Scrollen des Carousels gesperrt, horizontales Wischen wiederhergestellt.

@@ -149,7 +149,7 @@ export default function TestimonialsSection() {
           className="testimonials-layout-resp"
           style={{
             display: 'flex',
-            gap: 20,
+            gap: 5,
             alignItems: 'stretch',
           }}
         >
@@ -171,7 +171,7 @@ export default function TestimonialsSection() {
               className="testimonials-result-resp"
               style={{
                 fontFamily: '"Manrope", sans-serif',
-                fontSize: 42,
+                fontSize: 34,
                 fontWeight: 700,
                 color: '#1A1A1A',
                 marginBottom: 16,
@@ -193,7 +193,7 @@ export default function TestimonialsSection() {
               className="testimonials-quote-resp"
               style={{
                 fontFamily: '"Lora", Georgia, serif',
-                fontSize: 'clamp(26px, 1.72vw, 38px)',
+                fontSize: 'clamp(18px, 1.25vw, 26px)',
                 fontStyle: 'normal',
                 fontWeight: 500,
                 color: '#2E2620',
