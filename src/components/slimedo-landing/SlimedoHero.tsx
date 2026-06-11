@@ -256,6 +256,7 @@ export default function SlimedoHero() {
           hero-kicker
           slimedo-anim slimedo-d1
           inline-flex items-center gap-2 w-fit
+          ml-[-6px] max-sm:ml-[-4px]
           bg-sage/10 border border-sage/20 rounded-full
           px-5 py-[10px]
           text-[15px] font-medium text-sage tracking-[.08em] mb-10
@@ -516,8 +517,8 @@ export default function SlimedoHero() {
         slimedo-anim slimedo-d5
         hero-trust-bar
         col-span-full flex items-center flex-nowrap
-        px-8 mx-8 mb-8 -mt-16 z-[8] relative
-        max-lg:px-6 max-lg:mx-6 max-lg:-mt-12
+        px-8 mx-8 mb-8 -mt-20 z-[8] relative
+        max-lg:px-6 max-lg:mx-6 max-lg:-mt-16
         max-sm:mx-4 max-sm:px-5 max-sm:pt-9 max-sm:pb-6 max-sm:-mt-14
       ">
         {trustItems.map((item, i) => (
@@ -726,10 +727,6 @@ export default function SlimedoHero() {
             opacity: 0;
             transform: translateX(-34px);
           }
-          70% {
-            opacity: 1;
-            transform: translateX(4px);
-          }
           100% {
             opacity: 1;
             transform: translateX(0);
@@ -738,7 +735,7 @@ export default function SlimedoHero() {
         .hero-bullet-item {
           opacity: 0;
           transform: translateX(-34px);
-          animation: hero-bullet-slide-in .95s cubic-bezier(.22,1,.36,1) both;
+          animation: hero-bullet-slide-in 1.05s cubic-bezier(.22,1,.36,1) both;
         }
         .hero-bullet-item:nth-child(1) {
           animation-delay: .46s;
@@ -809,7 +806,7 @@ export default function SlimedoHero() {
             padding-top: 88px !important;
             padding-bottom: 152px !important;
           }
-          .hero-trust-bar { margin-top: -136px; }
+          .hero-trust-bar { margin-top: -152px; }
           .hero-trust-item {
             font-size: 14px;
             gap: 10px;
@@ -833,7 +830,7 @@ export default function SlimedoHero() {
         }
         /* MacBook Pro 14" (~1512px) */
         @media (min-width: 1441px) and (max-width: 1600px) {
-          .hero-trust-bar { margin-top: -136px; }
+          .hero-trust-bar { margin-top: -152px; }
           .hero-trust-item {
             font-size: 13px;
             gap: 10px;
@@ -900,7 +897,7 @@ export default function SlimedoHero() {
             grid-template-columns: repeat(3, minmax(0, 1fr));
             width: auto;
             max-width: none;
-            margin-top: clamp(28px, 7vw, 36px) !important;
+            margin-top: clamp(14px, 4vw, 20px) !important;
             padding: 28px 30px 0 !important;
             overflow: visible;
             background: transparent;

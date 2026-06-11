@@ -11,7 +11,7 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 - `CLAUDE.md` - Claude-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `EDITED_FILES.md` - Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste umgestellt.
 - `src/components/slimedo-landing/LifestyleSection.tsx` - Mobile Lifestyle-Badges ohne weiße Cards direkt auf dem Bild dargestellt.
-- `src/components/slimedo-landing/SlimedoHero.tsx` - Mobile Hero-Bildposition auf Eyebrow-Hoehe, oberer Bild-Fade, Mobile-Badges und Hero-Typografie angepasst.
+- `src/components/slimedo-landing/SlimedoHero.tsx` - Mobile Hero-Bildposition auf Eyebrow-Hoehe, oberer Bild-Fade, Mobile-Badges, Hero-Typografie, Abstand zwischen CTA und Trust-Badges, Stichpunkt-Eingangsanimation sowie Eyebrow-Position weiter angepasst und verlangsamt.
 - `src/components/slimedo-landing/AnwendungSection.tsx` - Mobile Carousel-Buttons verkleinert und zentriert, vertikales Scrollen des Carousels gesperrt, horizontales Wischen wiederhergestellt.
 - `src/components/slimedo-landing/TestimonialsSection.tsx` - Zitat-Text verkleinert, Card-Abstand reduziert, kg-Zahl verkleinert.
 - `src/components/slimedo-landing/BmiCalculatorSection.tsx` - Gap zwischen Überschrift und Card verringert.
