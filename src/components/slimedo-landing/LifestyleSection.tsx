@@ -1,22 +1,23 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
+import { useChildInView } from '@/hooks/useInView';
 
 const collageItems = [
   {
     img: '/images/slimedo/slimedo-img.png',
     gradient: 'linear-gradient(160deg,#E8E0CE,#D5C9AF)',
     badge: {
-      title: 'Mehr als nur ein Rezept.',
-      sub: 'Ärztlich geprüft. Diskret versendet.',
-      side: 'left' as const,
+      title: '„Mehr als nur ein Rezept.',
+      sub: 'Ärztlich geprüft. Diskret versendet.„',
+      side: 'top-right' as const,
     },
   },
   {
     img: '/images/slimedo/slimedo-img-two.png',
     gradient: 'linear-gradient(160deg,#C5D5C0,#A8BFA0)',
     badge: {
-      title: 'Gewichtsverlust ist nur der Anfang.',
-      sub: 'Ein besseres Körpergefühl ist das Ziel.',
-      side: 'right' as const,
+      title: '„Gewichtsverlust ist nur der Anfang.',
+      sub: 'Ein besseres Körpergefühl ist das Ziel.„',
+      side: 'top-right' as const,
     },
   },
   {
@@ -27,25 +28,7 @@ const collageItems = [
 
 export default function LifestyleSection() {
   const ref = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const section = ref.current;
-    if (!section) return;
-    const anims = section.querySelectorAll<HTMLElement>('.slimedo-anim');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            (e.target as HTMLElement).classList.add('played');
-            observer.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.07, rootMargin: '0px 0px -20px 0px' }
-    );
-    anims.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  useChildInView(ref);
 
   return (
     <section
@@ -110,6 +93,8 @@ export default function LifestyleSection() {
           >
             <img
               src={item.img}
+              alt=""
+              aria-hidden="true"
               style={{
                 position: 'absolute',
                 inset: 0,
@@ -164,32 +149,31 @@ export default function LifestyleSection() {
           .lifestyle-badge {
             display: block;
             position: absolute;
-            bottom: 18px;
-            background: rgba(255, 255, 255, 0.86);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 10px 14px;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.10);
-            max-width: 210px;
+            max-width: calc(100% - 28px);
+            text-shadow: 0 1px 12px rgba(255, 253, 247, 0.42);
           }
-          .lifestyle-badge--left  { left: 14px; }
-          .lifestyle-badge--right { right: 14px; }
+          .lifestyle-badge--top-right {
+            top: 14px;
+            right: 14px;
+            text-align: right;
+          }
           .lifestyle-badge-title {
             font-family: "Inter", sans-serif;
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 600;
             color: #1A1A1A;
             line-height: 1.3;
             margin: 0 0 3px;
+            white-space: nowrap;
           }
           .lifestyle-badge-sub {
             font-family: "Inter", sans-serif;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 400;
-            color: #6E6A60;
+            color: #1A1A1A;
             line-height: 1.3;
             margin: 0;
+            white-space: nowrap;
           }
         }
       `}</style>
