@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Popover from "@radix-ui/react-popover";
 import {
@@ -17,6 +17,13 @@ import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useMutation } from "@tanstack/react-query";
 import useSystemSetting from "@/hooks/useSystemSetting";
 import toast from "react-hot-toast";
+import useUser from "@/hooks/useUser";
+import {
+  getCheckoutFlow,
+  getDisplayMedicationPrice,
+  getDisplayProductName,
+  isFollowUpFlow,
+} from "@/features/checkout/flow";
 
 interface FormData {
   firstName: string;
@@ -48,30 +55,42 @@ export default function ReviewAccountPage() {
   const { settings } = useSystemSetting();
   const [showDetails, setShowDetails] = useState(true);
 
-  const medicationPrice = Number(localStorage.getItem("medication_price") || 0);
+  // Flow-Kontext: im Folgerezept-Flow kommen Preis und Produktname aus dem
+  // Backend (Checkout-Flow-Kontext), nicht aus den localStorage-Keys des Erst-Flows.
+  const [flow] = useState(() => getCheckoutFlow());
+  const isFollowUp = isFollowUpFlow(flow);
+
+  const medicationPrice = getDisplayMedicationPrice(flow);
   const prescriptionFee = Number(settings?.prescription_fee || 0);
   const totalPrice = medicationPrice + prescriptionFee;
 
-  const [formData, setFormData] = useState<FormData>(() => {
+  // Vorbefüllung: frische Profildaten (/user-detail) sind die Basis — beim
+  // Erst-Flow sind die Adressfelder nach der Registrierung leer, im
+  // Folgerezept-Flow steht hier die zuletzt gespeicherte Lieferadresse.
+  // Eingaben des Nutzers (formEdits) überschreiben die Basiswerte immer.
+  const { user } = useUser();
+  const [formEdits, setFormEdits] = useState<Partial<FormData>>({});
+
+  const baseData: FormData = useMemo(() => {
     const userString = localStorage.getItem("user");
-    const userData = userString ? JSON.parse(userString) : null;
+    const storedUser = userString ? JSON.parse(userString) : null;
 
-    const defaultData: FormData = {
-      firstName: userData?.first_name || "",
-      lastName: userData?.last_name || "",
-      email: userData?.email || "demo1mail@gmail.com",
-      phone: userData?.phone || "",
-      streetName: "",
-      houseNumber: "",
-      additionalAddress: "",
-      city: "",
-      postalCode: "",
-      country: "",
-      birthday: "",
+    return {
+      firstName: user?.first_name || storedUser?.first_name || "",
+      lastName: user?.last_name || storedUser?.last_name || "",
+      email: user?.email || storedUser?.email || "demo1mail@gmail.com",
+      phone: user?.phone || storedUser?.phone || "",
+      birthday: user?.dob || "",
+      streetName: user?.street || "",
+      houseNumber: user?.house || "",
+      additionalAddress: user?.additional_address || "",
+      city: user?.city || "",
+      postalCode: user?.postal || "",
+      country: user?.country || "",
     };
+  }, [user]);
 
-    return defaultData;
-  });
+  const formData: FormData = { ...baseData, ...formEdits };
 
   const updateProfileMutation = useMutation({
     mutationFn: async (payload: payloadData) => {
@@ -93,7 +112,7 @@ export default function ReviewAccountPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormEdits((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -274,7 +293,7 @@ export default function ReviewAccountPage() {
                             key={country}
                             type="button"
                             onClick={() => {
-                              setFormData((prev) => ({
+                              setFormEdits((prev) => ({
                                 ...prev,
                                 country: country,
                               }));
@@ -301,7 +320,9 @@ export default function ReviewAccountPage() {
                 >
                   {updateProfileMutation.isPending
                     ? "Updating..."
-                    : "Create account"}
+                    : isFollowUp
+                      ? "Weiter"
+                      : "Create account"}
                 </button>
               </form>
             </div>
@@ -331,10 +352,10 @@ export default function ReviewAccountPage() {
                 <div className="mb-6">
                   <div className="flex justify-between items-center">
                     <p className="text-[14px] text-neutral-500 mb-2">
-                      {sessionStorage.getItem("product_name") || "Product Name"}
+                      {getDisplayProductName(flow)}
                     </p>
                     <span className="text-[16px] font-medium text-sage">
-                      €{localStorage.getItem("medication_price") || "0.00"}
+                      €{medicationPrice.toFixed(2)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">

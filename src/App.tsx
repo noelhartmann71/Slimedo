@@ -17,6 +17,7 @@ import TermsConditionsPage from "./pages/TermsConditionsPage";
 import Prescription from "./pages/Prescription";
 import UserDashboardLayout from "./features/profile/components/UserDashboardLayout";
 import AdminDashboardLayout from "./features/admin-dashboard/components/AdminDashboardLayout";
+import RequireAuth from "./components/RequireAuth";
 
 // Auth pages — lazy (only needed after the user clicks CTA)
 const LoginPage = lazy(() => import("./features/auth/pages/LoginPage"));
@@ -49,6 +50,7 @@ const BookingConfirmed = lazy(() => import("./components/BookingConfirmed/Bookin
 // Questionnaire
 const MedicalQuestionnairePage = lazy(() => import("./features/questionnaire/pages/MedicalQuestionnairePage"));
 const ImportantInformationPage = lazy(() => import("./features/questionnaire/pages/ImportantInformationPage"));
+const FollowUpQuestionnairePage = lazy(() => import("./features/follow-up/pages/FollowUpQuestionnairePage"));
 
 // Patient profile dashboard
 const ProfilePersonalInformationPage = lazy(() => import("./features/profile/pages/ProfilePersonalInformationPage"));
@@ -155,6 +157,14 @@ const router = createBrowserRouter([
       {
         path: "/questionnaire/info",
         element: <ImportantInformationPage />,
+      },
+      {
+        path: "/questionnaire/follow-up",
+        element: (
+          <RequireAuth>
+            <FollowUpQuestionnairePage />
+          </RequireAuth>
+        ),
       },
       {
         path: "/dashboard",

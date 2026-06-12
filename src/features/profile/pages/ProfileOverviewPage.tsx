@@ -8,6 +8,8 @@ import SendEmailModal from "../components/SendEmailModal";
 import ViewEmailModal from "../components/ViewEmailModal";
 import ViewOrderModal from "../components/ViewOrderModal";
 import BookConsultationModal from "../../../components/svg-container/BookConsultationModal";
+import FollowUpCtaCard from "../components/FollowUpCtaCard";
+import { deriveEligibility } from "@/features/follow-up/api";
 
 interface prescriptionData {
   id: number;
@@ -54,6 +56,10 @@ export default function ProfileOverviewPage() {
   };
 
   const prescriptions = patientDashboardData?.allPrescription || [];
+
+  // Fallback-Ableitung aus den Dashboard-Daten; nach Backend-Sync liefert
+  // der Eligibility-Endpunkt diesen Zustand direkt (siehe follow-up/api.ts).
+  const followUpEligibility = deriveEligibility(prescriptions);
 
   return (
     <ProfileDashboardLayout activeSection="overview" showActions={false}>
@@ -222,44 +228,11 @@ export default function ProfileOverviewPage() {
 
         {/* Action Banners */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* Follow-Up Banner */}
-          <div className="rounded-card-sm border border-neutral-200 bg-white p-6">
-            <div className="mb-2 flex items-center gap-2">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#1E3A2E"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
-              </svg>
-              <h4 className="text-lg font-semibold text-neutral-900">
-                Follow-Up Prescription
-              </h4>
-            </div>
-            <p className="mb-6 text-sm leading-relaxed text-neutral-500">
-              Need a new prescription or a dosage adjustment? You can request a
-              follow-up consultation here.
-            </p>
-            <button
-              onClick={() => {
-                setEmailPreset({
-                  subject: "Follow up for Prescription",
-                  body: "Need a new prescription or a dosage adjustment.",
-                });
-                setEmailModalKey((current) => current + 1);
-                setIsEmailModalOpen(true);
-              }}
-              className="w-full rounded-xl bg-sage py-3.5 text-sm font-semibold text-white transition-colors hover:bg-sage cursor-pointer"
-            >
-              Request Follow-Up Prescription
-            </button>
-          </div>
+          {/* Rezept-/Folgerezept-CTA */}
+          <FollowUpCtaCard
+            eligibility={followUpEligibility}
+            isLoading={isLoading}
+          />
 
           {/* Need Help Banner */}
           <div className="rounded-card-sm border border-neutral-200 bg-white p-6">

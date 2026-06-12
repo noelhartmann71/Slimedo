@@ -2,12 +2,13 @@ import {
   BackArrowIconSvg,
   SlimedoIconSvg,
 } from "@/components/svg-container/SvgContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardLogo from "../../../../public/images/logo/dashboard-logo.png";
 import { useQuery } from "@tanstack/react-query";
 import { axiosPublic } from "@/hooks/useAxiosPublic";
 import { Skeleton } from "@/components/ui/skeleton";
+import { clearCheckoutFlow } from "@/features/checkout/flow";
 
 interface dosageData {
   id: string;
@@ -117,6 +118,12 @@ export default function ProductSelectionPage() {
   });
 
   const navigate = useNavigate();
+
+  // Einstieg in den Erst-Flow: evtl. übrig gebliebenen Folgerezept-Kontext
+  // entfernen, damit der Checkout nicht im falschen Flow läuft.
+  useEffect(() => {
+    clearCheckoutFlow();
+  }, []);
 
   const [step, setStep] = useState<1 | 2>(1);
   const [selectedMfr, setSelectedMfr] = useState<string | null>(() => {

@@ -3,6 +3,7 @@ import BookConsultationModal from "../components/svg-container/BookConsultationM
 import PharmacyPaymentModal from "../components/svg-container/PharmacyPaymentModal";
 import { useSearchParams } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { clearCheckoutFlow } from "@/features/checkout/flow";
 
 const PaymentSuccessPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,6 +14,9 @@ const PaymentSuccessPage: React.FC = () => {
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
+    // Checkout abgeschlossen — Flow-Kontext (Erst-/Folgerezept) zurücksetzen.
+    clearCheckoutFlow();
+
     const sessionId = searchParams.get("session_id");
     if (!sessionId) return;
 

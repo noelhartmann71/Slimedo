@@ -21,15 +21,28 @@ import { axiosPublic } from "@/hooks/useAxiosPublic";
 import { axiosSecure } from "@/hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useSystemSetting from "@/hooks/useSystemSetting";
+import {
+  buildOrderPayload,
+  getCheckoutFlow,
+  getDisplayMedicationPrice,
+  getDisplayProductName,
+  isFollowUpFlow,
+} from "@/features/checkout/flow";
+import { fetchLatestOrderInfo } from "@/features/follow-up/api";
+
+interface DeliveryChoice {
+  method: "partner" | "other";
+  mode: "shipping" | "pickup";
+}
 
 export default function DeliveryMethodSelectionPage() {
   const navigate = useNavigate();
-  const [selectedMethod, setSelectedMethod] = useState("partner");
-  const [shipping, setShipping] = useState(1);
-  const [partnerDeliveryMode, setPartnerDeliveryMode] = useState<
-    "shipping" | "pickup"
-  >("shipping");
-  const [pharmacyType, setPharmacyType] = useState("Partner");
+  // Liefermethoden-Auswahl des Nutzers; null = noch keine eigene Wahl getroffen,
+  // dann gilt der Prefill (Folgerezept) bzw. der Standard. shipping und
+  // pharmacy_type sind reine Ableitungen der Auswahl.
+  const [deliveryChoice, setDeliveryChoice] = useState<DeliveryChoice | null>(
+    null,
+  );
   const [showPharmacyModal, setShowPharmacyModal] = useState(false);
   const [showDetails, setShowDetails] = useState(true);
   const [agreed, setAgreed] = useState(false);
@@ -59,25 +72,44 @@ export default function DeliveryMethodSelectionPage() {
 
   const { settings } = useSystemSetting();
 
+  // Flow-Kontext: unterscheidet Erst-Flow und Folgerezept-Flow.
+  const [flow] = useState(() => getCheckoutFlow());
+  const isFollowUp = isFollowUpFlow(flow);
+
+  // Im Folgerezept-Flow: Liefermethode aus der letzten Bestellung vorbelegen
+  // (bleibt vollständig änderbar — jede Nutzerwahl überschreibt den Prefill).
+  const { data: latestOrderInfo } = useQuery({
+    queryKey: ["latest-order-info"],
+    queryFn: fetchLatestOrderInfo,
+    enabled: isFollowUp,
+  });
+
+  const prefillChoice: DeliveryChoice | null =
+    isFollowUp && latestOrderInfo
+      ? latestOrderInfo.pharmacyType === "Partner"
+        ? {
+            method: "partner",
+            mode: latestOrderInfo.shipping ? "shipping" : "pickup",
+          }
+        : { method: "other", mode: "pickup" }
+      : null;
+
+  const { method: selectedMethod, mode: partnerDeliveryMode } =
+    deliveryChoice ?? prefillChoice ?? { method: "partner", mode: "shipping" };
+  const pharmacyType = selectedMethod === "partner" ? "Partner" : "Local";
+  const shipping =
+    selectedMethod === "partner" && partnerDeliveryMode === "shipping" ? 1 : 0;
+
   const handlePartnerClick = () => {
-    setSelectedMethod("partner");
-    const shippingValue = partnerDeliveryMode === "shipping" ? 1 : 0;
-    setShipping(shippingValue);
-    setPharmacyType("Partner");
+    setDeliveryChoice({ method: "partner", mode: partnerDeliveryMode });
   };
 
   const handlePartnerDeliveryModeChange = (mode: "shipping" | "pickup") => {
-    const shippingValue = mode === "shipping" ? 1 : 0;
-    setPartnerDeliveryMode(mode);
-    setSelectedMethod("partner");
-    setPharmacyType("Partner");
-    setShipping(shippingValue);
+    setDeliveryChoice({ method: "partner", mode });
   };
 
   const handleOtherClick = () => {
-    setSelectedMethod("other");
-    setShipping(0);
-    setPharmacyType("Local");
+    setDeliveryChoice({ method: "other", mode: partnerDeliveryMode });
   };
 
   // Initialize formData with localStorage data
@@ -104,20 +136,17 @@ export default function DeliveryMethodSelectionPage() {
   });
 
   const handleConfirm = async () => {
-    const savedProductId = localStorage.getItem("product_id");
-    const medicationPrice = localStorage.getItem("medication_price");
-
-    const payload = {
-      pharmacy_id:
+    // Im Folgerezept-Flow ermittelt das Backend Produkt und Preis selbst aus
+    // dem letzten ausgestellten Rezept (kein product_id/medication_price im Payload).
+    const payload = buildOrderPayload(flow, {
+      pharmacyId:
         selectedMethod === "partner"
           ? pharmacyData?.partner?.id
           : selectedPharmacy?.id,
-      product_id: savedProductId || "",
-      medication_price: medicationPrice ? parseFloat(medicationPrice) : 0,
       shipping,
-      pharmacy_type: pharmacyType,
-      coupon_id: localStorage.getItem("coupon_id") || null,
-    };
+      pharmacyType,
+      couponId: localStorage.getItem("coupon_id") || null,
+    });
 
     setIsConfirming(true);
     try {
@@ -216,7 +245,7 @@ export default function DeliveryMethodSelectionPage() {
     }
   };
 
-  const medicationPrice = Number(localStorage.getItem("medication_price") || 0);
+  const medicationPrice = getDisplayMedicationPrice(flow);
   const prescriptionFee = Number(settings?.prescription_fee || 0);
   const shippingFee =
     partnerDeliveryMode === "shipping" && selectedMethod === "partner"
@@ -263,7 +292,13 @@ export default function DeliveryMethodSelectionPage() {
                   Patientendaten
                 </h2>
                 <button
-                  onClick={() => navigate("/auth/register")}
+                  onClick={() =>
+                    navigate(
+                      isFollowUp
+                        ? "/patient/profile/personal-information"
+                        : "/auth/register",
+                    )
+                  }
                   className="text-[14px] text-primary font-semibold hover:underline cursor-pointer"
                 >
                   Ändern
@@ -700,10 +735,10 @@ export default function DeliveryMethodSelectionPage() {
                 <div className="mb-6">
                   <div className="flex justify-between items-center">
                     <p className="text-[14px] text-neutral-500">
-                      {sessionStorage.getItem("product_name") || "Product Name"}
+                      {getDisplayProductName(flow)}
                     </p>
                     <span className="text-[16px] font-medium text-sage">
-                      €{localStorage.getItem("medication_price") || "0.00"}
+                      €{medicationPrice.toFixed(2)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center mb-2">
