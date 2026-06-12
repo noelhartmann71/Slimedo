@@ -44,3 +44,4 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 - `package.json` - Test-Script ergänzt; Dev-Dependencies vitest, jsdom, @testing-library/* hinzugefügt.
 - `package-lock.json` - Lockfile durch Installation der Test-Dependencies aktualisiert.
 - `scripts/smoke-follow-up.mjs` - Neu: Playwright-Smoke-Test für die Folgerezept-Route (Auth-Guard, Rendering).
+- `SECURITY-DSGVO-REPORT.md` - Neu: Strukturierter Security- und DSGVO/GDPR-Readiness-Report (Analyse-only, keine Code-Änderungen) mit Dateninventar, Rollen-/Zugriffsmodell, DSGVO-Checkliste, Security- und Privacy-Findings, Drittanbietern, Retention-Risiken, Remediation-Plan und offenen Fragen ans Backend-Team.
