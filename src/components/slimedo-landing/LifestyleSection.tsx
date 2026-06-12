@@ -6,8 +6,7 @@ const collageItems = [
     img: '/images/slimedo/slimedo-img.png',
     gradient: 'linear-gradient(160deg,#E8E0CE,#D5C9AF)',
     badge: {
-      titleLines: ['Mehr als', 'nur ein Rezept.'],
-      sub: 'Ärztlich geprüft. Diskret versendet.',
+      titleLines: ['Gewichtsverlust ist', 'nur der Anfang.'],
       side: 'top-right' as const,
     },
   },
@@ -15,8 +14,7 @@ const collageItems = [
     img: '/images/slimedo/slimedo-img-two.png',
     gradient: 'linear-gradient(160deg,#C5D5C0,#A8BFA0)',
     badge: {
-      titleLines: ['Gewichtsverlust ist', 'nur der Anfang.'],
-      sub: 'Ein besseres Körpergefühl ist das Ziel.',
+      titleLines: ['Ein besseres Körpergefühl ist das Ziel.'],
       side: 'bottom-left' as const,
     },
   },
@@ -115,13 +113,6 @@ export default function LifestyleSection() {
                   ))}
                 </p>
                 <div className="lifestyle-badge-divider" />
-                <div className="lifestyle-badge-pill">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <circle cx="8" cy="8" r="8" fill={item.badge.side === 'bottom-left' ? 'rgba(255,255,255,0.9)' : '#1D3B2B'} />
-                    <path d="M4.5 8.5l2.5 2 4.5-5" stroke={item.badge.side === 'bottom-left' ? '#1D3B2B' : '#F5EEDB'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span>{item.badge.sub}</span>
-                </div>
               </div>
             )}
           </div>

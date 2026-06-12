@@ -6,11 +6,11 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 
 ## Dateien
 
-- `src/components/NewTrustSection/NewTrustSection.tsx` - Trust-Kartenbilder, mobile Card-Texte, mobilen Badge-Clip-Bereich, mobiles Long-Asset, mobile Bildgröße/Position/Rundung und Wellen-Hintergrund der drei Trust-Cards: polygon-basierten clipPath durch absolut positioniertes SVG mit Bézier-Kurven und linearGradient ersetzt; Bild der zweiten Card auf Mobile von scale-115 auf scale-100 verkleinert.
+- `src/components/NewTrustSection/NewTrustSection.tsx` - Trust-Kartenbilder, mobile Card-Texte, mobilen Badge-Clip-Bereich, mobiles Long-Asset, mobile Bildgröße/Position/Rundung, Wellen-Hintergrund und mobile Header-Abstände der drei Trust-Cards angepasst: polygon-basierten clipPath durch absolut positioniertes SVG mit Bézier-Kurven und linearGradient ersetzt; Bild der zweiten Card auf Mobile von scale-115 auf scale-100 verkleinert.
 - `AGENTS.md` - ChatGPT/Codex-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `CLAUDE.md` - Claude-Instructions zum Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste angepasst.
 - `EDITED_FILES.md` - Bearbeitungsprotokoll angelegt und auf eindeutige Dateiliste umgestellt.
-- `src/components/slimedo-landing/LifestyleSection.tsx` - Mobile Lifestyle-Badges ohne weiße Cards direkt auf dem Bild dargestellt; Badge-Design nach Referenz überarbeitet: deutlich größeres und fett gesetztes Anführungszeichen im Kreis mit klassischer Serif-Schrift, zweizeiliger Serif-Titel, längerer Divider und einzeilige olivfarbene Pill mit Checkmark-Icon.
+- `src/components/slimedo-landing/LifestyleSection.tsx` - Mobile Lifestyle-Badges ohne weiße Cards direkt auf dem Bild dargestellt; Badge-Design nach Referenz überarbeitet: deutlich größeres und fett gesetztes Anführungszeichen im Kreis mit klassischer Serif-Schrift, zweizeiliger Serif-Titel und längerer Divider; Badge-Texte angepasst und Pill mit Checkmark-Icon entfernt.
 - `src/components/slimedo-landing/SlimedoHero.tsx` - Mobile Hero-Bildposition auf Eyebrow-Hoehe, oberer Bild-Fade, Mobile-Badges, Hero-Typografie, Abstand zwischen CTA und Trust-Badges, Stichpunkt-Eingangsanimation, Eyebrow-Position sowie mobiles Medikament-Badge-Bild angepasst und verlangsamt.
 - `src/components/slimedo-landing/AnwendungSection.tsx` - Mobile Carousel-Buttons verkleinert und zentriert, vertikales Scrollen des Carousels gesperrt, horizontales Wischen wiederhergestellt.
 - `src/components/slimedo-landing/TestimonialsSection.tsx` - Zitat-Text verkleinert, Card-Abstand reduziert, kg-Zahl verkleinert.
