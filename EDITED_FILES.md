@@ -16,3 +16,4 @@ Jede Datei wird nur einmal aufgeführt. Wenn eine bereits gelistete Datei erneut
 - `src/components/slimedo-landing/TestimonialsSection.tsx` - Zitat-Text verkleinert, Card-Abstand reduziert, kg-Zahl verkleinert.
 - `src/components/slimedo-landing/BmiCalculatorSection.tsx` - Gap zwischen Überschrift und Card verringert.
 - `src/components/slimedo-landing/TherapieSection.tsx` - Beispieltexte `Bsp. Wegovy®` und `Bsp. Mounjaro®` in den Therapiekarten responsiv weiter vergrößert.
+- `src/components/slimedo-landing/WirkungsweiseSection.tsx` - `scrollMarginTop: '110px'` hinzugefügt, damit beim Anker-Sprung via Navbar die Section nicht hinter dem sticky Header (Ticker 36px + Navbar 64px) verschwindet.

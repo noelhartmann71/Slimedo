@@ -75,6 +75,7 @@ export default function WirkungsweiseSection() {
         padding: 'clamp(72px, 5.88vw, 130px) 40px clamp(78px, 6.38vw, 143px)',
         position: 'relative',
         overflow: 'hidden',
+        scrollMarginTop: '110px',
       }}
     >
       {/* Radial center glow */}
